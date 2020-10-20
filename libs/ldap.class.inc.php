@@ -1,4 +1,6 @@
 <?php
+namespace IGBIllinois;
+
 class ldap {
 
         ///////////////Private Variables//////////

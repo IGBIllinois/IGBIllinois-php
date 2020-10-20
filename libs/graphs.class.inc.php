@@ -1,5 +1,6 @@
 <?php
 
+namespace IGBIllinois;
 JpGraph\JpGraph::load();
 JpGraph\JpGraph::module('bar');
 JpGraph\JpGraph::module('pie');
@@ -11,8 +12,6 @@ if( !function_exists('imageantialias') ) {
         return false;
     }
 }
-
-namespace IGBIllinois;
 
 class graphs {
 
