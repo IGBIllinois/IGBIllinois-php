@@ -1,4 +1,7 @@
 # IGBIllinois-php
+
+[![Build Status](https://www.travis-ci.com/IGBIllinois/IGBIllinois-php.svg?branch=main)](https://www.travis-ci.com/IGBIllinois/IGBIllinois-php)
+
 Common PHP Libraries used in IGBIllinois projects
 
 ## Install
