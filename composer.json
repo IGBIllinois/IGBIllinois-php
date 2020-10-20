@@ -17,8 +17,8 @@
 		"jpgraph/jpgraph": "4.0.2"
     },
     "autoload": {
-        "psr-4": {
-            "IGBIllinois\\": "libs/"
-        }
+	"classmap": [
+		"libs"
+	]
     }
 }
