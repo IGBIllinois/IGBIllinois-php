@@ -1,5 +1,5 @@
 {
-    "name": "IGBIllinois/IGBIllinois-php",
+    "name": "igbillinois/igbillinois-php",
     "description": "Boilerplate package for creating other packages.",
     "keywords": ["template", "composer", "package"],
     "license": "GPLv3",
@@ -14,7 +14,7 @@
     "require": {
 		"php": ">=7.1",
 		"phpoffice/phpspreadsheet": ">=1.8.2",
-		"jpgraph/jpgraph": "4.0.2",
+		"jpgraph/jpgraph": "4.0.2"
     },
     "autoload": {
         "psr-4": {
