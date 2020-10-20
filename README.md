@@ -7,12 +7,12 @@ Common PHP Libraries used in IGBIllinois projects
 ## Install
 * Add to your composer.json file
 ```
- "repositories" : [
-                {
-                        "type": "vcs",
-                        "url": "https://www.github.com/IGBIllinois/IGBIllinois-php"
-                }
-        ],
+"repositories" : [
+    {
+        "type": "vcs",
+        "url": "https://www.github.com/IGBIllinois/IGBIllinois-php"
+    }
+],
 ```
 * Add to your 'required' section of the composer.json file
 ```
