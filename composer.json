@@ -2,7 +2,7 @@
     "name": "igbillinois/igbillinois-php",
     "description": "Boilerplate package for creating other packages.",
     "keywords": ["template", "composer", "package"],
-    "license": "GPLv3",
+    "license": "GPL-3.0-only",
     "homepage": "https://www.github.com/IGBIllinois/IGBIllinois-php",
     "authors": [
         {
