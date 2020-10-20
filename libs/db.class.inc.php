@@ -11,7 +11,7 @@
 //
 //////////////////////////////////////////
 
-namespace IGBIllinois\database;
+namespace IGBIllinois;
 
 class db {
 
