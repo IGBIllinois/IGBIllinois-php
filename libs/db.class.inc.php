@@ -46,15 +46,15 @@ class db {
 	public function open($host,$database,$username,$password,$port = 3306) {
 		//Connects to database.
 		try {
-			$this->link = new PDO("mysql:host=$host;dbname=$database",$username,$password,
-					array(PDO::ATTR_PERSISTENT => false));
-			$this->link->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+			$this->link = new \PDO("mysql:host=$host;dbname=$database",$username,$password,
+					array(\PDO::ATTR_PERSISTENT => false));
+			$this->link->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_WARNING);
 			$this->host = $host;
 			$this->database = $database;
 			$this->username = $username;
 			$this->password = $password;
 		}
-		catch(PDOException $e) {
+		catch(\PDOException $e) {
 			echo $e->getMessage();
 		}
 
@@ -78,7 +78,7 @@ class db {
 			}
 			return $this->link->lastInsertId();
 		}
-		catch(PDOException $e) {
+		catch(\PDOException $e) {
 			echo $e->getMessage();
 		}
 		return 0;
@@ -123,7 +123,7 @@ class db {
 			$retval = $result->execute($args);
 			return $retval;
 		}
-                catch(PDOException $e) {
+                catch(\PDOException $e) {
                         echo $e->getMessage();
                 }
 	}
@@ -136,9 +136,9 @@ class db {
 		try {
 			$result = $this->link->prepare($sql);
 			$result->execute($args);
-			return $result->fetchAll(PDO::FETCH_ASSOC);
+			return $result->fetchAll(\PDO::FETCH_ASSOC);
 		}
-		catch(PDOException $e) {
+		catch(\PDOException $e) {
 			echo $e->getMessage();
 		}
 	}
@@ -154,7 +154,7 @@ class db {
 	//returns true if alive, false otherwise
 	public function ping() {
 		try {
-			if ($this->link->getAttribute(PDO::ATTR_CONNECTION_STATUS)) {
+			if ($this->link->getAttribute(\PDO::ATTR_CONNECTION_STATUS)) {
 				return true;
 			}
 		}
@@ -173,7 +173,7 @@ class db {
 			$this->link->commit();
 			return $this->link->rowCount();
 		}
-		catch(PDOException $e) {
+		catch(\PDOException $e) {
 			echo $e->getMessage();
 		}
 
@@ -204,7 +204,7 @@ class db {
                         $result = $statement->execute();
                         return $result;
                 }
-                catch(PDOException $e) {
+                catch(\PDOException $e) {
                         echo $e->getMessage();
                 }
 
@@ -213,9 +213,9 @@ class db {
 
 	public function get_version() {
 		try {
-			return $this->link->getAttribute(PDO::ATTR_SERVER_VERSION);
+			return $this->link->getAttribute(\PDO::ATTR_SERVER_VERSION);
 		}
-		catch(PDOException $e) {
+		catch(\PDOException $e) {
 			echo $e->getMessage();
 		}
 
