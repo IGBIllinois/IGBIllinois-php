@@ -1,0 +1,1291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.9.1">
+  <partials/>
+  <file path="session.class.inc.php" generated-path="session.class.inc.html" hash="bae2f0d1f183238f3d5fdaecfb521c61" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="IGBIllinois" line="5" package="Default">
+      <extends/>
+      <name>session</name>
+      <full_name>\IGBIllinois\session</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="5" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="9" package="Default">
+        <name>$session_name</name>
+        <full_name>\IGBIllinois\session::$session_name</full_name>
+        <default></default>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="13" package="Default">
+        <name>__construct</name>
+        <full_name>\IGBIllinois\session::__construct()</full_name>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$session_name</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="19" package="Default">
+        <name>__destruct</name>
+        <full_name>\IGBIllinois\session::__destruct()</full_name>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="21" package="Default">
+        <name>get_var</name>
+        <full_name>\IGBIllinois\session::get_var()</full_name>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="30" package="Default">
+        <name>get_all_vars</name>
+        <full_name>\IGBIllinois\session::get_all_vars()</full_name>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="34" package="Default">
+        <name>set_session</name>
+        <full_name>\IGBIllinois\session::set_session()</full_name>
+        <docblock line="34">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$session_array</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="41" package="Default">
+        <name>get_session_id</name>
+        <full_name>\IGBIllinois\session::get_session_id()</full_name>
+        <docblock line="41">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="44" package="Default">
+        <name>get_session_name</name>
+        <full_name>\IGBIllinois\session::get_session_name()</full_name>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="48" package="Default">
+        <name>destroy_session</name>
+        <full_name>\IGBIllinois\session::destroy_session()</full_name>
+        <docblock line="48">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="58" package="Default">
+        <name>set_session_var</name>
+        <full_name>\IGBIllinois\session::set_session_var()</full_name>
+        <docblock line="58">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$var</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="70" package="Default">
+        <name>start_session</name>
+        <full_name>\IGBIllinois\session::start_session()</full_name>
+        <docblock line="70">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="74" package="Default">
+        <name>is_session_started</name>
+        <full_name>\IGBIllinois\session::is_session_started()</full_name>
+        <docblock line="74">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="83" package="Default">
+        <name>set_settings</name>
+        <full_name>\IGBIllinois\session::set_settings()</full_name>
+        <docblock line="83">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50005">No summary for class \IGBIllinois\session</error>
+      <error line="13" code="PPC:ERR-50015">Argument $session_name is missing from the Docblock of __construct</error>
+      <error line="13" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="19" code="PPC:ERR-50008">No summary for method __destruct()</error>
+      <error line="21" code="PPC:ERR-50015">Argument $name is missing from the Docblock of get_var</error>
+      <error line="21" code="PPC:ERR-50008">No summary for method get_var()</error>
+      <error line="30" code="PPC:ERR-50008">No summary for method get_all_vars()</error>
+      <error line="34" code="PPC:ERR-50015">Argument $session_array is missing from the Docblock of set_session</error>
+      <error line="34" code="PPC:ERR-50008">No summary for method set_session()</error>
+      <error line="41" code="PPC:ERR-50008">No summary for method get_session_id()</error>
+      <error line="44" code="PPC:ERR-50008">No summary for method get_session_name()</error>
+      <error line="48" code="PPC:ERR-50008">No summary for method destroy_session()</error>
+      <error line="58" code="PPC:ERR-50015">Argument $name is missing from the Docblock of set_session_var</error>
+      <error line="58" code="PPC:ERR-50015">Argument $var is missing from the Docblock of set_session_var</error>
+      <error line="58" code="PPC:ERR-50008">No summary for method set_session_var()</error>
+      <error line="70" code="PPC:ERR-50008">No summary for method start_session()</error>
+      <error line="74" code="PPC:ERR-50008">No summary for method is_session_started()</error>
+      <error line="83" code="PPC:ERR-50008">No summary for method set_settings()</error>
+      <error line="9" code="PPC:ERR-50007">No summary for property $session_name</error>
+    </parse_markers>
+  </file>
+  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="fe39b34d87903a1bb14ebd52691a1db6" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="IGBIllinois" line="16" package="Default">
+      <extends/>
+      <name>db</name>
+      <full_name>\IGBIllinois\db</full_name>
+      <docblock line="16">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="16" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="20" package="Default">
+        <name>$link</name>
+        <full_name>\IGBIllinois\db::$link</full_name>
+        <default></default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="21" package="Default">
+        <name>$host</name>
+        <full_name>\IGBIllinois\db::$host</full_name>
+        <default></default>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="22" package="Default">
+        <name>$database</name>
+        <full_name>\IGBIllinois\db::$database</full_name>
+        <default></default>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="23" package="Default">
+        <name>$username</name>
+        <full_name>\IGBIllinois\db::$username</full_name>
+        <default></default>
+        <docblock line="23">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="24" package="Default">
+        <name>$password</name>
+        <full_name>\IGBIllinois\db::$password</full_name>
+        <default></default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="28" package="Default">
+        <name>__construct</name>
+        <full_name>\IGBIllinois\db::__construct()</full_name>
+        <docblock line="28">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$host</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$database</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="33" package="Default">
+        <name>__destruct</name>
+        <full_name>\IGBIllinois\db::__destruct()</full_name>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="46" package="Default">
+        <name>open</name>
+        <full_name>\IGBIllinois\db::open()</full_name>
+        <docblock line="46">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$host</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$database</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$port</name>
+          <default>3306</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="65" package="Default">
+        <name>close</name>
+        <full_name>\IGBIllinois\db::close()</full_name>
+        <docblock line="65">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="73" package="Default">
+        <name>insert_query</name>
+        <full_name>\IGBIllinois\db::insert_query()</full_name>
+        <docblock line="73">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sql</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$args</name>
+          <default>array()</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="91" package="Default">
+        <name>build_insert</name>
+        <full_name>\IGBIllinois\db::build_insert()</full_name>
+        <docblock line="91">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="120" package="Default">
+        <name>non_select_query</name>
+        <full_name>\IGBIllinois\db::non_select_query()</full_name>
+        <docblock line="120">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sql</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$args</name>
+          <default>array()</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="135" package="Default">
+        <name>query</name>
+        <full_name>\IGBIllinois\db::query()</full_name>
+        <docblock line="135">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sql</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$args</name>
+          <default>array()</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="148" package="Default">
+        <name>get_link</name>
+        <full_name>\IGBIllinois\db::get_link()</full_name>
+        <docblock line="148">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="155" package="Default">
+        <name>ping</name>
+        <full_name>\IGBIllinois\db::ping()</full_name>
+        <docblock line="155">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="168" package="Default">
+        <name>transaction</name>
+        <full_name>\IGBIllinois\db::transaction()</full_name>
+        <docblock line="168">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sql</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$args</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="182" package="Default">
+        <name>update</name>
+        <full_name>\IGBIllinois\db::update()</full_name>
+        <docblock line="182">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where_key</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where_value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="214" package="Default">
+        <name>get_version</name>
+        <full_name>\IGBIllinois\db::get_version()</full_name>
+        <docblock line="214">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="16" code="PPC:ERR-50005">No summary for class \IGBIllinois\db</error>
+      <error line="28" code="PPC:ERR-50015">Argument $host is missing from the Docblock of __construct</error>
+      <error line="28" code="PPC:ERR-50015">Argument $database is missing from the Docblock of __construct</error>
+      <error line="28" code="PPC:ERR-50015">Argument $username is missing from the Docblock of __construct</error>
+      <error line="28" code="PPC:ERR-50015">Argument $password is missing from the Docblock of __construct</error>
+      <error line="28" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="33" code="PPC:ERR-50008">No summary for method __destruct()</error>
+      <error line="46" code="PPC:ERR-50015">Argument $host is missing from the Docblock of open</error>
+      <error line="46" code="PPC:ERR-50015">Argument $database is missing from the Docblock of open</error>
+      <error line="46" code="PPC:ERR-50015">Argument $username is missing from the Docblock of open</error>
+      <error line="46" code="PPC:ERR-50015">Argument $password is missing from the Docblock of open</error>
+      <error line="46" code="PPC:ERR-50015">Argument $port is missing from the Docblock of open</error>
+      <error line="46" code="PPC:ERR-50008">No summary for method open()</error>
+      <error line="65" code="PPC:ERR-50008">No summary for method close()</error>
+      <error line="73" code="PPC:ERR-50015">Argument $sql is missing from the Docblock of insert_query</error>
+      <error line="73" code="PPC:ERR-50015">Argument $args is missing from the Docblock of insert_query</error>
+      <error line="73" code="PPC:ERR-50008">No summary for method insert_query()</error>
+      <error line="91" code="PPC:ERR-50015">Argument $table is missing from the Docblock of build_insert</error>
+      <error line="91" code="PPC:ERR-50015">Argument $data is missing from the Docblock of build_insert</error>
+      <error line="91" code="PPC:ERR-50008">No summary for method build_insert()</error>
+      <error line="120" code="PPC:ERR-50015">Argument $sql is missing from the Docblock of non_select_query</error>
+      <error line="120" code="PPC:ERR-50015">Argument $args is missing from the Docblock of non_select_query</error>
+      <error line="120" code="PPC:ERR-50008">No summary for method non_select_query()</error>
+      <error line="135" code="PPC:ERR-50015">Argument $sql is missing from the Docblock of query</error>
+      <error line="135" code="PPC:ERR-50015">Argument $args is missing from the Docblock of query</error>
+      <error line="135" code="PPC:ERR-50008">No summary for method query()</error>
+      <error line="148" code="PPC:ERR-50008">No summary for method get_link()</error>
+      <error line="155" code="PPC:ERR-50008">No summary for method ping()</error>
+      <error line="168" code="PPC:ERR-50015">Argument $sql is missing from the Docblock of transaction</error>
+      <error line="168" code="PPC:ERR-50015">Argument $args is missing from the Docblock of transaction</error>
+      <error line="168" code="PPC:ERR-50008">No summary for method transaction()</error>
+      <error line="182" code="PPC:ERR-50015">Argument $table is missing from the Docblock of update</error>
+      <error line="182" code="PPC:ERR-50015">Argument $data is missing from the Docblock of update</error>
+      <error line="182" code="PPC:ERR-50015">Argument $where_key is missing from the Docblock of update</error>
+      <error line="182" code="PPC:ERR-50015">Argument $where_value is missing from the Docblock of update</error>
+      <error line="182" code="PPC:ERR-50008">No summary for method update()</error>
+      <error line="214" code="PPC:ERR-50008">No summary for method get_version()</error>
+      <error line="20" code="PPC:ERR-50007">No summary for property $link</error>
+      <error line="21" code="PPC:ERR-50007">No summary for property $host</error>
+      <error line="22" code="PPC:ERR-50007">No summary for property $database</error>
+      <error line="23" code="PPC:ERR-50007">No summary for property $username</error>
+      <error line="24" code="PPC:ERR-50007">No summary for property $password</error>
+    </parse_markers>
+  </file>
+  <file path="report.class.inc.php" generated-path="report.class.inc.html" hash="e4e388d22cd770062b6c20bbb7f2d217" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Spreadsheet">\PhpOffice\PhpSpreadsheet\Spreadsheet</namespace-alias>
+    <namespace-alias name="Xlsx">\PhpOffice\PhpSpreadsheet\Writer\Xlsx</namespace-alias>
+    <class final="false" abstract="false" namespace="IGBIllinois" line="8" package="Default">
+      <extends/>
+      <name>report</name>
+      <full_name>\IGBIllinois\report</full_name>
+      <docblock line="8">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="8" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="14" package="Default">
+        <name>create_excel_2003_report</name>
+        <full_name>\IGBIllinois\report::create_excel_2003_report()</full_name>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$filename</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="33" package="Default">
+        <name>create_excel_2007_report</name>
+        <full_name>\IGBIllinois\report::create_excel_2007_report()</full_name>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$filename</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="51" package="Default">
+        <name>create_pdf_report</name>
+        <full_name>\IGBIllinois\report::create_pdf_report()</full_name>
+        <docblock line="51">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$filename</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="70" package="Default">
+        <name>create_generic_excel</name>
+        <full_name>\IGBIllinois\report::create_generic_excel()</full_name>
+        <docblock line="70">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="109" package="Default">
+        <name>create_csv_report</name>
+        <full_name>\IGBIllinois\report::create_csv_report()</full_name>
+        <docblock line="109">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$filename</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="8" code="PPC:ERR-50005">No summary for class \IGBIllinois\report</error>
+      <error line="14" code="PPC:ERR-50015">Argument $data is missing from the Docblock of create_excel_2003_report</error>
+      <error line="14" code="PPC:ERR-50015">Argument $filename is missing from the Docblock of create_excel_2003_report</error>
+      <error line="14" code="PPC:ERR-50008">No summary for method create_excel_2003_report()</error>
+      <error line="33" code="PPC:ERR-50015">Argument $data is missing from the Docblock of create_excel_2007_report</error>
+      <error line="33" code="PPC:ERR-50015">Argument $filename is missing from the Docblock of create_excel_2007_report</error>
+      <error line="33" code="PPC:ERR-50008">No summary for method create_excel_2007_report()</error>
+      <error line="51" code="PPC:ERR-50015">Argument $data is missing from the Docblock of create_pdf_report</error>
+      <error line="51" code="PPC:ERR-50015">Argument $filename is missing from the Docblock of create_pdf_report</error>
+      <error line="51" code="PPC:ERR-50008">No summary for method create_pdf_report()</error>
+      <error line="70" code="PPC:ERR-50015">Argument $data is missing from the Docblock of create_generic_excel</error>
+      <error line="70" code="PPC:ERR-50008">No summary for method create_generic_excel()</error>
+      <error line="109" code="PPC:ERR-50015">Argument $data is missing from the Docblock of create_csv_report</error>
+      <error line="109" code="PPC:ERR-50015">Argument $filename is missing from the Docblock of create_csv_report</error>
+      <error line="109" code="PPC:ERR-50008">No summary for method create_csv_report()</error>
+    </parse_markers>
+  </file>
+  <file path="graphs.class.inc.php" generated-path="graphs.class.inc.html" hash="fa0f59df5678b105e337eeb697dfe07d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <function namespace="IGBIllinois" line="11" package="Default">
+      <name>imageantialias</name>
+      <full_name>\IGBIllinois\imageantialias()</full_name>
+      <docblock line="11">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="11" description="Default"/>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$image</name>
+        <default></default>
+        <type/>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$enabled</name>
+        <default></default>
+        <type/>
+      </argument>
+    </function>
+    <class final="false" abstract="false" namespace="IGBIllinois" line="16" package="Default">
+      <extends/>
+      <name>graphs</name>
+      <full_name>\IGBIllinois\graphs</full_name>
+      <docblock line="16">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="16" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="18" package="Default">
+        <name>bar_graph</name>
+        <full_name>\IGBIllinois\graphs::bar_graph()</full_name>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$input_data</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$xaxis</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$yaxis</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$title</name>
+          <default>""</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="50" package="Default">
+        <name>accumulated_bar_plot</name>
+        <full_name>\IGBIllinois\graphs::accumulated_bar_plot()</full_name>
+        <docblock line="50">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$input_data</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$xaxis</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$yaxis</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$title</name>
+          <default>""</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$legend</name>
+          <default>array()</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="91" package="Default">
+        <name>pie_graph</name>
+        <full_name>\IGBIllinois\graphs::pie_graph()</full_name>
+        <docblock line="91">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$input_data</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$title</name>
+          <default>""</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="IGBIllinois" line="124" package="Default">
+        <name>bar_plot</name>
+        <full_name>\IGBIllinois\graphs::bar_plot()</full_name>
+        <docblock line="124">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$input_data</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$yaxis</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$legend</name>
+          <default>""</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="11" code="PPC:ERR-50015">Argument $image is missing from the Docblock of imageantialias</error>
+      <error line="11" code="PPC:ERR-50015">Argument $enabled is missing from the Docblock of imageantialias</error>
+      <error line="11" code="PPC:ERR-50011">No summary for function \IGBIllinois\imageantialias()</error>
+      <error line="16" code="PPC:ERR-50005">No summary for class \IGBIllinois\graphs</error>
+      <error line="18" code="PPC:ERR-50015">Argument $input_data is missing from the Docblock of bar_graph</error>
+      <error line="18" code="PPC:ERR-50015">Argument $xaxis is missing from the Docblock of bar_graph</error>
+      <error line="18" code="PPC:ERR-50015">Argument $yaxis is missing from the Docblock of bar_graph</error>
+      <error line="18" code="PPC:ERR-50015">Argument $title is missing from the Docblock of bar_graph</error>
+      <error line="18" code="PPC:ERR-50008">No summary for method bar_graph()</error>
+      <error line="50" code="PPC:ERR-50015">Argument $input_data is missing from the Docblock of accumulated_bar_plot</error>
+      <error line="50" code="PPC:ERR-50015">Argument $xaxis is missing from the Docblock of accumulated_bar_plot</error>
+      <error line="50" code="PPC:ERR-50015">Argument $yaxis is missing from the Docblock of accumulated_bar_plot</error>
+      <error line="50" code="PPC:ERR-50015">Argument $title is missing from the Docblock of accumulated_bar_plot</error>
+      <error line="50" code="PPC:ERR-50015">Argument $legend is missing from the Docblock of accumulated_bar_plot</error>
+      <error line="50" code="PPC:ERR-50008">No summary for method accumulated_bar_plot()</error>
+      <error line="91" code="PPC:ERR-50015">Argument $input_data is missing from the Docblock of pie_graph</error>
+      <error line="91" code="PPC:ERR-50015">Argument $title is missing from the Docblock of pie_graph</error>
+      <error line="91" code="PPC:ERR-50008">No summary for method pie_graph()</error>
+      <error line="124" code="PPC:ERR-50015">Argument $input_data is missing from the Docblock of bar_plot</error>
+      <error line="124" code="PPC:ERR-50015">Argument $yaxis is missing from the Docblock of bar_plot</error>
+      <error line="124" code="PPC:ERR-50015">Argument $legend is missing from the Docblock of bar_plot</error>
+      <error line="124" code="PPC:ERR-50008">No summary for method bar_plot()</error>
+    </parse_markers>
+  </file>
+  <file path="ldap.class.inc.php" generated-path="ldap.class.inc.html" hash="2981bf117b005e0b53af04241585885a" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="IGBIllinois" line="4" package="Default">
+      <extends/>
+      <name>ldap</name>
+      <full_name>\IGBIllinois\ldap</full_name>
+      <docblock line="4">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="4" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="7" package="Default">
+        <name>$ldap_resource</name>
+        <full_name>\IGBIllinois\ldap::$ldap_resource</full_name>
+        <default>false</default>
+        <docblock line="7">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="8" package="Default">
+        <name>$ldap_host</name>
+        <full_name>\IGBIllinois\ldap::$ldap_host</full_name>
+        <default>array()</default>
+        <docblock line="8">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="9" package="Default">
+        <name>$ldap_base_dn</name>
+        <full_name>\IGBIllinois\ldap::$ldap_base_dn</full_name>
+        <default></default>
+        <docblock line="9">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="10" package="Default">
+        <name>$ldap_bind_user</name>
+        <full_name>\IGBIllinois\ldap::$ldap_bind_user</full_name>
+        <default></default>
+        <docblock line="10">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="11" package="Default">
+        <name>$ldap_bind_pass</name>
+        <full_name>\IGBIllinois\ldap::$ldap_bind_pass</full_name>
+        <default></default>
+        <docblock line="11">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="12" package="Default">
+        <name>$ldap_ssl</name>
+        <full_name>\IGBIllinois\ldap::$ldap_ssl</full_name>
+        <default>false</default>
+        <docblock line="12">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="13" package="Default">
+        <name>$ldap_port</name>
+        <full_name>\IGBIllinois\ldap::$ldap_port</full_name>
+        <default>389</default>
+        <docblock line="13">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="14" package="Default">
+        <name>$ldap_protocol</name>
+        <full_name>\IGBIllinois\ldap::$ldap_protocol</full_name>
+        <default>3</default>
+        <docblock line="14">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="17" package="Default">
+        <name>__construct</name>
+        <full_name>\IGBIllinois\ldap::__construct()</full_name>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$host</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$ssl</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$port</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$base_dn</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="26" package="Default">
+        <name>__destruct</name>
+        <full_name>\IGBIllinois\ldap::__destruct()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="29" package="Default">
+        <name>get_host</name>
+        <full_name>\IGBIllinois\ldap::get_host()</full_name>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="30" package="Default">
+        <name>get_base_dn</name>
+        <full_name>\IGBIllinois\ldap::get_base_dn()</full_name>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="31" package="Default">
+        <name>get_bind_user</name>
+        <full_name>\IGBIllinois\ldap::get_bind_user()</full_name>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="32" package="Default">
+        <name>get_ssl</name>
+        <full_name>\IGBIllinois\ldap::get_ssl()</full_name>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="33" package="Default">
+        <name>get_port</name>
+        <full_name>\IGBIllinois\ldap::get_port()</full_name>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="34" package="Default">
+        <name>get_protocol</name>
+        <full_name>\IGBIllinois\ldap::get_protocol()</full_name>
+        <docblock line="34">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="35" package="Default">
+        <name>get_resource</name>
+        <full_name>\IGBIllinois\ldap::get_resource()</full_name>
+        <docblock line="35">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="36" package="Default">
+        <name>get_connection</name>
+        <full_name>\IGBIllinois\ldap::get_connection()</full_name>
+        <docblock line="36">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="40" package="Default">
+        <name>set_protocol</name>
+        <full_name>\IGBIllinois\ldap::set_protocol()</full_name>
+        <docblock line="40">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$ldap_protocol</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="51" package="Default">
+        <name>bind</name>
+        <full_name>\IGBIllinois\ldap::bind()</full_name>
+        <docblock line="51">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$rdn</name>
+          <default>""</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default>""</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="68" package="Default">
+        <name>search</name>
+        <full_name>\IGBIllinois\ldap::search()</full_name>
+        <docblock line="68">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filter</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$ou</name>
+          <default>""</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$attributes</name>
+          <default>""</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="87" package="Default">
+        <name>replace</name>
+        <full_name>\IGBIllinois\ldap::replace()</full_name>
+        <docblock line="87">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$rdn</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entries</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="97" package="Default">
+        <name>is_ldap_user</name>
+        <full_name>\IGBIllinois\ldap::is_ldap_user()</full_name>
+        <docblock line="97">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="112" package="Default">
+        <name>get_group_members</name>
+        <full_name>\IGBIllinois\ldap::get_group_members()</full_name>
+        <docblock line="112">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$group</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="127" package="Default">
+        <name>is_group_member</name>
+        <full_name>\IGBIllinois\ldap::is_group_member()</full_name>
+        <docblock line="127">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$group</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="132" package="Default">
+        <name>get_user_groups</name>
+        <full_name>\IGBIllinois\ldap::get_user_groups()</full_name>
+        <docblock line="132">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="148" package="Default">
+        <name>get_group_exists</name>
+        <full_name>\IGBIllinois\ldap::get_group_exists()</full_name>
+        <docblock line="148">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$group</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="162" package="Default">
+        <name>get_home_dir</name>
+        <full_name>\IGBIllinois\ldap::get_home_dir()</full_name>
+        <docblock line="162">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="180" package="Default">
+        <name>get_email</name>
+        <full_name>\IGBIllinois\ldap::get_email()</full_name>
+        <docblock line="180">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="198" package="Default">
+        <name>get_all_users</name>
+        <full_name>\IGBIllinois\ldap::get_all_users()</full_name>
+        <docblock line="198">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="215" package="Default">
+        <name>get_ldap_full_name</name>
+        <full_name>\IGBIllinois\ldap::get_ldap_full_name()</full_name>
+        <docblock line="215">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="229" package="Default">
+        <name>set_host</name>
+        <full_name>\IGBIllinois\ldap::set_host()</full_name>
+        <docblock line="229">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$ldap_host</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="233" package="Default">
+        <name>set_base_dn</name>
+        <full_name>\IGBIllinois\ldap::set_base_dn()</full_name>
+        <docblock line="233">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$ldap_base_dn</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="234" package="Default">
+        <name>set_ssl</name>
+        <full_name>\IGBIllinois\ldap::set_ssl()</full_name>
+        <docblock line="234">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$ldap_ssl</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="235" package="Default">
+        <name>set_port</name>
+        <full_name>\IGBIllinois\ldap::set_port()</full_name>
+        <docblock line="235">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$ldap_port</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="237" package="Default">
+        <name>connect</name>
+        <full_name>\IGBIllinois\ldap::connect()</full_name>
+        <docblock line="237">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="4" code="PPC:ERR-50005">No summary for class \IGBIllinois\ldap</error>
+      <error line="17" code="PPC:ERR-50015">Argument $host is missing from the Docblock of __construct</error>
+      <error line="17" code="PPC:ERR-50015">Argument $ssl is missing from the Docblock of __construct</error>
+      <error line="17" code="PPC:ERR-50015">Argument $port is missing from the Docblock of __construct</error>
+      <error line="17" code="PPC:ERR-50015">Argument $base_dn is missing from the Docblock of __construct</error>
+      <error line="17" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="26" code="PPC:ERR-50008">No summary for method __destruct()</error>
+      <error line="29" code="PPC:ERR-50008">No summary for method get_host()</error>
+      <error line="30" code="PPC:ERR-50008">No summary for method get_base_dn()</error>
+      <error line="31" code="PPC:ERR-50008">No summary for method get_bind_user()</error>
+      <error line="32" code="PPC:ERR-50008">No summary for method get_ssl()</error>
+      <error line="33" code="PPC:ERR-50008">No summary for method get_port()</error>
+      <error line="34" code="PPC:ERR-50008">No summary for method get_protocol()</error>
+      <error line="35" code="PPC:ERR-50008">No summary for method get_resource()</error>
+      <error line="36" code="PPC:ERR-50008">No summary for method get_connection()</error>
+      <error line="40" code="PPC:ERR-50015">Argument $ldap_protocol is missing from the Docblock of set_protocol</error>
+      <error line="40" code="PPC:ERR-50008">No summary for method set_protocol()</error>
+      <error line="51" code="PPC:ERR-50015">Argument $rdn is missing from the Docblock of bind</error>
+      <error line="51" code="PPC:ERR-50015">Argument $password is missing from the Docblock of bind</error>
+      <error line="51" code="PPC:ERR-50008">No summary for method bind()</error>
+      <error line="68" code="PPC:ERR-50015">Argument $filter is missing from the Docblock of search</error>
+      <error line="68" code="PPC:ERR-50015">Argument $ou is missing from the Docblock of search</error>
+      <error line="68" code="PPC:ERR-50015">Argument $attributes is missing from the Docblock of search</error>
+      <error line="68" code="PPC:ERR-50008">No summary for method search()</error>
+      <error line="87" code="PPC:ERR-50015">Argument $rdn is missing from the Docblock of replace</error>
+      <error line="87" code="PPC:ERR-50015">Argument $entries is missing from the Docblock of replace</error>
+      <error line="87" code="PPC:ERR-50008">No summary for method replace()</error>
+      <error line="97" code="PPC:ERR-50015">Argument $username is missing from the Docblock of is_ldap_user</error>
+      <error line="97" code="PPC:ERR-50008">No summary for method is_ldap_user()</error>
+      <error line="112" code="PPC:ERR-50015">Argument $group is missing from the Docblock of get_group_members</error>
+      <error line="112" code="PPC:ERR-50008">No summary for method get_group_members()</error>
+      <error line="127" code="PPC:ERR-50015">Argument $username is missing from the Docblock of is_group_member</error>
+      <error line="127" code="PPC:ERR-50015">Argument $group is missing from the Docblock of is_group_member</error>
+      <error line="127" code="PPC:ERR-50008">No summary for method is_group_member()</error>
+      <error line="132" code="PPC:ERR-50015">Argument $username is missing from the Docblock of get_user_groups</error>
+      <error line="132" code="PPC:ERR-50008">No summary for method get_user_groups()</error>
+      <error line="148" code="PPC:ERR-50015">Argument $group is missing from the Docblock of get_group_exists</error>
+      <error line="148" code="PPC:ERR-50008">No summary for method get_group_exists()</error>
+      <error line="162" code="PPC:ERR-50015">Argument $username is missing from the Docblock of get_home_dir</error>
+      <error line="162" code="PPC:ERR-50008">No summary for method get_home_dir()</error>
+      <error line="180" code="PPC:ERR-50015">Argument $username is missing from the Docblock of get_email</error>
+      <error line="180" code="PPC:ERR-50008">No summary for method get_email()</error>
+      <error line="198" code="PPC:ERR-50008">No summary for method get_all_users()</error>
+      <error line="215" code="PPC:ERR-50015">Argument $username is missing from the Docblock of get_ldap_full_name</error>
+      <error line="215" code="PPC:ERR-50008">No summary for method get_ldap_full_name()</error>
+      <error line="229" code="PPC:ERR-50015">Argument $ldap_host is missing from the Docblock of set_host</error>
+      <error line="229" code="PPC:ERR-50008">No summary for method set_host()</error>
+      <error line="233" code="PPC:ERR-50015">Argument $ldap_base_dn is missing from the Docblock of set_base_dn</error>
+      <error line="233" code="PPC:ERR-50008">No summary for method set_base_dn()</error>
+      <error line="234" code="PPC:ERR-50015">Argument $ldap_ssl is missing from the Docblock of set_ssl</error>
+      <error line="234" code="PPC:ERR-50008">No summary for method set_ssl()</error>
+      <error line="235" code="PPC:ERR-50015">Argument $ldap_port is missing from the Docblock of set_port</error>
+      <error line="235" code="PPC:ERR-50008">No summary for method set_port()</error>
+      <error line="237" code="PPC:ERR-50008">No summary for method connect()</error>
+      <error line="7" code="PPC:ERR-50007">No summary for property $ldap_resource</error>
+      <error line="8" code="PPC:ERR-50007">No summary for property $ldap_host</error>
+      <error line="9" code="PPC:ERR-50007">No summary for property $ldap_base_dn</error>
+      <error line="10" code="PPC:ERR-50007">No summary for property $ldap_bind_user</error>
+      <error line="11" code="PPC:ERR-50007">No summary for property $ldap_bind_pass</error>
+      <error line="12" code="PPC:ERR-50007">No summary for property $ldap_ssl</error>
+      <error line="13" code="PPC:ERR-50007">No summary for property $ldap_port</error>
+      <error line="14" code="PPC:ERR-50007">No summary for property $ldap_protocol</error>
+    </parse_markers>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="global" full_name="global"/>
+  <namespace name="IGBIllinois" full_name="IGBIllinois"/>
+  <deprecated count="0"/>
+</project>

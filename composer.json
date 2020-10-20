@@ -16,6 +16,10 @@
 		"phpoffice/phpspreadsheet": ">=1.8.2",
 		"jpgraph/jpgraph": "4.0.2"
     },
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "2.*"
+    },
+   
     "autoload": {
 	"classmap": [
 		"libs"
