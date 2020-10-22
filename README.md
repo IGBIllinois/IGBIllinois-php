@@ -29,4 +29,8 @@ use IGBIllinois;
 
 ## API Documentation
 * API Documentation located at [https://igbillinois.github.io/IGBIllinois-php/](https://igbillinois.github.io/IGBIllinois-php/)
+* To regenerate documentation, run 
+```
+vendor/bin/phpdoc -d libs -t docs --template responsive
+```
 

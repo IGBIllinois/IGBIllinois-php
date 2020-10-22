@@ -170,20 +170,22 @@
       <error line="9" code="PPC:ERR-50007">No summary for property $session_name</error>
     </parse_markers>
   </file>
-  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="2537b09f384267433a7d02d1f5fc089a" package="Default">
+  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="f9b0351d4f9a66a819627a2b1692e4f5" package="Default">
     <docblock line="0">
       <description></description>
       <long-description></long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
-    <class final="false" abstract="false" namespace="IGBIllinois" line="16" package="Default">
+    <class final="false" abstract="false" namespace="IGBIllinois" line="15" package="Default">
       <extends/>
       <name>db</name>
       <full_name>\IGBIllinois\db</full_name>
-      <docblock line="16">
-        <description></description>
-        <long-description></long-description>
-        <tag name="package" line="16" description="Default"/>
+      <docblock line="15">
+        <description>db class interacts with mysql database using PDO</description>
+        <long-description>Provides all necessary functions to connect and run sql queries on the database</long-description>
+        <tag name="author" line="15" description="David Slater" link="mailto:dslater@illinois.edu"/>
+        <tag name="access" line="15" description="public"/>
+        <tag name="package" line="15" description="Default"/>
       </docblock>
       <property static="false" visibility="private" namespace="IGBIllinois" line="20" package="Default">
         <name>$link</name>
@@ -192,50 +194,101 @@
         <docblock line="20">
           <description></description>
           <long-description></long-description>
-        </docblock>
-      </property>
-      <property static="false" visibility="private" namespace="IGBIllinois" line="21" package="Default">
-        <name>$host</name>
-        <full_name>\IGBIllinois\db::$host</full_name>
-        <default></default>
-        <docblock line="21">
-          <description></description>
-          <long-description></long-description>
+          <tag name="var" line="20" description="&lt;p&gt;PDO database object&lt;/p&gt;" type="\PDO" variable="">
+            <type>\PDO</type>
+          </tag>
         </docblock>
       </property>
       <property static="false" visibility="private" namespace="IGBIllinois" line="22" package="Default">
-        <name>$database</name>
-        <full_name>\IGBIllinois\db::$database</full_name>
+        <name>$host</name>
+        <full_name>\IGBIllinois\db::$host</full_name>
         <default></default>
         <docblock line="22">
           <description></description>
           <long-description></long-description>
-        </docblock>
-      </property>
-      <property static="false" visibility="private" namespace="IGBIllinois" line="23" package="Default">
-        <name>$username</name>
-        <full_name>\IGBIllinois\db::$username</full_name>
-        <default></default>
-        <docblock line="23">
-          <description></description>
-          <long-description></long-description>
+          <tag name="var" line="22" description="&lt;p&gt;hostname or IP of mysql server&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
         </docblock>
       </property>
       <property static="false" visibility="private" namespace="IGBIllinois" line="24" package="Default">
-        <name>$password</name>
-        <full_name>\IGBIllinois\db::$password</full_name>
+        <name>$database</name>
+        <full_name>\IGBIllinois\db::$database</full_name>
         <default></default>
         <docblock line="24">
           <description></description>
           <long-description></long-description>
+          <tag name="var" line="24" description="&lt;p&gt;name of mysql database&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="28" package="Default">
-        <name>__construct</name>
-        <full_name>\IGBIllinois\db::__construct()</full_name>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="26" package="Default">
+        <name>$username</name>
+        <full_name>\IGBIllinois\db::$username</full_name>
+        <default></default>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="26" description="&lt;p&gt;username to connect to the database&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="28" package="Default">
+        <name>$password</name>
+        <full_name>\IGBIllinois\db::$password</full_name>
+        <default></default>
         <docblock line="28">
           <description></description>
           <long-description></long-description>
+          <tag name="var" line="28" description="&lt;p&gt;password to connect to the database&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="30" package="Default">
+        <name>$ssl</name>
+        <full_name>\IGBIllinois\db::$ssl</full_name>
+        <default>false</default>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="30" description="&lt;p&gt;enable or disable ssl connection. defaults to false&lt;/p&gt;" type="boolean" variable="">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="49" package="Default">
+        <name>__construct</name>
+        <full_name>\IGBIllinois\db::__construct()</full_name>
+        <docblock line="49">
+          <description>Creates mysql database object</description>
+          <long-description></long-description>
+          <tag name="param" line="49" description="&lt;p&gt;@host hostname or IP address of mysql server&lt;/p&gt;" type="string" variable="$host">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="49" description="&lt;p&gt;@database database name&lt;/p&gt;" type="string" variable="$database">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="49" description="&lt;p&gt;@username username to connect to database&lt;/p&gt;" type="string" variable="$username">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="49" description="&lt;p&gt;@password password to connect to database&lt;/p&gt;" type="string" variable="$password">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="49" description="&lt;p&gt;@port mysql port number. defaults to 3306&lt;/p&gt;" type="integer" variable="$ssl">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="49" description="&lt;p&gt;@ssl use ssl&lt;/p&gt;" type="boolean" variable="">
+            <type>boolean</type>
+          </tag>
+          <tag name="throws" line="49" description="" type="\PDOException">
+            <type>\PDOException</type>
+          </tag>
+          <tag name="return" line="49" description="" type="void">
+            <type>void</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$host</name>
@@ -257,21 +310,56 @@
           <default></default>
           <type/>
         </argument>
+        <argument line="0" by_reference="false">
+          <name>$ssl</name>
+          <default>false</default>
+          <type/>
+        </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="33" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="68" package="Default">
         <name>__destruct</name>
         <full_name>\IGBIllinois\db::__destruct()</full_name>
-        <docblock line="33">
-          <description></description>
+        <docblock line="68">
+          <description>Destroys db object.  Closes mysql database connection</description>
           <long-description></long-description>
+          <tag name="param" line="68" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="68" description="" type="void">
+            <type>void</type>
+          </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="46" package="Default">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="87" package="Default">
         <name>open</name>
         <full_name>\IGBIllinois\db::open()</full_name>
-        <docblock line="46">
-          <description></description>
+        <docblock line="87">
+          <description>Opens mysql database connection</description>
           <long-description></long-description>
+          <tag name="param" line="87" description="&lt;p&gt;@host hostname or IP address of mysql server&lt;/p&gt;" type="string" variable="$host">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="87" description="&lt;p&gt;@database database name&lt;/p&gt;" type="string" variable="$database">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="87" description="&lt;p&gt;@username username to connect to database&lt;/p&gt;" type="string" variable="$username">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="87" description="&lt;p&gt;@password password to connect to database&lt;/p&gt;" type="string" variable="$password">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="87" description="&lt;p&gt;@port mysql port number. defaults to 3306&lt;/p&gt;" type="integer" variable="$port">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="87" description="&lt;p&gt;@ssl use ssl&lt;/p&gt;" type="boolean" variable="$ssl">
+            <type>boolean</type>
+          </tag>
+          <tag name="throws" line="87" description="" type="\PDOException">
+            <type>\PDOException</type>
+          </tag>
+          <tag name="return" line="87" description="" type="void">
+            <type>void</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$host</name>
@@ -298,159 +386,230 @@
           <default>3306</default>
           <type/>
         </argument>
+        <argument line="0" by_reference="false">
+          <name>$ssl</name>
+          <default>false</default>
+          <type/>
+        </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="65" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="118" package="Default">
         <name>close</name>
         <full_name>\IGBIllinois\db::close()</full_name>
-        <docblock line="65">
-          <description></description>
+        <docblock line="118">
+          <description>Closes mysql database connection</description>
           <long-description></long-description>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="73" package="Default">
-        <name>insert_query</name>
-        <full_name>\IGBIllinois\db::insert_query()</full_name>
-        <docblock line="73">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$sql</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$args</name>
-          <default>array()</default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="91" package="Default">
-        <name>build_insert</name>
-        <full_name>\IGBIllinois\db::build_insert()</full_name>
-        <docblock line="91">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$table</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$data</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="120" package="Default">
-        <name>non_select_query</name>
-        <full_name>\IGBIllinois\db::non_select_query()</full_name>
-        <docblock line="120">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$sql</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$args</name>
-          <default>array()</default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="135" package="Default">
-        <name>query</name>
-        <full_name>\IGBIllinois\db::query()</full_name>
-        <docblock line="135">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$sql</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$args</name>
-          <default>array()</default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="148" package="Default">
-        <name>get_link</name>
-        <full_name>\IGBIllinois\db::get_link()</full_name>
-        <docblock line="148">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="155" package="Default">
-        <name>ping</name>
-        <full_name>\IGBIllinois\db::ping()</full_name>
-        <docblock line="155">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="168" package="Default">
-        <name>transaction</name>
-        <full_name>\IGBIllinois\db::transaction()</full_name>
-        <docblock line="168">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$sql</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$args</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="182" package="Default">
-        <name>update</name>
-        <full_name>\IGBIllinois\db::update()</full_name>
-        <docblock line="182">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$table</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$data</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$where_key</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$where_value</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="221" package="Default">
-        <name>get_version</name>
-        <full_name>\IGBIllinois\db::get_version()</full_name>
-        <docblock line="221">
-          <description>Retrieves version number of mysql server</description>
-          <long-description></long-description>
-          <tag name="param" line="221" description="" type="void" variable="">
+          <tag name="param" line="118" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="221" description="" type="string">
+          <tag name="return" line="118" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="132" package="Default">
+        <name>insert_query</name>
+        <full_name>\IGBIllinois\db::insert_query()</full_name>
+        <docblock line="132">
+          <description>Runs insert query on database</description>
+          <long-description></long-description>
+          <tag name="param" line="132" description="&lt;p&gt;sql query to run on the database&lt;/p&gt;" type="string" variable="$sql">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="132" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array" variable="$parameters">
+            <type>array</type>
+          </tag>
+          <tag name="throws" line="132" description="" type="\PDOException">
+            <type>\PDOException</type>
+          </tag>
+          <tag name="return" line="132" description="insert id returned from database. 0 otherwise" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sql</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$parameters</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="156" package="Default">
+        <name>build_insert</name>
+        <full_name>\IGBIllinois\db::build_insert()</full_name>
+        <docblock line="156">
+          <description>Builds insert query using associative array</description>
+          <long-description></long-description>
+          <tag name="param" line="156" description="&lt;p&gt;table to insert data into&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="156" description="&lt;p&gt;associative array with key being table colume and value being the data&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+          <tag name="throws" line="156" description="" type="\PDOException">
+            <type>\PDOException</type>
+          </tag>
+          <tag name="return" line="156" description="insert id returned from database. 0 otherwise" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="197" package="Default">
+        <name>non_select_query</name>
+        <full_name>\IGBIllinois\db::non_select_query()</full_name>
+        <docblock line="197">
+          <description>Runs a non select or insert query on database</description>
+          <long-description></long-description>
+          <tag name="param" line="197" description="&lt;p&gt;sql string to run&lt;/p&gt;" type="string" variable="$sql">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="197" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array" variable="$parameters">
+            <type>array</type>
+          </tag>
+          <tag name="throws" line="197" description="" type="\PDOException">
+            <type>\PDOException</type>
+          </tag>
+          <tag name="return" line="197" description="true on success, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sql</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$parameters</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="219" package="Default">
+        <name>query</name>
+        <full_name>\IGBIllinois\db::query()</full_name>
+        <docblock line="219">
+          <description>Runs sql query for SELECT queries</description>
+          <long-description></long-description>
+          <tag name="param" line="219" description="&lt;p&gt;sql query to run&lt;/p&gt;" type="string" variable="$sql">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="219" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array" variable="$parameters">
+            <type>array</type>
+          </tag>
+          <tag name="throws" line="219" description="" type="\PDOException">
+            <type>\PDOException</type>
+          </tag>
+          <tag name="return" line="219" description="an associative array of results" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sql</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$parameters</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="238" package="Default">
+        <name>get_link</name>
+        <full_name>\IGBIllinois\db::get_link()</full_name>
+        <docblock line="238">
+          <description>Retrieves mysql database PDO object</description>
+          <long-description></long-description>
+          <tag name="param" line="238" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="238" description="Returns PDO object with the current connection" type="\PDO">
+            <type>\PDO</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="250" package="Default">
+        <name>ping</name>
+        <full_name>\IGBIllinois\db::ping()</full_name>
+        <docblock line="250">
+          <description>Tests connection to mysql database</description>
+          <long-description></long-description>
+          <tag name="param" line="250" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="250" description="Returns true on success, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="273" package="Default">
+        <name>transaction</name>
+        <full_name>\IGBIllinois\db::transaction()</full_name>
+        <docblock line="273">
+          <description>Runs mysql transaction</description>
+          <long-description></long-description>
+          <tag name="param" line="273" description="&lt;p&gt;sql string to run&lt;/p&gt;" type="string" variable="$sql">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="273" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array" variable="$parameters">
+            <type>array</type>
+          </tag>
+          <tag name="throws" line="273" description="" type="\PDOException">
+            <type>\PDOException</type>
+          </tag>
+          <tag name="returns" line="273" description="int number of rows affected"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sql</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$parameters</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="341" package="Default">
+        <name>get_version</name>
+        <full_name>\IGBIllinois\db::get_version()</full_name>
+        <docblock line="341">
+          <description>Runs update query on table</description>
+          <long-description></long-description>
+          <tag name="param" line="341" description="&lt;p&gt;name of table&lt;/p&gt;" type="string" variable="$table">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="341" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array" variable="$parameters">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="341" description="&lt;p&gt;column name to use in where clause&lt;/p&gt;" type="string" variable="$where_key">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="341" description="&lt;p&gt;value column needs to be equal to&lt;/p&gt;" type="string" variable="$where_value">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="341" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="throws" line="341" description="" type="\PDOException">
+            <type>\PDOException</type>
+          </tag>
+          <tag name="return" line="341" description="returns true on success, false otherwise&#10;public function update($table,$parameters,$where_key,$where_value) {&#10;try {&#10;&#10;$sql = &quot;UPDATE `&quot; . $table . &quot;` SET &quot;;&#10;&#10;$count = count($parameters);&#10;$i = 1;&#10;foreach ($parameters as $key=&gt;$value) {&#10;if ($i == $count) {&#10;$sql .= $key . &quot;= :&quot; . $key . &quot; &quot;;;&#10;}&#10;else {&#10;$sql .= $key . &quot;= :&quot; . $key . &quot;, &quot;;&#10;}&#10;&#10;$i++;&#10;}&#10;$sql .= &quot;WHERE &quot; . $where_key . &quot;='&quot; . $where_value . &quot;' LIMIT 1&quot;;&#10;$statement = $this-&gt;link-&gt;prepare($sql);&#10;foreach ($data as $key=&gt;$value) {&#10;$statement-&gt;bindValue(&quot;:&quot; . $key,$value);&#10;}&#10;$result = $statement-&gt;execute();&#10;return $result;&#10;}&#10;catch(\PDOException $e) {&#10;throw $e;&#10;return false;&#10;}&#10;&#10;&#10;}&#10;&#10;&#10;Retrieves version number of mysql server.&#10;&#10;An example is 5.5.5-10.3.17-MariaDB" type="boolean">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="341" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -458,47 +617,6 @@
     </class>
     <parse_markers>
       <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-      <error line="16" code="PPC:ERR-50005">No summary for class \IGBIllinois\db</error>
-      <error line="28" code="PPC:ERR-50015">Argument $host is missing from the Docblock of __construct</error>
-      <error line="28" code="PPC:ERR-50015">Argument $database is missing from the Docblock of __construct</error>
-      <error line="28" code="PPC:ERR-50015">Argument $username is missing from the Docblock of __construct</error>
-      <error line="28" code="PPC:ERR-50015">Argument $password is missing from the Docblock of __construct</error>
-      <error line="28" code="PPC:ERR-50008">No summary for method __construct()</error>
-      <error line="33" code="PPC:ERR-50008">No summary for method __destruct()</error>
-      <error line="46" code="PPC:ERR-50015">Argument $host is missing from the Docblock of open</error>
-      <error line="46" code="PPC:ERR-50015">Argument $database is missing from the Docblock of open</error>
-      <error line="46" code="PPC:ERR-50015">Argument $username is missing from the Docblock of open</error>
-      <error line="46" code="PPC:ERR-50015">Argument $password is missing from the Docblock of open</error>
-      <error line="46" code="PPC:ERR-50015">Argument $port is missing from the Docblock of open</error>
-      <error line="46" code="PPC:ERR-50008">No summary for method open()</error>
-      <error line="65" code="PPC:ERR-50008">No summary for method close()</error>
-      <error line="73" code="PPC:ERR-50015">Argument $sql is missing from the Docblock of insert_query</error>
-      <error line="73" code="PPC:ERR-50015">Argument $args is missing from the Docblock of insert_query</error>
-      <error line="73" code="PPC:ERR-50008">No summary for method insert_query()</error>
-      <error line="91" code="PPC:ERR-50015">Argument $table is missing from the Docblock of build_insert</error>
-      <error line="91" code="PPC:ERR-50015">Argument $data is missing from the Docblock of build_insert</error>
-      <error line="91" code="PPC:ERR-50008">No summary for method build_insert()</error>
-      <error line="120" code="PPC:ERR-50015">Argument $sql is missing from the Docblock of non_select_query</error>
-      <error line="120" code="PPC:ERR-50015">Argument $args is missing from the Docblock of non_select_query</error>
-      <error line="120" code="PPC:ERR-50008">No summary for method non_select_query()</error>
-      <error line="135" code="PPC:ERR-50015">Argument $sql is missing from the Docblock of query</error>
-      <error line="135" code="PPC:ERR-50015">Argument $args is missing from the Docblock of query</error>
-      <error line="135" code="PPC:ERR-50008">No summary for method query()</error>
-      <error line="148" code="PPC:ERR-50008">No summary for method get_link()</error>
-      <error line="155" code="PPC:ERR-50008">No summary for method ping()</error>
-      <error line="168" code="PPC:ERR-50015">Argument $sql is missing from the Docblock of transaction</error>
-      <error line="168" code="PPC:ERR-50015">Argument $args is missing from the Docblock of transaction</error>
-      <error line="168" code="PPC:ERR-50008">No summary for method transaction()</error>
-      <error line="182" code="PPC:ERR-50015">Argument $table is missing from the Docblock of update</error>
-      <error line="182" code="PPC:ERR-50015">Argument $data is missing from the Docblock of update</error>
-      <error line="182" code="PPC:ERR-50015">Argument $where_key is missing from the Docblock of update</error>
-      <error line="182" code="PPC:ERR-50015">Argument $where_value is missing from the Docblock of update</error>
-      <error line="182" code="PPC:ERR-50008">No summary for method update()</error>
-      <error line="20" code="PPC:ERR-50007">No summary for property $link</error>
-      <error line="21" code="PPC:ERR-50007">No summary for property $host</error>
-      <error line="22" code="PPC:ERR-50007">No summary for property $database</error>
-      <error line="23" code="PPC:ERR-50007">No summary for property $username</error>
-      <error line="24" code="PPC:ERR-50007">No summary for property $password</error>
     </parse_markers>
   </file>
   <file path="report.class.inc.php" generated-path="report.class.inc.html" hash="e4e388d22cd770062b6c20bbb7f2d217" package="Default">

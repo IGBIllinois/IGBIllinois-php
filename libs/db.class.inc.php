@@ -1,93 +1,158 @@
 <?php
-//////////////////////////////////////////
-//
-//	db.class.inc.php
-//
-//	Class to create easy to use
-//	interface with the database
-//
-//	By David Slater
-//	June 2009
-//
-//////////////////////////////////////////
-
 namespace IGBIllinois;
 
+/**
+* db class interacts with mysql database using PDO
+*
+* Provides all necessary functions to connect and run sql queries on the database
+*
+* @author David Slater <dslater@illinois.edu>
+* @access public
+*
+*
+*
+*/
 class db {
 
 	////////////////Private Variables//////////
 
+	/** @var \PDO PDO database object */
 	private $link; //mysql database link
-	private $host;	//hostname for the database
-	private $database; //database name
-	private $username; //username to connect to the database
-	private $password; //password of the username
-
+	/** @var string hostname or IP of mysql server */
+	private $host;
+	/** @var string name of mysql database */
+	private $database;
+	/** @var string username to connect to the database */
+	private $username;
+	/** @var string password to connect to the database */
+	private $password;
+	/** @var bool enable or disable ssl connection. defaults to false */
+	private $ssl = false;
+ 
 	////////////////Public Functions///////////
 
-	public function __construct($host,$database,$username,$password) {
-		$this->open($host,$database,$username,$password);
+        /**
+        * Creates mysql database object
+        *
+        * @param string @host hostname or IP address of mysql server
+        * @param string @database database name
+        * @param string @username username to connect to database
+        * @param string @password password to connect to database
+        * @param int @port mysql port number. defaults to 3306
+        * @param bool @ssl use ssl
+        *
+        * @throws \PDOException
+        *
+        * @return void
+        */
+
+	public function __construct($host,$database,$username,$password,$ssl = false) {
+		try {
+			$this->open($host,$database,$username,$password,$ssl);
+		}
+		catch(\PDOException $e) {
+                        throw $e;
+                }
+	
 
 
 	}
+
+	/**
+	* Destroys db object.  Closes mysql database connection
+	*
+	* @param void
+	*
+	* @return void
+	*/
 	public function __destruct() {
 		$this->close();
 
 	}
 
-	//open()
-	//$host - hostname
-	//$port - mysql port
-	//$database - name of the database
-	//$username - username to connect to the database with
-	//$password - password of the username
-	//$port - mysql port, defaults to 3306
-	//opens a connect to the database
-	public function open($host,$database,$username,$password,$port = 3306) {
+	/**
+	* Opens mysql database connection
+	*
+	* @param string @host hostname or IP address of mysql server
+	* @param string @database database name
+	* @param string @username username to connect to database
+	* @param string @password password to connect to database
+	* @param int @port mysql port number. defaults to 3306
+	* @param bool @ssl use ssl
+	*
+	* @throws \PDOException
+	*
+	* @return void
+	*/
+	private function open($host,$database,$username,$password,$port = 3306,$ssl = false) {
 		//Connects to database.
 		try {
-			$this->link = new \PDO("mysql:host=$host;dbname=$database",$username,$password,
-					array(\PDO::ATTR_PERSISTENT => false));
+			$params = array();
+			$params[\PDO::ATTR_PERSISTENT] =false;
+			if ($ssl) {
+				$params[\PDO::MYSQL_ATTR_SSL_CA] = '/dev/null';
+				$params[\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+			}
+			$this->link = new \PDO("mysql:host=$host;dbname=$database",$username,$password,$params);
 			$this->link->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_WARNING);
 			$this->host = $host;
 			$this->database = $database;
 			$this->username = $username;
 			$this->password = $password;
+			$this->ssl = $ssl;
 		}
 		catch(\PDOException $e) {
-			echo $e->getMessage();
+			throw $e;
 		}
 
 	}
 
-	//close()
-	//closes database connection
+	/**
+	* Closes mysql database connection
+	*
+	* @param void
+	*
+	* @return void
+	*
+	*/
 	public function close() {
 		$this->link = null;
 	}
 
-	//insert_query()
-	//$sql - sql string to run on the database
-	//$args - array of arguments to insert into sql string
-	//returns the id number of the new record, 0 if it fails
-	public function insert_query($sql,$args=array()) {
+	/**
+	* Runs insert query on database
+	*
+	* @param string $sql sql query to run on the database
+	* @param array $parameters an array of PDO prepared parameters
+	*
+	* @throws \PDOException
+	*
+	* @return int insert id returned from database. 0 otherwise
+	*/
+	public function insert_query($sql,$parameters=array()) {
 		try {
 			$result = $this->link->prepare($sql);
-			$retVal = $result->execute($args);
+			$retVal = $result->execute($parameters);
 			if ($retVal === false) {
 			}
 			return $this->link->lastInsertId();
 		}
 		catch(\PDOException $e) {
-			echo $e->getMessage();
+			throw $e;
 		}
 		return 0;
 	}
 
-	//build_insert()
-	//$table - string - database table to insert data into
-	//$data - associative array with index being the column and value the data.
-	//returns the id number of the new record, 0 if it fails
+	/**
+	* Builds insert query using associative array
+	*
+	* @param string $table table to insert data into
+	* @param array $data associative array with key being table colume and value being the data
+	* 
+	* @throws \PDOException
+	*
+	* @return int insert id returned from database. 0 otherwise
+	*/
 	public function build_insert($table,$data) {
 		$sql = "INSERT INTO " . $table;
 		$values_sql = "VALUES(";
@@ -110,48 +175,78 @@ class db {
 		$values_sql .= ")";
 		$columns_sql .= ")";
 		$sql = $sql . $columns_sql . " " . $values_sql;
-		return $this->insert_query($sql,$args);
+		try {
+			return $this->insert_query($sql,$args);
+		}
+		catch (\PDOException $e) {
+			throw $e;
+			return 0;
+		}
 	}
 
-	//non_select_query()
-	//$sql - sql string to run on the database
-	//For update and delete queries
-	//returns true on success, false otherwise
-	public function non_select_query($sql,$args=array()) {
+	/**
+	* Runs a non select or insert query on database
+	*
+	* @param string $sql sql string to run
+	* @param array $parameters an array of PDO prepared parameters
+	*
+	* @throws \PDOException
+	*
+	* @return bool true on success, false otherwise
+	*/
+	public function non_select_query($sql,$parameters=array()) {
 		try {
 			$result = $this->link->prepare($sql);
-			$retval = $result->execute($args);
+			$retval = $result->execute($parameters);
 			return $retval;
 		}
                 catch(\PDOException $e) {
-                        echo $e->getMessage();
+			throw $e;
+                        return false;
                 }
 	}
 
-	//query()
-	//$sql - sql string to run on the database
-	//Used for SELECT queries
-	//returns an associative array of the select query results.
-	public function query($sql,$args=array()) {
+	/**
+	* Runs sql query for SELECT queries
+	*
+	* @param string $sql sql query to run
+	* @param array $parameters an array of PDO prepared parameters
+	*
+	* @throws \PDOException
+	*
+	* @return array an associative array of results
+	*/
+	public function query($sql,$parameters=array()) {
 		try {
 			$result = $this->link->prepare($sql);
-			$result->execute($args);
+			$result->execute($parameters);
 			return $result->fetchAll(\PDO::FETCH_ASSOC);
 		}
 		catch(\PDOException $e) {
-			echo $e->getMessage();
+			throw $e;
+			return array();
 		}
 	}
 
-	//getLink
-	//returns the mysql resource link
+        /**
+        * Retrieves mysql database PDO object
+        *
+        * @param void
+        *
+        * @return \PDO Returns PDO object with the current connection
+        */
 	public function get_link() {
 		return $this->link;
 	}
 
-	//ping
-	//pings the mysql server to see if connection is alive
-	//returns true if alive, false otherwise
+	/**
+	* Tests connection to mysql database
+	* 
+	* @param void
+	*
+	* @return boolean Returns true on success, false otherwise
+	*
+	*/
 	public function ping() {
 		try {
 			if ($this->link->getAttribute(\PDO::ATTR_CONNECTION_STATUS)) {
@@ -165,28 +260,50 @@ class db {
 
 	}
 
-	public function transaction($sql,$args) {
+	/**
+	* Runs mysql transaction
+	*
+	* @param string $sql sql string to run
+	* @param array $parameters an array of PDO prepared parameters
+	*
+	* @throws \PDOException
+	*
+	* @returns int number of rows affected
+	*/
+	public function transaction($sql,$parameters) {
 		try {
 			$this->link->beginTransaction();
 			$result = $this->link->prepare($sql);
-			$result->execute();
+			$result->execute($parameters);
 			$this->link->commit();
 			return $this->link->rowCount();
 		}
 		catch(\PDOException $e) {
-			echo $e->getMessage();
+			throw $e;
+			return 0;
 		}
 
 	}
 
-	public function update($table,$data,$where_key,$where_value) {
+	/**
+	* Runs update query on table
+	*
+	* @param string $table name of table
+	* @param array $parameters an array of PDO prepared parameters
+	* @param string $where_key column name to use in where clause
+	* @param string $where_value value column needs to be equal to
+	*
+	* @throws \PDOException
+	*
+	* @return bool returns true on success, false otherwise 
+	public function update($table,$parameters,$where_key,$where_value) {
                 try {
 
                         $sql = "UPDATE `" . $table . "` SET ";
 
-                        $count = count($data);
+                        $count = count($parameters);
                         $i = 1;
-                        foreach ($data as $key=>$value) {
+                        foreach ($parameters as $key=>$value) {
                                 if ($i == $count) {
                                         $sql .= $key . "= :" . $key . " ";;
                                 }
@@ -205,14 +322,17 @@ class db {
                         return $result;
                 }
                 catch(\PDOException $e) {
-                        echo $e->getMessage();
+                        throw $e;
+			return false;
                 }
 
 
         }
 
 	/**
-	* Retrieves version number of mysql server
+	* Retrieves version number of mysql server.
+	*
+	* An example is 5.5.5-10.3.17-MariaDB
 	*
 	* @param void
 	*
