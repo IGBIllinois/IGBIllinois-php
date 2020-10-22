@@ -8,6 +8,7 @@ namespace IGBIllinois;
 *
 * @author David Slater <dslater@illinois.edu>
 * @access public
+* @copyright Copyright (c) 2020 University of Illinois Board of Trustees
 *
 *
 *

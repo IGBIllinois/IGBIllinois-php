@@ -26,6 +26,11 @@ composer install
 ```
 use IGBIllinois;
 ```
+or to call a class directly
+```
+$db = \IGBIllinois\db(...);
+$ldap = \IGBIllinois\ldap(...);
+```
 
 ## API Documentation
 * Documentation created using phpdocumentor [https://www.phpdoc.org/](https://www.phpdoc.org/)
