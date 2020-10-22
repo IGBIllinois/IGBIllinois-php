@@ -170,7 +170,7 @@
       <error line="9" code="PPC:ERR-50007">No summary for property $session_name</error>
     </parse_markers>
   </file>
-  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="fe39b34d87903a1bb14ebd52691a1db6" package="Default">
+  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="2537b09f384267433a7d02d1f5fc089a" package="Default">
     <docblock line="0">
       <description></description>
       <long-description></long-description>
@@ -441,12 +441,18 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="214" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="221" package="Default">
         <name>get_version</name>
         <full_name>\IGBIllinois\db::get_version()</full_name>
-        <docblock line="214">
-          <description></description>
+        <docblock line="221">
+          <description>Retrieves version number of mysql server</description>
           <long-description></long-description>
+          <tag name="param" line="221" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="221" description="" type="string">
+            <type>string</type>
+          </tag>
         </docblock>
       </method>
     </class>
@@ -488,7 +494,6 @@
       <error line="182" code="PPC:ERR-50015">Argument $where_key is missing from the Docblock of update</error>
       <error line="182" code="PPC:ERR-50015">Argument $where_value is missing from the Docblock of update</error>
       <error line="182" code="PPC:ERR-50008">No summary for method update()</error>
-      <error line="214" code="PPC:ERR-50008">No summary for method get_version()</error>
       <error line="20" code="PPC:ERR-50007">No summary for property $link</error>
       <error line="21" code="PPC:ERR-50007">No summary for property $host</error>
       <error line="22" code="PPC:ERR-50007">No summary for property $database</error>
