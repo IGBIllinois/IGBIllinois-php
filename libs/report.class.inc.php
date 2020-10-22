@@ -1,8 +1,12 @@
 <?php
+/**
+* report class generates Excel, PDF, and CSV files using PHPSpreadsheet, https://phpspreadsheet.readthedocs.io/en/latest/
+*
+*/
 namespace IGBIllinois;
 
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use \PhpOffice\PhpSpreadsheet\Spreadsheet;
+use \PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 /**
 * report class generates Excel, PDF, and CSV files using PHPSpreadsheet, https://phpspreadsheet.readthedocs.io/en/latest/

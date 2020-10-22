@@ -1,4 +1,8 @@
 <?php
+/**
+* ldap class interacts with ldap server using built in php ldap functions
+*
+*/
 namespace IGBIllinois;
 
 /**
@@ -242,14 +246,12 @@ class ldap {
 
 	private function set_host($ldap_host) { 
 		$this->ldap_host = explode(" ",$ldap_host);
-		print_r($this->ldap_host); 
 	}
         private function set_base_dn($ldap_base_dn) { $this->ldap_base_dn = $ldap_base_dn; }
         private function set_ssl($ldap_ssl) { $this->ldap_ssl = $ldap_ssl; }
         private function set_port($ldap_port) { $this->ldap_port = $ldap_port; }
 
 	private function connect() {
-		print_r($this->get_host());
                 $ldap_uri = "";
                 if ($this->get_ssl()) {
 			foreach ($this->get_host() as $host) {

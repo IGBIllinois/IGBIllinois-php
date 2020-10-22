@@ -1,4 +1,9 @@
 <?php
+/**
+* db class interacts with mysql database using PDO
+*
+*/
+
 namespace IGBIllinois;
 
 /**

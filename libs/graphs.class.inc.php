@@ -1,16 +1,27 @@
 <?php
-
+/**
+* graphs class creates graphs using JpGraph, https://jpgraph.net/
+*
+*/
 namespace IGBIllinois;
-JpGraph\JpGraph::load();
-JpGraph\JpGraph::module('bar');
-JpGraph\JpGraph::module('pie');
-JpGraph\JpGraph::module('pie3d');
-JpGraph\JpGraph::module('line');
+\JpGraph\JpGraph::load();
+\JpGraph\JpGraph::module('bar');
+\JpGraph\JpGraph::module('pie');
+\JpGraph\JpGraph::module('pie3d');
+\JpGraph\JpGraph::module('line');
 
 if( !function_exists('imageantialias') ) {
-    function imageantialias( $image, $enabled ) {
-        return false;
-    }
+	/**
+	* defines imageantialias function if it does exist
+	*
+	* This function doesn't exist if php doesn't have gd support
+	* @param resource $image image resource
+	* @param bool $enabled enable or disable imageantialias
+	* @return bool always returns false
+	*/
+	function imageantialias( $image, $enabled ) {
+		return false;
+	}
 }
 
 /**

@@ -1,7 +1,9 @@
 <?php
-
+/**
+* session class is a class to interface with php session variables
+*
+*/
 namespace IGBIllinois;
-
 /**
 * session class is a class to interface with php session variables
 *
@@ -19,7 +21,7 @@ class session {
 
 
 	///////////////Private Variables//////////
-	/** @var string name of the session. Should be unique to application */
+	/** @var string name of the session*/
 	private $session_name;
 
         ////////////////Public Functions///////////
