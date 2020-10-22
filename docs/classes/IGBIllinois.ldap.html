@@ -20,7 +20,7 @@
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a>Packages</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/IGBIllinois.html"><i class="icon-folder-open"></i> IGBIllinois</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -31,7 +31,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">61</span></a></li>
+                <span class="label label-info">39</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -61,10 +61,8 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method___construct" title="__construct() :: "><span class="description">__construct()
-        </span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#method___destruct" title="__destruct() :: "><span class="description">__destruct()
-        </span><pre>__destruct()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: Object constructor"><span class="description">Object constructor</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___destruct" title="__destruct() :: Object deconstructor"><span class="description">Object deconstructor</span><pre>__destruct()</pre></a></li>
 <li class="method public "><a href="#method_bind" title="bind() :: "><span class="description">bind()
         </span><pre>bind()</pre></a></li>
 <li class="method public "><a href="#method_get_all_users" title="get_all_users() :: "><span class="description">get_all_users()
@@ -111,16 +109,11 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="method private "><a href="#method_connect" title="connect() :: "><span class="description">connect()
-        </span><pre>connect()</pre></a></li>
-<li class="method private "><a href="#method_set_base_dn" title="set_base_dn() :: "><span class="description">set_base_dn()
-        </span><pre>set_base_dn()</pre></a></li>
-<li class="method private "><a href="#method_set_host" title="set_host() :: "><span class="description">set_host()
-        </span><pre>set_host()</pre></a></li>
-<li class="method private "><a href="#method_set_port" title="set_port() :: "><span class="description">set_port()
-        </span><pre>set_port()</pre></a></li>
-<li class="method private "><a href="#method_set_ssl" title="set_ssl() :: "><span class="description">set_ssl()
-        </span><pre>set_ssl()</pre></a></li>
+<li class="method private "><a href="#method_connect" title="connect() :: Connects to ldap database"><span class="description">Connects to ldap database</span><pre>connect()</pre></a></li>
+<li class="method private "><a href="#method_set_base_dn" title="set_base_dn() :: Sets base dn"><span class="description">Sets base dn</span><pre>set_base_dn()</pre></a></li>
+<li class="method private "><a href="#method_set_host" title="set_host() :: Sets ldap hostname"><span class="description">Sets ldap hostname</span><pre>set_host()</pre></a></li>
+<li class="method private "><a href="#method_set_port" title="set_port() :: Sets Ldap port number"><span class="description">Sets Ldap port number</span><pre>set_port()</pre></a></li>
+<li class="method private "><a href="#method_set_ssl" title="set_ssl() :: Sets SSL"><span class="description">Sets SSL</span><pre>set_ssl()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -129,14 +122,14 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="property private "><a href="#property_ldap_base_dn" title="$ldap_base_dn() :: "><span class="description"></span><pre>$ldap_base_dn</pre></a></li>
-<li class="property private "><a href="#property_ldap_bind_pass" title="$ldap_bind_pass() :: "><span class="description"></span><pre>$ldap_bind_pass</pre></a></li>
-<li class="property private "><a href="#property_ldap_bind_user" title="$ldap_bind_user() :: "><span class="description"></span><pre>$ldap_bind_user</pre></a></li>
-<li class="property private "><a href="#property_ldap_host" title="$ldap_host() :: "><span class="description"></span><pre>$ldap_host</pre></a></li>
-<li class="property private "><a href="#property_ldap_port" title="$ldap_port() :: "><span class="description"></span><pre>$ldap_port</pre></a></li>
-<li class="property private "><a href="#property_ldap_protocol" title="$ldap_protocol() :: "><span class="description"></span><pre>$ldap_protocol</pre></a></li>
-<li class="property private "><a href="#property_ldap_resource" title="$ldap_resource() :: "><span class="description"></span><pre>$ldap_resource</pre></a></li>
-<li class="property private "><a href="#property_ldap_ssl" title="$ldap_ssl() :: "><span class="description"></span><pre>$ldap_ssl</pre></a></li>
+<li class="property private "><a href="#property_ldap_base_dn" title="$ldap_base_dn() :: "><span class="description">Ldap base dn</span><pre>$ldap_base_dn</pre></a></li>
+<li class="property private "><a href="#property_ldap_bind_pass" title="$ldap_bind_pass() :: "><span class="description">Ldap bind password</span><pre>$ldap_bind_pass</pre></a></li>
+<li class="property private "><a href="#property_ldap_bind_user" title="$ldap_bind_user() :: "><span class="description">Ldap bind user</span><pre>$ldap_bind_user</pre></a></li>
+<li class="property private "><a href="#property_ldap_host" title="$ldap_host() :: "><span class="description">an array of ldap hosts</span><pre>$ldap_host</pre></a></li>
+<li class="property private "><a href="#property_ldap_port" title="$ldap_port() :: "><span class="description">Ldap port</span><pre>$ldap_port</pre></a></li>
+<li class="property private "><a href="#property_ldap_protocol" title="$ldap_protocol() :: "><span class="description">Ldap protocol - 2,3</span><pre>$ldap_protocol</pre></a></li>
+<li class="property private "><a href="#property_ldap_resource" title="$ldap_resource() :: "><span class="description">Ldap resource link</span><pre>$ldap_resource</pre></a></li>
+<li class="property private "><a href="#property_ldap_ssl" title="$ldap_ssl() :: "><span class="description">Enable ssl</span><pre>$ldap_ssl</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -165,6 +158,10 @@
 <td>public</td>
 </tr>
 <tr>
+<th>package</th>
+<td><a href="../packages/IGBIllinois.html">IGBIllinois</a></td>
+</tr>
+<tr>
 <th>copyright</th>
 <td>Copyright (c) 2020 University of Illinois Board of Trustees</td>
 </tr>
@@ -172,33 +169,37 @@
 <th>license</th>
 <td><a href="https://opensource.org/licenses/GPL-3.0">GNU Public License v3</a></td>
 </tr>
-<tr>
-<th>package</th>
-<td><a href="../packages/Default.html">Default</a></td>
-</tr>
 </table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
-<h2>__construct()
-        </h2>
-<pre>__construct($host, $ssl, $port, $base_dn) </pre>
+<h2>Object constructor</h2>
+<pre>__construct(string $host, boolean $ssl, integer $port, string $base_dn) : \IGBIllinois\ldap</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
+<div class="long_description"><p>Makes initial connection to ldap database</p></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$host</h4></div>
-<div class="subelement argument"><h4>$ssl</h4></div>
-<div class="subelement argument"><h4>$port</h4></div>
-<div class="subelement argument"><h4>$base_dn</h4></div>
+<div class="subelement argument">
+<h4>$host</h4>
+<code>string</code><p>list of ldap hosts seperated by a space</p></div>
+<div class="subelement argument">
+<h4>$ssl</h4>
+<code>boolean</code><p>enable or disable ssl</p></div>
+<div class="subelement argument">
+<h4>$port</h4>
+<code>integer</code><p>ldap port the server listens on</p></div>
+<div class="subelement argument">
+<h4>$base_dn</h4>
+<code>string</code><p>Ldap base dn</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\IGBIllinois\ldap</code></div>
 </div></div>
 </div>
 <a id="method___destruct"></a><div class="element clickable method public method___destruct " data-toggle="collapse" data-target=".method___destruct .collapse" title="public">
-<h2>__destruct()
-        </h2>
-<pre>__destruct() </pre>
+<h2>Object deconstructor</h2>
+<pre>__destruct() : void</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"><p>Destroys ldap object</p></div></div></div>
 </div>
 <a id="method_bind"></a><div class="element clickable method public method_bind " data-toggle="collapse" data-target=".method_bind .collapse" title="public">
 <h2>bind()
@@ -401,61 +402,69 @@
 </div></div>
 </div>
 <a id="method_connect"></a><div class="element clickable method private method_connect " data-toggle="collapse" data-target=".method_connect .collapse" title="private">
-<h2>connect()
-        </h2>
-<pre>connect() </pre>
+<h2>Connects to ldap database</h2>
+<pre>connect() : boolean</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true on success, false otherwise</div>
+</div></div>
 </div>
 <a id="method_set_base_dn"></a><div class="element clickable method private method_set_base_dn " data-toggle="collapse" data-target=".method_set_base_dn .collapse" title="private">
-<h2>set_base_dn()
-        </h2>
-<pre>set_base_dn($ldap_base_dn) </pre>
+<h2>Sets base dn</h2>
+<pre>set_base_dn(string $ldap_base_dn) : void</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$ldap_base_dn</h4></div>
+<div class="subelement argument">
+<h4>$ldap_base_dn</h4>
+<code>string</code><p>Ldap base dn</p></div>
 </div></div>
 </div>
 <a id="method_set_host"></a><div class="element clickable method private method_set_host " data-toggle="collapse" data-target=".method_set_host .collapse" title="private">
-<h2>set_host()
-        </h2>
-<pre>set_host($ldap_host) </pre>
+<h2>Sets ldap hostname</h2>
+<pre>set_host(string $ldap_host) : void</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
+<div class="long_description"><p>Takes string of single or multiple hostnames and puts them in ldap_host array</p></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$ldap_host</h4></div>
+<div class="subelement argument">
+<h4>$ldap_host</h4>
+<code>string</code><p>string of ldap hosts seperated by a space</p></div>
 </div></div>
 </div>
 <a id="method_set_port"></a><div class="element clickable method private method_set_port " data-toggle="collapse" data-target=".method_set_port .collapse" title="private">
-<h2>set_port()
-        </h2>
-<pre>set_port($ldap_port) </pre>
+<h2>Sets Ldap port number</h2>
+<pre>set_port(integer $ldap_port) : void</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$ldap_port</h4></div>
+<div class="subelement argument">
+<h4>$ldap_port</h4>
+<code>integer</code><p>ldap port number, normally 389 or 636</p></div>
 </div></div>
 </div>
 <a id="method_set_ssl"></a><div class="element clickable method private method_set_ssl " data-toggle="collapse" data-target=".method_set_ssl .collapse" title="private">
-<h2>set_ssl()
-        </h2>
-<pre>set_ssl($ldap_ssl) </pre>
+<h2>Sets SSL</h2>
+<pre>set_ssl(boolean $ldap_ssl) : void</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$ldap_ssl</h4></div>
+<div class="subelement argument">
+<h4>$ldap_ssl</h4>
+<code>boolean</code><p>true to enable, false to disable</p></div>
 </div></div>
 </div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
 <a id="property_ldap_base_dn"> </a><div class="element clickable property private property_ldap_base_dn" data-toggle="collapse" data-target=".property_ldap_base_dn .collapse" title="private">
-<h2>$ldap_base_dn</h2>
-<pre>$ldap_base_dn </pre>
+<h2>Ldap base dn</h2>
+<pre>$ldap_base_dn : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -464,8 +473,8 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_ldap_bind_pass"> </a><div class="element clickable property private property_ldap_bind_pass" data-toggle="collapse" data-target=".property_ldap_bind_pass .collapse" title="private">
-<h2>$ldap_bind_pass</h2>
-<pre>$ldap_bind_pass </pre>
+<h2>Ldap bind password</h2>
+<pre>$ldap_bind_pass : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -474,8 +483,8 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_ldap_bind_user"> </a><div class="element clickable property private property_ldap_bind_user" data-toggle="collapse" data-target=".property_ldap_bind_user .collapse" title="private">
-<h2>$ldap_bind_user</h2>
-<pre>$ldap_bind_user </pre>
+<h2>Ldap bind user</h2>
+<pre>$ldap_bind_user : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -484,8 +493,8 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_ldap_host"> </a><div class="element clickable property private property_ldap_host" data-toggle="collapse" data-target=".property_ldap_host .collapse" title="private">
-<h2>$ldap_host</h2>
-<pre>$ldap_host </pre>
+<h2>an array of ldap hosts</h2>
+<pre>$ldap_host : array</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>array()</code></div>
@@ -494,8 +503,8 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_ldap_port"> </a><div class="element clickable property private property_ldap_port" data-toggle="collapse" data-target=".property_ldap_port .collapse" title="private">
-<h2>$ldap_port</h2>
-<pre>$ldap_port </pre>
+<h2>Ldap port</h2>
+<pre>$ldap_port : integer</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>389</code></div>
@@ -504,8 +513,8 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_ldap_protocol"> </a><div class="element clickable property private property_ldap_protocol" data-toggle="collapse" data-target=".property_ldap_protocol .collapse" title="private">
-<h2>$ldap_protocol</h2>
-<pre>$ldap_protocol </pre>
+<h2>Ldap protocol - 2,3</h2>
+<pre>$ldap_protocol : integer</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>3</code></div>
@@ -514,8 +523,8 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_ldap_resource"> </a><div class="element clickable property private property_ldap_resource" data-toggle="collapse" data-target=".property_ldap_resource .collapse" title="private">
-<h2>$ldap_resource</h2>
-<pre>$ldap_resource </pre>
+<h2>Ldap resource link</h2>
+<pre>$ldap_resource : resource</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>false</code></div>
@@ -524,8 +533,8 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_ldap_ssl"> </a><div class="element clickable property private property_ldap_ssl" data-toggle="collapse" data-target=".property_ldap_ssl .collapse" title="private">
-<h2>$ldap_ssl</h2>
-<pre>$ldap_ssl </pre>
+<h2>Enable ssl</h2>
+<pre>$ldap_ssl : boolean</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>false</code></div>
@@ -540,7 +549,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2020-10-22T15:22:33-05:00.<br></footer></div>
+            generated on 2020-10-22T16:33:50-05:00.<br></footer></div>
 </div>
 </body>
 </html>

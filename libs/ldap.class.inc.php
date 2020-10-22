@@ -12,26 +12,45 @@ namespace IGBIllinois;
 *
 * @author David Slater <dslater@illinois.edu>
 * @access public
+* @package IGBIllinois
 * @copyright Copyright (c) 2020 University of Illinois Board of Trustees
 * @license https://opensource.org/licenses/GPL-3.0 GNU Public License v3
-*
-*
 *
 */
 
 class ldap {
 
         ///////////////Private Variables//////////
+	/** @var resource Ldap resource link */ 
         private $ldap_resource = false;
+	/** @var array an array of ldap hosts */
         private $ldap_host = array();
+	/** @var string Ldap base dn */
         private $ldap_base_dn;
+	/** @var string Ldap bind user */
         private $ldap_bind_user;
+	/** @var string Ldap bind password */
         private $ldap_bind_pass;
+	/** @var boolean Enable ssl */
         private $ldap_ssl = false;
+	/** @var int Ldap port */
         private $ldap_port = 389;
+	/** @var int Ldap protocol - 2,3 */
         private $ldap_protocol = 3;    
+
         ////////////////Public Functions///////////
 
+	/**
+	* Object constructor
+	*
+	* Makes initial connection to ldap database
+	*
+	* @param string $host list of ldap hosts seperated by a space
+	* @param boolean $ssl enable or disable ssl
+	* @param int $port ldap port the server listens on
+	* @param string $base_dn Ldap base dn
+	* @return \IGBIllinois\ldap
+	*/
         public function __construct($host,$ssl,$port,$base_dn) {
                 $this->set_host($host);
                 $this->set_ssl($ssl);
@@ -40,7 +59,13 @@ class ldap {
                 $this->connect();
         }
 
-
+	/**
+	* Object deconstructor
+	*
+	* Destroys ldap object
+	* @param void
+	* @return void
+	*/
         public function __destruct() {}
 
         //get ldap functions
@@ -244,13 +269,48 @@ class ldap {
 
 	//////////////////Private Functions/////////////////////
 
+	/**
+	* Sets ldap hostname
+	*
+	* Takes string of single or multiple hostnames and puts them in ldap_host array
+	*
+	* @param string $ldap_host string of ldap hosts seperated by a space
+	* @return void
+	*/
 	private function set_host($ldap_host) { 
 		$this->ldap_host = explode(" ",$ldap_host);
 	}
+
+	/**
+	* Sets base dn
+	*
+	* @param string $ldap_base_dn Ldap base dn
+	* @return void
+	*/
         private function set_base_dn($ldap_base_dn) { $this->ldap_base_dn = $ldap_base_dn; }
+	
+	/**
+	* Sets SSL
+	*
+	* @param boolean $ldap_ssl true to enable, false to disable
+	* @return void
+	*/
         private function set_ssl($ldap_ssl) { $this->ldap_ssl = $ldap_ssl; }
+
+	/**
+	* Sets Ldap port number
+	*
+	* @param int $ldap_port ldap port number, normally 389 or 636
+	* @return void
+	*/
         private function set_port($ldap_port) { $this->ldap_port = $ldap_port; }
 
+	/**
+	* Connects to ldap database
+	*
+	* @param void
+	* @return boolean true on success, false otherwise
+	*/
 	private function connect() {
                 $ldap_uri = "";
                 if ($this->get_ssl()) {

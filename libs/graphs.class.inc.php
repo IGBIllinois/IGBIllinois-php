@@ -17,6 +17,7 @@ if( !function_exists('imageantialias') ) {
 	* This function doesn't exist if php doesn't have gd support
 	* @param resource $image image resource
 	* @param bool $enabled enable or disable imageantialias
+	* @package IGBIllinois
 	* @return bool always returns false
 	*/
 	function imageantialias( $image, $enabled ) {
@@ -31,6 +32,7 @@ if( !function_exists('imageantialias') ) {
 *
 * @author David Slater <dslater@illinois.edu>
 * @access public
+* @package IGBIllinois
 * @copyright Copyright (c) 2020 University of Illinois Board of Trustees
 * @license https://opensource.org/licenses/GPL-3.0 GNU Public License v3
 * @static
