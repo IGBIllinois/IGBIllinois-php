@@ -2,6 +2,19 @@
 
 namespace IGBIllinois;
 
+/**
+* session class is a class to interface with php session variables
+*
+* Provides all necessary functions to create, use and destroy php session variables
+*
+* @author David Slater <dslater@illinois.edu>
+* @access public
+* @copyright Copyright (c) 2020 University of Illinois Board of Trustees
+* @license https://opensource.org/licenses/GPL-3.0 GNU Public License v3
+*
+*
+*
+*/
 class session {
 
 

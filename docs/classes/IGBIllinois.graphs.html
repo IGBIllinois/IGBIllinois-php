@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>API Documentation » \IGBIllinois\graphs</title>
+<title>IGBIllinois-php API » \IGBIllinois\graphs</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -15,7 +15,7 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">API Documentation</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">IGBIllinois-php API</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
@@ -31,7 +31,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">123</span></a></li>
+                <span class="label label-info">87</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -61,17 +61,13 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_accumulated_bar_plot" title="accumulated_bar_plot() :: "><span class="description">accumulated_bar_plot()
-        </span><pre>accumulated_bar_plot()</pre></a></li>
-<li class="method public "><a href="#method_bar_graph" title="bar_graph() :: "><span class="description">bar_graph()
-        </span><pre>bar_graph()</pre></a></li>
-<li class="method public "><a href="#method_pie_graph" title="pie_graph() :: "><span class="description">pie_graph()
-        </span><pre>pie_graph()</pre></a></li>
+<li class="method public "><a href="#method_accumulated_bar_plot" title="accumulated_bar_plot() :: Creates accumulated bar plot"><span class="description">Creates accumulated bar plot</span><pre>accumulated_bar_plot()</pre></a></li>
+<li class="method public "><a href="#method_bar_graph" title="bar_graph() :: Creates bar graph"><span class="description">Creates bar graph</span><pre>bar_graph()</pre></a></li>
+<li class="method public "><a href="#method_pie_graph" title="pie_graph() :: Creates pie chart"><span class="description">Creates pie chart</span><pre>pie_graph()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
-                    <ul><li class="method private "><a href="#method_bar_plot" title="bar_plot() :: "><span class="description">bar_plot()
-        </span><pre>bar_plot()</pre></a></li></ul>
+                    <ul><li class="method private "><a href="#method_bar_plot" title="bar_plot() :: Creates bar plot"><span class="description">Creates bar plot</span><pre>bar_plot()</pre></a></li></ul>
 </li>
 </ul>
 </div>
@@ -86,67 +82,129 @@
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description"></p>
+<p class="short_description">graphs class creates graphs using JpGraph, https://jpgraph.net/</p>
 <div class="details">
-<div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<div class="long_description"><p>Provides functions to generate bar and pie charts</p></div>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="mailto:dslater@illinois.edu">David Slater</a></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>copyright</th>
+<td>Copyright (c) 2020 University of Illinois Board of Trustees</td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="https://opensource.org/licenses/GPL-3.0">GNU Public License v3</a></td>
+</tr>
+<tr>
+<th>static</th>
+<td></td>
+</tr>
+<tr>
 <th>package</th>
 <td><a href="../packages/Default.html">Default</a></td>
-</tr></table>
+</tr>
+</table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method_accumulated_bar_plot"></a><div class="element clickable method public method_accumulated_bar_plot " data-toggle="collapse" data-target=".method_accumulated_bar_plot .collapse" title="public">
-<h2>accumulated_bar_plot()
-        </h2>
-<pre>accumulated_bar_plot($input_data, $xaxis, $yaxis, $title<code> = ""</code>, $legend<code> = array()</code>) </pre>
+<h2>Creates accumulated bar plot</h2>
+<pre>accumulated_bar_plot(array $input_data, string $xaxis, string $yaxis, string $title<code> = ""</code>, array $legend<code> = array()</code>) : void</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
+<div class="long_description"><p>Generates a bar plot jpeg file and outputs it</p></div>
+<table class="table table-bordered"><tr>
+<th>static</th>
+<td></td>
+</tr></table>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$input_data</h4></div>
-<div class="subelement argument"><h4>$xaxis</h4></div>
-<div class="subelement argument"><h4>$yaxis</h4></div>
-<div class="subelement argument"><h4>$title</h4></div>
-<div class="subelement argument"><h4>$legend</h4></div>
+<div class="subelement argument">
+<h4>$input_data</h4>
+<code>array</code><p>associate array of input data</p></div>
+<div class="subelement argument">
+<h4>$xaxis</h4>
+<code>string</code><p>X axis title</p></div>
+<div class="subelement argument">
+<h4>$yaxis</h4>
+<code>string</code><p>Y axis title</p></div>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><p>title for graph</p></div>
+<div class="subelement argument">
+<h4>$legend</h4>
+<code>array</code><p>associative array for plot legend</p></div>
 </div></div>
 </div>
 <a id="method_bar_graph"></a><div class="element clickable method public method_bar_graph " data-toggle="collapse" data-target=".method_bar_graph .collapse" title="public">
-<h2>bar_graph()
-        </h2>
-<pre>bar_graph($input_data, $xaxis, $yaxis, $title<code> = ""</code>) </pre>
+<h2>Creates bar graph</h2>
+<pre>bar_graph(array $input_data, string $xaxis, string $yaxis, string $title<code> = ""</code>) : void</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
+<div class="long_description"><p>Generates a bar graph as a jpeg file and outputs it</p></div>
+<table class="table table-bordered"><tr>
+<th>static</th>
+<td></td>
+</tr></table>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$input_data</h4></div>
-<div class="subelement argument"><h4>$xaxis</h4></div>
-<div class="subelement argument"><h4>$yaxis</h4></div>
-<div class="subelement argument"><h4>$title</h4></div>
+<div class="subelement argument">
+<h4>$input_data</h4>
+<code>array</code><p>associate array of input data</p></div>
+<div class="subelement argument">
+<h4>$xaxis</h4>
+<code>string</code><p>X axis title</p></div>
+<div class="subelement argument">
+<h4>$yaxis</h4>
+<code>string</code><p>Y axis title</p></div>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><p>title for graph</p></div>
 </div></div>
 </div>
 <a id="method_pie_graph"></a><div class="element clickable method public method_pie_graph " data-toggle="collapse" data-target=".method_pie_graph .collapse" title="public">
-<h2>pie_graph()
-        </h2>
-<pre>pie_graph($input_data, $title<code> = ""</code>) </pre>
+<h2>Creates pie chart</h2>
+<pre>pie_graph(array $input_data, string $title<code> = ""</code>) : void</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
+<div class="long_description"><p>Generates a pie chart jpeg file and outputs it</p></div>
+<table class="table table-bordered"><tr>
+<th>static</th>
+<td></td>
+</tr></table>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$input_data</h4></div>
-<div class="subelement argument"><h4>$title</h4></div>
+<div class="subelement argument">
+<h4>$input_data</h4>
+<code>array</code><p>associate array of input data</p></div>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><p>title for graph</p></div>
 </div></div>
 </div>
 <a id="method_bar_plot"></a><div class="element clickable method private method_bar_plot " data-toggle="collapse" data-target=".method_bar_plot .collapse" title="private">
-<h2>bar_plot()
-        </h2>
-<pre>bar_plot($input_data, $yaxis, $legend<code> = ""</code>) </pre>
+<h2>Creates bar plot</h2>
+<pre>bar_plot(array $input_data, string $yaxis, array $legend<code> = ""</code>) : void</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
+<div class="long_description"><p>Generates a bar plot jpeg file and outputs it</p></div>
+<table class="table table-bordered"><tr>
+<th>static</th>
+<td></td>
+</tr></table>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$input_data</h4></div>
-<div class="subelement argument"><h4>$yaxis</h4></div>
-<div class="subelement argument"><h4>$legend</h4></div>
+<div class="subelement argument">
+<h4>$input_data</h4>
+<code>array</code><p>associate array of input data</p></div>
+<div class="subelement argument">
+<h4>$yaxis</h4>
+<code>string</code><p>Y axis title</p></div>
+<div class="subelement argument">
+<h4>$legend</h4>
+<code>array</code><p>associative array for plot legend</p></div>
 </div></div>
 </div>
 </div>
@@ -156,7 +214,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2020-10-22T11:00:02-05:00.<br></footer></div>
+            generated on 2020-10-22T14:42:49-05:00.<br></footer></div>
 </div>
 </body>
 </html>

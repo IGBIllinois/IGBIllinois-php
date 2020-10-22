@@ -1,6 +1,20 @@
 <?php
 namespace IGBIllinois;
 
+/**
+* ldap class interacts with ldap server using built in php ldap functions
+*
+* Provides all necessary functions to connect and run ldap queries
+*
+* @author David Slater <dslater@illinois.edu>
+* @access public
+* @copyright Copyright (c) 2020 University of Illinois Board of Trustees
+* @license https://opensource.org/licenses/GPL-3.0 GNU Public License v3
+*
+*
+*
+*/
+
 class ldap {
 
         ///////////////Private Variables//////////

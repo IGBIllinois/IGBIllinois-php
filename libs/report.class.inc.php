@@ -1,16 +1,34 @@
 <?php
-
 namespace IGBIllinois;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
+/**
+* report class generates Excel, PDF, and CSV files using PHPSpreadsheet, https://phpspreadsheet.readthedocs.io/en/latest/
+*
+* Provides functions to generate Excel 2003, Excel 2007, PDF, and CSV files
+*
+* @author David Slater <dslater@illinois.edu>
+* @access public
+* @copyright Copyright (c) 2020 University of Illinois Board of Trustees
+* @license https://opensource.org/licenses/GPL-3.0 GNU Public License v3
+* @static
+*
+*
+*/
 class report {
 
-	//create_excel_2003_report()
-	//$data - double array - data values
-	//$filename - string - name of the file to create
-	//prompts to save an excel 2003 report.
+	/**
+	* Creates an Excel 2003 Report File.
+	*
+	* It outputs it using php headers
+	*
+	* @param array $data an associative array of data
+	* @param string $filename filename off the output file
+	* @static
+	* @return void
+	*/
 	public static function create_excel_2003_report($data,$filename) {
 		ob_clean();
 		$excel_file = self::create_generic_excel($data);
@@ -26,10 +44,16 @@ class report {
 
 	}
 
-	//create_excel_2007_report()
-	//$data - double array - data values
-	//$filename = string - name of the file to create
-	//prompts to save an excel 2007 report.
+	/**
+	* Creates an Excel 2007 Report File.
+	*
+	* It outputs it using php headers
+	*
+	* @param array $data an associative array of data
+        * @param string $filename filename off the output file
+        * @static
+        * @return void
+	*/
 	public static function create_excel_2007_report($data,$filename) {
 		ob_clean();
 		$excel_file = self::create_generic_excel($data);
@@ -44,10 +68,16 @@ class report {
 		exit();
 	}
 
-        //create_pdf_report()
-        //$data - double array - data values
-        //$filename = string - name of the file to create
-        //prompts to save an PDF report.
+        /**
+        * Creates a PDF Report File.
+        *
+	* It outputs it using php headers
+	*
+        * @param array $data an associative array of data
+        * @param string $filename filename off the output file
+        * @static
+        * @return void
+        */
         public static function create_pdf_report($data,$filename) {
                 ob_clean();
                 $excel_file = self::create_generic_excel($data);
@@ -62,12 +92,15 @@ class report {
 		exit();
         }
 
-	//create_generic_excel()
-	//$data - double array - data values
-	//returns a PHPExcel object with data in correct columns and rows.
-	//this function is used with create_excel_2007_report and create_excel_2003_report functions
-	//to reuse common code.
-	public static function create_generic_excel($data) {
+        /**
+        * Creates a generic excel report.
+        *
+	* Used by by create_excel_2003_report() and create_excel_2007_report()
+        * @param array $data an associative array of data
+        * @static
+        * @return \PhpOffice\PhpSpreadsheet\Spreadsheet;
+        */
+	private static function create_generic_excel($data) {
 
 		$excel_file = new Spreadsheet();
 		$excel_file->setActiveSheetIndex(0);
@@ -102,10 +135,17 @@ class report {
 
 	}
 
-	//create_csv_report()
-	//$data - double array of data
-	//$filename - name of file to create
-	//creates a csv file with data and prompts you to save it.
+	/**
+        * Creates a CSV Report File.
+	*
+        * Outputs it using php headers
+	*
+        * @param array $data an associative array of data
+        * @param string $filename filename off the output file
+        * @static
+        * @return void
+        */
+
 	public static function create_csv_report($data,$filename) {
 		ob_clean();
 		$delimiter = ",";

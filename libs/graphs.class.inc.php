@@ -13,8 +13,33 @@ if( !function_exists('imageantialias') ) {
     }
 }
 
+/**
+* graphs class creates graphs using JpGraph, https://jpgraph.net/
+*
+* Provides functions to generate bar and pie charts
+*
+* @author David Slater <dslater@illinois.edu>
+* @access public
+* @copyright Copyright (c) 2020 University of Illinois Board of Trustees
+* @license https://opensource.org/licenses/GPL-3.0 GNU Public License v3
+* @static
+*
+*
+*/
 class graphs {
 
+	/**
+	* Creates bar graph
+	* 
+	* Generates a bar graph as a jpeg file and outputs it
+	*
+	* @param array $input_data associate array of input data
+	* @param string $xaxis X axis title
+	* @param string $yaxis Y axis title
+	* @param string $title title for graph
+	* @static
+	* @return void
+	*/
 	public static function bar_graph($input_data,$xaxis,$yaxis,$title = "") {
                 $data_legend;
 
@@ -46,6 +71,19 @@ class graphs {
                 $graph->Stroke();
 	 }
 
+	/**
+        * Creates accumulated bar plot
+        *
+        * Generates a bar plot jpeg file and outputs it
+        *
+        * @param array $input_data associate array of input data
+        * @param string $xaxis X axis title
+        * @param string $yaxis Y axis title
+        * @param string $title title for graph
+        * @param array $legend associative array for plot legend
+	* @static
+        * @return void
+        */
 
 	public static function accumulated_bar_plot($input_data,$xaxis,$yaxis,
 				$title = "",$legend = array()) {
@@ -88,6 +126,17 @@ class graphs {
 
 
 	}
+
+        /**
+        * Creates pie chart
+        *
+        * Generates a pie chart jpeg file and outputs it
+        *
+        * @param array $input_data associate array of input data
+        * @param string $title title for graph
+	* @static
+        * @return void
+        */
 	public static function pie_graph($input_data,$title = "") {
 	        $data_legend;
 		$data;
@@ -120,7 +169,17 @@ class graphs {
         	$graph->Stroke();
 	}
 
-
+        /**
+        * Creates bar plot
+        *
+        * Generates a bar plot jpeg file and outputs it
+        *
+        * @param array $input_data associate array of input data
+        * @param string $yaxis Y axis title
+        * @param array $legend associative array for plot legend
+	* @static
+        * @return void
+        */
 	private static function bar_plot($input_data,$yaxis,$legend = "") {
 		if (count($input_data) > 0) {
                         foreach($input_data as $row) {
