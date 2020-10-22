@@ -28,6 +28,7 @@ use IGBIllinois;
 ```
 
 ## API Documentation
+* Documentation created using phpdocumentor [https://www.phpdoc.org/](https://www.phpdoc.org/)
 * API Documentation located at [https://igbillinois.github.io/IGBIllinois-php/](https://igbillinois.github.io/IGBIllinois-php/)
 * To regenerate documentation, run 
 ```
