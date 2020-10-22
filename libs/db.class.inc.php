@@ -211,6 +211,13 @@ class db {
 
         }
 
+	/**
+	* Retrieves version number of mysql server
+	*
+	* @param void
+	*
+	* @return string
+	*/
 	public function get_version() {
 		try {
 			return $this->link->getAttribute(\PDO::ATTR_SERVER_VERSION);
