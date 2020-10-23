@@ -157,11 +157,11 @@ class ldap {
 		$result = false;
 		if ($this->get_connection()) {
 			if (($rdn != "") && ($password != "")) {
-				$result = @ldap_bind($this->get_resource(), $rdn, $password);
+				$result = \@ldap_bind($this->get_resource(), $rdn, $password);
 
 			}
 			elseif (($rdn == "") && ($password == "")) {
-				$result = @ldap_bind($this->get_resource());
+				$result = \@ldap_bind($this->get_resource());
 			}
 		}
 		return $result;
@@ -183,12 +183,12 @@ class ldap {
 			$ou = $this->get_base_dn();
 		}
 		if (($this->get_connection()) && ($attributes != "")) {
-	                $ldap_result = ldap_search($this->get_resource(),$ou,$filter,$attributes);
-	                $result = ldap_get_entries($this->get_resource(),$ldap_result);
+	                $ldap_result = \ldap_search($this->get_resource(),$ou,$filter,$attributes);
+	                $result = \ldap_get_entries($this->get_resource(),$ldap_result);
 		}
 		elseif (($this->get_connection()) && ($attributes == "")) {
-			$ldap_result = ldap_search($this->get_resource(),$ou,$filter);
-                        $result = ldap_get_entries($this->get_resource(),$ldap_result);
+			$ldap_result = \ldap_search($this->get_resource(),$ou,$filter);
+                        $result = \ldap_get_entries($this->get_resource(),$ldap_result);
 
 		}
 		return $result;
@@ -203,7 +203,7 @@ class ldap {
 	* @return bool true on success, false otherwise
 	*\
 	public function replace($rdn,$entries) {
-		if(ldap_mod_replace($this->get_resource(), $rdn, $entries))
+		if(\ldap_mod_replace($this->get_resource(), $rdn, $entries))
                 {
                         return true;
                 }
