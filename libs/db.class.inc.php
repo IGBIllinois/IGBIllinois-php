@@ -131,7 +131,7 @@ class db {
 	* Runs insert query on database
 	*
 	* @param string $sql sql query to run on the database
-	* @param array $parameters an array of PDO prepared parameters
+	* @param string[] $parameters an array of PDO prepared parameters
 	*
 	* @throws \PDOException
 	*
@@ -155,7 +155,7 @@ class db {
 	* Builds insert query using associative array
 	*
 	* @param string $table table to insert data into
-	* @param array $data associative array with key being table colume and value being the data
+	* @param string[] $data associative array with key being table colume and value being the data
 	* 
 	* @throws \PDOException
 	*
@@ -196,7 +196,7 @@ class db {
 	* Runs a non select or insert query on database
 	*
 	* @param string $sql sql string to run
-	* @param array $parameters an array of PDO prepared parameters
+	* @param string[] $parameters an array of PDO prepared parameters
 	*
 	* @throws \PDOException
 	*
@@ -218,11 +218,11 @@ class db {
 	* Runs sql query for SELECT queries
 	*
 	* @param string $sql sql query to run
-	* @param array $parameters an array of PDO prepared parameters
+	* @param string[] $parameters an array of PDO prepared parameters
 	*
 	* @throws \PDOException
 	*
-	* @return array an associative array of results
+	* @return string[] an associative array of results
 	*/
 	public function query($sql,$parameters=array()) {
 		try {
@@ -272,7 +272,7 @@ class db {
 	* Runs mysql transaction
 	*
 	* @param string $sql sql string to run
-	* @param array $parameters an array of PDO prepared parameters
+	* @param string[] $parameters an array of PDO prepared parameters
 	*
 	* @throws \PDOException
 	*
@@ -297,7 +297,7 @@ class db {
 	* Runs update query on table
 	*
 	* @param string $table name of table
-	* @param array $parameters an array of PDO prepared parameters
+	* @param string[] $parameters an array of PDO prepared parameters
 	* @param string $where_key column name to use in where clause
 	* @param string $where_value value column needs to be equal to
 	*

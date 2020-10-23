@@ -68,29 +68,91 @@ class ldap {
 	*/
         public function __destruct() {}
 
-        //get ldap functions
+	/**
+	* gets ldap host
+	*
+	* @param void
+	* @return string[]
+	*/
         public function get_host() { return $this->ldap_host; }
+	
+	/**
+	* gets ldap base dn
+	*
+	* @param void
+	* @return string
+	*/
         public function get_base_dn() { return $this->ldap_base_dn; }
+
+	/**
+	* gets bind user
+	*
+	* @param void
+	* @return string
+	*/
         public function get_bind_user() { return $this->ldap_bind_user; }
+
+	/**
+	* gets if ssl is enabled
+	*
+	* @param void
+	* @return bool true if enabled, false otherwise
+	*/
         public function get_ssl() { return $this->ldap_ssl; }
+
+	/** 
+	* gets ldap port
+	*
+	* @param void
+	* @return int
+	*/
         public function get_port() { return $this->ldap_port; }
+
+	/**
+	* gets ldap protocol
+	* 
+	* @param void
+	* @return int 2 or 3
+	*\
         public function get_protocol() { return $this->ldap_protocol; }
+
+	/**
+	* gets ldap resource
+	*
+	* @param void
+	* @return resource
+	*\
         public function get_resource() { return $this->ldap_resource; }
+
+	/**
+	* gets if ldap is connected
+	*
+	* @param void
+	* @return bool true if connected, false otherwise
+	*/
 	public function get_connection() {
 			return is_resource($this->ldap_resource);
 	}
-        //set ldap functions
-        public function set_protocol($ldap_protocol) {
+        
+	/**
+	* sets ldap protocol
+	*
+	* @param int $ldap_protocol protocol version 2 or 3
+	* @return void
+	*\
+	public function set_protocol($ldap_protocol) {
                 $this->ldap_protocol = $ldap_protocol;
                 ldap_set_option($this->get_resource(),LDAP_OPT_PROTOCOL_VERSION,$ldap_protocol);
         }
 
 
-	//bind()
-	//binds to the ldap server as specified user.  If no username/password is provide, binds anonymously
-	//$rdn - full rdn of user
-	//$password - password
-	//returns true if successful, false otherwise.
+	/**
+	* binds to ldap server
+	*
+	* @param string $rdn full rdn of the user
+	* @param string $password user password
+	* @return bool true on success, false otherwise
+	*\
         public function bind($rdn = "",$password = "") {
 		$result = false;
 		if ($this->get_connection()) {
@@ -107,8 +169,15 @@ class ldap {
         }
 
 
-
-        public function search($filter,$ou = "",$attributes = "") {
+	/**
+	* searches ldap server
+	*
+	* @param string $filter ldap search filter
+	* @param string $ou organizational unit to search
+	* @param string[] $attributes an array of attributes to retrieve
+	* @return resource ldap search result identifier
+	*\
+        public function search($filter,$ou = "",$attributes = array()) {
 		$result = false;
 		if ($ou == "") {
 			$ou = $this->get_base_dn();
@@ -126,7 +195,13 @@ class ldap {
 
         }
 
-
+	/**
+	* replace ldap entry values with new values
+	*
+	* @param string $rdn full rdn of entry
+	* @param string[] $entries an associative array of attributes and values to replace
+	* @return bool true on success, false otherwise
+	*\
 	public function replace($rdn,$entries) {
 		if(ldap_mod_replace($this->get_resource(), $rdn, $entries))
                 {
@@ -137,6 +212,12 @@ class ldap {
                 }
 	}
 
+	/**
+	* checks if the ldap user exists
+	*
+	* @param string $username username of the user
+	* @return bool true if exist, false otherwise
+	*\
 	public function is_ldap_user($username) {
                 $username = trim(rtrim($username));
                 $filter = "(uid=" . $username . ")";
@@ -152,6 +233,12 @@ class ldap {
 
         }
 
+	/**
+	* gets group members of a ldap group
+	*
+	* @param string $group groupname
+	* @return string[] array of group members
+	*\
         public function get_group_members($group) {
                 if ($this->get_connection()) {
                         $group = trim(rtrim($group));
@@ -167,12 +254,26 @@ class ldap {
                 }
         }
 
+	/**
+	* checks if user is member of group
+	*
+	* @param string $username username
+	* @param string $group group name
+	* @return bool true if in group, false otherwise
+	*\
         public function is_group_member($username,$group) {
                 $group_members = $this->get_group_members($group);
                 return in_array($username,$group_members);
 
         }
-	 public function get_user_groups($username) {
+
+	/**
+	* gets groups a user is a member of
+	*
+	* @param string $username username
+	* @return string[] array of groups
+	*\
+	public function get_user_groups($username) {
                 if ($this->get_connection()) {
                         $username = trim(rtrim($username));
                         $filter = "(&(cn=*)(memberUid=" . $username . "))";
@@ -188,6 +289,13 @@ class ldap {
 
 
         }
+
+	/**
+	* checks if group exists
+	*
+	* @param string $group name of group
+	* @return bool true if exist, false otherwise
+	*\
         public function get_group_exists($group) {
                 if ($this->get_connection()) {
                         $group = trim(rtrim($group));
@@ -202,6 +310,12 @@ class ldap {
 
         }
 
+	/**
+	* retrieves user's home folder attribute
+	* 
+	* @param string $username username
+	* @return string|bool home folder, false if attribute doesn't exist
+	*\
 	public function get_home_dir($username) {
                 if ($this->get_connection()) {
                         $username = trim(rtrim($username));
@@ -220,6 +334,12 @@ class ldap {
 
         }
 
+	/**
+	* retrieves user's email attribute
+	*
+	* @param string $username username
+	* @return string|bool email address, false if attribute doesn't exist
+	*\
         public function get_email($username) {
                 if ($this->get_connection()) {
                         $username = trim(rtrim($username));
@@ -238,6 +358,12 @@ class ldap {
 
         }
 	
+	/**
+	* retrieves all users
+	*
+	* @param void
+	* @return string[] an array of users
+	*/
 	public function get_all_users() {
 		$users_array = array();
 		if ($this->get_connection()) {
@@ -255,6 +381,12 @@ class ldap {
 
 	}
 
+	/**
+	* retrieves users full name, cn attribute
+	*
+	* @param string $username username
+	* @return string|bool fullname, false if attribute doesn't exist
+	*/
         public function get_ldap_full_name($username) {
                 if ($this->get_connection()) {
                         $username = trim(rtrim($username));
@@ -267,7 +399,6 @@ class ldap {
                 }
         }
 
-	//////////////////Private Functions/////////////////////
 
 	/**
 	* Sets ldap hostname

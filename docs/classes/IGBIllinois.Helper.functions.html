@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>IGBIllinois-php API » \IGBIllinois\report</title>
+<title>IGBIllinois-php API » \IGBIllinois\Helper\functions</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -63,31 +63,36 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_create_csv_report" title="create_csv_report() :: Creates a CSV Report File."><span class="description">Creates a CSV Report File.</span><pre>create_csv_report()</pre></a></li>
-<li class="method public "><a href="#method_create_excel_2003_report" title="create_excel_2003_report() :: Creates an Excel 2003 Report File."><span class="description">Creates an Excel 2003 Report File.</span><pre>create_excel_2003_report()</pre></a></li>
-<li class="method public "><a href="#method_create_excel_2007_report" title="create_excel_2007_report() :: Creates an Excel 2007 Report File."><span class="description">Creates an Excel 2007 Report File.</span><pre>create_excel_2007_report()</pre></a></li>
-<li class="method public "><a href="#method_create_pdf_report" title="create_pdf_report() :: Creates a PDF Report File."><span class="description">Creates a PDF Report File.</span><pre>create_pdf_report()</pre></a></li>
+<li class="method public "><a href="#method_convert_bytes" title="convert_bytes() :: Converts various sizes to bytes"><span class="description">Converts various sizes to bytes</span><pre>convert_bytes()</pre></a></li>
+<li class="method public "><a href="#method_get_max_upload" title="get_max_upload() :: Gets maximum upload size from php.ini in bytes"><span class="description">Gets maximum upload size from php.ini in bytes</span><pre>get_max_upload()</pre></a></li>
+<li class="method public "><a href="#method_get_php_extensions" title="get_php_extensions() :: Retrieves enabled php extensions"><span class="description">Retrieves enabled php extensions</span><pre>get_php_extensions()</pre></a></li>
+<li class="method public "><a href="#method_get_php_upload_error" title="get_php_upload_error() :: Gets php upload error message"><span class="description">Gets php upload error message</span><pre>get_php_upload_error()</pre></a></li>
+<li class="method public "><a href="#method_get_webserver_version" title="get_webserver_version() :: Gets Webserver Version"><span class="description">Gets Webserver Version</span><pre>get_webserver_version()</pre></a></li>
 </ul>
 </li>
-<li class="nav-header private">» Private
-                    <ul><li class="method private "><a href="#method_create_generic_excel" title="create_generic_excel() :: Creates a generic excel report."><span class="description">Creates a generic excel report.</span><pre>create_generic_excel()</pre></a></li></ul>
+<li class="nav-header">
+<i title="Constants" class="icon-custom icon-constant"></i> Constants
+                    <ul><li class="constant  "><a href="#constant_PHP_FILE_UPLOAD_ERRORS" title="PHP_FILE_UPLOAD_ERRORS() :: const"><span class="description">const</span><pre>PHP_FILE_UPLOAD_ERRORS</pre></a></li></ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\IGBIllinois\report"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\IGBIllinois\Helper\functions"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/IGBIllinois.html">IGBIllinois</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/IGBIllinois.Helper.html">Helper</a>
+</li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/IGBIllinois.report.html">report</a>
+<span class="divider">\</span><a href="../classes/IGBIllinois.Helper.functions.html">functions</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">report class generates Excel, PDF, and CSV files using PHPSpreadsheet, https://phpspreadsheet.readthedocs.io/en/latest/</p>
+<p class="short_description">function class has many helper functions</p>
 <div class="details">
-<div class="long_description"><p>Provides functions to generate Excel 2003, Excel 2007, PDF, and CSV files</p></div>
+<div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>author</th>
@@ -99,7 +104,7 @@
 </tr>
 <tr>
 <th>package</th>
-<td><a href="../packages/IGBIllinois.html">IGBIllinois</a></td>
+<td><a href="../packages/IGBIllinois.Helper.html">IGBIllinois\Helper</a></td>
 </tr>
 <tr>
 <th>copyright</th>
@@ -116,99 +121,75 @@
 </table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_create_csv_report"></a><div class="element clickable method public method_create_csv_report " data-toggle="collapse" data-target=".method_create_csv_report .collapse" title="public">
-<h2>Creates a CSV Report File.</h2>
-<pre>create_csv_report(array $data, string $filename) : void</pre>
+<a id="method_convert_bytes"></a><div class="element clickable method public method_convert_bytes " data-toggle="collapse" data-target=".method_convert_bytes .collapse" title="public">
+<h2>Converts various sizes to bytes</h2>
+<pre>convert_bytes(string $size) : integer</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>Outputs it using php headers</p></div>
-<table class="table table-bordered"><tr>
-<th>static</th>
-<td></td>
-</tr></table>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$data</h4>
-<code>array</code><p>an associative array of data</p></div>
-<div class="subelement argument">
-<h4>$filename</h4>
-<code>string</code><p>filename off the output file</p></div>
-</div></div>
-</div>
-<a id="method_create_excel_2003_report"></a><div class="element clickable method public method_create_excel_2003_report " data-toggle="collapse" data-target=".method_create_excel_2003_report .collapse" title="public">
-<h2>Creates an Excel 2003 Report File.</h2>
-<pre>create_excel_2003_report(array $data, string $filename) : void</pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>It outputs it using php headers</p></div>
-<table class="table table-bordered"><tr>
-<th>static</th>
-<td></td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$data</h4>
-<code>array</code><p>an associative array of data</p></div>
-<div class="subelement argument">
-<h4>$filename</h4>
-<code>string</code><p>filename off the output file</p></div>
-</div></div>
-</div>
-<a id="method_create_excel_2007_report"></a><div class="element clickable method public method_create_excel_2007_report " data-toggle="collapse" data-target=".method_create_excel_2007_report .collapse" title="public">
-<h2>Creates an Excel 2007 Report File.</h2>
-<pre>create_excel_2007_report(array $data, string $filename) : void</pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>It outputs it using php headers</p></div>
-<table class="table table-bordered"><tr>
-<th>static</th>
-<td></td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$data</h4>
-<code>array</code><p>an associative array of data</p></div>
-<div class="subelement argument">
-<h4>$filename</h4>
-<code>string</code><p>filename off the output file</p></div>
-</div></div>
-</div>
-<a id="method_create_pdf_report"></a><div class="element clickable method public method_create_pdf_report " data-toggle="collapse" data-target=".method_create_pdf_report .collapse" title="public">
-<h2>Creates a PDF Report File.</h2>
-<pre>create_pdf_report(array $data, string $filename) : void</pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>It outputs it using php headers</p></div>
-<table class="table table-bordered"><tr>
-<th>static</th>
-<td></td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$data</h4>
-<code>array</code><p>an associative array of data</p></div>
-<div class="subelement argument">
-<h4>$filename</h4>
-<code>string</code><p>filename off the output file</p></div>
-</div></div>
-</div>
-<a id="method_create_generic_excel"></a><div class="element clickable method private method_create_generic_excel " data-toggle="collapse" data-target=".method_create_generic_excel .collapse" title="private">
-<h2>Creates a generic excel report.</h2>
-<pre>create_generic_excel(array $data) : \PhpOffice\PhpSpreadsheet\Spreadsheet;</pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>Used by by create_excel_2003_report() and create_excel_2007_report()</p></div>
-<table class="table table-bordered"><tr>
-<th>static</th>
-<td></td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$data</h4>
-<code>array</code><p>an associative array of data</p></div>
+<h4>$size</h4>
+<code>string</code><p>string variable with size + unit suffix</p></div>
 <h3>Returns</h3>
-<div class="subelement response"><code>\PhpOffice\PhpSpreadsheet\Spreadsheet;</code></div>
+<div class="subelement response"><code>integer</code></div>
 </div></div>
+</div>
+<a id="method_get_max_upload"></a><div class="element clickable method public method_get_max_upload " data-toggle="collapse" data-target=".method_get_max_upload .collapse" title="public">
+<h2>Gets maximum upload size from php.ini in bytes</h2>
+<pre>get_max_upload() : integer</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>params</th>
+<td>void</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a id="method_get_php_extensions"></a><div class="element clickable method public method_get_php_extensions " data-toggle="collapse" data-target=".method_get_php_extensions .collapse" title="public">
+<h2>Retrieves enabled php extensions</h2>
+<pre>get_php_extensions() : array&lt;mixed,string&gt;</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>array&lt;mixed,string&gt;</code></div>
+</div></div>
+</div>
+<a id="method_get_php_upload_error"></a><div class="element clickable method public method_get_php_upload_error " data-toggle="collapse" data-target=".method_get_php_upload_error .collapse" title="public">
+<h2>Gets php upload error message</h2>
+<pre>get_php_upload_error(integer | null $index<code> = null</code>) : string</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$index</h4>
+<code>integer</code><code>null</code><p>PHP upload error code</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_get_webserver_version"></a><div class="element clickable method public method_get_webserver_version " data-toggle="collapse" data-target=".method_get_webserver_version .collapse" title="public">
+<h2>Gets Webserver Version</h2>
+<pre>get_webserver_version() : string</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<h3>
+<i title="Constants" class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_PHP_FILE_UPLOAD_ERRORS"> </a><div class="element clickable constant  constant_PHP_FILE_UPLOAD_ERRORS" data-toggle="collapse" data-target=".constant_PHP_FILE_UPLOAD_ERRORS .collapse" title="">
+<h2>const</h2>
+<pre>PHP_FILE_UPLOAD_ERRORS = array(0 =&gt; 'There is no error, the file uploaded with success', 1 =&gt; 'The uploaded file exceeds the upload_max_filesize directive in php.ini', 2 =&gt; 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form', 3 =&gt; 'The uploaded file was only partially uploaded', 4 =&gt; 'No file was uploaded', 6 =&gt; 'Missing a temporary folder', 7 =&gt; 'Failed to write file to disk.', 8 =&gt; 'A PHP extension stopped the file upload.') </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 </div>
 </div>
