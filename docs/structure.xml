@@ -1155,7 +1155,7 @@
       </method>
     </class>
   </file>
-  <file path="ldap.class.inc.php" generated-path="ldap.class.inc.html" hash="826fb9410d653cd44c191029999977ba" package="Default">
+  <file path="ldap.class.inc.php" generated-path="ldap.class.inc.html" hash="3f6ca7686918e1859dab204c1fa4cddb" package="Default">
     <docblock line="0">
       <description>ldap class interacts with ldap server using built in php ldap functions</description>
       <long-description></long-description>
@@ -1397,123 +1397,307 @@
           </tag>
         </docblock>
       </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="117" package="IGBIllinois">
+        <name>get_protocol</name>
+        <full_name>\IGBIllinois\ldap::get_protocol()</full_name>
+        <docblock line="117">
+          <description>gets ldap protocol</description>
+          <long-description></long-description>
+          <tag name="param" line="117" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="117" description="2 or 3" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="125" package="IGBIllinois">
+        <name>get_resource</name>
+        <full_name>\IGBIllinois\ldap::get_resource()</full_name>
+        <docblock line="125">
+          <description>gets ldap resource</description>
+          <long-description></long-description>
+          <tag name="param" line="125" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="125" description="" type="resource">
+            <type>resource</type>
+          </tag>
+        </docblock>
+      </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="133" package="IGBIllinois">
         <name>get_connection</name>
         <full_name>\IGBIllinois\ldap::get_connection()</full_name>
         <docblock line="133">
-          <description>gets ldap protocol</description>
+          <description>gets if ldap is connected</description>
           <long-description></long-description>
           <tag name="param" line="133" description="" type="void" variable="">
             <type>void</type>
-          </tag>
-          <tag name="param" line="133" description="" type="void" variable="">
-            <type>void</type>
-          </tag>
-          <tag name="param" line="133" description="" type="void" variable="">
-            <type>void</type>
-          </tag>
-          <tag name="return" line="133" description="2 or 3&#10;\&#10;public function get_protocol() { return $this-&gt;ldap_protocol; }&#10;&#10;&#10;gets ldap resource" type="integer">
-            <type>integer</type>
-          </tag>
-          <tag name="return" line="133" description="\&#10;public function get_resource() { return $this-&gt;ldap_resource; }&#10;&#10;&#10;gets if ldap is connected" type="resource">
-            <type>resource</type>
           </tag>
           <tag name="return" line="133" description="true if connected, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="143" package="IGBIllinois">
+        <name>set_protocol</name>
+        <full_name>\IGBIllinois\ldap::set_protocol()</full_name>
+        <docblock line="143">
+          <description>sets ldap protocol</description>
+          <long-description></long-description>
+          <tag name="param" line="143" description="&lt;p&gt;protocol version 2 or 3&lt;/p&gt;" type="integer" variable="$ldap_protocol">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="143" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$ldap_protocol</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="156" package="IGBIllinois">
+        <name>bind</name>
+        <full_name>\IGBIllinois\ldap::bind()</full_name>
+        <docblock line="156">
+          <description>binds to ldap server</description>
+          <long-description></long-description>
+          <tag name="param" line="156" description="&lt;p&gt;full rdn of the user&lt;/p&gt;" type="string" variable="$rdn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="156" description="&lt;p&gt;user password&lt;/p&gt;" type="string" variable="$password">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="156" description="true on success, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$rdn</name>
+          <default>""</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default>""</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="180" package="IGBIllinois">
+        <name>search</name>
+        <full_name>\IGBIllinois\ldap::search()</full_name>
+        <docblock line="180">
+          <description>searches ldap server</description>
+          <long-description></long-description>
+          <tag name="param" line="180" description="&lt;p&gt;ldap search filter&lt;/p&gt;" type="string" variable="$filter">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="180" description="&lt;p&gt;organizational unit to search&lt;/p&gt;" type="string" variable="$ou">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="180" description="&lt;p&gt;an array of attributes to retrieve&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$attributes">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+          <tag name="return" line="180" description="ldap search result identifier" type="resource">
+            <type>resource</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$filter</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$ou</name>
+          <default>""</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$attributes</name>
+          <default>array()</default>
+          <type>array&lt;mixed,string&gt;</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="205" package="IGBIllinois">
+        <name>replace</name>
+        <full_name>\IGBIllinois\ldap::replace()</full_name>
+        <docblock line="205">
+          <description>replace ldap entry values with new values</description>
+          <long-description></long-description>
+          <tag name="param" line="205" description="&lt;p&gt;full rdn of entry&lt;/p&gt;" type="string" variable="$rdn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="205" description="&lt;p&gt;an associative array of attributes and values to replace&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$entries">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+          <tag name="return" line="205" description="true on success, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$rdn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entries</name>
+          <default></default>
+          <type>array&lt;mixed,string&gt;</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="221" package="IGBIllinois">
+        <name>is_ldap_user</name>
+        <full_name>\IGBIllinois\ldap::is_ldap_user()</full_name>
+        <docblock line="221">
+          <description>checks if the ldap user exists</description>
+          <long-description></long-description>
+          <tag name="param" line="221" description="&lt;p&gt;username of the user&lt;/p&gt;" type="string" variable="$username">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="221" description="true if exist, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="242" package="IGBIllinois">
+        <name>get_group_members</name>
+        <full_name>\IGBIllinois\ldap::get_group_members()</full_name>
+        <docblock line="242">
+          <description>gets group members of a ldap group</description>
+          <long-description></long-description>
+          <tag name="param" line="242" description="&lt;p&gt;groupname&lt;/p&gt;" type="string" variable="$group">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="242" description="array of group members" type="array&lt;mixed,string&gt;">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$group</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="264" package="IGBIllinois">
+        <name>is_group_member</name>
+        <full_name>\IGBIllinois\ldap::is_group_member()</full_name>
+        <docblock line="264">
+          <description>checks if user is member of group</description>
+          <long-description></long-description>
+          <tag name="param" line="264" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="264" description="&lt;p&gt;group name&lt;/p&gt;" type="string" variable="$group">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="264" description="true if in group, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$group</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="276" package="IGBIllinois">
+        <name>get_user_groups</name>
+        <full_name>\IGBIllinois\ldap::get_user_groups()</full_name>
+        <docblock line="276">
+          <description>gets groups a user is a member of</description>
+          <long-description></long-description>
+          <tag name="param" line="276" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="276" description="array of groups" type="array&lt;mixed,string&gt;">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="299" package="IGBIllinois">
+        <name>get_group_exists</name>
+        <full_name>\IGBIllinois\ldap::get_group_exists()</full_name>
+        <docblock line="299">
+          <description>checks if group exists</description>
+          <long-description></long-description>
+          <tag name="param" line="299" description="&lt;p&gt;name of group&lt;/p&gt;" type="string" variable="$group">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="299" description="true if exist, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$group</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="319" package="IGBIllinois">
+        <name>get_home_dir</name>
+        <full_name>\IGBIllinois\ldap::get_home_dir()</full_name>
+        <docblock line="319">
+          <description>retrieves user's home folder attribute</description>
+          <long-description></long-description>
+          <tag name="param" line="319" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="319" description="home folder, false if attribute doesn't exist" type="string|boolean">
+            <type>string</type>
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="343" package="IGBIllinois">
+        <name>get_email</name>
+        <full_name>\IGBIllinois\ldap::get_email()</full_name>
+        <docblock line="343">
+          <description>retrieves user's email attribute</description>
+          <long-description></long-description>
+          <tag name="param" line="343" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="343" description="email address, false if attribute doesn't exist" type="string|boolean">
+            <type>string</type>
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$username</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="367" package="IGBIllinois">
         <name>get_all_users</name>
         <full_name>\IGBIllinois\ldap::get_all_users()</full_name>
         <docblock line="367">
-          <description>sets ldap protocol</description>
+          <description>retrieves all users</description>
           <long-description></long-description>
-          <tag name="param" line="367" description="&lt;p&gt;protocol version 2 or 3&lt;/p&gt;" type="integer" variable="$ldap_protocol">
-            <type>integer</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;full rdn of the user&lt;/p&gt;" type="string" variable="$rdn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;user password&lt;/p&gt;" type="string" variable="$password">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;ldap search filter&lt;/p&gt;" type="string" variable="$filter">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;organizational unit to search&lt;/p&gt;" type="string" variable="$ou">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;an array of attributes to retrieve&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$attributes">
-            <type>array&lt;mixed,string&gt;</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;full rdn of entry&lt;/p&gt;" type="string" variable="$rdn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;an associative array of attributes and values to replace&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$entries">
-            <type>array&lt;mixed,string&gt;</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;username of the user&lt;/p&gt;" type="string" variable="$username">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;groupname&lt;/p&gt;" type="string" variable="$group">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;group name&lt;/p&gt;" type="string" variable="$group">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;name of group&lt;/p&gt;" type="string" variable="$group">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="367" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
-            <type>string</type>
-          </tag>
           <tag name="param" line="367" description="" type="void" variable="">
             <type>void</type>
-          </tag>
-          <tag name="return" line="367" description="\&#10;public function set_protocol($ldap_protocol) {&#10;$this-&gt;ldap_protocol = $ldap_protocol;&#10;ldap_set_option($this-&gt;get_resource(),LDAP_OPT_PROTOCOL_VERSION,$ldap_protocol);&#10;}&#10;&#10;&#10;&#10;binds to ldap server" type="void">
-            <type>void</type>
-          </tag>
-          <tag name="return" line="367" description="true on success, false otherwise&#10;\&#10;public function bind($rdn = &quot;&quot;,$password = &quot;&quot;) {&#10;$result = false;&#10;if ($this-&gt;get_connection()) {&#10;if (($rdn != &quot;&quot;) &amp;amp;&amp;amp; ($password != &quot;&quot;)) {&#10;$result = @ldap_bind($this-&gt;get_resource(), $rdn, $password);&#10;&#10;}&#10;elseif (($rdn == &quot;&quot;) &amp;amp;&amp;amp; ($password == &quot;&quot;)) {&#10;$result = @ldap_bind($this-&gt;get_resource());&#10;}&#10;}&#10;return $result;&#10;&#10;}&#10;&#10;&#10;&#10;searches ldap server" type="boolean">
-            <type>boolean</type>
-          </tag>
-          <tag name="return" line="367" description="ldap search result identifier&#10;\&#10;public function search($filter,$ou = &quot;&quot;,$attributes = array()) {&#10;$result = false;&#10;if ($ou == &quot;&quot;) {&#10;$ou = $this-&gt;get_base_dn();&#10;}&#10;if (($this-&gt;get_connection()) &amp;amp;&amp;amp; ($attributes != &quot;&quot;)) {&#10;$ldap_result = ldap_search($this-&gt;get_resource(),$ou,$filter,$attributes);&#10;$result = ldap_get_entries($this-&gt;get_resource(),$ldap_result);&#10;}&#10;elseif (($this-&gt;get_connection()) &amp;amp;&amp;amp; ($attributes == &quot;&quot;)) {&#10;$ldap_result = ldap_search($this-&gt;get_resource(),$ou,$filter);&#10;$result = ldap_get_entries($this-&gt;get_resource(),$ldap_result);&#10;&#10;}&#10;return $result;&#10;&#10;}&#10;&#10;&#10;replace ldap entry values with new values" type="resource">
-            <type>resource</type>
-          </tag>
-          <tag name="return" line="367" description="true on success, false otherwise&#10;\&#10;public function replace($rdn,$entries) {&#10;if(ldap_mod_replace($this-&gt;get_resource(), $rdn, $entries))&#10;{&#10;return true;&#10;}&#10;else{&#10;return false;&#10;}&#10;}&#10;&#10;&#10;checks if the ldap user exists" type="boolean">
-            <type>boolean</type>
-          </tag>
-          <tag name="return" line="367" description="true if exist, false otherwise&#10;\&#10;public function is_ldap_user($username) {&#10;$username = trim(rtrim($username));&#10;$filter = &quot;(uid=&quot; . $username . &quot;)&quot;;&#10;$attributes = array('');&#10;$result = $this-&gt;search($filter,&quot;&quot;,$attributes);&#10;if ($result['count']) {&#10;return true;&#10;}&#10;else {&#10;return false;&#10;}&#10;&#10;&#10;}&#10;&#10;&#10;gets group members of a ldap group" type="boolean">
-            <type>boolean</type>
-          </tag>
-          <tag name="return" line="367" description="array of group members&#10;\&#10;public function get_group_members($group) {&#10;if ($this-&gt;get_connection()) {&#10;$group = trim(rtrim($group));&#10;$filter = &quot;(cn=&quot; . $group . &quot;)&quot;;&#10;$attributes = array('memberUid');&#10;$result = $this-&gt;search($filter,&quot;&quot;,$attributes);&#10;unset($result[0]['memberuid']['count']);&#10;$members = array();&#10;foreach ($result[0]['memberuid'] as $row) {&#10;array_push($members,$row);&#10;}&#10;return $members;&#10;}&#10;}&#10;&#10;&#10;checks if user is member of group" type="array&lt;mixed,string&gt;">
-            <type>array&lt;mixed,string&gt;</type>
-          </tag>
-          <tag name="return" line="367" description="true if in group, false otherwise&#10;\&#10;public function is_group_member($username,$group) {&#10;$group_members = $this-&gt;get_group_members($group);&#10;return in_array($username,$group_members);&#10;&#10;}&#10;&#10;&#10;gets groups a user is a member of" type="boolean">
-            <type>boolean</type>
-          </tag>
-          <tag name="return" line="367" description="array of groups&#10;\&#10;public function get_user_groups($username) {&#10;if ($this-&gt;get_connection()) {&#10;$username = trim(rtrim($username));&#10;$filter = &quot;(&amp;amp;(cn=*)(memberUid=&quot; . $username . &quot;))&quot;;&#10;$attributes = array('cn');&#10;$result = $this-&gt;search($filter,&quot;&quot;,$attributes);&#10;unset($result['count']);&#10;$groups = array();&#10;foreach ($result as $row) {&#10;array_push($groups,$row['cn'][0]);&#10;}&#10;return $groups;&#10;}&#10;&#10;&#10;}&#10;&#10;&#10;checks if group exists" type="array&lt;mixed,string&gt;">
-            <type>array&lt;mixed,string&gt;</type>
-          </tag>
-          <tag name="return" line="367" description="true if exist, false otherwise&#10;\&#10;public function get_group_exists($group) {&#10;if ($this-&gt;get_connection()) {&#10;$group = trim(rtrim($group));&#10;$filter = &quot;(cn=&quot; . $group . &quot;)&quot;;&#10;$attributes = array('');&#10;$result = $this-&gt;search($filter,&quot;&quot;,$attributes);&#10;if ($result['count']) {&#10;return true;&#10;}&#10;return false;&#10;}&#10;&#10;}&#10;&#10;&#10;retrieves user's home folder attribute" type="boolean">
-            <type>boolean</type>
-          </tag>
-          <tag name="return" line="367" description="home folder, false if attribute doesn't exist&#10;\&#10;public function get_home_dir($username) {&#10;if ($this-&gt;get_connection()) {&#10;$username = trim(rtrim($username));&#10;$filter = &quot;(uid=&quot; . $username . &quot;)&quot;;&#10;$attributes = array('homeDirectory');&#10;$result = $this-&gt;search($filter,&quot;&quot;,$attributes);&#10;if ($result['count']) {&#10;&#10;return $result[0]['homedirectory'][0];&#10;}&#10;else {&#10;return false;&#10;}&#10;}&#10;&#10;&#10;}&#10;&#10;&#10;retrieves user's email attribute" type="string|boolean">
-            <type>string</type>
-            <type>boolean</type>
-          </tag>
-          <tag name="return" line="367" description="email address, false if attribute doesn't exist&#10;\&#10;public function get_email($username) {&#10;if ($this-&gt;get_connection()) {&#10;$username = trim(rtrim($username));&#10;$filter = &quot;(uid=&quot; . $username . &quot;)&quot;;&#10;$attributes = array('mail');&#10;$result = $this-&gt;search($filter,&quot;&quot;,$attributes);&#10;if (($result['count']) &amp;amp;&amp;amp; (isset($result[0]['mail'][0]))){&#10;return $result[0]['mail'][0];&#10;&#10;}&#10;else {&#10;return false;&#10;}&#10;}&#10;&#10;&#10;}&#10;&#10;&#10;retrieves all users" type="string|boolean">
-            <type>string</type>
-            <type>boolean</type>
           </tag>
           <tag name="return" line="367" description="an array of users" type="array&lt;mixed,string&gt;">
             <type>array&lt;mixed,string&gt;</type>

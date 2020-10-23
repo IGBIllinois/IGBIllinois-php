@@ -65,14 +65,27 @@
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Object constructor"><span class="description">Object constructor</span><pre>__construct()</pre></a></li>
 <li class="method public "><a href="#method___destruct" title="__destruct() :: Object deconstructor"><span class="description">Object deconstructor</span><pre>__destruct()</pre></a></li>
-<li class="method public "><a href="#method_get_all_users" title="get_all_users() :: sets ldap protocol"><span class="description">sets ldap protocol</span><pre>get_all_users()</pre></a></li>
+<li class="method public "><a href="#method_bind" title="bind() :: binds to ldap server"><span class="description">binds to ldap server</span><pre>bind()</pre></a></li>
+<li class="method public "><a href="#method_get_all_users" title="get_all_users() :: retrieves all users"><span class="description">retrieves all users</span><pre>get_all_users()</pre></a></li>
 <li class="method public "><a href="#method_get_base_dn" title="get_base_dn() :: gets ldap base dn"><span class="description">gets ldap base dn</span><pre>get_base_dn()</pre></a></li>
 <li class="method public "><a href="#method_get_bind_user" title="get_bind_user() :: gets bind user"><span class="description">gets bind user</span><pre>get_bind_user()</pre></a></li>
-<li class="method public "><a href="#method_get_connection" title="get_connection() :: gets ldap protocol"><span class="description">gets ldap protocol</span><pre>get_connection()</pre></a></li>
+<li class="method public "><a href="#method_get_connection" title="get_connection() :: gets if ldap is connected"><span class="description">gets if ldap is connected</span><pre>get_connection()</pre></a></li>
+<li class="method public "><a href="#method_get_email" title="get_email() :: retrieves user's email attribute"><span class="description">retrieves user's email attribute</span><pre>get_email()</pre></a></li>
+<li class="method public "><a href="#method_get_group_exists" title="get_group_exists() :: checks if group exists"><span class="description">checks if group exists</span><pre>get_group_exists()</pre></a></li>
+<li class="method public "><a href="#method_get_group_members" title="get_group_members() :: gets group members of a ldap group"><span class="description">gets group members of a ldap group</span><pre>get_group_members()</pre></a></li>
+<li class="method public "><a href="#method_get_home_dir" title="get_home_dir() :: retrieves user's home folder attribute"><span class="description">retrieves user's home folder attribute</span><pre>get_home_dir()</pre></a></li>
 <li class="method public "><a href="#method_get_host" title="get_host() :: gets ldap host"><span class="description">gets ldap host</span><pre>get_host()</pre></a></li>
 <li class="method public "><a href="#method_get_ldap_full_name" title="get_ldap_full_name() :: retrieves users full name, cn attribute"><span class="description">retrieves users full name, cn attribute</span><pre>get_ldap_full_name()</pre></a></li>
 <li class="method public "><a href="#method_get_port" title="get_port() :: gets ldap port"><span class="description">gets ldap port</span><pre>get_port()</pre></a></li>
+<li class="method public "><a href="#method_get_protocol" title="get_protocol() :: gets ldap protocol"><span class="description">gets ldap protocol</span><pre>get_protocol()</pre></a></li>
+<li class="method public "><a href="#method_get_resource" title="get_resource() :: gets ldap resource"><span class="description">gets ldap resource</span><pre>get_resource()</pre></a></li>
 <li class="method public "><a href="#method_get_ssl" title="get_ssl() :: gets if ssl is enabled"><span class="description">gets if ssl is enabled</span><pre>get_ssl()</pre></a></li>
+<li class="method public "><a href="#method_get_user_groups" title="get_user_groups() :: gets groups a user is a member of"><span class="description">gets groups a user is a member of</span><pre>get_user_groups()</pre></a></li>
+<li class="method public "><a href="#method_is_group_member" title="is_group_member() :: checks if user is member of group"><span class="description">checks if user is member of group</span><pre>is_group_member()</pre></a></li>
+<li class="method public "><a href="#method_is_ldap_user" title="is_ldap_user() :: checks if the ldap user exists"><span class="description">checks if the ldap user exists</span><pre>is_ldap_user()</pre></a></li>
+<li class="method public "><a href="#method_replace" title="replace() :: replace ldap entry values with new values"><span class="description">replace ldap entry values with new values</span><pre>replace()</pre></a></li>
+<li class="method public "><a href="#method_search" title="search() :: searches ldap server"><span class="description">searches ldap server</span><pre>search()</pre></a></li>
+<li class="method public "><a href="#method_set_protocol" title="set_protocol() :: sets ldap protocol"><span class="description">sets ldap protocol</span><pre>set_protocol()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
@@ -169,210 +182,31 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>Destroys ldap object</p></div></div></div>
 </div>
+<a id="method_bind"></a><div class="element clickable method public method_bind " data-toggle="collapse" data-target=".method_bind .collapse" title="public">
+<h2>binds to ldap server</h2>
+<pre>bind(string $rdn<code> = ""</code>, string $password<code> = ""</code>) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$rdn</h4>
+<code>string</code><p>full rdn of the user</p></div>
+<div class="subelement argument">
+<h4>$password</h4>
+<code>string</code><p>user password</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true on success, false otherwise</div>
+</div></div>
+</div>
 <a id="method_get_all_users"></a><div class="element clickable method public method_get_all_users " data-toggle="collapse" data-target=".method_get_all_users .collapse" title="public">
-<h2>sets ldap protocol</h2>
-<pre>get_all_users() : void: boolean: resource: boolean: boolean: array&lt;mixed,string&gt;: boolean: array&lt;mixed,string&gt;: boolean: string | boolean: string | boolean: array&lt;mixed,string&gt;</pre>
+<h2>retrieves all users</h2>
+<pre>get_all_users() : array&lt;mixed,string&gt;</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
-<div class="subelement response">
-<code>boolean</code>true on success, false otherwise
-\
-public function bind($rdn = "",$password = "") {
-$result = false;
-if ($this->get_connection()) {
-if (($rdn != "") &amp;&amp; ($password != "")) {
-$result = @ldap_bind($this->get_resource(), $rdn, $password);
-
-}
-elseif (($rdn == "") &amp;&amp; ($password == "")) {
-$result = @ldap_bind($this->get_resource());
-}
-}
-return $result;
-
-}
-
-
-
-searches ldap server</div>
-<div class="subelement response">
-<code>resource</code>ldap search result identifier
-\
-public function search($filter,$ou = "",$attributes = array()) {
-$result = false;
-if ($ou == "") {
-$ou = $this->get_base_dn();
-}
-if (($this->get_connection()) &amp;&amp; ($attributes != "")) {
-$ldap_result = ldap_search($this->get_resource(),$ou,$filter,$attributes);
-$result = ldap_get_entries($this->get_resource(),$ldap_result);
-}
-elseif (($this->get_connection()) &amp;&amp; ($attributes == "")) {
-$ldap_result = ldap_search($this->get_resource(),$ou,$filter);
-$result = ldap_get_entries($this->get_resource(),$ldap_result);
-
-}
-return $result;
-
-}
-
-
-replace ldap entry values with new values</div>
-<div class="subelement response">
-<code>boolean</code>true on success, false otherwise
-\
-public function replace($rdn,$entries) {
-if(ldap_mod_replace($this->get_resource(), $rdn, $entries))
-{
-return true;
-}
-else{
-return false;
-}
-}
-
-
-checks if the ldap user exists</div>
-<div class="subelement response">
-<code>boolean</code>true if exist, false otherwise
-\
-public function is_ldap_user($username) {
-$username = trim(rtrim($username));
-$filter = "(uid=" . $username . ")";
-$attributes = array('');
-$result = $this->search($filter,"",$attributes);
-if ($result['count']) {
-return true;
-}
-else {
-return false;
-}
-
-
-}
-
-
-gets group members of a ldap group</div>
-<div class="subelement response">
-<code>array&lt;mixed,string&gt;</code>array of group members
-\
-public function get_group_members($group) {
-if ($this->get_connection()) {
-$group = trim(rtrim($group));
-$filter = "(cn=" . $group . ")";
-$attributes = array('memberUid');
-$result = $this->search($filter,"",$attributes);
-unset($result[0]['memberuid']['count']);
-$members = array();
-foreach ($result[0]['memberuid'] as $row) {
-array_push($members,$row);
-}
-return $members;
-}
-}
-
-
-checks if user is member of group</div>
-<div class="subelement response">
-<code>boolean</code>true if in group, false otherwise
-\
-public function is_group_member($username,$group) {
-$group_members = $this->get_group_members($group);
-return in_array($username,$group_members);
-
-}
-
-
-gets groups a user is a member of</div>
-<div class="subelement response">
-<code>array&lt;mixed,string&gt;</code>array of groups
-\
-public function get_user_groups($username) {
-if ($this->get_connection()) {
-$username = trim(rtrim($username));
-$filter = "(&amp;(cn=*)(memberUid=" . $username . "))";
-$attributes = array('cn');
-$result = $this->search($filter,"",$attributes);
-unset($result['count']);
-$groups = array();
-foreach ($result as $row) {
-array_push($groups,$row['cn'][0]);
-}
-return $groups;
-}
-
-
-}
-
-
-checks if group exists</div>
-<div class="subelement response">
-<code>boolean</code>true if exist, false otherwise
-\
-public function get_group_exists($group) {
-if ($this->get_connection()) {
-$group = trim(rtrim($group));
-$filter = "(cn=" . $group . ")";
-$attributes = array('');
-$result = $this->search($filter,"",$attributes);
-if ($result['count']) {
-return true;
-}
-return false;
-}
-
-}
-
-
-retrieves user's home folder attribute</div>
-<div class="subelement response">
-<code>string</code><code>boolean</code>home folder, false if attribute doesn't exist
-\
-public function get_home_dir($username) {
-if ($this->get_connection()) {
-$username = trim(rtrim($username));
-$filter = "(uid=" . $username . ")";
-$attributes = array('homeDirectory');
-$result = $this->search($filter,"",$attributes);
-if ($result['count']) {
-
-return $result[0]['homedirectory'][0];
-}
-else {
-return false;
-}
-}
-
-
-}
-
-
-retrieves user's email attribute</div>
-<div class="subelement response">
-<code>string</code><code>boolean</code>email address, false if attribute doesn't exist
-\
-public function get_email($username) {
-if ($this->get_connection()) {
-$username = trim(rtrim($username));
-$filter = "(uid=" . $username . ")";
-$attributes = array('mail');
-$result = $this->search($filter,"",$attributes);
-if (($result['count']) &amp;&amp; (isset($result[0]['mail'][0]))){
-return $result[0]['mail'][0];
-
-}
-else {
-return false;
-}
-}
-
-
-}
-
-
-retrieves all users</div>
 <div class="subelement response">
 <code>array&lt;mixed,string&gt;</code>an array of users</div>
 </div></div>
@@ -398,27 +232,74 @@ retrieves all users</div>
 </div></div>
 </div>
 <a id="method_get_connection"></a><div class="element clickable method public method_get_connection " data-toggle="collapse" data-target=".method_get_connection .collapse" title="public">
-<h2>gets ldap protocol</h2>
-<pre>get_connection() : integer: resource: boolean</pre>
+<h2>gets if ldap is connected</h2>
+<pre>get_connection() : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>integer</code>2 or 3
-\
-public function get_protocol() { return $this->ldap_protocol; }
-
-
-gets ldap resource</div>
-<div class="subelement response">
-<code>resource</code>\
-public function get_resource() { return $this->ldap_resource; }
-
-
-gets if ldap is connected</div>
-<div class="subelement response">
 <code>boolean</code>true if connected, false otherwise</div>
+</div></div>
+</div>
+<a id="method_get_email"></a><div class="element clickable method public method_get_email " data-toggle="collapse" data-target=".method_get_email .collapse" title="public">
+<h2>retrieves user's email attribute</h2>
+<pre>get_email(string $username) : string | boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$username</h4>
+<code>string</code><p>username</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>boolean</code>email address, false if attribute doesn't exist</div>
+</div></div>
+</div>
+<a id="method_get_group_exists"></a><div class="element clickable method public method_get_group_exists " data-toggle="collapse" data-target=".method_get_group_exists .collapse" title="public">
+<h2>checks if group exists</h2>
+<pre>get_group_exists(string $group) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$group</h4>
+<code>string</code><p>name of group</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if exist, false otherwise</div>
+</div></div>
+</div>
+<a id="method_get_group_members"></a><div class="element clickable method public method_get_group_members " data-toggle="collapse" data-target=".method_get_group_members .collapse" title="public">
+<h2>gets group members of a ldap group</h2>
+<pre>get_group_members(string $group) : array&lt;mixed,string&gt;</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$group</h4>
+<code>string</code><p>groupname</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array&lt;mixed,string&gt;</code>array of group members</div>
+</div></div>
+</div>
+<a id="method_get_home_dir"></a><div class="element clickable method public method_get_home_dir " data-toggle="collapse" data-target=".method_get_home_dir .collapse" title="public">
+<h2>retrieves user's home folder attribute</h2>
+<pre>get_home_dir(string $username) : string | boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$username</h4>
+<code>string</code><p>username</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>boolean</code>home folder, false if attribute doesn't exist</div>
 </div></div>
 </div>
 <a id="method_get_host"></a><div class="element clickable method public method_get_host " data-toggle="collapse" data-target=".method_get_host .collapse" title="public">
@@ -456,6 +337,27 @@ gets if ldap is connected</div>
 <div class="subelement response"><code>integer</code></div>
 </div></div>
 </div>
+<a id="method_get_protocol"></a><div class="element clickable method public method_get_protocol " data-toggle="collapse" data-target=".method_get_protocol .collapse" title="public">
+<h2>gets ldap protocol</h2>
+<pre>get_protocol() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>integer</code>2 or 3</div>
+</div></div>
+</div>
+<a id="method_get_resource"></a><div class="element clickable method public method_get_resource " data-toggle="collapse" data-target=".method_get_resource .collapse" title="public">
+<h2>gets ldap resource</h2>
+<pre>get_resource() : resource</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>resource</code></div>
+</div></div>
+</div>
 <a id="method_get_ssl"></a><div class="element clickable method public method_get_ssl " data-toggle="collapse" data-target=".method_get_ssl .collapse" title="public">
 <h2>gets if ssl is enabled</h2>
 <pre>get_ssl() : boolean</pre>
@@ -465,6 +367,105 @@ gets if ldap is connected</div>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>boolean</code>true if enabled, false otherwise</div>
+</div></div>
+</div>
+<a id="method_get_user_groups"></a><div class="element clickable method public method_get_user_groups " data-toggle="collapse" data-target=".method_get_user_groups .collapse" title="public">
+<h2>gets groups a user is a member of</h2>
+<pre>get_user_groups(string $username) : array&lt;mixed,string&gt;</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$username</h4>
+<code>string</code><p>username</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array&lt;mixed,string&gt;</code>array of groups</div>
+</div></div>
+</div>
+<a id="method_is_group_member"></a><div class="element clickable method public method_is_group_member " data-toggle="collapse" data-target=".method_is_group_member .collapse" title="public">
+<h2>checks if user is member of group</h2>
+<pre>is_group_member(string $username, string $group) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$username</h4>
+<code>string</code><p>username</p></div>
+<div class="subelement argument">
+<h4>$group</h4>
+<code>string</code><p>group name</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if in group, false otherwise</div>
+</div></div>
+</div>
+<a id="method_is_ldap_user"></a><div class="element clickable method public method_is_ldap_user " data-toggle="collapse" data-target=".method_is_ldap_user .collapse" title="public">
+<h2>checks if the ldap user exists</h2>
+<pre>is_ldap_user(string $username) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$username</h4>
+<code>string</code><p>username of the user</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true if exist, false otherwise</div>
+</div></div>
+</div>
+<a id="method_replace"></a><div class="element clickable method public method_replace " data-toggle="collapse" data-target=".method_replace .collapse" title="public">
+<h2>replace ldap entry values with new values</h2>
+<pre>replace(string $rdn, array&lt;mixed,string&gt; $entries) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$rdn</h4>
+<code>string</code><p>full rdn of entry</p></div>
+<div class="subelement argument">
+<h4>$entries</h4>
+<code>array&lt;mixed,string&gt;</code><p>an associative array of attributes and values to replace</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true on success, false otherwise</div>
+</div></div>
+</div>
+<a id="method_search"></a><div class="element clickable method public method_search " data-toggle="collapse" data-target=".method_search .collapse" title="public">
+<h2>searches ldap server</h2>
+<pre>search(string $filter, string $ou<code> = ""</code>, array&lt;mixed,string&gt; $attributes<code> = array()</code>) : resource</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$filter</h4>
+<code>string</code><p>ldap search filter</p></div>
+<div class="subelement argument">
+<h4>$ou</h4>
+<code>string</code><p>organizational unit to search</p></div>
+<div class="subelement argument">
+<h4>$attributes</h4>
+<code>array&lt;mixed,string&gt;</code><p>an array of attributes to retrieve</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>resource</code>ldap search result identifier</div>
+</div></div>
+</div>
+<a id="method_set_protocol"></a><div class="element clickable method public method_set_protocol " data-toggle="collapse" data-target=".method_set_protocol .collapse" title="public">
+<h2>sets ldap protocol</h2>
+<pre>set_protocol(integer $ldap_protocol) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$ldap_protocol</h4>
+<code>integer</code><p>protocol version 2 or 3</p></div>
 </div></div>
 </div>
 <a id="method_connect"></a><div class="element clickable method private method_connect " data-toggle="collapse" data-target=".method_connect .collapse" title="private">
@@ -615,7 +616,7 @@ gets if ldap is connected</div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2020-10-23T10:01:01-05:00.<br></footer></div>
+            generated on 2020-10-23T10:34:11-05:00.<br></footer></div>
 </div>
 </body>
 </html>
