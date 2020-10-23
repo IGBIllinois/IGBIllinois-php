@@ -1632,6 +1632,66 @@
       </method>
     </class>
   </file>
+  <file path="Helper/date_helper.class.inc.php" generated-path="Helper.date_helper.class.inc.html" hash="540df8147f9813cf9651a665f12ffcfb" package="Default">
+    <docblock line="0">
+      <description>Helper date functions</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="IGBIllinois\Helper" line="20" package="IGBIllinois\Helper">
+      <extends/>
+      <name>date_helper</name>
+      <full_name>\IGBIllinois\Helper\date_helper</full_name>
+      <docblock line="20">
+        <description>date_helper class with date helper functions</description>
+        <long-description></long-description>
+        <tag name="author" line="20" description="David Slater" link="mailto:dslater@illinois.edu"/>
+        <tag name="access" line="20" description="public"/>
+        <tag name="package" line="20" description="IGBIllinois\Helper"/>
+        <tag name="copyright" line="20" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
+        <tag name="license" line="20" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
+        <tag name="static" line="20" description=""/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="29" package="IGBIllinois\Helper">
+        <name>verify_date</name>
+        <full_name>\IGBIllinois\Helper\date_helper::verify_date()</full_name>
+        <docblock line="29">
+          <description>Verify valid date</description>
+          <long-description></long-description>
+          <tag name="param" line="29" description="" type="string" variable="$inDate">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="29" description="true if valid, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$inDate</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="42" package="IGBIllinois\Helper">
+        <name>get_pretty_date</name>
+        <full_name>\IGBIllinois\Helper\date_helper::get_pretty_date()</full_name>
+        <docblock line="42">
+          <description>Formats date to YYYY/MM/DD</description>
+          <long-description></long-description>
+          <tag name="param" line="42" description="&lt;p&gt;in form YYYYMMDD&lt;/p&gt;" type="string" variable="$date">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="42" description="in form YYYY/MM/DD" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$date</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+  </file>
   <package name="Default" full_name="Default"/>
   <package name="IGBIllinois" full_name="IGBIllinois">
     <package name="Helper" full_name="IGBIllinois\Helper"/>
