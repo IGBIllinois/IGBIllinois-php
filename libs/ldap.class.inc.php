@@ -399,6 +399,19 @@ class ldap {
                 }
         }
 
+	/**
+	* gets ldap error message
+	*
+	* @param void
+	* @return string|bool error message or false otherwise
+	*/
+	public function get_error() {
+		if ($this->get_connection()) {
+			return ldap_error($this->get_resource());
+		} else {
+			return false;
+		}
+	}
 
 	/**
 	* Sets ldap hostname

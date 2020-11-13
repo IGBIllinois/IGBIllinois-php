@@ -304,6 +304,7 @@ class db {
 	* @throws \PDOException
 	*
 	* @return bool returns true on success, false otherwise 
+	*/
 	public function update($table,$parameters,$where_key,$where_value) {
                 try {
 
