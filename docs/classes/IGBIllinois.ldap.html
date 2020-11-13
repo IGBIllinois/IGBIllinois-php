@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">0</span></a></li>
+                <span class="label label-info">1</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -71,6 +71,7 @@
 <li class="method public "><a href="#method_get_bind_user" title="get_bind_user() :: gets bind user"><span class="description">gets bind user</span><pre>get_bind_user()</pre></a></li>
 <li class="method public "><a href="#method_get_connection" title="get_connection() :: gets if ldap is connected"><span class="description">gets if ldap is connected</span><pre>get_connection()</pre></a></li>
 <li class="method public "><a href="#method_get_email" title="get_email() :: retrieves user's email attribute"><span class="description">retrieves user's email attribute</span><pre>get_email()</pre></a></li>
+<li class="method public "><a href="#method_get_error" title="get_error() :: gets ldap error message"><span class="description">gets ldap error message</span><pre>get_error()</pre></a></li>
 <li class="method public "><a href="#method_get_group_exists" title="get_group_exists() :: checks if group exists"><span class="description">checks if group exists</span><pre>get_group_exists()</pre></a></li>
 <li class="method public "><a href="#method_get_group_members" title="get_group_members() :: gets group members of a ldap group"><span class="description">gets group members of a ldap group</span><pre>get_group_members()</pre></a></li>
 <li class="method public "><a href="#method_get_home_dir" title="get_home_dir() :: retrieves user's home folder attribute"><span class="description">retrieves user's home folder attribute</span><pre>get_home_dir()</pre></a></li>
@@ -255,6 +256,17 @@
 <h3>Returns</h3>
 <div class="subelement response">
 <code>string</code><code>boolean</code>email address, false if attribute doesn't exist</div>
+</div></div>
+</div>
+<a id="method_get_error"></a><div class="element clickable method public method_get_error " data-toggle="collapse" data-target=".method_get_error .collapse" title="public">
+<h2>gets ldap error message</h2>
+<pre>get_error() : string | boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>boolean</code>error message or false otherwise</div>
 </div></div>
 </div>
 <a id="method_get_group_exists"></a><div class="element clickable method public method_get_group_exists " data-toggle="collapse" data-target=".method_get_group_exists .collapse" title="public">
@@ -616,7 +628,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2020-10-23T10:34:11-05:00.<br></footer></div>
+            generated on 2020-11-13T16:21:02-06:00.<br></footer></div>
 </div>
 </body>
 </html>

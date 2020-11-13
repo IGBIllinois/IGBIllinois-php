@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">0</span></a></li>
+                <span class="label label-info">1</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -68,12 +68,13 @@
 <li class="method public "><a href="#method_build_insert" title="build_insert() :: Builds insert query using associative array"><span class="description">Builds insert query using associative array</span><pre>build_insert()</pre></a></li>
 <li class="method public "><a href="#method_close" title="close() :: Closes mysql database connection"><span class="description">Closes mysql database connection</span><pre>close()</pre></a></li>
 <li class="method public "><a href="#method_get_link" title="get_link() :: Retrieves mysql database PDO object"><span class="description">Retrieves mysql database PDO object</span><pre>get_link()</pre></a></li>
-<li class="method public "><a href="#method_get_version" title="get_version() :: Runs update query on table"><span class="description">Runs update query on table</span><pre>get_version()</pre></a></li>
+<li class="method public "><a href="#method_get_version" title="get_version() :: Retrieves version number of mysql server."><span class="description">Retrieves version number of mysql server.</span><pre>get_version()</pre></a></li>
 <li class="method public "><a href="#method_insert_query" title="insert_query() :: Runs insert query on database"><span class="description">Runs insert query on database</span><pre>insert_query()</pre></a></li>
 <li class="method public "><a href="#method_non_select_query" title="non_select_query() :: Runs a non select or insert query on database"><span class="description">Runs a non select or insert query on database</span><pre>non_select_query()</pre></a></li>
 <li class="method public "><a href="#method_ping" title="ping() :: Tests connection to mysql database"><span class="description">Tests connection to mysql database</span><pre>ping()</pre></a></li>
 <li class="method public "><a href="#method_query" title="query() :: Runs sql query for SELECT queries"><span class="description">Runs sql query for SELECT queries</span><pre>query()</pre></a></li>
 <li class="method public "><a href="#method_transaction" title="transaction() :: Runs mysql transaction"><span class="description">Runs mysql transaction</span><pre>transaction()</pre></a></li>
+<li class="method public "><a href="#method_update" title="update() :: Runs update query on table"><span class="description">Runs update query on table</span><pre>update()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
@@ -209,56 +210,12 @@
 </div></div>
 </div>
 <a id="method_get_version"></a><div class="element clickable method public method_get_version " data-toggle="collapse" data-target=".method_get_version .collapse" title="public">
-<h2>Runs update query on table</h2>
-<pre>get_version() : boolean: string</pre>
+<h2>Retrieves version number of mysql server.</h2>
+<pre>get_version() : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\PDOException</code></th>
-<td></td>
-</tr></table>
+<div class="long_description"><p>An example is 5.5.5-10.3.17-MariaDB</p></div>
 <h3>Returns</h3>
-<div class="subelement response">
-<code>boolean</code>returns true on success, false otherwise
-public function update($table,$parameters,$where_key,$where_value) {
-try {
-
-$sql = "UPDATE `" . $table . "` SET ";
-
-$count = count($parameters);
-$i = 1;
-foreach ($parameters as $key=>$value) {
-if ($i == $count) {
-$sql .= $key . "= :" . $key . " ";;
-}
-else {
-$sql .= $key . "= :" . $key . ", ";
-}
-
-$i++;
-}
-$sql .= "WHERE " . $where_key . "='" . $where_value . "' LIMIT 1";
-$statement = $this->link->prepare($sql);
-foreach ($data as $key=>$value) {
-$statement->bindValue(":" . $key,$value);
-}
-$result = $statement->execute();
-return $result;
-}
-catch(\PDOException $e) {
-throw $e;
-return false;
-}
-
-
-}
-
-
-Retrieves version number of mysql server.
-
-An example is 5.5.5-10.3.17-MariaDB</div>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
@@ -366,6 +323,35 @@ An example is 5.5.5-10.3.17-MariaDB</div>
 </tr></table>
 </div></div>
 </div>
+<a id="method_update"></a><div class="element clickable method public method_update " data-toggle="collapse" data-target=".method_update .collapse" title="public">
+<h2>Runs update query on table</h2>
+<pre>update(string $table, array&lt;mixed,string&gt; $parameters, string $where_key, string $where_value) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$table</h4>
+<code>string</code><p>name of table</p></div>
+<div class="subelement argument">
+<h4>$parameters</h4>
+<code>array&lt;mixed,string&gt;</code><p>an array of PDO prepared parameters</p></div>
+<div class="subelement argument">
+<h4>$where_key</h4>
+<code>string</code><p>column name to use in where clause</p></div>
+<div class="subelement argument">
+<h4>$where_value</h4>
+<code>string</code><p>value column needs to be equal to</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\PDOException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>returns true on success, false otherwise</div>
+</div></div>
+</div>
 <a id="method_open"></a><div class="element clickable method private method_open " data-toggle="collapse" data-target=".method_open .collapse" title="private">
 <h2>Opens mysql database connection</h2>
 <pre>open(string $host, string $database, string $username, string $password, integer $port<code> = 3306</code>, boolean $ssl<code> = false</code>) : void</pre>
@@ -467,7 +453,7 @@ An example is 5.5.5-10.3.17-MariaDB</div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2020-10-23T10:34:11-05:00.<br></footer></div>
+            generated on 2020-11-13T16:21:02-06:00.<br></footer></div>
 </div>
 </body>
 </html>

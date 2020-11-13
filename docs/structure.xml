@@ -230,7 +230,7 @@
       </method>
     </class>
   </file>
-  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="9546d04e405776dbaf6e3a09b217790b" package="Default">
+  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="615617f46eca13ac13bf8f8dbd14efc4" package="Default">
     <docblock line="0">
       <description>db class interacts with mysql database using PDO</description>
       <long-description></long-description>
@@ -644,34 +644,62 @@
           <type>array&lt;mixed,string&gt;</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="349" package="IGBIllinois">
-        <name>get_version</name>
-        <full_name>\IGBIllinois\db::get_version()</full_name>
-        <docblock line="349">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="308" package="IGBIllinois">
+        <name>update</name>
+        <full_name>\IGBIllinois\db::update()</full_name>
+        <docblock line="308">
           <description>Runs update query on table</description>
           <long-description></long-description>
-          <tag name="param" line="349" description="&lt;p&gt;name of table&lt;/p&gt;" type="string" variable="$table">
+          <tag name="param" line="308" description="&lt;p&gt;name of table&lt;/p&gt;" type="string" variable="$table">
             <type>string</type>
           </tag>
-          <tag name="param" line="349" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
+          <tag name="param" line="308" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
-          <tag name="param" line="349" description="&lt;p&gt;column name to use in where clause&lt;/p&gt;" type="string" variable="$where_key">
+          <tag name="param" line="308" description="&lt;p&gt;column name to use in where clause&lt;/p&gt;" type="string" variable="$where_key">
             <type>string</type>
           </tag>
-          <tag name="param" line="349" description="&lt;p&gt;value column needs to be equal to&lt;/p&gt;" type="string" variable="$where_value">
+          <tag name="param" line="308" description="&lt;p&gt;value column needs to be equal to&lt;/p&gt;" type="string" variable="$where_value">
             <type>string</type>
           </tag>
-          <tag name="param" line="349" description="" type="void" variable="">
-            <type>void</type>
-          </tag>
-          <tag name="throws" line="349" description="" type="\PDOException">
+          <tag name="throws" line="308" description="" type="\PDOException">
             <type>\PDOException</type>
           </tag>
-          <tag name="return" line="349" description="returns true on success, false otherwise&#10;public function update($table,$parameters,$where_key,$where_value) {&#10;try {&#10;&#10;$sql = &quot;UPDATE `&quot; . $table . &quot;` SET &quot;;&#10;&#10;$count = count($parameters);&#10;$i = 1;&#10;foreach ($parameters as $key=&gt;$value) {&#10;if ($i == $count) {&#10;$sql .= $key . &quot;= :&quot; . $key . &quot; &quot;;;&#10;}&#10;else {&#10;$sql .= $key . &quot;= :&quot; . $key . &quot;, &quot;;&#10;}&#10;&#10;$i++;&#10;}&#10;$sql .= &quot;WHERE &quot; . $where_key . &quot;='&quot; . $where_value . &quot;' LIMIT 1&quot;;&#10;$statement = $this-&gt;link-&gt;prepare($sql);&#10;foreach ($data as $key=&gt;$value) {&#10;$statement-&gt;bindValue(&quot;:&quot; . $key,$value);&#10;}&#10;$result = $statement-&gt;execute();&#10;return $result;&#10;}&#10;catch(\PDOException $e) {&#10;throw $e;&#10;return false;&#10;}&#10;&#10;&#10;}&#10;&#10;&#10;Retrieves version number of mysql server.&#10;&#10;An example is 5.5.5-10.3.17-MariaDB" type="boolean">
+          <tag name="return" line="308" description="returns true on success, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="return" line="349" description="" type="string">
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$table</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$parameters</name>
+          <default></default>
+          <type>array&lt;mixed,string&gt;</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where_key</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$where_value</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="350" package="IGBIllinois">
+        <name>get_version</name>
+        <full_name>\IGBIllinois\db::get_version()</full_name>
+        <docblock line="350">
+          <description>Retrieves version number of mysql server.</description>
+          <long-description>An example is 5.5.5-10.3.17-MariaDB</long-description>
+          <tag name="param" line="350" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="350" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -1155,7 +1183,7 @@
       </method>
     </class>
   </file>
-  <file path="ldap.class.inc.php" generated-path="ldap.class.inc.html" hash="3f6ca7686918e1859dab204c1fa4cddb" package="Default">
+  <file path="ldap.class.inc.php" generated-path="ldap.class.inc.html" hash="dcc028dd50c5b06f50952c08231bc0e0" package="Default">
     <docblock line="0">
       <description>ldap class interacts with ldap server using built in php ldap functions</description>
       <long-description></long-description>
@@ -1724,16 +1752,31 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="411" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="408" package="IGBIllinois">
+        <name>get_error</name>
+        <full_name>\IGBIllinois\ldap::get_error()</full_name>
+        <docblock line="408">
+          <description>gets ldap error message</description>
+          <long-description></long-description>
+          <tag name="param" line="408" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="408" description="error message or false otherwise" type="string|boolean">
+            <type>string</type>
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="424" package="IGBIllinois">
         <name>set_host</name>
         <full_name>\IGBIllinois\ldap::set_host()</full_name>
-        <docblock line="411">
+        <docblock line="424">
           <description>Sets ldap hostname</description>
           <long-description>Takes string of single or multiple hostnames and puts them in ldap_host array</long-description>
-          <tag name="param" line="411" description="&lt;p&gt;string of ldap hosts seperated by a space&lt;/p&gt;" type="string" variable="$ldap_host">
+          <tag name="param" line="424" description="&lt;p&gt;string of ldap hosts seperated by a space&lt;/p&gt;" type="string" variable="$ldap_host">
             <type>string</type>
           </tag>
-          <tag name="return" line="411" description="" type="void">
+          <tag name="return" line="424" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -1743,16 +1786,16 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="421" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="434" package="IGBIllinois">
         <name>set_base_dn</name>
         <full_name>\IGBIllinois\ldap::set_base_dn()</full_name>
-        <docblock line="421">
+        <docblock line="434">
           <description>Sets base dn</description>
           <long-description></long-description>
-          <tag name="param" line="421" description="&lt;p&gt;Ldap base dn&lt;/p&gt;" type="string" variable="$ldap_base_dn">
+          <tag name="param" line="434" description="&lt;p&gt;Ldap base dn&lt;/p&gt;" type="string" variable="$ldap_base_dn">
             <type>string</type>
           </tag>
-          <tag name="return" line="421" description="" type="void">
+          <tag name="return" line="434" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -1762,16 +1805,16 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="429" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="442" package="IGBIllinois">
         <name>set_ssl</name>
         <full_name>\IGBIllinois\ldap::set_ssl()</full_name>
-        <docblock line="429">
+        <docblock line="442">
           <description>Sets SSL</description>
           <long-description></long-description>
-          <tag name="param" line="429" description="&lt;p&gt;true to enable, false to disable&lt;/p&gt;" type="boolean" variable="$ldap_ssl">
+          <tag name="param" line="442" description="&lt;p&gt;true to enable, false to disable&lt;/p&gt;" type="boolean" variable="$ldap_ssl">
             <type>boolean</type>
           </tag>
-          <tag name="return" line="429" description="" type="void">
+          <tag name="return" line="442" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -1781,16 +1824,16 @@
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="437" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="450" package="IGBIllinois">
         <name>set_port</name>
         <full_name>\IGBIllinois\ldap::set_port()</full_name>
-        <docblock line="437">
+        <docblock line="450">
           <description>Sets Ldap port number</description>
           <long-description></long-description>
-          <tag name="param" line="437" description="&lt;p&gt;ldap port number, normally 389 or 636&lt;/p&gt;" type="integer" variable="$ldap_port">
+          <tag name="param" line="450" description="&lt;p&gt;ldap port number, normally 389 or 636&lt;/p&gt;" type="integer" variable="$ldap_port">
             <type>integer</type>
           </tag>
-          <tag name="return" line="437" description="" type="void">
+          <tag name="return" line="450" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -1800,16 +1843,16 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="445" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="458" package="IGBIllinois">
         <name>connect</name>
         <full_name>\IGBIllinois\ldap::connect()</full_name>
-        <docblock line="445">
+        <docblock line="458">
           <description>Connects to ldap database</description>
           <long-description></long-description>
-          <tag name="param" line="445" description="" type="void" variable="">
+          <tag name="param" line="458" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="445" description="true on success, false otherwise" type="boolean">
+          <tag name="return" line="458" description="true on success, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -1875,6 +1918,16 @@
         </argument>
       </method>
     </class>
+  </file>
+  <file path="log.class.inc.php" generated-path="log.class.inc.html" hash="455b533430a0e5939384348f18148a00" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
   </file>
   <package name="Default" full_name="Default"/>
   <package name="IGBIllinois" full_name="IGBIllinois">
