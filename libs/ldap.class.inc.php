@@ -479,7 +479,7 @@ class ldap {
                         	$ldap_uri .= "ldap://" . $host . ":" . $this->get_port() . " ";
 			}
 			$this->ldap_resource = ldap_connect($ldap_uri);
-			ldap_start_tls($this->ldap_resource)
+			ldap_start_tls($this->ldap_resource);
                 }
 		else {
 			foreach ($this->get_host() as $host) {
