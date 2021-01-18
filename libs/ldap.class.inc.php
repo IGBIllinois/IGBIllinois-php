@@ -33,6 +33,8 @@ class ldap {
         private $ldap_bind_pass;
 	/** @var boolean Enable ssl */
         private $ldap_ssl = false;
+	/** @var boolean Enable TLS */
+	private $ldap_tls = false;
 	/** @var int Ldap port */
         private $ldap_port = 389;
 	/** @var int Ldap protocol - 2,3 */
@@ -51,9 +53,10 @@ class ldap {
 	* @param string $base_dn Ldap base dn
 	* @return \IGBIllinois\ldap
 	*/
-        public function __construct($host,$ssl,$port,$base_dn) {
+        public function __construct($host,$base_dn,$port,$ssl,$tls) {
                 $this->set_host($host);
                 $this->set_ssl($ssl);
+		$this->set_tls($tls);
                 $this->set_port($port);
 		$this->set_base_dn($base_dn);
                 $this->connect();
@@ -442,6 +445,14 @@ class ldap {
         private function set_ssl($ldap_ssl) { $this->ldap_ssl = $ldap_ssl; }
 
 	/**
+	* Sets TLS
+	*
+	* @param boolean $ldap_tls true to enable, false to disable
+	* @return void
+	*/
+	private function set_tls($ldap_tls) { $this->ldap_tls = $ldap_tls; }
+
+	/**
 	* Sets Ldap port number
 	*
 	* @param int $ldap_port ldap port number, normally 389 or 636
@@ -457,17 +468,25 @@ class ldap {
 	*/
 	private function connect() {
                 $ldap_uri = "";
-                if ($this->get_ssl()) {
+                if ($this->get_ssl() && (!$this->get_tls())) {
 			foreach ($this->get_host() as $host) {
                         	$ldap_uri .= "ldaps://" . $host . ":" . $this->get_port() . " ";
 			}
+			$this->ldap_resource = ldap_connect($ldap_uri);
                 }
-                elseif (!$this->get_ssl()) {
+                elseif (!$this->get_ssl() && ($this->get_tls())) {
 			foreach ($this->get_host() as $host) {
-                        	$ldap_uri .= "ldap://" . $host . ":" . $this->get_port() . " ";;
+                        	$ldap_uri .= "ldap://" . $host . ":" . $this->get_port() . " ";
 			}
+			$this->ldap_resource = ldap_connect($ldap_uri);
+			ldap_start_tls($this->ldap_resource)
                 }
-		$this->ldap_resource = ldap_connect($ldap_uri);
+		else {
+			foreach ($this->get_host() as $host) {
+                                $ldap_uri .= "ldap://" . $host . ":" . $this->get_port() . " ";
+                        }
+			$this->ldap_resource = ldap_connect($ldap_uri);
+		}
 		if ($this->get_connection()) {
 			return true;
 		}
