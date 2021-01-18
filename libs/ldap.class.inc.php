@@ -487,6 +487,8 @@ class ldap {
                         	$ldap_uri .= "ldap://" . $host . ":" . $this->get_port() . " ";
 			}
 			$this->ldap_resource = ldap_connect($ldap_uri);
+			$this->set_protocol(3);
+                        ldap_set_option($this->ldap_resource, LDAP_OPT_REFERRALS, 0);
 			ldap_start_tls($this->ldap_resource);
                 }
 		elseif ((!$this->get_ssl()) && (!$this->get_tls())) {
