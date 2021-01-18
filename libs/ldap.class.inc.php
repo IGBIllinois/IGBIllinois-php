@@ -476,20 +476,20 @@ class ldap {
 	*/
 	private function connect() {
                 $ldap_uri = "";
-                if ($this->get_ssl() && (!$this->get_tls())) {
+                if (($this->get_ssl()) && (!$this->get_tls())) {
 			foreach ($this->get_host() as $host) {
                         	$ldap_uri .= "ldaps://" . $host . ":" . $this->get_port() . " ";
 			}
 			$this->ldap_resource = ldap_connect($ldap_uri);
                 }
-                elseif (!$this->get_ssl() && ($this->get_tls())) {
+                elseif ((!$this->get_ssl()) && ($this->get_tls())) {
 			foreach ($this->get_host() as $host) {
                         	$ldap_uri .= "ldap://" . $host . ":" . $this->get_port() . " ";
 			}
 			$this->ldap_resource = ldap_connect($ldap_uri);
 			ldap_start_tls($this->ldap_resource);
                 }
-		else {
+		elseif ((!$this->get_ssl()) && (!$this->get_tls())) {
 			foreach ($this->get_host() as $host) {
                                 $ldap_uri .= "ldap://" . $host . ":" . $this->get_port() . " ";
                         }
