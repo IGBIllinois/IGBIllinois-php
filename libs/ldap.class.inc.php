@@ -103,6 +103,14 @@ class ldap {
 	*/
         public function get_ssl() { return $this->ldap_ssl; }
 
+	/**
+	* get if tls is enabled
+	*
+	* @param void
+	* @return bool true if enabled, flase otherwise
+	*/
+	public function get_tls() { return $this->ldap_tls; }
+
 	/** 
 	* gets ldap port
 	*
