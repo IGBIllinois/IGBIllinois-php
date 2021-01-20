@@ -39,6 +39,8 @@ class ldap {
         private $ldap_port = 389;
 	/** @var int Ldap protocol - 2,3 */
         private $ldap_protocol = 3;    
+	//** @var string Ldap require certificate
+	private $reqcert = 'allow';
 
         ////////////////Public Functions///////////
 
@@ -475,6 +477,7 @@ class ldap {
 	* @return boolean true on success, false otherwise
 	*/
 	private function connect() {
+		putenv('LDAPTLS_REQCERT=' . $this->reqcert);
                 $ldap_uri = "";
                 if (($this->get_ssl()) && (!$this->get_tls())) {
 			foreach ($this->get_host() as $host) {
