@@ -123,7 +123,6 @@ class session {
 			session_destroy();
 			session_write_close();
 			setcookie($this->get_session_name(),'',0,'/');		
-			session_regenerate_id(true);
 		}
 	}
 
