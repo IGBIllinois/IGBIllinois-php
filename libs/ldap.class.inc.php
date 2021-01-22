@@ -39,8 +39,10 @@ class ldap {
         private $ldap_port = 389;
 	/** @var int Ldap protocol - 2,3 */
         private $ldap_protocol = 3;    
-	//** @var string Ldap require certificate
-	private $reqcert = 'allow';
+	/** @var string Ldap require certificate */
+	private $reqcert = LDAP_OPT_X_TLS_HARD;
+	/** @var boolean Follow LDAP Referals */
+	private $opt_referrals = 0;
 
         ////////////////Public Functions///////////
 
@@ -477,21 +479,23 @@ class ldap {
 	* @return boolean true on success, false otherwise
 	*/
 	private function connect() {
-		putenv('LDAPTLS_REQCERT=' . $this->reqcert);
                 $ldap_uri = "";
                 if (($this->get_ssl()) && (!$this->get_tls())) {
 			foreach ($this->get_host() as $host) {
                         	$ldap_uri .= "ldaps://" . $host . ":" . $this->get_port() . " ";
 			}
+			ldap_set_option(NULL,LDAP_OPT_X_TLS_REQUIRE_CERT,$this->reqcert);
 			$this->ldap_resource = ldap_connect($ldap_uri);
+			ldap_set_option($this->ldap_resource, LDAP_OPT_REFERRALS, $this->opt_referrals);
                 }
                 elseif ((!$this->get_ssl()) && ($this->get_tls())) {
 			foreach ($this->get_host() as $host) {
                         	$ldap_uri .= "ldap://" . $host . ":" . $this->get_port() . " ";
 			}
+			ldap_set_option(NULL,LDAP_OPT_X_TLS_REQUIRE_CERT,$this->reqcert);
 			$this->ldap_resource = ldap_connect($ldap_uri);
 			$this->set_protocol(3);
-                        ldap_set_option($this->ldap_resource, LDAP_OPT_REFERRALS, 0);
+                        ldap_set_option($this->ldap_resource, LDAP_OPT_REFERRALS, $this->opt_referrals);
 			ldap_start_tls($this->ldap_resource);
                 }
 		elseif ((!$this->get_ssl()) && (!$this->get_tls())) {
@@ -499,6 +503,7 @@ class ldap {
                                 $ldap_uri .= "ldap://" . $host . ":" . $this->get_port() . " ";
                         }
 			$this->ldap_resource = ldap_connect($ldap_uri);
+			ldap_set_option($this->ldap_resource, LDAP_OPT_REFERRALS, $this->opt_referrals);
 		}
 		if ($this->get_connection()) {
 			return true;
