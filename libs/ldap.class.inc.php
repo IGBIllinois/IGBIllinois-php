@@ -57,7 +57,7 @@ class ldap {
 	* @param string $base_dn Ldap base dn
 	* @return \IGBIllinois\ldap
 	*/
-        public function __construct($host,$base_dn,$port,$ssl,$tls) {
+        public function __construct($host,$base_dn,$port = 389,$ssl = false,$tls = false) {
                 $this->set_host($host);
                 $this->set_ssl($ssl);
 		$this->set_tls($tls);
