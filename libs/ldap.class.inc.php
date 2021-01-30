@@ -41,6 +41,8 @@ class ldap {
         private $ldap_protocol = 3;    
 	/** @var string Ldap require certificate */
 	private $reqcert = LDAP_OPT_X_TLS_HARD;
+	/** @var string Minimal SSL/TLS protocol version */
+	private $min_tls_protocol = LDAP_OPT_X_TLS_PROTOCOL_TLS1_2;
 	/** @var boolean Follow LDAP Referals */
 	private $opt_referrals = 0;
 
@@ -516,11 +518,11 @@ class ldap {
 	*/
 	private function connect() {
                 $ldap_uri = "";
+		$this->set_tls_options();
                 if (($this->get_ssl()) && (!$this->get_tls())) {
 			foreach ($this->get_host() as $host) {
                         	$ldap_uri .= "ldaps://" . $host . ":" . $this->get_port() . " ";
 			}
-			ldap_set_option(NULL,LDAP_OPT_X_TLS_REQUIRE_CERT,$this->reqcert);
 			$this->ldap_resource = ldap_connect($ldap_uri);
 			ldap_set_option($this->ldap_resource, LDAP_OPT_REFERRALS, $this->opt_referrals);
                 }
@@ -528,7 +530,6 @@ class ldap {
 			foreach ($this->get_host() as $host) {
                         	$ldap_uri .= "ldap://" . $host . ":" . $this->get_port() . " ";
 			}
-			ldap_set_option(NULL,LDAP_OPT_X_TLS_REQUIRE_CERT,$this->reqcert);
 			$this->ldap_resource = ldap_connect($ldap_uri);
 			$this->set_protocol(3);
                         ldap_set_option($this->ldap_resource, LDAP_OPT_REFERRALS, $this->opt_referrals);
@@ -547,6 +548,19 @@ class ldap {
 		return false;
         }
 
+	/**
+        * Sets SSL/TLS connection options
+        *
+        * @param void
+        * @return void
+        */
+	private function set_tls_options() {
+		ldap_set_option(NULL,LDAP_OPT_X_TLS_REQUIRE_CERT,$this->reqcert);
+		ldap_set_option(NULL,LDAP_OPT_X_TLS_PROTOCOL_MIN,$this->min_tls_protocol);
+		
+
+
+	}
 }
 
 ?>
