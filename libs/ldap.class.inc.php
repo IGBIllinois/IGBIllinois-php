@@ -236,10 +236,10 @@ class ldap {
 	public function authenticate($username,$password,$group = "") {
 	        $result = false;
         	$rdn = $this->get_user_rdn($username);
-		if ($ldap->bind($rdn,$password) && $group == "") {
+		if ($this->bind($rdn,$password) && $group == "") {
 			$result = true;
 		}
-	        elseif (($ldap->bind($rdn,$password)) && ($this->is_group_member($username,$group))) {
+	        elseif (($this->bind($rdn,$password)) && ($this->is_group_member($username,$group))) {
         	        $result = true;
 	        }
         	return $result;
