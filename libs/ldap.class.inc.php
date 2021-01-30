@@ -211,6 +211,42 @@ class ldap {
         }
 
 	/**
+	* Get User Full DN
+	*
+	* @param string $username
+	* @return string full RDN of user
+	*/
+	public function get_user_rdn($username) {
+		$filter = "(uid=" . $username . ")";
+		$attributes = array('dn');
+		$result = $this->search($filter,'',$attributes);
+		if (isset($result[0]['dn'])) {
+			return $result[0]['dn'];
+		}
+		return false;
+	}
+
+	/** authenticates users and verifies group membership
+	*
+	* @param string $username username
+	* @param string $password password
+	* @param string $group full rdn of group (optional)
+	* @return boolean true on scuccess, false otherwise
+	*/
+	public function authenticate($username,$password,$group = "") {
+	        $result = false;
+        	$rdn = $this->get_user_rdn($username);
+		if ($ldap->bind($rdn,$password) && $group == "") {
+			$result = true;
+		}
+	        elseif (($ldap->bind($rdn,$password)) && ($this->is_group_member($username,$group))) {
+        	        $result = true;
+	        }
+        	return $result;
+	}
+
+
+	/**
 	* replace ldap entry values with new values
 	*
 	* @param string $rdn full rdn of entry
