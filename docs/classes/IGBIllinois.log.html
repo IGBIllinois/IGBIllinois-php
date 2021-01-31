@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>IGBIllinois-php API » \IGBIllinois\Helper\functions</title>
+<title>IGBIllinois-php API » \IGBIllinois\log</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -63,36 +63,46 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_convert_bytes" title="convert_bytes() :: Converts various sizes to bytes"><span class="description">Converts various sizes to bytes</span><pre>convert_bytes()</pre></a></li>
-<li class="method public "><a href="#method_get_max_upload" title="get_max_upload() :: Gets maximum upload size from php.ini in bytes"><span class="description">Gets maximum upload size from php.ini in bytes</span><pre>get_max_upload()</pre></a></li>
-<li class="method public "><a href="#method_get_php_extensions" title="get_php_extensions() :: Retrieves enabled php extensions"><span class="description">Retrieves enabled php extensions</span><pre>get_php_extensions()</pre></a></li>
-<li class="method public "><a href="#method_get_php_upload_error" title="get_php_upload_error() :: Gets php upload error message"><span class="description">Gets php upload error message</span><pre>get_php_upload_error()</pre></a></li>
-<li class="method public "><a href="#method_get_webserver_version" title="get_webserver_version() :: Gets Webserver Version"><span class="description">Gets Webserver Version</span><pre>get_webserver_version()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: Creates log object"><span class="description">Creates log object</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_get_log" title="get_log() :: Retrieve log file contents"><span class="description">Retrieve log file contents</span><pre>get_log()</pre></a></li>
+<li class="method public "><a href="#method_send_log" title="send_log() :: Sends log message"><span class="description">Sends log message</span><pre>send_log()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i title="Properties" class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_enabled" title="$enabled() :: "><span class="description">enables or disables log</span><pre>$enabled</pre></a></li>
+<li class="property private "><a href="#property_logfile" title="$logfile() :: $var string full path to log file"><span class="description"></span><pre>$logfile</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
 <i title="Constants" class="icon-custom icon-constant"></i> Constants
-                    <ul><li class="constant  "><a href="#constant_PHP_FILE_UPLOAD_ERRORS" title="PHP_FILE_UPLOAD_ERRORS() :: const"><span class="description">const</span><pre>PHP_FILE_UPLOAD_ERRORS</pre></a></li></ul>
+                    <ul>
+<li class="constant  "><a href="#constant_ERROR" title="ERROR() :: $const error constant"><span class="description">$const error constant</span><pre>ERROR</pre></a></li>
+<li class="constant  "><a href="#constant_MAX_FILE_LENGTH" title="MAX_FILE_LENGTH() :: $const maximum number of lines to retrieve"><span class="description">$const maximum number of lines to retrieve</span><pre>MAX_FILE_LENGTH</pre></a></li>
+<li class="constant  "><a href="#constant_NOTICE" title="NOTICE() :: $const notice constant"><span class="description">$const notice constant</span><pre>NOTICE</pre></a></li>
+<li class="constant  "><a href="#constant_WARNING" title="WARNING() :: $const warning constant"><span class="description">$const warning constant</span><pre>WARNING</pre></a></li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\IGBIllinois\Helper\functions"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\IGBIllinois\log"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/IGBIllinois.html">IGBIllinois</a></li>
-<li>
-<span class="divider">\</span><a href="../namespaces/IGBIllinois.Helper.html">Helper</a>
-</li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/IGBIllinois.Helper.functions.html">functions</a>
+<span class="divider">\</span><a href="../classes/IGBIllinois.log.html">log</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">function class has many helper functions</p>
+<p class="short_description">log class writes to log file</p>
 <div class="details">
-<div class="long_description"></div>
+<div class="long_description"><p>Provides functions to log message to a log file</p></div>
 <table class="table table-bordered">
 <tr>
 <th>author</th>
@@ -104,7 +114,7 @@
 </tr>
 <tr>
 <th>package</th>
-<td><a href="../packages/IGBIllinois.Helper.html">IGBIllinois\Helper</a></td>
+<td><a href="../packages/IGBIllinois.html">IGBIllinois</a></td>
 </tr>
 <tr>
 <th>copyright</th>
@@ -114,80 +124,91 @@
 <th>license</th>
 <td><a href="https://opensource.org/licenses/GPL-3.0">GNU Public License v3</a></td>
 </tr>
-<tr>
-<th>static</th>
-<td></td>
-</tr>
 </table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_convert_bytes"></a><div class="element clickable method public method_convert_bytes " data-toggle="collapse" data-target=".method_convert_bytes .collapse" title="public">
-<h2>Converts various sizes to bytes</h2>
-<pre>convert_bytes(string $size) : integer</pre>
-<div class="labels"><span class="label">Static</span></div>
+<a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
+<h2>Creates log object</h2>
+<pre>__construct(boolean $enabled<code> = false</code>, string $logfile) : void</pre>
+<div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$size</h4>
-<code>string</code><p>string variable with size + unit suffix</p></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>integer</code></div>
+<h4>$enabled</h4>
+<code>boolean</code><p>@enabled enables or disables log</p></div>
+<div class="subelement argument">
+<h4>$logfile</h4>
+<code>string</code><p>@logfile full path to log file</p></div>
 </div></div>
 </div>
-<a id="method_get_max_upload"></a><div class="element clickable method public method_get_max_upload " data-toggle="collapse" data-target=".method_get_max_upload .collapse" title="public">
-<h2>Gets maximum upload size from php.ini in bytes</h2>
-<pre>get_max_upload() : integer</pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered"><tr>
-<th>params</th>
-<td>void</td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>integer</code></div>
-</div></div>
+<a id="method_get_log"></a><div class="element clickable method public method_get_log " data-toggle="collapse" data-target=".method_get_log .collapse" title="public">
+<h2>Retrieve log file contents</h2>
+<pre>get_log() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"><p>$param void
+$return string contents of log file</p></div></div></div>
 </div>
-<a id="method_get_php_extensions"></a><div class="element clickable method public method_get_php_extensions " data-toggle="collapse" data-target=".method_get_php_extensions .collapse" title="public">
-<h2>Retrieves enabled php extensions</h2>
-<pre>get_php_extensions() : array&lt;mixed,string&gt;</pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>array&lt;mixed,string&gt;</code></div>
-</div></div>
-</div>
-<a id="method_get_php_upload_error"></a><div class="element clickable method public method_get_php_upload_error " data-toggle="collapse" data-target=".method_get_php_upload_error .collapse" title="public">
-<h2>Gets php upload error message</h2>
-<pre>get_php_upload_error(integer | null $index<code> = null</code>) : string</pre>
-<div class="labels"><span class="label">Static</span></div>
+<a id="method_send_log"></a><div class="element clickable method public method_send_log " data-toggle="collapse" data-target=".method_send_log .collapse" title="public">
+<h2>Sends log message</h2>
+<pre>send_log(string $message, integer $log_level<code> = self::NOTICE</code>) : void</pre>
+<div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$index</h4>
-<code>integer</code><code>null</code><p>PHP upload error code</p></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
-</div></div>
-</div>
-<a id="method_get_webserver_version"></a><div class="element clickable method public method_get_webserver_version " data-toggle="collapse" data-target=".method_get_webserver_version .collapse" title="public">
-<h2>Gets Webserver Version</h2>
-<pre>get_webserver_version() : string</pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
+<h4>$message</h4>
+<code>string</code><p>Log message to send</p></div>
+<div class="subelement argument">
+<h4>$log_level</h4>
+<code>integer</code><p>Log level to use</p></div>
 </div></div>
 </div>
 <h3>
+<i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_enabled"> </a><div class="element clickable property private property_enabled" data-toggle="collapse" data-target=".property_enabled .collapse" title="private">
+<h2>enables or disables log</h2>
+<pre>$enabled : boolean</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>false</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_logfile"> </a><div class="element clickable property private property_logfile" data-toggle="collapse" data-target=".property_logfile .collapse" title="private">
+<h2>$var string full path to log file</h2>
+<pre>$logfile </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>""</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<h3>
 <i title="Constants" class="icon-custom icon-constant"></i> Constants</h3>
-<a id="constant_PHP_FILE_UPLOAD_ERRORS"> </a><div class="element clickable constant  constant_PHP_FILE_UPLOAD_ERRORS" data-toggle="collapse" data-target=".constant_PHP_FILE_UPLOAD_ERRORS .collapse" title="">
-<h2>const</h2>
-<pre>PHP_FILE_UPLOAD_ERRORS = array(0 =&gt; 'There is no error, the file uploaded with success', 1 =&gt; 'The uploaded file exceeds the upload_max_filesize directive in php.ini', 2 =&gt; 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form', 3 =&gt; 'The uploaded file was only partially uploaded', 4 =&gt; 'No file was uploaded', 6 =&gt; 'Missing a temporary folder', 7 =&gt; 'Failed to write file to disk.', 8 =&gt; 'A PHP extension stopped the file upload.') </pre>
+<a id="constant_ERROR"> </a><div class="element clickable constant  constant_ERROR" data-toggle="collapse" data-target=".constant_ERROR .collapse" title="">
+<h2>$const error constant</h2>
+<pre>ERROR = 2 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_MAX_FILE_LENGTH"> </a><div class="element clickable constant  constant_MAX_FILE_LENGTH" data-toggle="collapse" data-target=".constant_MAX_FILE_LENGTH .collapse" title="">
+<h2>$const maximum number of lines to retrieve</h2>
+<pre>MAX_FILE_LENGTH = 1000 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_NOTICE"> </a><div class="element clickable constant  constant_NOTICE" data-toggle="collapse" data-target=".constant_NOTICE .collapse" title="">
+<h2>$const notice constant</h2>
+<pre>NOTICE = 0 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_WARNING"> </a><div class="element clickable constant  constant_WARNING" data-toggle="collapse" data-target=".constant_WARNING .collapse" title="">
+<h2>$const warning constant</h2>
+<pre>WARNING = 1 </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>

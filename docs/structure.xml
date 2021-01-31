@@ -83,15 +83,146 @@
       <todo line="88">These constants won't exist until php 5.4</todo>
     </markers>
   </file>
-  <file path="log.class.inc.php" generated-path="log.class.inc.html" hash="b0d0d6a323f23f7125180e53e1da3f53" package="Default">
+  <file path="log.class.inc.php" generated-path="log.class.inc.html" hash="1794acc4deba8b1d9e4524206f33b7b0" package="Default">
     <docblock line="0">
-      <description></description>
+      <description>log class to write and read a log file</description>
       <long-description></long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
-    <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-    </parse_markers>
+    <class final="false" abstract="false" namespace="IGBIllinois" line="20" package="IGBIllinois">
+      <extends/>
+      <name>log</name>
+      <full_name>\IGBIllinois\log</full_name>
+      <docblock line="20">
+        <description>log class writes to log file</description>
+        <long-description>Provides functions to log message to a log file</long-description>
+        <tag name="author" line="20" description="David Slater" link="mailto:dslater@illinois.edu"/>
+        <tag name="access" line="20" description="public"/>
+        <tag name="package" line="20" description="IGBIllinois"/>
+        <tag name="copyright" line="20" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
+        <tag name="license" line="20" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
+      </docblock>
+      <constant namespace="IGBIllinois" line="27" package="IGBIllinois">
+        <name>MAX_FILE_LENGTH</name>
+        <full_name>\IGBIllinois\log::MAX_FILE_LENGTH</full_name>
+        <value>1000</value>
+        <docblock line="27">
+          <description>$const maximum number of lines to retrieve</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="29" package="IGBIllinois">
+        <name>NOTICE</name>
+        <full_name>\IGBIllinois\log::NOTICE</full_name>
+        <value>0</value>
+        <docblock line="29">
+          <description>$const notice constant</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="31" package="IGBIllinois">
+        <name>WARNING</name>
+        <full_name>\IGBIllinois\log::WARNING</full_name>
+        <value>1</value>
+        <docblock line="31">
+          <description>$const warning constant</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="33" package="IGBIllinois">
+        <name>ERROR</name>
+        <full_name>\IGBIllinois\log::ERROR</full_name>
+        <value>2</value>
+        <docblock line="33">
+          <description>$const error constant</description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="23" package="IGBIllinois">
+        <name>$enabled</name>
+        <full_name>\IGBIllinois\log::$enabled</full_name>
+        <default>false</default>
+        <docblock line="23">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="23" description="&lt;p&gt;enables or disables log&lt;/p&gt;" type="boolean" variable="">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="25" package="IGBIllinois">
+        <name>$logfile</name>
+        <full_name>\IGBIllinois\log::$logfile</full_name>
+        <default>""</default>
+        <docblock line="25">
+          <description>$var string full path to log file</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="44" package="IGBIllinois">
+        <name>__construct</name>
+        <full_name>\IGBIllinois\log::__construct()</full_name>
+        <docblock line="44">
+          <description>Creates log object</description>
+          <long-description></long-description>
+          <tag name="param" line="44" description="&lt;p&gt;@enabled enables or disables log&lt;/p&gt;" type="boolean" variable="$enabled">
+            <type>boolean</type>
+          </tag>
+          <tag name="param" line="44" description="&lt;p&gt;@logfile full path to log file&lt;/p&gt;" type="string" variable="$logfile">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="44" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$enabled</name>
+          <default>false</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$logfile</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="59" package="IGBIllinois">
+        <name>send_log</name>
+        <full_name>\IGBIllinois\log::send_log()</full_name>
+        <docblock line="59">
+          <description>Sends log message</description>
+          <long-description></long-description>
+          <tag name="param" line="59" description="&lt;p&gt;Log message to send&lt;/p&gt;" type="string" variable="$message">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="59" description="&lt;p&gt;Log level to use&lt;/p&gt;" type="integer" variable="$log_level">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="59" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$message</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$log_level</name>
+          <default>self::NOTICE</default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="90" package="IGBIllinois">
+        <name>get_log</name>
+        <full_name>\IGBIllinois\log::get_log()</full_name>
+        <docblock line="90">
+          <description>Retrieve log file contents</description>
+          <long-description>$param void
+$return string contents of log file</long-description>
+        </docblock>
+      </method>
+    </class>
   </file>
   <file path="session.class.inc.php" generated-path="session.class.inc.html" hash="c8a3af7146b25602107ef80d6fcde934" package="Default">
     <docblock line="0">

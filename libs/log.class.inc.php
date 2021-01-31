@@ -1,9 +1,8 @@
 <?php
 /**
-* log class write to log file
+* log class to write and read a log file
 *
 */
-
 namespace IGBIllinois;
 
 /**
@@ -17,8 +16,6 @@ namespace IGBIllinois;
 * @copyright Copyright (c) 2020 University of Illinois Board of Trustees
 * @license https://opensource.org/licenses/GPL-3.0 GNU Public License v3
 *
-*
-*
 */
 class log {
 
@@ -27,7 +24,7 @@ class log {
 	/** $var string full path to log file */
 	private $logfile = ""; 
 	/** $const maximum number of lines to retrieve */ 
-	private const MAX_FILE_LENGTH = 1000;
+	const MAX_FILE_LENGTH = 1000;
 	/** $const notice constant */ 
 	const NOTICE = 0;
 	/** $const warning constant */
