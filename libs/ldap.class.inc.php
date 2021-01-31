@@ -40,7 +40,7 @@ class ldap {
 	/** @var int Ldap protocol - 2,3 */
         private $ldap_protocol = 3;    
 	/** @var string Ldap require certificate */
-	private $reqcert = LDAP_OPT_X_TLS_HARD;
+	private $reqcert = LDAP_OPT_X_TLS_ALLOW;
 	/** @var string Minimal SSL/TLS protocol version */
 	private $min_tls_protocol = LDAP_OPT_X_TLS_PROTOCOL_TLS1_2;
 	/** @var boolean Follow LDAP Referals */
@@ -517,6 +517,7 @@ class ldap {
 	* @return boolean true on success, false otherwise
 	*/
 	private function connect() {
+
                 $ldap_uri = "";
 		$this->set_tls_options();
                 if (($this->get_ssl()) && (!$this->get_tls())) {
