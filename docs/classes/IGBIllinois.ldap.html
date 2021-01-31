@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">7</span></a></li>
+                <span class="label label-info">1</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -65,6 +65,7 @@
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Object constructor"><span class="description">Object constructor</span><pre>__construct()</pre></a></li>
 <li class="method public "><a href="#method___destruct" title="__destruct() :: Object deconstructor"><span class="description">Object deconstructor</span><pre>__destruct()</pre></a></li>
+<li class="method public "><a href="#method_authenticate" title="authenticate() :: authenticates users and verifies group membership"><span class="description">authenticates users and verifies group membership</span><pre>authenticate()</pre></a></li>
 <li class="method public "><a href="#method_bind" title="bind() :: binds to ldap server"><span class="description">binds to ldap server</span><pre>bind()</pre></a></li>
 <li class="method public "><a href="#method_get_all_users" title="get_all_users() :: retrieves all users"><span class="description">retrieves all users</span><pre>get_all_users()</pre></a></li>
 <li class="method public "><a href="#method_get_base_dn" title="get_base_dn() :: gets ldap base dn"><span class="description">gets ldap base dn</span><pre>get_base_dn()</pre></a></li>
@@ -83,6 +84,7 @@
 <li class="method public "><a href="#method_get_ssl" title="get_ssl() :: gets if ssl is enabled"><span class="description">gets if ssl is enabled</span><pre>get_ssl()</pre></a></li>
 <li class="method public "><a href="#method_get_tls" title="get_tls() :: get if tls is enabled"><span class="description">get if tls is enabled</span><pre>get_tls()</pre></a></li>
 <li class="method public "><a href="#method_get_user_groups" title="get_user_groups() :: gets groups a user is a member of"><span class="description">gets groups a user is a member of</span><pre>get_user_groups()</pre></a></li>
+<li class="method public "><a href="#method_get_user_rdn" title="get_user_rdn() :: Get User Full DN"><span class="description">Get User Full DN</span><pre>get_user_rdn()</pre></a></li>
 <li class="method public "><a href="#method_is_group_member" title="is_group_member() :: checks if user is member of group"><span class="description">checks if user is member of group</span><pre>is_group_member()</pre></a></li>
 <li class="method public "><a href="#method_is_ldap_user" title="is_ldap_user() :: checks if the ldap user exists"><span class="description">checks if the ldap user exists</span><pre>is_ldap_user()</pre></a></li>
 <li class="method public "><a href="#method_replace" title="replace() :: replace ldap entry values with new values"><span class="description">replace ldap entry values with new values</span><pre>replace()</pre></a></li>
@@ -98,6 +100,7 @@
 <li class="method private "><a href="#method_set_port" title="set_port() :: Sets Ldap port number"><span class="description">Sets Ldap port number</span><pre>set_port()</pre></a></li>
 <li class="method private "><a href="#method_set_ssl" title="set_ssl() :: Sets SSL"><span class="description">Sets SSL</span><pre>set_ssl()</pre></a></li>
 <li class="method private "><a href="#method_set_tls" title="set_tls() :: Sets TLS"><span class="description">Sets TLS</span><pre>set_tls()</pre></a></li>
+<li class="method private "><a href="#method_set_tls_options" title="set_tls_options() :: Sets SSL/TLS connection options"><span class="description">Sets SSL/TLS connection options</span><pre>set_tls_options()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -115,6 +118,9 @@
 <li class="property private "><a href="#property_ldap_resource" title="$ldap_resource() :: "><span class="description">Ldap resource link</span><pre>$ldap_resource</pre></a></li>
 <li class="property private "><a href="#property_ldap_ssl" title="$ldap_ssl() :: "><span class="description">Enable ssl</span><pre>$ldap_ssl</pre></a></li>
 <li class="property private "><a href="#property_ldap_tls" title="$ldap_tls() :: "><span class="description">Enable TLS</span><pre>$ldap_tls</pre></a></li>
+<li class="property private "><a href="#property_min_tls_protocol" title="$min_tls_protocol() :: "><span class="description">Minimal SSL/TLS protocol version</span><pre>$min_tls_protocol</pre></a></li>
+<li class="property private "><a href="#property_opt_referrals" title="$opt_referrals() :: "><span class="description">Follow LDAP Referals</span><pre>$opt_referrals</pre></a></li>
+<li class="property private "><a href="#property_reqcert" title="$reqcert() :: "><span class="description">Ldap require certificate</span><pre>$reqcert</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -159,7 +165,7 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
 <h2>Object constructor</h2>
-<pre>__construct(string $host, string $base_dn, integer $port, boolean $ssl, $tls) : \IGBIllinois\ldap</pre>
+<pre>__construct(string $host, string $base_dn, integer $port<code> = 389</code>, boolean $ssl<code> = false</code>, boolean $tls<code> = false</code>) : \IGBIllinois\ldap</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>Makes initial connection to ldap database</p></div>
@@ -176,7 +182,9 @@
 <div class="subelement argument">
 <h4>$ssl</h4>
 <code>boolean</code><p>enable or disable ssl</p></div>
-<div class="subelement argument"><h4>$tls</h4></div>
+<div class="subelement argument">
+<h4>$tls</h4>
+<code>boolean</code><p>enable or disable tls</p></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>\IGBIllinois\ldap</code></div>
 </div></div>
@@ -186,6 +194,27 @@
 <pre>__destruct() : void</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>Destroys ldap object</p></div></div></div>
+</div>
+<a id="method_authenticate"></a><div class="element clickable method public method_authenticate " data-toggle="collapse" data-target=".method_authenticate .collapse" title="public">
+<h2>authenticates users and verifies group membership</h2>
+<pre>authenticate(string $username, string $password, string $group<code> = ""</code>) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$username</h4>
+<code>string</code><p>username</p></div>
+<div class="subelement argument">
+<h4>$password</h4>
+<code>string</code><p>password</p></div>
+<div class="subelement argument">
+<h4>$group</h4>
+<code>string</code><p>full rdn of group (optional)</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true on scuccess, false otherwise</div>
+</div></div>
 </div>
 <a id="method_bind"></a><div class="element clickable method public method_bind " data-toggle="collapse" data-target=".method_bind .collapse" title="public">
 <h2>binds to ldap server</h2>
@@ -411,6 +440,22 @@
 <code>array&lt;mixed,string&gt;</code>array of groups</div>
 </div></div>
 </div>
+<a id="method_get_user_rdn"></a><div class="element clickable method public method_get_user_rdn " data-toggle="collapse" data-target=".method_get_user_rdn .collapse" title="public">
+<h2>Get User Full DN</h2>
+<pre>get_user_rdn(string $username) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$username</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>full RDN of user</div>
+</div></div>
+</div>
 <a id="method_is_group_member"></a><div class="element clickable method public method_is_group_member " data-toggle="collapse" data-target=".method_is_group_member .collapse" title="public">
 <h2>checks if user is member of group</h2>
 <pre>is_group_member(string $username, string $group) : boolean</pre>
@@ -566,6 +611,12 @@
 <code>boolean</code><p>true to enable, false to disable</p></div>
 </div></div>
 </div>
+<a id="method_set_tls_options"></a><div class="element clickable method private method_set_tls_options " data-toggle="collapse" data-target=".method_set_tls_options .collapse" title="private">
+<h2>Sets SSL/TLS connection options</h2>
+<pre>set_tls_options() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
 <a id="property_ldap_base_dn"> </a><div class="element clickable property private property_ldap_base_dn" data-toggle="collapse" data-target=".property_ldap_base_dn .collapse" title="private">
@@ -658,6 +709,36 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
+<a id="property_min_tls_protocol"> </a><div class="element clickable property private property_min_tls_protocol" data-toggle="collapse" data-target=".property_min_tls_protocol .collapse" title="private">
+<h2>Minimal SSL/TLS protocol version</h2>
+<pre>$min_tls_protocol : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>LDAP_OPT_X_TLS_PROTOCOL_TLS1_2</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_opt_referrals"> </a><div class="element clickable property private property_opt_referrals" data-toggle="collapse" data-target=".property_opt_referrals .collapse" title="private">
+<h2>Follow LDAP Referals</h2>
+<pre>$opt_referrals : boolean</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>0</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_reqcert"> </a><div class="element clickable property private property_reqcert" data-toggle="collapse" data-target=".property_reqcert .collapse" title="private">
+<h2>Ldap require certificate</h2>
+<pre>$reqcert : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>LDAP_OPT_X_TLS_ALLOW</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -665,7 +746,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2021-01-18T10:45:57-06:00.<br></footer></div>
+            generated on 2021-01-31T11:15:20-06:00.<br></footer></div>
 </div>
 </body>
 </html>

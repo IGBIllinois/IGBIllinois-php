@@ -54,9 +54,10 @@ class ldap {
 	* Makes initial connection to ldap database
 	*
 	* @param string $host list of ldap hosts seperated by a space
-	* @param boolean $ssl enable or disable ssl
-	* @param int $port ldap port the server listens on
 	* @param string $base_dn Ldap base dn
+	* @param int $port ldap port the server listens on
+	* @param boolean $ssl enable or disable ssl
+	* @param boolean $tls enable or disable tls
 	* @return \IGBIllinois\ldap
 	*/
         public function __construct($host,$base_dn,$port = 389,$ssl = false,$tls = false) {

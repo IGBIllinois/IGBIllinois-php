@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>IGBIllinois-php API » \IGBIllinois\graphs</title>
+<title>IGBIllinois-php API » \IGBIllinois\Helper\smbhash</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -63,34 +63,36 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_accumulated_bar_plot" title="accumulated_bar_plot() :: Creates accumulated bar plot"><span class="description">Creates accumulated bar plot</span><pre>accumulated_bar_plot()</pre></a></li>
-<li class="method public "><a href="#method_bar_graph" title="bar_graph() :: Creates bar graph"><span class="description">Creates bar graph</span><pre>bar_graph()</pre></a></li>
-<li class="method public "><a href="#method_pie_graph" title="pie_graph() :: Creates pie chart"><span class="description">Creates pie chart</span><pre>pie_graph()</pre></a></li>
+<li class="method public "><a href="#method_LMhash" title="LMhash() :: Create LM password hash"><span class="description">Create LM password hash</span><pre>LMhash()</pre></a></li>
+<li class="method public "><a href="#method_NTLMHash" title="NTLMHash() :: Create NTLM Password hash"><span class="description">Create NTLM Password hash</span><pre>NTLMHash()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
-                    <ul><li class="method private "><a href="#method_bar_plot" title="bar_plot() :: Creates bar plot"><span class="description">Creates bar plot</span><pre>bar_plot()</pre></a></li></ul>
+                    <ul><li class="method private "><a href="#method_LMhash_DESencrypt" title="LMhash_DESencrypt() :: Create DES encrypt of LMhash"><span class="description">Create DES encrypt of LMhash</span><pre>LMhash_DESencrypt()</pre></a></li></ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\IGBIllinois\graphs"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\IGBIllinois\Helper\smbhash"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/IGBIllinois.html">IGBIllinois</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/IGBIllinois.Helper.html">Helper</a>
+</li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/IGBIllinois.graphs.html">graphs</a>
+<span class="divider">\</span><a href="../classes/IGBIllinois.Helper.smbhash.html">smbhash</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">graphs class creates graphs using JpGraph, https://jpgraph.net/</p>
+<p class="short_description">smbhash class with functiosn to generate smb passwords</p>
 <div class="details">
-<div class="long_description"><p>Provides functions to generate bar and pie charts</p></div>
+<div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>author</th>
-<td><a href="mailto:dslater@illinois.edu">David Slater</a></td>
+<td><a href="mailto:jleigh@illinois.edu">Joe Leigh</a></td>
 </tr>
 <tr>
 <th>access</th>
@@ -98,7 +100,7 @@
 </tr>
 <tr>
 <th>package</th>
-<td><a href="../packages/IGBIllinois.html">IGBIllinois</a></td>
+<td><a href="../packages/IGBIllinois.Helper.html">IGBIllinois\Helper</a></td>
 </tr>
 <tr>
 <th>copyright</th>
@@ -115,98 +117,50 @@
 </table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_accumulated_bar_plot"></a><div class="element clickable method public method_accumulated_bar_plot " data-toggle="collapse" data-target=".method_accumulated_bar_plot .collapse" title="public">
-<h2>Creates accumulated bar plot</h2>
-<pre>accumulated_bar_plot(array $input_data, string $xaxis, string $yaxis, string $title<code> = ""</code>, array $legend<code> = array()</code>) : void</pre>
+<a id="method_LMhash"></a><div class="element clickable method public method_LMhash " data-toggle="collapse" data-target=".method_LMhash .collapse" title="public">
+<h2>Create LM password hash</h2>
+<pre>LMhash(string $password) : string</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>Generates a bar plot jpeg file and outputs it</p></div>
-<table class="table table-bordered"><tr>
-<th>static</th>
-<td></td>
-</tr></table>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$input_data</h4>
-<code>array</code><p>associate array of input data</p></div>
-<div class="subelement argument">
-<h4>$xaxis</h4>
-<code>string</code><p>X axis title</p></div>
-<div class="subelement argument">
-<h4>$yaxis</h4>
-<code>string</code><p>Y axis title</p></div>
-<div class="subelement argument">
-<h4>$title</h4>
-<code>string</code><p>title for graph</p></div>
-<div class="subelement argument">
-<h4>$legend</h4>
-<code>array</code><p>associative array for plot legend</p></div>
+<h4>$password</h4>
+<code>string</code><p>cleartext password</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>LMHash of password</div>
 </div></div>
 </div>
-<a id="method_bar_graph"></a><div class="element clickable method public method_bar_graph " data-toggle="collapse" data-target=".method_bar_graph .collapse" title="public">
-<h2>Creates bar graph</h2>
-<pre>bar_graph(array $input_data, string $xaxis, string $yaxis, string $title<code> = ""</code>) : void</pre>
+<a id="method_NTLMHash"></a><div class="element clickable method public method_NTLMHash " data-toggle="collapse" data-target=".method_NTLMHash .collapse" title="public">
+<h2>Create NTLM Password hash</h2>
+<pre>NTLMHash(string $password) : string</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>Generates a bar graph as a jpeg file and outputs it</p></div>
-<table class="table table-bordered"><tr>
-<th>static</th>
-<td></td>
-</tr></table>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$input_data</h4>
-<code>array</code><p>associate array of input data</p></div>
-<div class="subelement argument">
-<h4>$xaxis</h4>
-<code>string</code><p>X axis title</p></div>
-<div class="subelement argument">
-<h4>$yaxis</h4>
-<code>string</code><p>Y axis title</p></div>
-<div class="subelement argument">
-<h4>$title</h4>
-<code>string</code><p>title for graph</p></div>
+<h4>$password</h4>
+<code>string</code><p>clear text password</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>MD4Hash of password</div>
 </div></div>
 </div>
-<a id="method_pie_graph"></a><div class="element clickable method public method_pie_graph " data-toggle="collapse" data-target=".method_pie_graph .collapse" title="public">
-<h2>Creates pie chart</h2>
-<pre>pie_graph(array $input_data, string $title<code> = ""</code>) : void</pre>
+<a id="method_LMhash_DESencrypt"></a><div class="element clickable method private method_LMhash_DESencrypt " data-toggle="collapse" data-target=".method_LMhash_DESencrypt .collapse" title="private">
+<h2>Create DES encrypt of LMhash</h2>
+<pre>LMhash_DESencrypt(string $string) : string</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>Generates a pie chart jpeg file and outputs it</p></div>
-<table class="table table-bordered"><tr>
-<th>static</th>
-<td></td>
-</tr></table>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$input_data</h4>
-<code>array</code><p>associate array of input data</p></div>
-<div class="subelement argument">
-<h4>$title</h4>
-<code>string</code><p>title for graph</p></div>
-</div></div>
+<h4>$string</h4>
+<code>string</code>
 </div>
-<a id="method_bar_plot"></a><div class="element clickable method private method_bar_plot " data-toggle="collapse" data-target=".method_bar_plot .collapse" title="private">
-<h2>Creates bar plot</h2>
-<pre>bar_plot(array $input_data, string $yaxis, array $legend<code> = ""</code>) : void</pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>Generates a bar plot jpeg file and outputs it</p></div>
-<table class="table table-bordered"><tr>
-<th>static</th>
-<td></td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$input_data</h4>
-<code>array</code><p>associate array of input data</p></div>
-<div class="subelement argument">
-<h4>$yaxis</h4>
-<code>string</code><p>Y axis title</p></div>
-<div class="subelement argument">
-<h4>$legend</h4>
-<code>array</code><p>associative array for plot legend</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>DES encrypt of LMhash</div>
 </div></div>
 </div>
 </div>
