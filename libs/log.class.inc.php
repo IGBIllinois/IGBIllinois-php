@@ -22,12 +22,44 @@ namespace IGBIllinois;
 */
 class log {
 
+	/** @var boolean enables or disables log */
+	private $enabled = false;
+	/** $var string full path to log file */
+	private $logfile = ""; 
+	/** $const maximum number of lines to retrieve */ 
 	private const MAX_FILE_LENGTH = 1000;
+	/** $const notice constant */ 
 	const NOTICE = 0;
+	/** $const warning constant */
 	const WARNING = 1;
+	/** $const error constant */
 	const ERROR = 2;
 
-	public static function send_log($message,$log_level = self::NOTICE) {
+        /**
+        * Creates log object
+        *
+        * @param boolean @enabled enables or disables log
+        * @param string @logfile full path to log file
+        *
+        * @return void
+        */
+
+        public function __construct($enabled = false,$logfile) {
+		$this->enabled = $enabled;
+		$this->logfile = $logfile;
+
+
+        }
+
+	/**
+	* Sends log message
+	*
+	* @param string $message Log message to send
+	* @param int $log_level Log level to use
+	*
+	* @return void
+	*/
+	public function send_log($message,$log_level = self::NOTICE) {
                 $current_time = date('Y-m-d H:i:s');
 		$full_msg = $current_time . ": ";
 		switch ($log_level) {
@@ -44,17 +76,22 @@ class log {
 		}
                 $full_msg .= $message . "\n";
 
-                if (settings::log_enabled()) {
-                        file_put_contents(settings::get_log_file(),$full_msg,FILE_APPEND | LOCK_EX);
+                if ($this->enabled) {
+                        file_put_contents($this->logfile,$full_msg,FILE_APPEND | LOCK_EX);
                 }
                 if (php_sapi_name() == "cli") {
                         echo $full_msg;
                 }
         }
 
-	public static function get_log() {
-		//$contents = file_get_contents(settings::get_log_file(),FALSE,NULL,self::MAX_FILE_LENGTH);
-		$contents = file_get_contents(settings::get_log_file());
+	/**
+	* Retrieve log file contents
+	*
+	* $param void
+	* $return string contents of log file
+	*/
+	public function get_log() {
+		$contents = file_get_contents($this->logfile);
 		return $contents;
 
 
