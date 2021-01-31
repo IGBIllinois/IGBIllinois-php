@@ -83,7 +83,7 @@
       <todo line="88">These constants won't exist until php 5.4</todo>
     </markers>
   </file>
-  <file path="log.class.inc.php" generated-path="log.class.inc.html" hash="1794acc4deba8b1d9e4524206f33b7b0" package="Default">
+  <file path="log.class.inc.php" generated-path="log.class.inc.html" hash="0ed3b14dc5f7e594e49f27428dbe3fe3" package="Default">
     <docblock line="0">
       <description>log class to write and read a log file</description>
       <long-description></long-description>
@@ -107,7 +107,7 @@
         <full_name>\IGBIllinois\log::MAX_FILE_LENGTH</full_name>
         <value>1000</value>
         <docblock line="27">
-          <description>$const maximum number of lines to retrieve</description>
+          <description>$var maximum number of lines to retrieve</description>
           <long-description></long-description>
         </docblock>
       </constant>
@@ -116,7 +116,7 @@
         <full_name>\IGBIllinois\log::NOTICE</full_name>
         <value>0</value>
         <docblock line="29">
-          <description>$const notice constant</description>
+          <description>$var notice constant</description>
           <long-description></long-description>
         </docblock>
       </constant>
@@ -125,7 +125,7 @@
         <full_name>\IGBIllinois\log::WARNING</full_name>
         <value>1</value>
         <docblock line="31">
-          <description>$const warning constant</description>
+          <description>$var warning constant</description>
           <long-description></long-description>
         </docblock>
       </constant>
@@ -134,7 +134,7 @@
         <full_name>\IGBIllinois\log::ERROR</full_name>
         <value>2</value>
         <docblock line="33">
-          <description>$const error constant</description>
+          <description>$var error constant</description>
           <long-description></long-description>
         </docblock>
       </constant>
@@ -159,19 +159,19 @@
           <long-description></long-description>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="44" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="43" package="IGBIllinois">
         <name>__construct</name>
         <full_name>\IGBIllinois\log::__construct()</full_name>
-        <docblock line="44">
+        <docblock line="43">
           <description>Creates log object</description>
           <long-description></long-description>
-          <tag name="param" line="44" description="&lt;p&gt;@enabled enables or disables log&lt;/p&gt;" type="boolean" variable="$enabled">
+          <tag name="param" line="43" description="&lt;p&gt;@enabled enables or disables log&lt;/p&gt;" type="boolean" variable="$enabled">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="44" description="&lt;p&gt;@logfile full path to log file&lt;/p&gt;" type="string" variable="$logfile">
+          <tag name="param" line="43" description="&lt;p&gt;@logfile full path to log file&lt;/p&gt;" type="string" variable="$logfile">
             <type>string</type>
           </tag>
-          <tag name="return" line="44" description="" type="void">
+          <tag name="return" line="43" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -186,19 +186,19 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="59" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="58" package="IGBIllinois">
         <name>send_log</name>
         <full_name>\IGBIllinois\log::send_log()</full_name>
-        <docblock line="59">
+        <docblock line="58">
           <description>Sends log message</description>
           <long-description></long-description>
-          <tag name="param" line="59" description="&lt;p&gt;Log message to send&lt;/p&gt;" type="string" variable="$message">
+          <tag name="param" line="58" description="&lt;p&gt;Log message to send&lt;/p&gt;" type="string" variable="$message">
             <type>string</type>
           </tag>
-          <tag name="param" line="59" description="&lt;p&gt;Log level to use&lt;/p&gt;" type="integer" variable="$log_level">
+          <tag name="param" line="58" description="&lt;p&gt;Log level to use&lt;/p&gt;" type="integer" variable="$log_level">
             <type>integer</type>
           </tag>
-          <tag name="return" line="59" description="" type="void">
+          <tag name="return" line="58" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -213,10 +213,10 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="90" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="89" package="IGBIllinois">
         <name>get_log</name>
         <full_name>\IGBIllinois\log::get_log()</full_name>
-        <docblock line="90">
+        <docblock line="89">
           <description>Retrieve log file contents</description>
           <long-description>$param void
 $return string contents of log file</long-description>

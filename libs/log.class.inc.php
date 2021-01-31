@@ -23,13 +23,13 @@ class log {
 	private $enabled = false;
 	/** $var string full path to log file */
 	private $logfile = ""; 
-	/** $const maximum number of lines to retrieve */ 
+	/** $var maximum number of lines to retrieve */ 
 	const MAX_FILE_LENGTH = 1000;
-	/** $const notice constant */ 
+	/** $var notice constant */ 
 	const NOTICE = 0;
-	/** $const warning constant */
+	/** $var warning constant */
 	const WARNING = 1;
-	/** $const error constant */
+	/** $var error constant */
 	const ERROR = 2;
 
         /**
@@ -40,7 +40,6 @@ class log {
         *
         * @return void
         */
-
         public function __construct($enabled = false,$logfile) {
 		$this->enabled = $enabled;
 		$this->logfile = $logfile;
