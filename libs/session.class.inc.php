@@ -34,7 +34,7 @@ class session {
 	*
 	* @param string $session_name name of the session.  Should be unique to application
 	*
-	* @return void
+	* @return \IGBIllinois\session
 	*/
         public function __construct($session_name) {
 		$this->session_name = $session_name;

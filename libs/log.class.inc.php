@@ -38,7 +38,7 @@ class log {
         * @param boolean @enabled enables or disables log
         * @param string @logfile full path to log file
         *
-        * @return void
+        * @return \IGBIllinois\log
         */
         public function __construct($enabled = false,$logfile) {
 		$this->enabled = $enabled;

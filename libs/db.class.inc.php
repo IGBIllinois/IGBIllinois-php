@@ -51,7 +51,7 @@ class db {
         *
         * @throws \PDOException
         *
-        * @return void
+        * @return \IGBIllinois\db
         */
 
 	public function __construct($host,$database,$username,$password,$ssl = false) {

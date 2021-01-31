@@ -83,7 +83,7 @@
       <todo line="88">These constants won't exist until php 5.4</todo>
     </markers>
   </file>
-  <file path="log.class.inc.php" generated-path="log.class.inc.html" hash="0ed3b14dc5f7e594e49f27428dbe3fe3" package="Default">
+  <file path="log.class.inc.php" generated-path="log.class.inc.html" hash="ae7936d328e77939617fdbb627829d2d" package="Default">
     <docblock line="0">
       <description>log class to write and read a log file</description>
       <long-description></long-description>
@@ -171,8 +171,8 @@
           <tag name="param" line="43" description="&lt;p&gt;@logfile full path to log file&lt;/p&gt;" type="string" variable="$logfile">
             <type>string</type>
           </tag>
-          <tag name="return" line="43" description="" type="void">
-            <type>void</type>
+          <tag name="return" line="43" description="" type="\IGBIllinois\log">
+            <type>\IGBIllinois\log</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
@@ -224,7 +224,7 @@ $return string contents of log file</long-description>
       </method>
     </class>
   </file>
-  <file path="session.class.inc.php" generated-path="session.class.inc.html" hash="c8a3af7146b25602107ef80d6fcde934" package="Default">
+  <file path="session.class.inc.php" generated-path="session.class.inc.html" hash="32e06237da709b4886223e3dabe74f2d" package="Default">
     <docblock line="0">
       <description>session class is a class to interface with php session variables</description>
       <long-description></long-description>
@@ -264,8 +264,8 @@ $return string contents of log file</long-description>
           <tag name="param" line="39" description="&lt;p&gt;name of the session.  Should be unique to application&lt;/p&gt;" type="string" variable="$session_name">
             <type>string</type>
           </tag>
-          <tag name="return" line="39" description="" type="void">
-            <type>void</type>
+          <tag name="return" line="39" description="" type="\IGBIllinois\session">
+            <type>\IGBIllinois\session</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
@@ -453,7 +453,7 @@ $return string contents of log file</long-description>
       </method>
     </class>
   </file>
-  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="615617f46eca13ac13bf8f8dbd14efc4" package="Default">
+  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="81473b7b7212f49c78def42622e0f7e7" package="Default">
     <docblock line="0">
       <description>db class interacts with mysql database using PDO</description>
       <long-description></long-description>
@@ -571,8 +571,8 @@ $return string contents of log file</long-description>
           <tag name="throws" line="57" description="" type="\PDOException">
             <type>\PDOException</type>
           </tag>
-          <tag name="return" line="57" description="" type="void">
-            <type>void</type>
+          <tag name="return" line="57" description="" type="\IGBIllinois\db">
+            <type>\IGBIllinois\db</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
@@ -1406,7 +1406,7 @@ $return string contents of log file</long-description>
       </method>
     </class>
   </file>
-  <file path="ldap.class.inc.php" generated-path="ldap.class.inc.html" hash="22e042972cac92bf3452b5d3c7aad017" package="Default">
+  <file path="ldap.class.inc.php" generated-path="ldap.class.inc.html" hash="a6c49a4039a33f5e41555a0d23529924" package="Default">
     <docblock line="0">
       <description>ldap class interacts with ldap server using built in php ldap functions</description>
       <long-description></long-description>
@@ -1558,39 +1558,48 @@ $return string contents of log file</long-description>
         </docblock>
       </property>
       <property static="false" visibility="private" namespace="IGBIllinois" line="47" package="IGBIllinois">
+        <name>$cipher_suite</name>
+        <full_name>\IGBIllinois\ldap::$cipher_suite</full_name>
+        <default>"ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384"</default>
+        <docblock line="47">
+          <description>$var string allowed SSL/TLS Cipher Suite</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="50" package="IGBIllinois">
         <name>$opt_referrals</name>
         <full_name>\IGBIllinois\ldap::$opt_referrals</full_name>
         <default>0</default>
-        <docblock line="47">
+        <docblock line="50">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="47" description="&lt;p&gt;Follow LDAP Referals&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="50" description="&lt;p&gt;Follow LDAP Referals&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="63" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="66" package="IGBIllinois">
         <name>__construct</name>
         <full_name>\IGBIllinois\ldap::__construct()</full_name>
-        <docblock line="63">
+        <docblock line="66">
           <description>Object constructor</description>
           <long-description>Makes initial connection to ldap database</long-description>
-          <tag name="param" line="63" description="&lt;p&gt;list of ldap hosts seperated by a space&lt;/p&gt;" type="string" variable="$host">
+          <tag name="param" line="66" description="&lt;p&gt;list of ldap hosts seperated by a space&lt;/p&gt;" type="string" variable="$host">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;Ldap base dn&lt;/p&gt;" type="string" variable="$base_dn">
+          <tag name="param" line="66" description="&lt;p&gt;Ldap base dn&lt;/p&gt;" type="string" variable="$base_dn">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;ldap port the server listens on&lt;/p&gt;" type="integer" variable="$port">
+          <tag name="param" line="66" description="&lt;p&gt;ldap port the server listens on&lt;/p&gt;" type="integer" variable="$port">
             <type>integer</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;enable or disable ssl&lt;/p&gt;" type="boolean" variable="$ssl">
+          <tag name="param" line="66" description="&lt;p&gt;enable or disable ssl&lt;/p&gt;" type="boolean" variable="$ssl">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;enable or disable tls&lt;/p&gt;" type="boolean" variable="$tls">
+          <tag name="param" line="66" description="&lt;p&gt;enable or disable tls&lt;/p&gt;" type="boolean" variable="$tls">
             <type>boolean</type>
           </tag>
-          <tag name="return" line="63" description="" type="\IGBIllinois\ldap">
+          <tag name="return" line="66" description="" type="\IGBIllinois\ldap">
             <type>\IGBIllinois\ldap</type>
           </tag>
         </docblock>
@@ -1620,156 +1629,156 @@ $return string contents of log file</long-description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="79" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="82" package="IGBIllinois">
         <name>__destruct</name>
         <full_name>\IGBIllinois\ldap::__destruct()</full_name>
-        <docblock line="79">
+        <docblock line="82">
           <description>Object deconstructor</description>
           <long-description>Destroys ldap object</long-description>
-          <tag name="param" line="79" description="" type="void" variable="">
+          <tag name="param" line="82" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="79" description="" type="void">
+          <tag name="return" line="82" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="87" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="90" package="IGBIllinois">
         <name>get_host</name>
         <full_name>\IGBIllinois\ldap::get_host()</full_name>
-        <docblock line="87">
+        <docblock line="90">
           <description>gets ldap host</description>
           <long-description></long-description>
-          <tag name="param" line="87" description="" type="void" variable="">
+          <tag name="param" line="90" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="87" description="" type="array&lt;mixed,string&gt;">
+          <tag name="return" line="90" description="" type="array&lt;mixed,string&gt;">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="95" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="98" package="IGBIllinois">
         <name>get_base_dn</name>
         <full_name>\IGBIllinois\ldap::get_base_dn()</full_name>
-        <docblock line="95">
+        <docblock line="98">
           <description>gets ldap base dn</description>
           <long-description></long-description>
-          <tag name="param" line="95" description="" type="void" variable="">
+          <tag name="param" line="98" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="95" description="" type="string">
+          <tag name="return" line="98" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="103" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="106" package="IGBIllinois">
         <name>get_bind_user</name>
         <full_name>\IGBIllinois\ldap::get_bind_user()</full_name>
-        <docblock line="103">
+        <docblock line="106">
           <description>gets bind user</description>
           <long-description></long-description>
-          <tag name="param" line="103" description="" type="void" variable="">
+          <tag name="param" line="106" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="103" description="" type="string">
+          <tag name="return" line="106" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="111" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="114" package="IGBIllinois">
         <name>get_ssl</name>
         <full_name>\IGBIllinois\ldap::get_ssl()</full_name>
-        <docblock line="111">
+        <docblock line="114">
           <description>gets if ssl is enabled</description>
           <long-description></long-description>
-          <tag name="param" line="111" description="" type="void" variable="">
+          <tag name="param" line="114" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="111" description="true if enabled, false otherwise" type="boolean">
+          <tag name="return" line="114" description="true if enabled, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="119" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="122" package="IGBIllinois">
         <name>get_tls</name>
         <full_name>\IGBIllinois\ldap::get_tls()</full_name>
-        <docblock line="119">
+        <docblock line="122">
           <description>get if tls is enabled</description>
           <long-description></long-description>
-          <tag name="param" line="119" description="" type="void" variable="">
+          <tag name="param" line="122" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="119" description="true if enabled, flase otherwise" type="boolean">
+          <tag name="return" line="122" description="true if enabled, flase otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="127" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="130" package="IGBIllinois">
         <name>get_port</name>
         <full_name>\IGBIllinois\ldap::get_port()</full_name>
-        <docblock line="127">
+        <docblock line="130">
           <description>gets ldap port</description>
           <long-description></long-description>
-          <tag name="param" line="127" description="" type="void" variable="">
+          <tag name="param" line="130" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="127" description="" type="integer">
+          <tag name="return" line="130" description="" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="135" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="138" package="IGBIllinois">
         <name>get_protocol</name>
         <full_name>\IGBIllinois\ldap::get_protocol()</full_name>
-        <docblock line="135">
+        <docblock line="138">
           <description>gets ldap protocol</description>
           <long-description></long-description>
-          <tag name="param" line="135" description="" type="void" variable="">
+          <tag name="param" line="138" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="135" description="2 or 3" type="integer">
+          <tag name="return" line="138" description="2 or 3" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="143" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="146" package="IGBIllinois">
         <name>get_resource</name>
         <full_name>\IGBIllinois\ldap::get_resource()</full_name>
-        <docblock line="143">
+        <docblock line="146">
           <description>gets ldap resource</description>
           <long-description></long-description>
-          <tag name="param" line="143" description="" type="void" variable="">
+          <tag name="param" line="146" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="143" description="" type="resource">
+          <tag name="return" line="146" description="" type="resource">
             <type>resource</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="151" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="154" package="IGBIllinois">
         <name>get_connection</name>
         <full_name>\IGBIllinois\ldap::get_connection()</full_name>
-        <docblock line="151">
+        <docblock line="154">
           <description>gets if ldap is connected</description>
           <long-description></long-description>
-          <tag name="param" line="151" description="" type="void" variable="">
+          <tag name="param" line="154" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="151" description="true if connected, false otherwise" type="boolean">
+          <tag name="return" line="154" description="true if connected, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="161" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="164" package="IGBIllinois">
         <name>set_protocol</name>
         <full_name>\IGBIllinois\ldap::set_protocol()</full_name>
-        <docblock line="161">
+        <docblock line="164">
           <description>sets ldap protocol</description>
           <long-description></long-description>
-          <tag name="param" line="161" description="&lt;p&gt;protocol version 2 or 3&lt;/p&gt;" type="integer" variable="$ldap_protocol">
+          <tag name="param" line="164" description="&lt;p&gt;protocol version 2 or 3&lt;/p&gt;" type="integer" variable="$ldap_protocol">
             <type>integer</type>
           </tag>
-          <tag name="return" line="161" description="" type="void">
+          <tag name="return" line="164" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -1779,19 +1788,19 @@ $return string contents of log file</long-description>
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="174" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="177" package="IGBIllinois">
         <name>bind</name>
         <full_name>\IGBIllinois\ldap::bind()</full_name>
-        <docblock line="174">
+        <docblock line="177">
           <description>binds to ldap server</description>
           <long-description></long-description>
-          <tag name="param" line="174" description="&lt;p&gt;full rdn of the user&lt;/p&gt;" type="string" variable="$rdn">
+          <tag name="param" line="177" description="&lt;p&gt;full rdn of the user&lt;/p&gt;" type="string" variable="$rdn">
             <type>string</type>
           </tag>
-          <tag name="param" line="174" description="&lt;p&gt;user password&lt;/p&gt;" type="string" variable="$password">
+          <tag name="param" line="177" description="&lt;p&gt;user password&lt;/p&gt;" type="string" variable="$password">
             <type>string</type>
           </tag>
-          <tag name="return" line="174" description="true on success, false otherwise" type="boolean">
+          <tag name="return" line="177" description="true on success, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -1806,22 +1815,22 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="198" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="201" package="IGBIllinois">
         <name>search</name>
         <full_name>\IGBIllinois\ldap::search()</full_name>
-        <docblock line="198">
+        <docblock line="201">
           <description>searches ldap server</description>
           <long-description></long-description>
-          <tag name="param" line="198" description="&lt;p&gt;ldap search filter&lt;/p&gt;" type="string" variable="$filter">
+          <tag name="param" line="201" description="&lt;p&gt;ldap search filter&lt;/p&gt;" type="string" variable="$filter">
             <type>string</type>
           </tag>
-          <tag name="param" line="198" description="&lt;p&gt;organizational unit to search&lt;/p&gt;" type="string" variable="$ou">
+          <tag name="param" line="201" description="&lt;p&gt;organizational unit to search&lt;/p&gt;" type="string" variable="$ou">
             <type>string</type>
           </tag>
-          <tag name="param" line="198" description="&lt;p&gt;an array of attributes to retrieve&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$attributes">
+          <tag name="param" line="201" description="&lt;p&gt;an array of attributes to retrieve&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$attributes">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
-          <tag name="return" line="198" description="ldap search result identifier" type="resource">
+          <tag name="return" line="201" description="ldap search result identifier" type="resource">
             <type>resource</type>
           </tag>
         </docblock>
@@ -1841,16 +1850,16 @@ $return string contents of log file</long-description>
           <type>array&lt;mixed,string&gt;</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="222" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="225" package="IGBIllinois">
         <name>get_user_rdn</name>
         <full_name>\IGBIllinois\ldap::get_user_rdn()</full_name>
-        <docblock line="222">
+        <docblock line="225">
           <description>Get User Full DN</description>
           <long-description></long-description>
-          <tag name="param" line="222" description="" type="string" variable="$username">
+          <tag name="param" line="225" description="" type="string" variable="$username">
             <type>string</type>
           </tag>
-          <tag name="return" line="222" description="full RDN of user" type="string">
+          <tag name="return" line="225" description="full RDN of user" type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -1860,22 +1869,22 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="239" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="242" package="IGBIllinois">
         <name>authenticate</name>
         <full_name>\IGBIllinois\ldap::authenticate()</full_name>
-        <docblock line="239">
+        <docblock line="242">
           <description>authenticates users and verifies group membership</description>
           <long-description></long-description>
-          <tag name="param" line="239" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
+          <tag name="param" line="242" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
             <type>string</type>
           </tag>
-          <tag name="param" line="239" description="&lt;p&gt;password&lt;/p&gt;" type="string" variable="$password">
+          <tag name="param" line="242" description="&lt;p&gt;password&lt;/p&gt;" type="string" variable="$password">
             <type>string</type>
           </tag>
-          <tag name="param" line="239" description="&lt;p&gt;full rdn of group (optional)&lt;/p&gt;" type="string" variable="$group">
+          <tag name="param" line="242" description="&lt;p&gt;full rdn of group (optional)&lt;/p&gt;" type="string" variable="$group">
             <type>string</type>
           </tag>
-          <tag name="return" line="239" description="true on scuccess, false otherwise" type="boolean">
+          <tag name="return" line="242" description="true on scuccess, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -1895,19 +1904,19 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="259" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="262" package="IGBIllinois">
         <name>replace</name>
         <full_name>\IGBIllinois\ldap::replace()</full_name>
-        <docblock line="259">
+        <docblock line="262">
           <description>replace ldap entry values with new values</description>
           <long-description></long-description>
-          <tag name="param" line="259" description="&lt;p&gt;full rdn of entry&lt;/p&gt;" type="string" variable="$rdn">
+          <tag name="param" line="262" description="&lt;p&gt;full rdn of entry&lt;/p&gt;" type="string" variable="$rdn">
             <type>string</type>
           </tag>
-          <tag name="param" line="259" description="&lt;p&gt;an associative array of attributes and values to replace&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$entries">
+          <tag name="param" line="262" description="&lt;p&gt;an associative array of attributes and values to replace&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$entries">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
-          <tag name="return" line="259" description="true on success, false otherwise" type="boolean">
+          <tag name="return" line="262" description="true on success, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -1922,16 +1931,16 @@ $return string contents of log file</long-description>
           <type>array&lt;mixed,string&gt;</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="275" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="278" package="IGBIllinois">
         <name>is_ldap_user</name>
         <full_name>\IGBIllinois\ldap::is_ldap_user()</full_name>
-        <docblock line="275">
+        <docblock line="278">
           <description>checks if the ldap user exists</description>
           <long-description></long-description>
-          <tag name="param" line="275" description="&lt;p&gt;username of the user&lt;/p&gt;" type="string" variable="$username">
+          <tag name="param" line="278" description="&lt;p&gt;username of the user&lt;/p&gt;" type="string" variable="$username">
             <type>string</type>
           </tag>
-          <tag name="return" line="275" description="true if exist, false otherwise" type="boolean">
+          <tag name="return" line="278" description="true if exist, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -1941,16 +1950,16 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="296" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="299" package="IGBIllinois">
         <name>get_group_members</name>
         <full_name>\IGBIllinois\ldap::get_group_members()</full_name>
-        <docblock line="296">
+        <docblock line="299">
           <description>gets group members of a ldap group</description>
           <long-description></long-description>
-          <tag name="param" line="296" description="&lt;p&gt;groupname&lt;/p&gt;" type="string" variable="$group">
+          <tag name="param" line="299" description="&lt;p&gt;groupname&lt;/p&gt;" type="string" variable="$group">
             <type>string</type>
           </tag>
-          <tag name="return" line="296" description="array of group members" type="array&lt;mixed,string&gt;">
+          <tag name="return" line="299" description="array of group members" type="array&lt;mixed,string&gt;">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
         </docblock>
@@ -1960,19 +1969,19 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="318" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="321" package="IGBIllinois">
         <name>is_group_member</name>
         <full_name>\IGBIllinois\ldap::is_group_member()</full_name>
-        <docblock line="318">
+        <docblock line="321">
           <description>checks if user is member of group</description>
           <long-description></long-description>
-          <tag name="param" line="318" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
+          <tag name="param" line="321" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
             <type>string</type>
           </tag>
-          <tag name="param" line="318" description="&lt;p&gt;group name&lt;/p&gt;" type="string" variable="$group">
+          <tag name="param" line="321" description="&lt;p&gt;group name&lt;/p&gt;" type="string" variable="$group">
             <type>string</type>
           </tag>
-          <tag name="return" line="318" description="true if in group, false otherwise" type="boolean">
+          <tag name="return" line="321" description="true if in group, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -1987,16 +1996,16 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="330" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="333" package="IGBIllinois">
         <name>get_user_groups</name>
         <full_name>\IGBIllinois\ldap::get_user_groups()</full_name>
-        <docblock line="330">
+        <docblock line="333">
           <description>gets groups a user is a member of</description>
           <long-description></long-description>
-          <tag name="param" line="330" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
+          <tag name="param" line="333" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
             <type>string</type>
           </tag>
-          <tag name="return" line="330" description="array of groups" type="array&lt;mixed,string&gt;">
+          <tag name="return" line="333" description="array of groups" type="array&lt;mixed,string&gt;">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
         </docblock>
@@ -2006,16 +2015,16 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="353" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="356" package="IGBIllinois">
         <name>get_group_exists</name>
         <full_name>\IGBIllinois\ldap::get_group_exists()</full_name>
-        <docblock line="353">
+        <docblock line="356">
           <description>checks if group exists</description>
           <long-description></long-description>
-          <tag name="param" line="353" description="&lt;p&gt;name of group&lt;/p&gt;" type="string" variable="$group">
+          <tag name="param" line="356" description="&lt;p&gt;name of group&lt;/p&gt;" type="string" variable="$group">
             <type>string</type>
           </tag>
-          <tag name="return" line="353" description="true if exist, false otherwise" type="boolean">
+          <tag name="return" line="356" description="true if exist, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -2025,16 +2034,16 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="373" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="376" package="IGBIllinois">
         <name>get_home_dir</name>
         <full_name>\IGBIllinois\ldap::get_home_dir()</full_name>
-        <docblock line="373">
+        <docblock line="376">
           <description>retrieves user's home folder attribute</description>
           <long-description></long-description>
-          <tag name="param" line="373" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
+          <tag name="param" line="376" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
             <type>string</type>
           </tag>
-          <tag name="return" line="373" description="home folder, false if attribute doesn't exist" type="string|boolean">
+          <tag name="return" line="376" description="home folder, false if attribute doesn't exist" type="string|boolean">
             <type>string</type>
             <type>boolean</type>
           </tag>
@@ -2045,16 +2054,16 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="397" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="400" package="IGBIllinois">
         <name>get_email</name>
         <full_name>\IGBIllinois\ldap::get_email()</full_name>
-        <docblock line="397">
+        <docblock line="400">
           <description>retrieves user's email attribute</description>
           <long-description></long-description>
-          <tag name="param" line="397" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
+          <tag name="param" line="400" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
             <type>string</type>
           </tag>
-          <tag name="return" line="397" description="email address, false if attribute doesn't exist" type="string|boolean">
+          <tag name="return" line="400" description="email address, false if attribute doesn't exist" type="string|boolean">
             <type>string</type>
             <type>boolean</type>
           </tag>
@@ -2065,30 +2074,30 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="421" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="424" package="IGBIllinois">
         <name>get_all_users</name>
         <full_name>\IGBIllinois\ldap::get_all_users()</full_name>
-        <docblock line="421">
+        <docblock line="424">
           <description>retrieves all users</description>
           <long-description></long-description>
-          <tag name="param" line="421" description="" type="void" variable="">
+          <tag name="param" line="424" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="421" description="an array of users" type="array&lt;mixed,string&gt;">
+          <tag name="return" line="424" description="an array of users" type="array&lt;mixed,string&gt;">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="444" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="447" package="IGBIllinois">
         <name>get_ldap_full_name</name>
         <full_name>\IGBIllinois\ldap::get_ldap_full_name()</full_name>
-        <docblock line="444">
+        <docblock line="447">
           <description>retrieves users full name, cn attribute</description>
           <long-description></long-description>
-          <tag name="param" line="444" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
+          <tag name="param" line="447" description="&lt;p&gt;username&lt;/p&gt;" type="string" variable="$username">
             <type>string</type>
           </tag>
-          <tag name="return" line="444" description="fullname, false if attribute doesn't exist" type="string|boolean">
+          <tag name="return" line="447" description="fullname, false if attribute doesn't exist" type="string|boolean">
             <type>string</type>
             <type>boolean</type>
           </tag>
@@ -2099,31 +2108,31 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="462" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="465" package="IGBIllinois">
         <name>get_error</name>
         <full_name>\IGBIllinois\ldap::get_error()</full_name>
-        <docblock line="462">
+        <docblock line="465">
           <description>gets ldap error message</description>
           <long-description></long-description>
-          <tag name="param" line="462" description="" type="void" variable="">
+          <tag name="param" line="465" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="462" description="error message or false otherwise" type="string|boolean">
+          <tag name="return" line="465" description="error message or false otherwise" type="string|boolean">
             <type>string</type>
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="478" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="481" package="IGBIllinois">
         <name>set_host</name>
         <full_name>\IGBIllinois\ldap::set_host()</full_name>
-        <docblock line="478">
+        <docblock line="481">
           <description>Sets ldap hostname</description>
           <long-description>Takes string of single or multiple hostnames and puts them in ldap_host array</long-description>
-          <tag name="param" line="478" description="&lt;p&gt;string of ldap hosts seperated by a space&lt;/p&gt;" type="string" variable="$ldap_host">
+          <tag name="param" line="481" description="&lt;p&gt;string of ldap hosts seperated by a space&lt;/p&gt;" type="string" variable="$ldap_host">
             <type>string</type>
           </tag>
-          <tag name="return" line="478" description="" type="void">
+          <tag name="return" line="481" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -2133,16 +2142,16 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="488" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="491" package="IGBIllinois">
         <name>set_base_dn</name>
         <full_name>\IGBIllinois\ldap::set_base_dn()</full_name>
-        <docblock line="488">
+        <docblock line="491">
           <description>Sets base dn</description>
           <long-description></long-description>
-          <tag name="param" line="488" description="&lt;p&gt;Ldap base dn&lt;/p&gt;" type="string" variable="$ldap_base_dn">
+          <tag name="param" line="491" description="&lt;p&gt;Ldap base dn&lt;/p&gt;" type="string" variable="$ldap_base_dn">
             <type>string</type>
           </tag>
-          <tag name="return" line="488" description="" type="void">
+          <tag name="return" line="491" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -2152,16 +2161,16 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="496" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="499" package="IGBIllinois">
         <name>set_ssl</name>
         <full_name>\IGBIllinois\ldap::set_ssl()</full_name>
-        <docblock line="496">
+        <docblock line="499">
           <description>Sets SSL</description>
           <long-description></long-description>
-          <tag name="param" line="496" description="&lt;p&gt;true to enable, false to disable&lt;/p&gt;" type="boolean" variable="$ldap_ssl">
+          <tag name="param" line="499" description="&lt;p&gt;true to enable, false to disable&lt;/p&gt;" type="boolean" variable="$ldap_ssl">
             <type>boolean</type>
           </tag>
-          <tag name="return" line="496" description="" type="void">
+          <tag name="return" line="499" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -2171,16 +2180,16 @@ $return string contents of log file</long-description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="504" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="507" package="IGBIllinois">
         <name>set_tls</name>
         <full_name>\IGBIllinois\ldap::set_tls()</full_name>
-        <docblock line="504">
+        <docblock line="507">
           <description>Sets TLS</description>
           <long-description></long-description>
-          <tag name="param" line="504" description="&lt;p&gt;true to enable, false to disable&lt;/p&gt;" type="boolean" variable="$ldap_tls">
+          <tag name="param" line="507" description="&lt;p&gt;true to enable, false to disable&lt;/p&gt;" type="boolean" variable="$ldap_tls">
             <type>boolean</type>
           </tag>
-          <tag name="return" line="504" description="" type="void">
+          <tag name="return" line="507" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -2190,16 +2199,16 @@ $return string contents of log file</long-description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="512" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="515" package="IGBIllinois">
         <name>set_port</name>
         <full_name>\IGBIllinois\ldap::set_port()</full_name>
-        <docblock line="512">
+        <docblock line="515">
           <description>Sets Ldap port number</description>
           <long-description></long-description>
-          <tag name="param" line="512" description="&lt;p&gt;ldap port number, normally 389 or 636&lt;/p&gt;" type="integer" variable="$ldap_port">
+          <tag name="param" line="515" description="&lt;p&gt;ldap port number, normally 389 or 636&lt;/p&gt;" type="integer" variable="$ldap_port">
             <type>integer</type>
           </tag>
-          <tag name="return" line="512" description="" type="void">
+          <tag name="return" line="515" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -2209,30 +2218,30 @@ $return string contents of log file</long-description>
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="520" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="523" package="IGBIllinois">
         <name>connect</name>
         <full_name>\IGBIllinois\ldap::connect()</full_name>
-        <docblock line="520">
+        <docblock line="523">
           <description>Connects to ldap database</description>
           <long-description></long-description>
-          <tag name="param" line="520" description="" type="void" variable="">
+          <tag name="param" line="523" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="520" description="true on success, false otherwise" type="boolean">
+          <tag name="return" line="523" description="true on success, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="559" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="562" package="IGBIllinois">
         <name>set_tls_options</name>
         <full_name>\IGBIllinois\ldap::set_tls_options()</full_name>
-        <docblock line="559">
+        <docblock line="562">
           <description>Sets SSL/TLS connection options</description>
           <long-description></long-description>
-          <tag name="param" line="559" description="" type="void" variable="">
+          <tag name="param" line="562" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="559" description="" type="void">
+          <tag name="return" line="562" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>

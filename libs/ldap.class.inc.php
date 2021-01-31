@@ -43,6 +43,9 @@ class ldap {
 	private $reqcert = LDAP_OPT_X_TLS_ALLOW;
 	/** @var string Minimal SSL/TLS protocol version */
 	private $min_tls_protocol = LDAP_OPT_X_TLS_PROTOCOL_TLS1_2;
+	/** $var string allowed SSL/TLS Cipher Suite */
+	private $cipher_suite = "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384";
+
 	/** @var boolean Follow LDAP Referals */
 	private $opt_referrals = 0;
 
@@ -559,7 +562,7 @@ class ldap {
 	private function set_tls_options() {
 		ldap_set_option(NULL,LDAP_OPT_X_TLS_REQUIRE_CERT,$this->reqcert);
 		ldap_set_option(NULL,LDAP_OPT_X_TLS_PROTOCOL_MIN,$this->min_tls_protocol);
-		
+		ldap_set_option(NULL,LDAP_OPT_X_TLS_CIPHER_SUITE,$this->cipher_suite);		
 
 
 	}
