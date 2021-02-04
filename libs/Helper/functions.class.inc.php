@@ -115,6 +115,7 @@ class functions {
 				default:
 					$bytes =  0;
 					break;
+			}
 		}
 		return $bytes;
 	}
