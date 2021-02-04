@@ -35,8 +35,8 @@ class log {
         /**
         * Creates log object
         *
-        * @param boolean @enabled enables or disables log
-        * @param string @logfile full path to log file
+        * @param boolean $enabled enables or disables log
+        * @param string $logfile full path to log file
         *
         * @return \IGBIllinois\log
         */

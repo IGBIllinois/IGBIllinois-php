@@ -53,7 +53,6 @@ class db {
         *
         * @return \IGBIllinois\db
         */
-
 	public function __construct($host,$database,$username,$password,$ssl = false) {
 		try {
 			$this->open($host,$database,$username,$password,$ssl);
@@ -87,9 +86,7 @@ class db {
 	* @param string @password password to connect to database
 	* @param int @port mysql port number. defaults to 3306
 	* @param bool @ssl use ssl
-	*
 	* @throws \PDOException
-	*
 	* @return void
 	*/
 	private function open($host,$database,$username,$password,$port = 3306,$ssl = false) {
