@@ -100,7 +100,7 @@ class data_usage {
         private static function get_dir_size_du($directory) {
 		$result = 0;
 		if (file_exists($directory)) {
-                	$exec = "du --max-depth=0 " . $directory) . "/ | awk '{print $1}'";
+                	$exec = "du --max-depth=0 " . $directory . "/ | awk '{print $1}'";
 	                $exit_status = 1;
         	        $output_array = array();
                 	$output = exec($exec,$output_array,$exit_status);
