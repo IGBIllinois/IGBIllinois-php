@@ -42,12 +42,12 @@ class db {
         /**
         * Creates mysql database object
         *
-        * @param string @host hostname or IP address of mysql server
-        * @param string @database database name
-        * @param string @username username to connect to database
-        * @param string @password password to connect to database
-        * @param int @port mysql port number. defaults to 3306
-        * @param bool @ssl use ssl
+        * @param string $host hostname or IP address of mysql server
+        * @param string $database database name
+        * @param string $username username to connect to database
+        * @param string $password password to connect to database
+        * @param int $port mysql port number. defaults to 3306
+        * @param bool $ssl use ssl
         *
         * @throws \PDOException
         *
@@ -69,7 +69,6 @@ class db {
 	* Destroys db object.  Closes mysql database connection
 	*
 	* @param void
-	*
 	* @return void
 	*/
 	public function __destruct() {
@@ -80,12 +79,12 @@ class db {
 	/**
 	* Opens mysql database connection
 	*
-	* @param string @host hostname or IP address of mysql server
-	* @param string @database database name
-	* @param string @username username to connect to database
-	* @param string @password password to connect to database
-	* @param int @port mysql port number. defaults to 3306
-	* @param bool @ssl use ssl
+	* @param string $host hostname or IP address of mysql server
+	* @param string $database database name
+	* @param string $username username to connect to database
+	* @param string $password password to connect to database
+	* @param int $port mysql port number. defaults to 3306
+	* @param bool $ssl use ssl
 	* @throws \PDOException
 	* @return void
 	*/
@@ -129,9 +128,7 @@ class db {
 	*
 	* @param string $sql sql query to run on the database
 	* @param string[] $parameters an array of PDO prepared parameters
-	*
 	* @throws \PDOException
-	*
 	* @return int insert id returned from database. 0 otherwise
 	*/
 	public function insert_query($sql,$parameters=array()) {
@@ -152,10 +149,8 @@ class db {
 	* Builds insert query using associative array
 	*
 	* @param string $table table to insert data into
-	* @param string[] $data associative array with key being table colume and value being the data
-	* 
+	* @param string[] $data associative array with key being table colume and value being the data 
 	* @throws \PDOException
-	*
 	* @return int insert id returned from database. 0 otherwise
 	*/
 	public function build_insert($table,$data) {
@@ -194,9 +189,7 @@ class db {
 	*
 	* @param string $sql sql string to run
 	* @param string[] $parameters an array of PDO prepared parameters
-	*
 	* @throws \PDOException
-	*
 	* @return bool true on success, false otherwise
 	*/
 	public function non_select_query($sql,$parameters=array()) {
@@ -216,9 +209,7 @@ class db {
 	*
 	* @param string $sql sql query to run
 	* @param string[] $parameters an array of PDO prepared parameters
-	*
 	* @throws \PDOException
-	*
 	* @return string[] an associative array of results
 	*/
 	public function query($sql,$parameters=array()) {
@@ -237,7 +228,6 @@ class db {
         * Retrieves mysql database PDO object
         *
         * @param void
-        *
         * @return \PDO Returns PDO object with the current connection
         */
 	public function get_link() {
@@ -248,7 +238,6 @@ class db {
 	* Tests connection to mysql database
 	* 
 	* @param void
-	*
 	* @return boolean Returns true on success, false otherwise
 	*
 	*/
@@ -270,9 +259,7 @@ class db {
 	*
 	* @param string $sql sql string to run
 	* @param string[] $parameters an array of PDO prepared parameters
-	*
 	* @throws \PDOException
-	*
 	* @returns int number of rows affected
 	*/
 	public function transaction($sql,$parameters) {
@@ -297,9 +284,7 @@ class db {
 	* @param string[] $parameters an array of PDO prepared parameters
 	* @param string $where_key column name to use in where clause
 	* @param string $where_value value column needs to be equal to
-	*
 	* @throws \PDOException
-	*
 	* @return bool returns true on success, false otherwise 
 	*/
 	public function update($table,$parameters,$where_key,$where_value) {
@@ -341,7 +326,6 @@ class db {
 	* An example is 5.5.5-10.3.17-MariaDB
 	*
 	* @param void
-	*
 	* @return string
 	*/
 	public function get_version() {
