@@ -15,8 +15,13 @@ Common PHP Libraries used in IGBIllinois projects
 ],
 ```
 * Add to your 'required' section of the composer.json file
+** For latest commits to main brach
 ```
 "igbillinois/igbillinois-php": "dev-main"
+```
+** For a tag released
+```
+"igbillinois/igbillinois-php": "1.0"
 ```
 * Run composer install
 ```
