@@ -81,33 +81,40 @@ class functions {
 	* @return int 
 	*/
 	public static function convert_bytes($size) {
-
-		list($mem,$i) = preg_split('#(?<=\d)(?=[a-z])#i', strtolower($size));
-		$bytes =0;
-		switch ($i) {
-			case "b":
-				$bytes = $mem;
-				break;
+		$bytes = 0;
+                if ($mem == "") {
+                        $bytes = 0;
+                }
+                else {
+			$result = preg_split('#(?<=\d)(?=[a-z])#i', strtolower($mem));
+                        $unit = "";
+                        if (isset($result[1])) {
+                                $unit = $result[1];
+                        }
+                        $mem = $result[0];
+			switch ($unit) {
+				case "b":
+					$bytes = $mem;
+					break;
 						
-			case "kb":
-				$bytes = $mem * 1024;
-				break;
-		
-			case "mb":
-				$bytes = $mem * 1048576;
-				break;
-			case "m":
-				$bytes = $mem * 1048576;
-				break;
-			case "gb":
-				$bytes = $mem * 1073741824;
-				break;
-			case "tb":
-				$bytes = $mem * 1099511627776;
-				break;
-			default:
-				$bytes =  0;
-				break;
+				case "kb":
+					$bytes = $mem * 1024;
+					break;	
+				case "mb":
+					$bytes = $mem * 1048576;
+					break;
+				case "m":
+					$bytes = $mem * 1048576;
+					break;
+				case "gb":
+					$bytes = $mem * 1073741824;
+					break;
+				case "tb":
+					$bytes = $mem * 1099511627776;
+					break;
+				default:
+					$bytes =  0;
+					break;
 		}
 		return $bytes;
 	}
