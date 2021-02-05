@@ -596,7 +596,7 @@ $return string contents of log file</long-description>
       </method>
     </class>
   </file>
-  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="95119b7997f664bc1d7a2bcc9325c74e" package="Default">
+  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="f69611f3fe8d738ba7c6f254cc28be30" package="Default">
     <docblock line="0">
       <description>db class interacts with mysql database using PDO</description>
       <long-description></long-description>
@@ -705,11 +705,11 @@ $return string contents of log file</long-description>
           <tag name="param" line="56" description="&lt;p&gt;password to connect to database&lt;/p&gt;" type="string" variable="$password">
             <type>string</type>
           </tag>
+          <tag name="param" line="56" description="&lt;p&gt;enable ssl&lt;/p&gt;" type="boolean" variable="$ssl">
+            <type>boolean</type>
+          </tag>
           <tag name="param" line="56" description="&lt;p&gt;mysql port number. defaults to 3306&lt;/p&gt;" type="integer" variable="$port">
             <type>integer</type>
-          </tag>
-          <tag name="param" line="56" description="&lt;p&gt;use ssl&lt;/p&gt;" type="boolean" variable="$ssl">
-            <type>boolean</type>
           </tag>
           <tag name="throws" line="56" description="" type="\PDOException">
             <type>\PDOException</type>
@@ -742,6 +742,11 @@ $return string contents of log file</long-description>
           <name>$ssl</name>
           <default>false</default>
           <type>boolean</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$port</name>
+          <default>3306</default>
+          <type>integer</type>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="74" package="IGBIllinois">
@@ -776,11 +781,11 @@ $return string contents of log file</long-description>
           <tag name="param" line="91" description="&lt;p&gt;password to connect to database&lt;/p&gt;" type="string" variable="$password">
             <type>string</type>
           </tag>
-          <tag name="param" line="91" description="&lt;p&gt;mysql port number. defaults to 3306&lt;/p&gt;" type="integer" variable="$port">
-            <type>integer</type>
-          </tag>
           <tag name="param" line="91" description="&lt;p&gt;use ssl&lt;/p&gt;" type="boolean" variable="$ssl">
             <type>boolean</type>
+          </tag>
+          <tag name="param" line="91" description="&lt;p&gt;mysql port number. defaults to 3306&lt;/p&gt;" type="integer" variable="$port">
+            <type>integer</type>
           </tag>
           <tag name="throws" line="91" description="" type="\PDOException">
             <type>\PDOException</type>
@@ -810,14 +815,14 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
         <argument line="0" by_reference="false">
-          <name>$port</name>
-          <default>3306</default>
-          <type>integer</type>
-        </argument>
-        <argument line="0" by_reference="false">
           <name>$ssl</name>
           <default>false</default>
           <type>boolean</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$port</name>
+          <default>3306</default>
+          <type>integer</type>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="122" package="IGBIllinois">
@@ -1071,11 +1076,6 @@ $return string contents of log file</long-description>
         </docblock>
       </method>
     </class>
-    <parse_markers>
-      <error line="56" code="PPC:ERR-50014">Name of argument $ssl does not match with the DocBlock's name $port in __construct()</error>
-      <error line="56" code="PPC:ERR-50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $ssl in __construct()</error>
-      <notice line="56" code="PPC:ERR-50013">Parameter $port could not be found in __construct()</notice>
-    </parse_markers>
   </file>
   <file path="report.class.inc.php" generated-path="report.class.inc.html" hash="e69cc7964ee41b1c50b60bb2c7f0e102" package="Default">
     <docblock line="0">
@@ -1444,7 +1444,7 @@ $return string contents of log file</long-description>
       </method>
     </class>
   </file>
-  <file path="Helper/functions.class.inc.php" generated-path="Helper.functions.class.inc.html" hash="31ff648ce0e135e1790029c1647d2daa" package="Default">
+  <file path="Helper/functions.class.inc.php" generated-path="Helper.functions.class.inc.html" hash="f663cdf4bd8b0344cb322aa665332372" package="Default">
     <docblock line="0">
       <description>Helper function class</description>
       <long-description></long-description>
@@ -1540,14 +1540,14 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="121" package="IGBIllinois\Helper">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="129" package="IGBIllinois\Helper">
         <name>get_max_upload</name>
         <full_name>\IGBIllinois\Helper\functions::get_max_upload()</full_name>
-        <docblock line="121">
+        <docblock line="129">
           <description>Gets maximum upload size from php.ini in bytes</description>
           <long-description></long-description>
-          <tag name="params" line="121" description="void"/>
-          <tag name="return" line="121" description="" type="integer">
+          <tag name="params" line="129" description="void"/>
+          <tag name="return" line="129" description="" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
