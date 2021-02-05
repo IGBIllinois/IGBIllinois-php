@@ -46,16 +46,16 @@ class db {
         * @param string $database database name
         * @param string $username username to connect to database
         * @param string $password password to connect to database
+	* @param bool $ssl enable ssl
         * @param int $port mysql port number. defaults to 3306
-        * @param bool $ssl use ssl
         *
         * @throws \PDOException
         *
         * @return \IGBIllinois\db
         */
-	public function __construct($host,$database,$username,$password,$ssl = false) {
+	public function __construct($host,$database,$username,$password,$ssl = false,$port = 3306) {
 		try {
-			$this->open($host,$database,$username,$password,$ssl);
+			$this->open($host,$database,$username,$password,$ssl,$port);
 		}
 		catch(\PDOException $e) {
                         throw $e;
@@ -83,12 +83,12 @@ class db {
 	* @param string $database database name
 	* @param string $username username to connect to database
 	* @param string $password password to connect to database
-	* @param int $port mysql port number. defaults to 3306
 	* @param bool $ssl use ssl
+	* @param int $port mysql port number. defaults to 3306
 	* @throws \PDOException
 	* @return void
 	*/
-	private function open($host,$database,$username,$password,$port = 3306,$ssl = false) {
+	private function open($host,$database,$username,$password,$ssl = false,$port = 3306) {
 		//Connects to database.
 		try {
 			$params = array();
