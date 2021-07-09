@@ -112,7 +112,7 @@ class session {
 	/**
 	* Destroys all session variables
 	*
-	* Destroys session variables, clears out cookies and regenerates session id
+	* Destroys session variables and regenerates session id
 	*
 	* @param void
 	* @return void
@@ -122,7 +122,6 @@ class session {
 			session_unset();
 			session_destroy();
 			session_write_close();
-			setcookie($this->get_session_name(),'',0,'/');		
 		}
 	}
 
