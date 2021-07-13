@@ -14,7 +14,11 @@
     "require": {
 		"php": ">=7.1",
 		"phpoffice/phpspreadsheet": ">=1.8.2",
-		"amenadiel/jpgraph": "4.0.3"
+		"amenadiel/jpgraph": "4.0.3",
+		"pear/mail_mime": "1.10.9",
+                "pear/auth_sasl": "v1.1.0",
+                "pear/net_smtp": "1.9.2",
+                "pear/mail": "1.4.1"
     },
     "require-dev": {
         "phpdocumentor/phpdocumentor": "2.*"
