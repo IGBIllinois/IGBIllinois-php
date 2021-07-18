@@ -19,7 +19,7 @@ Common PHP Libraries used in IGBIllinois projects
 ```
 "igbillinois/igbillinois-php": "dev-main"
 ```
-* For a tag released
+* For a tag released.  Latest releases are at [https://github.com/IGBIllinois/IGBIllinois-php/releases](https://github.com/IGBIllinois/IGBIllinois-php/releases)
 ```
 "igbillinois/igbillinois-php": "1.0"
 ```
