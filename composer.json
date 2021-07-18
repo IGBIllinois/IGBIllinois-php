@@ -1,6 +1,6 @@
 {
     "name": "igbillinois/igbillinois-php",
-    "description": "Boilerplate package for creating other packages.",
+    "description": "Common classes used across multiple IGBIllinois applications.",
     "keywords": ["template", "composer", "package"],
     "license": "GPL-3.0-only",
     "homepage": "https://www.github.com/IGBIllinois/IGBIllinois-php",
