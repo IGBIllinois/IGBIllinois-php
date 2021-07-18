@@ -96,11 +96,11 @@ class email {
 	*/
 	public function send_email($to,$from,$subject,$txt_message = "",$html_message = "") {
 		if (!filter_var($to,FILTER_VALIDATE_EMAIL)) {
-			throw new Exception("To: Email is invalid");
+			throw new \Exception("To: Email is invalid");
 			return false;
 		}
 		if (!filter_var($from,FILTER_VALIDATE_EMAIL)) {
-			throw new Exception("From: Email is invalid");
+			throw new \Exception("From: Email is invalid");
 			return false;
 		}
 		$extraheaders['To'] = $to;
@@ -120,12 +120,12 @@ class email {
 		$mail_params = $this->get_mail_params();	
 		$smtp = \Mail::factory("smtp",$mail_params);
 		if (\PEAR::isError($smtp)) {
-			throw new Exception($smtp->getMessage());	
+			throw new \Exception($smtp->getMessage());	
 			return false;
 		}
 		$mail = $smtp->send($to,$headers,$body);
 		if (\PEAR::isError($mail)) {
-			throw new Exception($mail->getMessage());
+			throw new \Exception($mail->getMessage());
 			return false;
 		}
 		return true;
