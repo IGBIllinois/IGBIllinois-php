@@ -29,10 +29,6 @@ class email {
         private $smtp_username;
 	/** @var string smtp password */
         private $smtp_password;
-	/** @var boolean Enable SSL */
-        private $smtp_ssl false;
-	/** @var boolean Enable TLS */
-        private $smtp_tls = false;
 
         ////////////////Public Functions///////////
 
@@ -48,13 +44,11 @@ class email {
 	* @param boolean $tls enable or disable tls
 	* @return \IGBIllinois\ldap
 	*/
-        public function __construct($smtp_host,$smtp_port,$smtp_username,$smtp_password,$smtp_ssl,$smtp_tls) {
+        public function __construct($smtp_host,$smtp_port,$smtp_username,$smtp_password) {
                 $this->smtp_host = $smtp_host;
                 $this->smtp_port = $smtp_port;
 		$this->smtp_username = $smtp_user;
                 $this->smtp_password = $smtp_password;
-		$this->smtp_ssl = $smtp_ssl;
-                $this->smtp_tls = $smtp_tls;
         }
 
 	/**
@@ -72,7 +66,7 @@ class email {
 	* @param void
 	* @return string[]
 	*/
-        public function get_host() { return $this->smtp_host; }
+        public function get_smtp_host() { return $this->smtp_host; }
 	
 	/**
 	* gets smtp port
@@ -80,7 +74,7 @@ class email {
 	* @param void
 	* @return integer
 	*/
-        public function get_port() { return $this->smtp_port; }
+        public function get_smtp_port() { return $this->smtp_port; }
 
 	/**
 	* gets smtp username
@@ -91,44 +85,93 @@ class email {
         public function get_smtp_username() { return $this->smtp_username; }
 
 	/**
-	* gets if ssl is enabled
-	*
-	* @param void
-	* @return bool true if enabled, false otherwise
+	* sends email 
+	* @params string $to To Email Address
+	* @params string $from From Email Address
+	* @params string $subject Email Subject
+	* @params string $txt_message Email Message in plain txt
+	* @params string $html_message Email Message in HTML
+	* @throws Exception
+	* @return boolean True on success, false otherwise
 	*/
-        public function get_ssl() { return $this->ldap_ssl; }
+	public function create_email($to,$from,$subject,$txt_message = "",$html_message = "") {
+		if (!filter_var($to,FILTER_VALIDATE_EMAIL)) {
+			throw new Exception("To: Email is invalid");
+			return false;
+		}
+		if (!filter_var($from,FILTER_VALIDATE_EMAIL)) {
+			throw new Exception("From: Email is invalid");
+			return false;
+		}
+		$extraheaders['To'] = $to;
+		$extraheaders['From'] = $from;
+		$extraheaders['Subject'] = $subject;
+		array_push($extraheaders,self::generate_message_date());
+		array_push($extraheaders,self::generate_message_id());
+
+		$message = new Mail_mime();
+		if ($txt_message !== "") {
+			$message->setTxtBody($txt_message);
+		}
+		if ($html_message !== "") {
+			$message->setHtmlBody($txt_message);
+		}
+		$headers = $message->headers($extraheaders);
+		$mail_params = $this->get_mail_params();	
+		$smtp = Mail::factory("smtp",$mail_params);
+		if (PEAR::isError($smtp)) {
+			throw new Exception($smtp->getMessage());	
+			return false;
+		}
+		$mail = $smtp->send($to,$headers,$body);
+		if (PEAR::isError($mail)) {
+			throw new Exception($mail->getMessage());
+			return false;
+		}
+		return true;
+	}
 
 	/**
-	* get if tls is enabled
-	*
-	* @param void
-	* @return bool true if enabled, false otherwise
+	* generates mail params array for Mail::factory
+	* @params void
+	* $teturn string[] array of mail params
 	*/
-	public function get_tls() { return $this->ldap_tls; }
+	private function get_mail_params() {
+		$mail_params['host'] = $this->get_smtp_host();
+                $mail_params['port'] = $this->get_smtp_port();
 
+                if ($this->get_smtp_username() && $this->get_smtp_password()) {
+                        $mail_params['auth'] = true;
+                        $mail_params['username'] = $this->get_smtp_username();
+                        $mail_params['password'] = $this->get_smtp_password();
+                }
 
+		return $mail_params;
+	}
 	/**
 	* generate email message date header
 	* @param void
-	* @return date current date in proper formate 
+	* @return date[] current date in proper formate 
 	*/
 	private function generate_message_date() {
-		return date('D, d M Y H:i:s O');
+		return array('Date'=>date('D, d M Y H:i:s O'));
 	}
 
 	/**
 	* generate email Message-ID header
 	*
 	* @param void
-	* @return string Message-ID
+	* @return string[] Message-ID
 	*/
 	private function generate_message_id() {
-		return sprintf(
+		
+		$message_id = sprintf(
                         "<%s.%s@%s>",
                         base_convert(microtime(), 10, 36),
                         base_convert(bin2hex(openssl_random_pseudo_bytes(8)), 16, 36),
                         $_SERVER['SERVER_NAME']
                 );
+		return array('Message-Id'=>$message_id);
 	}
 }
 
