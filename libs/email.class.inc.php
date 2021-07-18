@@ -37,14 +37,13 @@ class email {
 	*
 	* Makes initial connection to ldap database
 	*
-	* @param string $host list of ldap hosts seperated by a space
-	* @param string $base_dn Ldap base dn
-	* @param int $port ldap port the server listens on
-	* @param boolean $ssl enable or disable ssl
-	* @param boolean $tls enable or disable tls
+	* @param string $smtp_host SMTP Hostname
+	* @param string $smtp_port SMTP Port. Defaults to 25
+	* @param string $smtp_username SMTP Username. Optional
+	* @param string $smtp_password SMTP Password. Optional
 	* @return \IGBIllinois\ldap
 	*/
-        public function __construct($smtp_host,$smtp_port,$smtp_username,$smtp_password) {
+        public function __construct($smtp_host,$smtp_port,$smtp_username = "",$smtp_password = "") {
                 $this->smtp_host = $smtp_host;
                 $this->smtp_port = $smtp_port;
 		$this->smtp_username = $smtp_user;
