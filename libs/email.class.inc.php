@@ -109,7 +109,7 @@ class email {
 		array_push($extraheaders,self::generate_message_date());
 		array_push($extraheaders,self::generate_message_id());
 
-		$message = new Mail_mime();
+		$message = new \Mail_mime();
 		if ($txt_message !== "") {
 			$message->setTxtBody($txt_message);
 		}
@@ -118,13 +118,13 @@ class email {
 		}
 		$headers = $message->headers($extraheaders);
 		$mail_params = $this->get_mail_params();	
-		$smtp = Mail::factory("smtp",$mail_params);
-		if (PEAR::isError($smtp)) {
+		$smtp = \Mail::factory("smtp",$mail_params);
+		if (\PEAR::isError($smtp)) {
 			throw new Exception($smtp->getMessage());	
 			return false;
 		}
 		$mail = $smtp->send($to,$headers,$body);
-		if (PEAR::isError($mail)) {
+		if (\PEAR::isError($mail)) {
 			throw new Exception($mail->getMessage());
 			return false;
 		}
