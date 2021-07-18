@@ -2456,7 +2456,7 @@ $return string contents of log file</long-description>
       </method>
     </class>
   </file>
-  <file path="email.class.inc.php" generated-path="email.class.inc.html" hash="563109ca350061e492c622dd610cae54" package="Default">
+  <file path="email.class.inc.php" generated-path="email.class.inc.html" hash="cb35e827f24bdc377696061cd7aa9ecb" package="Default">
     <docblock line="0">
       <description>email class to send properly formatted emails use PEAR mail_mime, auth_sasl, and net_smtp</description>
       <long-description></long-description>
@@ -2622,31 +2622,45 @@ $return string contents of log file</long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="97" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="92" package="IGBIllinois">
+        <name>get_smtp_password</name>
+        <full_name>\IGBIllinois\email::get_smtp_password()</full_name>
+        <docblock line="92">
+          <description>get smtp password</description>
+          <long-description></long-description>
+          <tag name="param" line="92" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="92" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="105" package="IGBIllinois">
         <name>send_email</name>
         <full_name>\IGBIllinois\email::send_email()</full_name>
-        <docblock line="97">
+        <docblock line="105">
           <description>Sends email</description>
           <long-description></long-description>
-          <tag name="param" line="97" description="&lt;p&gt;To Email Address&lt;/p&gt;" type="string" variable="$to">
+          <tag name="param" line="105" description="&lt;p&gt;To Email Address&lt;/p&gt;" type="string" variable="$to">
             <type>string</type>
           </tag>
-          <tag name="param" line="97" description="&lt;p&gt;From Email Address&lt;/p&gt;" type="string" variable="$from">
+          <tag name="param" line="105" description="&lt;p&gt;From Email Address&lt;/p&gt;" type="string" variable="$from">
             <type>string</type>
           </tag>
-          <tag name="param" line="97" description="&lt;p&gt;Email Subject&lt;/p&gt;" type="string" variable="$subject">
+          <tag name="param" line="105" description="&lt;p&gt;Email Subject&lt;/p&gt;" type="string" variable="$subject">
             <type>string</type>
           </tag>
-          <tag name="param" line="97" description="&lt;p&gt;Email Message in plain txt&lt;/p&gt;" type="string" variable="$txt_message">
+          <tag name="param" line="105" description="&lt;p&gt;Email Message in plain txt&lt;/p&gt;" type="string" variable="$txt_message">
             <type>string</type>
           </tag>
-          <tag name="param" line="97" description="&lt;p&gt;Email Message in HTML&lt;/p&gt;" type="string" variable="$html_message">
+          <tag name="param" line="105" description="&lt;p&gt;Email Message in HTML&lt;/p&gt;" type="string" variable="$html_message">
             <type>string</type>
           </tag>
-          <tag name="throws" line="97" description="" type="\IGBIllinois\Exception">
+          <tag name="throws" line="105" description="" type="\IGBIllinois\Exception">
             <type>\IGBIllinois\Exception</type>
           </tag>
-          <tag name="return" line="97" description="True on success, false otherwise" type="boolean">
+          <tag name="return" line="105" description="True on success, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -2676,39 +2690,39 @@ $return string contents of log file</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="139" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="148" package="IGBIllinois">
         <name>get_mail_params</name>
         <full_name>\IGBIllinois\email::get_mail_params()</full_name>
-        <docblock line="139">
+        <docblock line="148">
           <description>generates mail params array for Mail::factory</description>
           <long-description></long-description>
-          <tag name="params" line="139" description="void&#10;$teturn string[] array of mail params"/>
+          <tag name="params" line="148" description="void&#10;$teturn string[] array of mail params"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="156" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="165" package="IGBIllinois">
         <name>generate_message_date</name>
         <full_name>\IGBIllinois\email::generate_message_date()</full_name>
-        <docblock line="156">
+        <docblock line="165">
           <description>generate email message date header</description>
           <long-description></long-description>
-          <tag name="param" line="156" description="" type="void" variable="">
+          <tag name="param" line="165" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="156" description="current date in proper formate" type="array&lt;mixed,\IGBIllinois\date&gt;">
+          <tag name="return" line="165" description="current date in proper formate" type="array&lt;mixed,\IGBIllinois\date&gt;">
             <type>array&lt;mixed,\IGBIllinois\date&gt;</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="166" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="175" package="IGBIllinois">
         <name>generate_message_id</name>
         <full_name>\IGBIllinois\email::generate_message_id()</full_name>
-        <docblock line="166">
+        <docblock line="175">
           <description>generate email Message-ID header</description>
           <long-description></long-description>
-          <tag name="param" line="166" description="" type="void" variable="">
+          <tag name="param" line="175" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="166" description="Message-ID" type="array&lt;mixed,string&gt;">
+          <tag name="return" line="175" description="Message-ID" type="array&lt;mixed,string&gt;">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
         </docblock>

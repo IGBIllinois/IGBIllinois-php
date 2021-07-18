@@ -114,8 +114,8 @@ class email {
 		$extraheaders['To'] = $to;
 		$extraheaders['From'] = $from;
 		$extraheaders['Subject'] = $subject;
-		array_push($extraheaders,self::generate_message_date());
-		array_push($extraheaders,self::generate_message_id());
+		$extraheaders = array_merge($extraheaders,self::generate_message_date());
+		$extraheaders = array_merge($extraheaders,self::generate_message_id());
 
 		$message = new \Mail_mime();
 		if ($txt_message !== "") {
