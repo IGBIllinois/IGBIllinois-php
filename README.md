@@ -33,8 +33,8 @@ use IGBIllinois;
 ```
 or to call a class directly
 ```
-$db = \IGBIllinois\db(...);
-$ldap = \IGBIllinois\ldap(...);
+$db = new \IGBIllinois\db(...);
+$ldap = new \IGBIllinois\ldap(...);
 ```
 
 ## API Documentation
