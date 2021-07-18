@@ -46,7 +46,7 @@ class email {
         public function __construct($smtp_host,$smtp_port,$smtp_username = "",$smtp_password = "") {
                 $this->smtp_host = $smtp_host;
                 $this->smtp_port = $smtp_port;
-		$this->smtp_username = $smtp_user;
+		$this->smtp_username = $smtp_username;
                 $this->smtp_password = $smtp_password;
         }
 
@@ -84,6 +84,14 @@ class email {
         public function get_smtp_username() { return $this->smtp_username; }
 
 	/**
+	* get smtp password
+	*
+	* @param void
+	* @return string
+	*/
+	public function get_smtp_password() { return $this->smtp_password; }
+
+	/**
 	* Sends email
 	* 
 	* @param string $to To Email Address
@@ -117,6 +125,7 @@ class email {
 			$message->setHtmlBody($txt_message);
 		}
 		$headers = $message->headers($extraheaders);
+		$body = $message->get();
 		$mail_params = $this->get_mail_params();	
 		$smtp = \Mail::factory("smtp",$mail_params);
 		if (\PEAR::isError($smtp)) {
@@ -141,7 +150,7 @@ class email {
                 $mail_params['port'] = $this->get_smtp_port();
 
                 if ($this->get_smtp_username() && $this->get_smtp_password()) {
-                        $mail_params['auth'] = true;
+                        $mail_params['auth'] = 'PLAIN';
                         $mail_params['username'] = $this->get_smtp_username();
                         $mail_params['password'] = $this->get_smtp_password();
                 }
