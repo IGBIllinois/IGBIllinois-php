@@ -84,16 +84,17 @@ class email {
         public function get_smtp_username() { return $this->smtp_username; }
 
 	/**
-	* sends email 
-	* @params string $to To Email Address
-	* @params string $from From Email Address
-	* @params string $subject Email Subject
-	* @params string $txt_message Email Message in plain txt
-	* @params string $html_message Email Message in HTML
+	* Sends email
+	* 
+	* @param string $to To Email Address
+	* @param string $from From Email Address
+	* @param string $subject Email Subject
+	* @param string $txt_message Email Message in plain txt
+	* @param string $html_message Email Message in HTML
 	* @throws Exception
 	* @return boolean True on success, false otherwise
 	*/
-	public function create_email($to,$from,$subject,$txt_message = "",$html_message = "") {
+	public function send_email($to,$from,$subject,$txt_message = "",$html_message = "") {
 		if (!filter_var($to,FILTER_VALIDATE_EMAIL)) {
 			throw new Exception("To: Email is invalid");
 			return false;

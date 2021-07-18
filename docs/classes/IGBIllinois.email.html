@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">5</span></a></li>
+                <span class="label label-info">0</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -65,10 +65,10 @@
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Object constructor"><span class="description">Object constructor</span><pre>__construct()</pre></a></li>
 <li class="method public "><a href="#method___destruct" title="__destruct() :: Object deconstructor"><span class="description">Object deconstructor</span><pre>__destruct()</pre></a></li>
-<li class="method public "><a href="#method_create_email" title="create_email() :: sends email"><span class="description">sends email</span><pre>create_email()</pre></a></li>
 <li class="method public "><a href="#method_get_smtp_host" title="get_smtp_host() :: gets smtp host"><span class="description">gets smtp host</span><pre>get_smtp_host()</pre></a></li>
 <li class="method public "><a href="#method_get_smtp_port" title="get_smtp_port() :: gets smtp port"><span class="description">gets smtp port</span><pre>get_smtp_port()</pre></a></li>
 <li class="method public "><a href="#method_get_smtp_username" title="get_smtp_username() :: gets smtp username"><span class="description">gets smtp username</span><pre>get_smtp_username()</pre></a></li>
+<li class="method public "><a href="#method_send_email" title="send_email() :: Sends email"><span class="description">Sends email</span><pre>send_email()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
@@ -159,50 +159,6 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"><p>Destroys ldap object</p></div></div></div>
 </div>
-<a id="method_create_email"></a><div class="element clickable method public method_create_email " data-toggle="collapse" data-target=".method_create_email .collapse" title="public">
-<h2>sends email</h2>
-<pre>create_email($to, $from, $subject, $txt_message<code> = ""</code>, $html_message<code> = ""</code>) : boolean</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>params</th>
-<td>string $to To Email Address</td>
-</tr>
-<tr>
-<th>params</th>
-<td>string $from From Email Address</td>
-</tr>
-<tr>
-<th>params</th>
-<td>string $subject Email Subject</td>
-</tr>
-<tr>
-<th>params</th>
-<td>string $txt_message Email Message in plain txt</td>
-</tr>
-<tr>
-<th>params</th>
-<td>string $html_message Email Message in HTML</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument"><h4>$to</h4></div>
-<div class="subelement argument"><h4>$from</h4></div>
-<div class="subelement argument"><h4>$subject</h4></div>
-<div class="subelement argument"><h4>$txt_message</h4></div>
-<div class="subelement argument"><h4>$html_message</h4></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\IGBIllinois\Exception</code></th>
-<td></td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>boolean</code>True on success, false otherwise</div>
-</div></div>
-</div>
 <a id="method_get_smtp_host"></a><div class="element clickable method public method_get_smtp_host " data-toggle="collapse" data-target=".method_get_smtp_host .collapse" title="public">
 <h2>gets smtp host</h2>
 <pre>get_smtp_host() : array&lt;mixed,string&gt;</pre>
@@ -231,6 +187,38 @@
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_send_email"></a><div class="element clickable method public method_send_email " data-toggle="collapse" data-target=".method_send_email .collapse" title="public">
+<h2>Sends email</h2>
+<pre>send_email(string $to, string $from, string $subject, string $txt_message<code> = ""</code>, string $html_message<code> = ""</code>) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$to</h4>
+<code>string</code><p>To Email Address</p></div>
+<div class="subelement argument">
+<h4>$from</h4>
+<code>string</code><p>From Email Address</p></div>
+<div class="subelement argument">
+<h4>$subject</h4>
+<code>string</code><p>Email Subject</p></div>
+<div class="subelement argument">
+<h4>$txt_message</h4>
+<code>string</code><p>Email Message in plain txt</p></div>
+<div class="subelement argument">
+<h4>$html_message</h4>
+<code>string</code><p>Email Message in HTML</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\IGBIllinois\Exception</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>True on success, false otherwise</div>
 </div></div>
 </div>
 <a id="method_generate_message_date"></a><div class="element clickable method private method_generate_message_date " data-toggle="collapse" data-target=".method_generate_message_date .collapse" title="private">
@@ -317,7 +305,7 @@ $teturn string[] array of mail params</td>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2021-07-18T14:17:25-05:00.<br></footer></div>
+            generated on 2021-07-18T14:29:40-05:00.<br></footer></div>
 </div>
 </body>
 </html>
