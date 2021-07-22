@@ -70,6 +70,10 @@
 <li class="method public "><a href="#method_get_smtp_port" title="get_smtp_port() :: gets smtp port"><span class="description">gets smtp port</span><pre>get_smtp_port()</pre></a></li>
 <li class="method public "><a href="#method_get_smtp_username" title="get_smtp_username() :: gets smtp username"><span class="description">gets smtp username</span><pre>get_smtp_username()</pre></a></li>
 <li class="method public "><a href="#method_send_email" title="send_email() :: Sends email"><span class="description">Sends email</span><pre>send_email()</pre></a></li>
+<li class="method public "><a href="#method_set_bcc_emails" title="set_bcc_emails() :: set Bcc emails"><span class="description">set Bcc emails</span><pre>set_bcc_emails()</pre></a></li>
+<li class="method public "><a href="#method_set_cc_emails" title="set_cc_emails() :: set Cc emails"><span class="description">set Cc emails</span><pre>set_cc_emails()</pre></a></li>
+<li class="method public "><a href="#method_set_replyto_emails" title="set_replyto_emails() :: set Reply-To emails"><span class="description">set Reply-To emails</span><pre>set_replyto_emails()</pre></a></li>
+<li class="method public "><a href="#method_set_to_emails" title="set_to_emails() :: set To emails"><span class="description">set To emails</span><pre>set_to_emails()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
@@ -77,6 +81,7 @@
 <li class="method private "><a href="#method_generate_message_date" title="generate_message_date() :: generate email message date header"><span class="description">generate email message date header</span><pre>generate_message_date()</pre></a></li>
 <li class="method private "><a href="#method_generate_message_id" title="generate_message_id() :: generate email Message-ID header"><span class="description">generate email Message-ID header</span><pre>generate_message_id()</pre></a></li>
 <li class="method private "><a href="#method_get_mail_params" title="get_mail_params() :: generates mail params array for Mail::factory"><span class="description">generates mail params array for Mail::factory</span><pre>get_mail_params()</pre></a></li>
+<li class="method private "><a href="#method_unset_email_vars" title="unset_email_vars() :: Unset emails settings after email is sent"><span class="description">Unset emails settings after email is sent</span><pre>unset_email_vars()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -85,10 +90,14 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
+<li class="property private "><a href="#property_bcc_emails" title="$bcc_emails() :: $var string[] BCC Emails"><span class="description"></span><pre>$bcc_emails</pre></a></li>
+<li class="property private "><a href="#property_cc_emails" title="$cc_emails() :: $var string[] CC Emails"><span class="description"></span><pre>$cc_emails</pre></a></li>
+<li class="property private "><a href="#property_replyto_emails" title="$replyto_emails() :: $var string[] Replay To Emails"><span class="description"></span><pre>$replyto_emails</pre></a></li>
 <li class="property private "><a href="#property_smtp_host" title="$smtp_host() :: "><span class="description">smtp hostname</span><pre>$smtp_host</pre></a></li>
 <li class="property private "><a href="#property_smtp_password" title="$smtp_password() :: "><span class="description">smtp password</span><pre>$smtp_password</pre></a></li>
 <li class="property private "><a href="#property_smtp_port" title="$smtp_port() :: "><span class="description">smtp port</span><pre>$smtp_port</pre></a></li>
 <li class="property private "><a href="#property_smtp_username" title="$smtp_username() :: "><span class="description">smtp username</span><pre>$smtp_username</pre></a></li>
+<li class="property private "><a href="#property_to_emails" title="$to_emails() :: $var string[] To Emails"><span class="description"></span><pre>$to_emails</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -202,14 +211,11 @@
 </div>
 <a id="method_send_email"></a><div class="element clickable method public method_send_email " data-toggle="collapse" data-target=".method_send_email .collapse" title="public">
 <h2>Sends email</h2>
-<pre>send_email(string $to, string $from, string $subject, string $txt_message<code> = ""</code>, string $html_message<code> = ""</code>) : boolean</pre>
+<pre>send_email(string $from, string $subject, string $txt_message<code> = ""</code>, string $html_message<code> = ""</code>) : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$to</h4>
-<code>string</code><p>To Email Address</p></div>
 <div class="subelement argument">
 <h4>$from</h4>
 <code>string</code><p>From Email Address</p></div>
@@ -230,6 +236,54 @@
 <h3>Returns</h3>
 <div class="subelement response">
 <code>boolean</code>True on success, false otherwise</div>
+</div></div>
+</div>
+<a id="method_set_bcc_emails"></a><div class="element clickable method public method_set_bcc_emails " data-toggle="collapse" data-target=".method_set_bcc_emails .collapse" title="public">
+<h2>set Bcc emails</h2>
+<pre>set_bcc_emails(string | array&lt;mixed,string&gt; $bcc_emails) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$bcc_emails</h4>
+<code>string</code><code>array&lt;mixed,string&gt;</code><p>string or array of strings of Bcc: emails</p></div>
+</div></div>
+</div>
+<a id="method_set_cc_emails"></a><div class="element clickable method public method_set_cc_emails " data-toggle="collapse" data-target=".method_set_cc_emails .collapse" title="public">
+<h2>set Cc emails</h2>
+<pre>set_cc_emails(string | array&lt;mixed,string&gt; $cc_emails) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$cc_emails</h4>
+<code>string</code><code>array&lt;mixed,string&gt;</code><p>string or array of strings of Cc: emails</p></div>
+</div></div>
+</div>
+<a id="method_set_replyto_emails"></a><div class="element clickable method public method_set_replyto_emails " data-toggle="collapse" data-target=".method_set_replyto_emails .collapse" title="public">
+<h2>set Reply-To emails</h2>
+<pre>set_replyto_emails(string | array&lt;mixed,string&gt; $replyto_emails) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$replyto_emails</h4>
+<code>string</code><code>array&lt;mixed,string&gt;</code><p>string or array of strings of Reply-To: emails</p></div>
+</div></div>
+</div>
+<a id="method_set_to_emails"></a><div class="element clickable method public method_set_to_emails " data-toggle="collapse" data-target=".method_set_to_emails .collapse" title="public">
+<h2>set To emails</h2>
+<pre>set_to_emails(string | array&lt;mixed,string&gt; $to_emails) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$to_emails</h4>
+<code>string</code><code>array&lt;mixed,string&gt;</code><p>string or array of strings of To: emails</p></div>
 </div></div>
 </div>
 <a id="method_generate_message_date"></a><div class="element clickable method private method_generate_message_date " data-toggle="collapse" data-target=".method_generate_message_date .collapse" title="private">
@@ -267,8 +321,44 @@ $teturn string[] array of mail params</td>
 </tr></table>
 </div></div>
 </div>
+<a id="method_unset_email_vars"></a><div class="element clickable method private method_unset_email_vars " data-toggle="collapse" data-target=".method_unset_email_vars .collapse" title="private">
+<h2>Unset emails settings after email is sent</h2>
+<pre>unset_email_vars() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_bcc_emails"> </a><div class="element clickable property private property_bcc_emails" data-toggle="collapse" data-target=".property_bcc_emails .collapse" title="private">
+<h2>$var string[] BCC Emails</h2>
+<pre>$bcc_emails </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_cc_emails"> </a><div class="element clickable property private property_cc_emails" data-toggle="collapse" data-target=".property_cc_emails .collapse" title="private">
+<h2>$var string[] CC Emails</h2>
+<pre>$cc_emails </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_replyto_emails"> </a><div class="element clickable property private property_replyto_emails" data-toggle="collapse" data-target=".property_replyto_emails .collapse" title="private">
+<h2>$var string[] Replay To Emails</h2>
+<pre>$replyto_emails </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <a id="property_smtp_host"> </a><div class="element clickable property private property_smtp_host" data-toggle="collapse" data-target=".property_smtp_host .collapse" title="private">
 <h2>smtp hostname</h2>
 <pre>$smtp_host : string</pre>
@@ -309,6 +399,16 @@ $teturn string[] array of mail params</td>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
+<a id="property_to_emails"> </a><div class="element clickable property private property_to_emails" data-toggle="collapse" data-target=".property_to_emails .collapse" title="private">
+<h2>$var string[] To Emails</h2>
+<pre>$to_emails </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -316,7 +416,7 @@ $teturn string[] array of mail params</td>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2021-07-18T16:46:42-05:00.<br></footer></div>
+            generated on 2021-07-22T10:46:13-05:00.<br></footer></div>
 </div>
 </body>
 </html>

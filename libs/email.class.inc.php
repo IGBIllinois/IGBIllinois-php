@@ -99,6 +99,12 @@ class email {
 	*/
 	public function get_smtp_password() { return $this->smtp_password; }
 
+	/**
+	* 
+	* set To emails
+	* @param string|string[] string or array of strings of To: emails
+	* @return void
+	*/
 	public function set_to_emails($to_emails) {
 		if (!is_array($to_emails)) {
 			$this->to_emails = array($to_emails);
@@ -108,6 +114,12 @@ class email {
 		}
 	}
 
+        /**
+        * 
+        * set Cc emails
+        * @param string|string[] string or array of strings of Cc: emails
+        * @return void
+        */
 	public function set_cc_emails($cc_emails) {
 		if (!is_array($cc_emails)) {
 			$this->cc_emails = array($cc_emails);
@@ -117,6 +129,12 @@ class email {
 		}
 	}
 
+        /**
+        * 
+        * set Reply-To emails
+        * @param string|string[] string or array of strings of Reply-To: emails
+        * @return void
+        */
 	public function set_replyto_emails($replyto_emails) {
 		if (!is_array($replyto_emails)) {
 			$this->replyto_emails = array($replyto_emails);
@@ -126,6 +144,13 @@ class email {
 		}
 
 	}
+
+        /**
+        * 
+        * set Bcc emails
+        * @param string|string[] string or array of strings of Bcc: emails
+        * @return void
+        */
 	public function set_bcc_emails($bcc_emails) {
 		if (!is_array($bcc_emails)) {
 			$this->bcc_emails = array($bcc_emails);
@@ -242,6 +267,11 @@ class email {
 		return array('Message-Id'=>$message_id);
 	}
 
+	/**
+	* Unset emails settings after email is sent
+	* @param void
+	* @return void
+	*/
 	private function unset_email_vars() {
 		$this->to_emails = array();
 		$this->cc_emails = array();
