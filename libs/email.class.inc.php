@@ -29,6 +29,14 @@ class email {
         private $smtp_username;
 	/** @var string smtp password */
         private $smtp_password;
+	/** $var string[] To Emails */
+	private $to_emails = array();
+	/** $var string[] CC Emails */
+	private $cc_emails = array();
+	/** $var string[] Replay To Emails */
+	private $replyto_emails = array();
+	/** $var string[] BCC Emails */
+	private $bcc_emails = array();
 
         ////////////////Public Functions///////////
 
@@ -91,10 +99,45 @@ class email {
 	*/
 	public function get_smtp_password() { return $this->smtp_password; }
 
+	public function set_to_emails($to_emails) {
+		if (!is_array($to_emails)) {
+			$this->to_emails = array($to_emails);
+		}
+		else {
+			$this->to_emails = $to_emails;
+		}
+	}
+
+	public function set_cc_emails($cc_emails) {
+		if (!is_array($cc_emails)) {
+			$this->cc_emails = array($cc_emails);
+		}
+		else {
+			$this->cc_emails = $cc_emails;
+		}
+	}
+
+	public function set_replyto_emails($replyto_emails) {
+		if (!is_array($replyto_emails)) {
+			$this->replyto_emails = array($replyto_emails);
+		}
+		else {
+			$this->replyto_emails = $replyto_emails;
+		}
+
+	}
+	public function set_bcc_emails($bcc_emails) {
+		if (!is_array($bcc_emails)) {
+			$this->bcc_emails = array($bcc_emails);
+		}
+		else {
+			$this->bcc_emails = $bcc_emails;
+		}
+
+	}
 	/**
 	* Sends email
 	* 
-	* @param string $to To Email Address
 	* @param string $from From Email Address
 	* @param string $subject Email Subject
 	* @param string $txt_message Email Message in plain txt
@@ -102,16 +145,29 @@ class email {
 	* @throws Exception
 	* @return boolean True on success, false otherwise
 	*/
-	public function send_email($to,$from,$subject,$txt_message = "",$html_message = "") {
-		if (!filter_var($to,FILTER_VALIDATE_EMAIL)) {
-			throw new \Exception("To: Email is invalid");
-			return false;
-		}
+	public function send_email($from,$subject,$txt_message = "",$html_message = "") {
 		if (!filter_var($from,FILTER_VALIDATE_EMAIL)) {
 			throw new \Exception("From: Email is invalid");
 			return false;
 		}
-		$extraheaders['To'] = $to;
+		if (!count($this->to_emails)) {
+			throw new \Exception("To field is not set");
+			return false;
+		}
+		
+		$extraheaders['To'] = implode(",",$this->to_emails);
+		$recipiants = implode(",",$this->to_emails);
+		if (count($this->cc_emails)) {
+			$extraheaders['Cc'] = implode(",",$this->cc_emails);
+			$recipiants .= "," . implode(",",$this->cc_emails);
+		}
+		if (count($this->bcc_emails)) {
+			$extraheaders['Bcc'] = implode(",",$this->bcc_emails);
+			$recipiants .= "," . implode(",",$this->bcc_emails);
+		}
+		if (count($this->replyto_emails)) {
+			$extraheaders['Reply-To'] = implode(",",$this->replyto_emails);
+		}
 		$extraheaders['From'] = $from;
 		$extraheaders['Subject'] = $subject;
 		$extraheaders = array_merge($extraheaders,self::generate_message_date());
@@ -132,12 +188,15 @@ class email {
 			throw new \Exception($smtp->getMessage());	
 			return false;
 		}
-		$mail = $smtp->send($to,$headers,$body);
+		$mail = $smtp->send($recipiants,$headers,$body);
 		if (\PEAR::isError($mail)) {
 			throw new \Exception($mail->getMessage());
 			return false;
 		}
-		return true;
+		else {
+			$this->unset_email_vars();
+			return true;
+		}
 	}
 
 	/**
@@ -181,6 +240,13 @@ class email {
                         $_SERVER['SERVER_NAME']
                 );
 		return array('Message-Id'=>$message_id);
+	}
+
+	private function unset_email_vars() {
+		$this->to_emails = array();
+		$this->cc_emails = array();
+		$this->bcc_emails = array();
+		$this->replyto_emails = array();
 	}
 }
 
