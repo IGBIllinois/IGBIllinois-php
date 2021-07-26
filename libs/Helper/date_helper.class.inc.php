@@ -28,7 +28,7 @@ class date_helper {
 	*/
 	public static function verify_date($inDate) {
 		$format = "Y-m-d H:i:s";
-		$date = DateTime::createFromFormat($format,$inDate);
+		$date = \DateTime::createFromFormat($format,$inDate);
 		return $date && ($date->format($format) === $inDate);
 		
 	}

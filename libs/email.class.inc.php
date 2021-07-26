@@ -203,7 +203,7 @@ class email {
 			$message->setTxtBody($txt_message);
 		}
 		if ($html_message !== "") {
-			$message->setHtmlBody($txt_message);
+			$message->setHtmlBody($html_message);
 		}
 		$headers = $message->headers($extraheaders);
 		$body = $message->get();
@@ -232,7 +232,10 @@ class email {
 	private function get_mail_params() {
 		$mail_params['host'] = $this->get_smtp_host();
                 $mail_params['port'] = $this->get_smtp_port();
-
+		$mail_params['localhost'] = gethostname();
+		if (isset($_SERVER['SERVER_NAME'])) {
+			$mail_params['localhost'] = $_SERVER['SERVER_NAME'];
+		}
                 if ($this->get_smtp_username() && $this->get_smtp_password()) {
                         $mail_params['auth'] = 'PLAIN';
                         $mail_params['username'] = $this->get_smtp_username();
@@ -257,12 +260,15 @@ class email {
 	* @return string[] Message-ID
 	*/
 	private function generate_message_id() {
-		
+		$server_name = gethostname();
+		if (isset($_SERVER['SERVER_NAME'])) {
+			$server_name = $_SERVER['SERVER_NAME'];
+		}	
 		$message_id = sprintf(
                         "<%s.%s@%s>",
                         base_convert(microtime(), 10, 36),
                         base_convert(bin2hex(openssl_random_pseudo_bytes(8)), 16, 36),
-                        $_SERVER['SERVER_NAME']
+                        $server_name
                 );
 		return array('Message-Id'=>$message_id);
 	}
@@ -281,4 +287,3 @@ class email {
 }
 
 ?>
-
