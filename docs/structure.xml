@@ -1,88 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="IGBIllinois-php API" version="2.9.1">
   <partials/>
-  <file path="Helper/smbhash.class.inc.php" generated-path="Helper.smbhash.class.inc.html" hash="e5194c3825d0757e2240729c86638ef3" package="Default">
-    <docblock line="0">
-      <description>Generate smbhash passwords</description>
-      <long-description></long-description>
-      <tag name="package" line="0" description="Default"/>
-    </docblock>
-    <class final="false" abstract="false" namespace="IGBIllinois\Helper" line="20" package="IGBIllinois\Helper">
-      <extends/>
-      <name>smbhash</name>
-      <full_name>\IGBIllinois\Helper\smbhash</full_name>
-      <docblock line="20">
-        <description>smbhash class with functiosn to generate smb passwords</description>
-        <long-description></long-description>
-        <tag name="author" line="20" description="Joe Leigh" link="mailto:jleigh@illinois.edu"/>
-        <tag name="access" line="20" description="public"/>
-        <tag name="package" line="20" description="IGBIllinois\Helper"/>
-        <tag name="copyright" line="20" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
-        <tag name="license" line="20" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
-        <tag name="static" line="20" description=""/>
-      </docblock>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="28" package="IGBIllinois\Helper">
-        <name>NTLMHash</name>
-        <full_name>\IGBIllinois\Helper\smbhash::NTLMHash()</full_name>
-        <docblock line="28">
-          <description>Create NTLM Password hash</description>
-          <long-description></long-description>
-          <tag name="param" line="28" description="&lt;p&gt;clear text password&lt;/p&gt;" type="string" variable="$password">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="28" description="MD4Hash of password" type="string">
-            <type>string</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$password</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="44" package="IGBIllinois\Helper">
-        <name>LMhash</name>
-        <full_name>\IGBIllinois\Helper\smbhash::LMhash()</full_name>
-        <docblock line="44">
-          <description>Create LM password hash</description>
-          <long-description></long-description>
-          <tag name="param" line="44" description="&lt;p&gt;cleartext password&lt;/p&gt;" type="string" variable="$password">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="44" description="LMHash of password" type="string">
-            <type>string</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$password</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="IGBIllinois\Helper" line="58" package="IGBIllinois\Helper">
-        <name>LMhash_DESencrypt</name>
-        <full_name>\IGBIllinois\Helper\smbhash::LMhash_DESencrypt()</full_name>
-        <docblock line="58">
-          <description>Create DES encrypt of LMhash</description>
-          <long-description></long-description>
-          <tag name="param" line="58" description="" type="string" variable="$string">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="58" description="DES encrypt of LMhash" type="string">
-            <type>string</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$string</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-      </method>
-    </class>
-    <markers>
-      <todo line="88">These constants won't exist until php 5.4</todo>
-    </markers>
-  </file>
   <file path="log.class.inc.php" generated-path="log.class.inc.html" hash="3918003a617cc6643576f03892f9336a" package="Default">
     <docblock line="0">
       <description>log class to write and read a log file</description>
@@ -1233,7 +1151,7 @@ $return string contents of log file</long-description>
       </method>
     </class>
   </file>
-  <file path="graphs.class.inc.php" generated-path="graphs.class.inc.html" hash="4d80cced1db9f079f384627230057984" package="Default">
+  <file path="graphs.class.inc.php" generated-path="graphs.class.inc.html" hash="ea4e5d7a4eedcc7e88bf6b8849044f47" package="Default">
     <docblock line="0">
       <description>graphs class creates graphs using JpGraph, https://jpgraph.net/</description>
       <long-description></long-description>
@@ -1554,7 +1472,7 @@ $return string contents of log file</long-description>
       </method>
     </class>
   </file>
-  <file path="ldap.class.inc.php" generated-path="ldap.class.inc.html" hash="a6c49a4039a33f5e41555a0d23529924" package="Default">
+  <file path="ldap.class.inc.php" generated-path="ldap.class.inc.html" hash="663c43fc69276a04c6074ab1d6692a33" package="Default">
     <docblock line="0">
       <description>ldap class interacts with ldap server using built in php ldap functions</description>
       <long-description></long-description>
@@ -2396,7 +2314,7 @@ $return string contents of log file</long-description>
       </method>
     </class>
   </file>
-  <file path="Helper/date_helper.class.inc.php" generated-path="Helper.date_helper.class.inc.html" hash="540df8147f9813cf9651a665f12ffcfb" package="Default">
+  <file path="Helper/date_helper.class.inc.php" generated-path="Helper.date_helper.class.inc.html" hash="1292c48ec38e747e08bfecd2d2a95108" package="Default">
     <docblock line="0">
       <description>Helper date functions</description>
       <long-description></long-description>
@@ -2456,7 +2374,7 @@ $return string contents of log file</long-description>
       </method>
     </class>
   </file>
-  <file path="email.class.inc.php" generated-path="email.class.inc.html" hash="d520d509f9136f788a69e3ba13042a5c" package="Default">
+  <file path="email.class.inc.php" generated-path="email.class.inc.html" hash="f70dc6df60b056c264bf6d6c4c87abdd" package="Default">
     <docblock line="0">
       <description>email class to send properly formatted emails use PEAR mail_mime, auth_sasl, and net_smtp</description>
       <long-description></long-description>
@@ -2807,49 +2725,207 @@ $return string contents of log file</long-description>
           <tag name="params" line="232" description="void&#10;$teturn string[] array of mail params"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="249" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="252" package="IGBIllinois">
         <name>generate_message_date</name>
         <full_name>\IGBIllinois\email::generate_message_date()</full_name>
-        <docblock line="249">
+        <docblock line="252">
           <description>generate email message date header</description>
           <long-description></long-description>
-          <tag name="param" line="249" description="" type="void" variable="">
+          <tag name="param" line="252" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="249" description="current date in proper formate" type="array&lt;mixed,\IGBIllinois\date&gt;">
+          <tag name="return" line="252" description="current date in proper formate" type="array&lt;mixed,\IGBIllinois\date&gt;">
             <type>array&lt;mixed,\IGBIllinois\date&gt;</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="259" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="262" package="IGBIllinois">
         <name>generate_message_id</name>
         <full_name>\IGBIllinois\email::generate_message_id()</full_name>
-        <docblock line="259">
+        <docblock line="262">
           <description>generate email Message-ID header</description>
           <long-description></long-description>
-          <tag name="param" line="259" description="" type="void" variable="">
+          <tag name="param" line="262" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="259" description="Message-ID" type="array&lt;mixed,string&gt;">
+          <tag name="return" line="262" description="Message-ID" type="array&lt;mixed,string&gt;">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="275" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="281" package="IGBIllinois">
         <name>unset_email_vars</name>
         <full_name>\IGBIllinois\email::unset_email_vars()</full_name>
-        <docblock line="275">
+        <docblock line="281">
           <description>Unset emails settings after email is sent</description>
           <long-description></long-description>
-          <tag name="param" line="275" description="" type="void" variable="">
+          <tag name="param" line="281" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="275" description="" type="void">
+          <tag name="return" line="281" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
     </class>
+  </file>
+  <file path="Helper/passwordhash.class.inc.php" generated-path="Helper.passwordhash.class.inc.html" hash="a6b2ebc63acaa877b33e51d689d9249d" package="Default">
+    <docblock line="0">
+      <description>Generate smbhash passwords</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="IGBIllinois\Helper" line="20" package="IGBIllinois\Helper">
+      <extends/>
+      <name>passwordhash</name>
+      <full_name>\IGBIllinois\Helper\passwordhash</full_name>
+      <docblock line="20">
+        <description>passwordhash class with functiosn to generate different password hashes</description>
+        <long-description></long-description>
+        <tag name="author" line="20" description="Joe Leigh" link="mailto:jleigh@illinois.edu"/>
+        <tag name="access" line="20" description="public"/>
+        <tag name="package" line="20" description="IGBIllinois\Helper"/>
+        <tag name="copyright" line="20" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
+        <tag name="license" line="20" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
+        <tag name="static" line="20" description=""/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="28" package="IGBIllinois\Helper">
+        <name>NTLMHash</name>
+        <full_name>\IGBIllinois\Helper\passwordhash::NTLMHash()</full_name>
+        <docblock line="28">
+          <description>Create NTLM Password hash</description>
+          <long-description></long-description>
+          <tag name="param" line="28" description="&lt;p&gt;clear text password&lt;/p&gt;" type="string" variable="$password">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="28" description="MD4Hash of password" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="44" package="IGBIllinois\Helper">
+        <name>LMhash</name>
+        <full_name>\IGBIllinois\Helper\passwordhash::LMhash()</full_name>
+        <docblock line="44">
+          <description>Create LM password hash</description>
+          <long-description></long-description>
+          <tag name="param" line="44" description="&lt;p&gt;cleartext password&lt;/p&gt;" type="string" variable="$password">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="44" description="LMHash of password" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="IGBIllinois\Helper" line="58" package="IGBIllinois\Helper">
+        <name>LMhash_DESencrypt</name>
+        <full_name>\IGBIllinois\Helper\passwordhash::LMhash_DESencrypt()</full_name>
+        <docblock line="58">
+          <description>Create DES encrypt of LMhash</description>
+          <long-description></long-description>
+          <tag name="param" line="58" description="" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="58" description="DES encrypt of LMhash" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="99" package="IGBIllinois\Helper">
+        <name>MD5Hash</name>
+        <full_name>\IGBIllinois\Helper\passwordhash::MD5Hash()</full_name>
+        <docblock line="99">
+          <description>Creates MD5 Crypt password hash</description>
+          <long-description></long-description>
+          <tag name="param" line="99" description="&lt;p&gt;cleartext password&lt;/p&gt;" type="string" variable="$password">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="99" description="MD5Hash password" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="117" package="IGBIllinois\Helper">
+        <name>SSHAHash</name>
+        <full_name>\IGBIllinois\Helper\passwordhash::SSHAHash()</full_name>
+        <docblock line="117">
+          <description>Creates SSHA password hash</description>
+          <long-description></long-description>
+          <tag name="param" line="117" description="&lt;p&gt;cleartext password&lt;/p&gt;" type="string" variable="$password">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="117" description="SSHAHash password" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="128" package="IGBIllinois\Helper">
+        <name>SHA256CryptHash</name>
+        <full_name>\IGBIllinois\Helper\passwordhash::SHA256CryptHash()</full_name>
+        <docblock line="128">
+          <description>Creates SHA256 Crypt hash</description>
+          <long-description></long-description>
+          <tag name="param" line="128" description="&lt;p&gt;cleartext password&lt;/p&gt;" type="string" variable="$password">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="128" description="SHA256CryptHash" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois\Helper" line="139" package="IGBIllinois\Helper">
+        <name>SHA512CryptHash</name>
+        <full_name>\IGBIllinois\Helper\passwordhash::SHA512CryptHash()</full_name>
+        <docblock line="139">
+          <description>Creates SHA512 Crypt Hash</description>
+          <long-description></long-description>
+          <tag name="param" line="139" description="&lt;p&gt;cleartext password&lt;/p&gt;" type="string" variable="$password">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="139" description="SHA512CryptHash" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$password</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <markers>
+      <todo line="88">These constants won't exist until php 5.4</todo>
+    </markers>
   </file>
   <package name="Default" full_name="Default"/>
   <package name="IGBIllinois" full_name="IGBIllinois">
