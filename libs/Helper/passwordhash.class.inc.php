@@ -7,7 +7,7 @@
 namespace IGBIllinois\Helper;
 
 /**
-* smbhash class with functiosn to generate smb passwords
+* passwordhash class with functiosn to generate different password hashes
 *
 * @author Joe Leigh <jleigh@illinois.edu>
 * @access public
@@ -17,7 +17,7 @@ namespace IGBIllinois\Helper;
 * @static
 *
 */
-class smbhash {
+class passwordhash {
 
 	/**
         * Create NTLM Password hash
@@ -89,6 +89,57 @@ class smbhash {
 
 		return bin2hex($crypt);
 	}
+
+	/** 
+	* Creates MD5 Crypt password hash
+	*
+	* @param string cleartext password
+	* @return string MD5Hash password 
+	*/
+	public static function MD5Hash($password) {
+                $salt_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/.";
+                $salt_len = strlen($salt_chars);
+                $salt = "";
+
+                for ($i=0;$i<8;$i++) {
+                        $salt .= $salt_chars[rand(0,$salt_len - 1)];
+                }
+
+                return '{CRYPT}' . crypt($password,"$1$" . $salt . "$");
+        }
+
+	/**
+	* Creates SSHA password hash
+	*
+	* @param string cleartext password
+	* @return string SSHAHash password
+	*/
+	public static function SSHAHash($password) {
+                $salt = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',4)),0,4);
+                return '{SSHA}' . base64_encode(sha1( $password.$salt, TRUE ). $salt);
+        }
+
+	/**
+	* Creates SHA256 Crypt hash
+	*
+	* @param string cleartext password
+	* @return string SHA256CryptHash
+	*/
+	public static function SHA256CryptHash($password) {
+                $salt = base64_encode(random_bytes(32));
+                return '{CRYPT}' . crypt($password,'$5$'.$salt . "$");
+
+        }
+	/**
+	* Creates SHA512 Crypt Hash
+	*
+	* @param string cleartext password
+	* @return string SHA512CryptHash
+	*/
+        public static  function SHA512CryptHash($password) {
+                $salt = base64_encode(random_bytes(32));
+                return '{CRYPT}' . crypt($password,'$6$'.$salt . "$");
+        }
 
 }
 
