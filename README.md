@@ -19,7 +19,7 @@ yum install php-gd php-mbstring
 ],
 ```
 * Add to your 'required' section of the composer.json file
-* For latest commits to main brach
+* For latest development code in the main brach
 ```
 "igbillinois/igbillinois-php": "dev-main"
 ```
@@ -27,7 +27,7 @@ yum install php-gd php-mbstring
 ```
 "igbillinois/igbillinois-php": "1.0"
 ```
-* To always use latest version
+* To always use latest tag release
 ```
 "igbillinois/igbillinois-php": ">=1.0 <2.0"
 ```
