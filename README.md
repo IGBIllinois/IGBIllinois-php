@@ -30,6 +30,7 @@ yum install php-gd php-mbstring
 * To always use latest version
 ```
 "igbillinois/igbillinois-php": ">=1.0 <2.0"
+```
 * Run composer install
 ```
 composer install
