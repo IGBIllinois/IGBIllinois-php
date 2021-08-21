@@ -5,6 +5,10 @@
 Common PHP Libraries used in IGBIllinois projects
 
 ## Install
+* Install required PHP modules
+<pre>
+yum install php-gd php-mbstring
+</pre>
 * Add to your composer.json file
 ```
 "repositories" : [
@@ -23,6 +27,9 @@ Common PHP Libraries used in IGBIllinois projects
 ```
 "igbillinois/igbillinois-php": "1.0"
 ```
+* To always use latest version
+```
+"igbillinois/igbillinois-php": ">=1.0 <2.0"
 * Run composer install
 ```
 composer install

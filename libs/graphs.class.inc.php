@@ -4,11 +4,9 @@
 *
 */
 namespace IGBIllinois;
-\JpGraph\JpGraph::load();
-\JpGraph\JpGraph::module('bar');
-\JpGraph\JpGraph::module('pie');
-\JpGraph\JpGraph::module('pie3d');
-\JpGraph\JpGraph::module('line');
+
+use \Amenadiel\JpGraph\Graph;
+use \Amenadiel\JpGraph\Plot;
 
 if( !function_exists('imageantialias') ) {
 	/**
@@ -65,7 +63,7 @@ class graphs {
                         $datax[] = 0;
                 }
 
-                $graph = new Graph(900,600,'auto');
+                $graph = new Graph\Graph(900,600,'auto');
 
                 $graph->SetMargin(60,20,20,80);
 
@@ -114,7 +112,7 @@ class graphs {
                 else {
                         $datax[] = 0;
                 }
-                $graph = new Graph(900,600,'auto');
+                $graph = new Graph\Graph(900,600,'auto');
                 $graph->SetMargin(60,20,20,80);
                 $graph->SetMarginColor('blue');
                 $graph->SetScale("textlin");
@@ -168,10 +166,10 @@ class graphs {
 
         	}
 
-	        $graph = new PieGraph(600,300,"auto");
+	        $graph = new Graph\PieGraph(600,300,"auto");
 	        $graph->title->Set($title);
 	        $graph->title->SetColor("#000000");
-        	$p1 = new PiePlot3d($data);
+        	$p1 = new Plot\PiePlot3D($data);
 	        $p1->SetAngle(85);
         	$p1->SetSize(0.35);
 	        $p1->SetCenter(0.3,0.5);
@@ -202,7 +200,7 @@ class graphs {
                 else {
                         $datay[] = 0;
                 }
-		$bplot = new BarPlot($datay);
+		$bplot = new Graph\BarPlot($datay);
 		$bplot->SetAlign("center");
 		if ($legend != "") {
 			$bplot->SetLegend($legend);
