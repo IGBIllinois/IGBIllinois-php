@@ -86,11 +86,14 @@ class log {
 	* Retrieve log file contents
 	*
 	* $param void
-	* $return string contents of log file
+	* $return string contents of log file, false otherwise
 	*/
 	public function get_log() {
-		$contents = file_get_contents($this->logfile);
-		return $contents;
+		if (file_exists($this->logfile)) {
+			$contents = file_get_contents($this->logfile);
+			return $contents;
+		}
+		return false;
 
 
 	}
