@@ -44,7 +44,7 @@ class log {
 		$this->enabled = $enabled;
 		$this->logfile = $logfile;
 
-		if (!file_exists($this->logfile)) {
+		if (($this->enabled) && !file_exists($this->logfile)) {
 			touch($this->logfile);
 		}
         }
