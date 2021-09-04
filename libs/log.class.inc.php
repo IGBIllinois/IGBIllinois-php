@@ -44,7 +44,9 @@ class log {
 		$this->enabled = $enabled;
 		$this->logfile = $logfile;
 
-
+		if (!file_exists($this->logfile)) {
+			touch($this->logfile);
+		}
         }
 
 	/**
@@ -63,7 +65,7 @@ class log {
 				$full_msg .= "NOTICE: ";
 				break;
 			case self::WARNING:
-				$full_msg .= "WARING: ";
+				$full_msg .= "WARNING: ";
 				break;
 			case self::ERROR:
 				$full_msg .= "ERROR: ";
