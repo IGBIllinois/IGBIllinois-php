@@ -19,48 +19,84 @@ namespace IGBIllinois;
 */
 class data_usage {
 
+	private $directory;
+
 	const gpfs_replication = 2;
 	const gpfs_mmpolicy_du = "/usr/local/bin/mmpolicy-du.pl";
 	const kilobytes_to_bytes = "1024";
 
+	/*
+	**
+        * Creates data_usage object
+        *
+        * @param string $directory Full Path to directory
+        * @return \IGBIllinois\data_usage
+        */
+        public function __construct($directory) {
+                $this->directory = self::format_directory($directory);;
+
+        }
+
+	/**
+	* Gets directory
+	*
+	* @param void 
+	* @return string Full path to directory
+	*/
+	public function get_directory() {
+		return $this->directory;
+	}
+
+	/**
+	* Test if directory exists
+	*
+	* @param void
+	* @return boolean true on success, false otherwise
+	*/
+	public function directory_exists() {
+		return is_dir($this->get_directory());
+
+	}
+
+	
         /**
         * Gets size of directory
-        *
-        * @param string $directory Full path to directory
-        *
+	*
+        * @param void
         * @return int amount in bytes
         */
-	public static function get_dir_size($directory) {
+	public function get_dir_size() {
+		$result = false;
+		if ($this->directory_exists()) {
+			$filesystem_type = self::get_filesystem_type();
+			switch ($filesystem_type) {
+				case "ceph":
+					$result = self::get_dir_size_rbytes();
+					break;
 
-                $result = false;
-		$filesystem_type = self::get_filesystem_type($directory);
-		switch ($filesystem_type) {
-			case "ceph":
-				$result = self::get_dir_size_rbytes($directory);
-				break;
-
-			case "gpfs":
-				$result = self::get_dir_size_gpfs($directory);
-				break;
-			default:
-				$result = self::get_dir_size_du($directory);
-				break;
+				case "gpfs":
+					$result = self::get_dir_size_gpfs();
+					break;
+				default:
+					$result = self::get_dir_size_du();
+					break;
 
 
+			}
 		}
-                return $result;
+		return $result;
         }
 
 	/**
 	* Gets the type of filesystem the directory is on
 	*
-	* @param string $directory Full path to directory
+	* @param void
 	* @return string file system type
 	*/
-	public static function get_filesystem_type($directory) {
+	public function get_filesystem_type() {
 		$result = false;
-		if (file_exists($directory)) {
-			$exec = "stat --file-system --printf=%T " . $directory;
+		if (file_exists($this->get_directory()) {
+			$exec = "stat --file-system --printf=%T " . this->get_directory();
 	                $exit_status = 1;
         	        $output_array = array();
                 	$output = exec($exec,$output_array,$exit_status);
@@ -75,11 +111,11 @@ class data_usage {
 	/**
 	* Gets directory size using rbytes field.  Used with Ceph filesystem
 	*
-	* @param string $directory Full path to directroy
+	* @param void
 	* @return int amount in bytes
 	*/
-	private static function get_dir_size_rbytes($directory) {
-		$exec = "stat --printf=%s " . $directory;
+	private function get_dir_size_rbytes() {
+		$exec = "stat --printf=%s " . $this->get_directory();
 		$exit_status = 1;
 		$output_array = array();
 		$output = exec($exec,$output_array,$exit_status);
@@ -97,10 +133,10 @@ class data_usage {
 	* @param string $directory Full path to directory
 	* @return int amount in bytes
 	*/
-        private static function get_dir_size_du($directory) {
+        private function get_dir_size_du() {
 		$result = 0;
 		if (file_exists($directory)) {
-                	$exec = "du --max-depth=0 " . $directory . "/ | awk '{print $1}'";
+                	$exec = "du --max-depth=0 " . $this->get_directory() . "/ | awk '{print $1}'";
 	                $exit_status = 1;
         	        $output_array = array();
                 	$output = exec($exec,$output_array,$exit_status);
@@ -119,7 +155,7 @@ class data_usage {
 	* @param string $directory Full path to directory
 	* @return int amount in bytes
 	*/
-	private static function get_dir_size_gpfs($directory) {
+	private function get_dir_size_gpfs() {
 
 		$result = 0;
                 if (file_exists($directory)) {
@@ -137,6 +173,22 @@ class data_usage {
 
 	}	
 
+
+	/**
+	* Removes trailing slash at end of directory path
+	*
+	* @params void
+	* @returns string path to directory
+	*/	
+	private static function format_directory($directory) {
+                if (strrpos($directory,"/") == strlen($directory) -1) {
+                        return substr($directory,0,strlen($directory)-1);
+                }
+                else {
+                        return $directory;
+                }
+
+        }
 
 }
 
