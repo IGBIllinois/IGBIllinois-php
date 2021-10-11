@@ -95,7 +95,7 @@ class data_usage {
 	*/
 	public function get_filesystem_type() {
 		$result = false;
-		if (file_exists($this->get_directory()) {
+		if (file_exists($this->get_directory())) {
 			$exec = "stat --file-system --printf=%T " . $this->get_directory();
 	                $exit_status = 1;
         	        $output_array = array();
@@ -115,12 +115,16 @@ class data_usage {
 	* @return int amount in bytes
 	*/
 	private function get_dir_size_rbytes() {
-		$exec = "stat --printf=%s " . $this->get_directory();
-		$exit_status = 1;
-		$output_array = array();
-		$output = exec($exec,$output_array,$exit_status);
-		if (!$exit_status) {
-			$result = $output;
+
+		$result = 0;
+		if (file_exists($this->get_directory())) {
+			$exec = "stat --printf=%s " . $this->get_directory();
+			$exit_status = 1;
+			$output_array = array();
+			$output = exec($exec,$output_array,$exit_status);
+			if (!$exit_status) {
+				$result = $output;
+			}
 		}
 		return $result;
 
@@ -130,12 +134,12 @@ class data_usage {
 	/**
 	* Gets directory size using du command.
 	*
-	* @param string $directory Full path to directory
+	* @param void
 	* @return int amount in bytes
 	*/
         private function get_dir_size_du() {
 		$result = 0;
-		if (file_exists($directory)) {
+		if (file_exists($this->directory())) {
                 	$exec = "du --max-depth=0 " . $this->get_directory() . "/ | awk '{print $1}'";
 	                $exit_status = 1;
         	        $output_array = array();
@@ -152,13 +156,13 @@ class data_usage {
 	/**
 	* Gets directory size for gpfs filesystem.  Uses mmpolicy du
 	*
-	* @param string $directory Full path to directory
+	* @param void
 	* @return int amount in bytes
 	*/
 	private function get_dir_size_gpfs() {
 
 		$result = 0;
-                if (file_exists($directory)) {
+                if (file_exists($this->get_directory())) {
                         $exec = "source /etc/profile; ";
 			$exec .= self::gpfs_mmpolicy_du . " " . $this->get_directory() . "/ | awk '{print $1}'";
                         $exit_status = 1;
@@ -177,7 +181,7 @@ class data_usage {
 	/**
 	* Removes trailing slash at end of directory path
 	*
-	* @params void
+	* @params string $directory Full path to directory
 	* @returns string path to directory
 	*/	
 	private static function format_directory($directory) {
