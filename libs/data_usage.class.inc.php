@@ -139,7 +139,7 @@ class data_usage {
 	*/
         private function get_dir_size_du() {
 		$result = 0;
-		if (file_exists($this->directory())) {
+		if (file_exists($this->get_directory())) {
                 	$exec = "du --max-depth=0 " . $this->get_directory() . "/ | awk '{print $1}'";
 	                $exit_status = 1;
         	        $output_array = array();
