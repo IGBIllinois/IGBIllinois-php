@@ -96,7 +96,7 @@ class data_usage {
 	public function get_filesystem_type() {
 		$result = false;
 		if (file_exists($this->get_directory()) {
-			$exec = "stat --file-system --printf=%T " . this->get_directory();
+			$exec = "stat --file-system --printf=%T " . $this->get_directory();
 	                $exit_status = 1;
         	        $output_array = array();
                 	$output = exec($exec,$output_array,$exit_status);
