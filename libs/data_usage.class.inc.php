@@ -33,7 +33,7 @@ class data_usage {
 	public static function get_dir_size($directory) {
 
                 $result = false;
-		$filesystem_type = self::get_filesystem_type();
+		$filesystem_type = self::get_filesystem_type($directory);
 		switch ($filesystem_type) {
 			case "ceph":
 				$result = self::get_dir_size_rbytes($directory);
