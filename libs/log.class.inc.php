@@ -70,6 +70,9 @@ class log {
 			case self::ERROR:
 				$full_msg .= "ERROR: ";
 				break;
+			default:
+				$full_msg .= "NOTICE: ";
+				break;
 
 		}
                 $full_msg .= $message . "\n";
