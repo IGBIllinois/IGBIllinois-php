@@ -13,6 +13,8 @@
     "type": "project",
     "require": {
         "php": ">=7.1",
+	"ext-gd": "*",
+	"ext-mbstring": "*",
         "phpoffice/phpspreadsheet": ">=1.16",
         "amenadiel/jpgraph": ">=4.0.3",
         "pear/mail_mime": "1.10.9",
