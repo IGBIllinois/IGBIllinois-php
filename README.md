@@ -1,6 +1,6 @@
 # IGBIllinois-php
 
-[![Build Status](https://www.travis-ci.com/IGBIllinois/IGBIllinois-php.svg?branch=main)](https://www.travis-ci.com/IGBIllinois/IGBIllinois-php)
+[![Build Status](https://github.com/IGBIllinois/IGBIllinois-php/actions/workflows/main.yml/badge.svg)](https://github.com/IGBIllinois/IGBIllinois-php/actions/workflows/main.yml)
 
 Common PHP Libraries used in IGBIllinois projects
 
