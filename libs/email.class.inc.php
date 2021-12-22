@@ -170,7 +170,7 @@ class email {
 	* @throws Exception
 	* @return boolean True on success, false otherwise
 	*/
-	public function send_email($from,$subject,$txt_message = "",$html_message = "") {
+	public function send_email($from,$subject,$txt_message = "",$html_message = "",$from_name = "") {
 		if (!filter_var($from,FILTER_VALIDATE_EMAIL)) {
 			throw new \Exception("From: Email is invalid");
 			return false;
@@ -192,7 +192,9 @@ class email {
 		}
 		if (count($this->replyto_emails)) {
 			$extraheaders['Reply-To'] = implode(",",$this->replyto_emails);
-		}
+        }
+        if ($from_name)
+            $from = "$from_name <$from>";
 		$extraheaders['From'] = $from;
 		$extraheaders['Subject'] = $subject;
 		$extraheaders = array_merge($extraheaders,self::generate_message_date());
