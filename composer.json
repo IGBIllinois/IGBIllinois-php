@@ -20,8 +20,7 @@
         "pear/mail_mime": "1.10.9",
         "pear/auth_sasl2": "v0.2.0",
         "pear/net_smtp": "1.9.2",
-        "pear/mail": "1.4.1",
-        "kint-php/kint": ">4"
+        "pear/mail": "1.4.1"
     },
     "require-dev": {
         "phpdocumentor/phpdocumentor": "2.*"
