@@ -121,18 +121,7 @@ class db {
 	*/
 	public function close() {
 		$this->link = null;
-    }
-
-    /**
-	 * Escapes a string to make it safe for insertion.
-	 *
-	 * @param string $str string to escape
-	 *
-	 * @return string escaped string
-	 */
-    public function escape_string($str) {
-		return $this->link->quote($str);
-    }
+	}
 
 	/**
 	* Runs insert query on database
