@@ -200,7 +200,7 @@ class graphs {
                 else {
                         $datay[] = 0;
                 }
-		$bplot = new Graph\BarPlot($datay);
+		$bplot = new Plot\BarPlot($datay);
 		$bplot->SetAlign("center");
 		if ($legend != "") {
 			$bplot->SetLegend($legend);
