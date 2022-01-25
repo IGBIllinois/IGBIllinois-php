@@ -16,7 +16,7 @@
 	"ext-gd": "*",
 	"ext-mbstring": "*",
         "phpoffice/phpspreadsheet": ">=1.16",
-        "amenadiel/jpgraph": "4.0.3",
+        "rulin132/jpgraph": ">4",
         "pear/mail_mime": "1.10.9",
         "pear/auth_sasl2": "v0.2.0",
         "pear/net_smtp": "1.9.2",
