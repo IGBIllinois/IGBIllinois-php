@@ -5,8 +5,8 @@
 */
 namespace IGBIllinois;
 
-use \JpGraph\Graph;
-use \JpGraph\Plot;
+use \Amenadiel\JpGraph\Graph;
+use \Amenadiel\JpGraph\Plot;
 
 if( !function_exists('imageantialias') ) {
 	/**
