@@ -26,7 +26,8 @@ class data_usage {
 	const kilobytes_to_bytes = "1024";
 
 	/*
-	**
+	 * Object Constructor
+	 *
         * Creates data_usage object
         *
         * @param string $directory Full Path to directory
@@ -181,7 +182,7 @@ class data_usage {
 	/**
 	* Removes trailing slash at end of directory path
 	*
-	* @params string $directory Full path to directory
+	* @param string $directory Full path to directory
 	* @returns string path to directory
 	*/	
 	private static function format_directory($directory) {
