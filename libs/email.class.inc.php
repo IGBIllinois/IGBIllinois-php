@@ -167,6 +167,7 @@ class email {
 	* @param string $subject Email Subject
 	* @param string $txt_message Email Message in plain txt
 	* @param string $html_message Email Message in HTML
+	* @param string $from_name From Full Name
 	* @throws Exception
 	* @return boolean True on success, false otherwise
 	*/
@@ -192,9 +193,11 @@ class email {
 		}
 		if (count($this->replyto_emails)) {
 			$extraheaders['Reply-To'] = implode(",",$this->replyto_emails);
-        }
-        if ($from_name)
-            $from = "$from_name <$from>";
+        	}
+        	if ($from_name) {
+			$from = "$from_name <$from>";
+		}
+
 		$extraheaders['From'] = $from;
 		$extraheaders['Subject'] = $subject;
 		$extraheaders = array_merge($extraheaders,self::generate_message_date());
