@@ -194,7 +194,7 @@ class email {
 		if (count($this->replyto_emails)) {
 			$extraheaders['Reply-To'] = implode(",",$this->replyto_emails);
         	}
-        	if ($from_name) {
+        	if ($from_name != "") {
 			$from = "$from_name <$from>";
 		}
 
