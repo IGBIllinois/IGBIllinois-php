@@ -25,6 +25,10 @@ class session {
 	/** @var string name of the session*/
 	private $session_name;
 
+	const cookie_samesite = 'lax';
+	const cookie_secure = true;
+	const cookie_httponly = true;
+
         ////////////////Public Functions///////////
 
 	/**
@@ -151,9 +155,6 @@ class session {
 	* @return void
 	*/
 	private function start_session() {
-		session_set_cookie_params(array('secure'=>true,
-				'SameSite'=>'Lax')
-			);
 		session_name($this->session_name);
 
 		session_start();
@@ -183,6 +184,12 @@ class session {
 	* @return void
 	*/
 	private function set_settings() {
+		
+		session_set_cookie_params($maxlifetime, 
+			'/; samesite='.self::cookie_samesite, 
+			$_SERVER['HTTP_HOST'], 
+			self::cookie_secure, 
+			self::cookie_httponly);	
 		$session_hash = "sha512";
 		if (in_array($session_hash,hash_algos())) {
 			ini_set("session.hash_function","sha512");
