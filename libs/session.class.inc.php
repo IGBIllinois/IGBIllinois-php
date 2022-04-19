@@ -151,8 +151,13 @@ class session {
 	* @return void
 	*/
 	private function start_session() {
-                session_name($this->session_name);
-                session_start();
+		session_set_cookie_params(array('secure'=>true,
+				'SameSite'=>'Lax')
+			);
+		session_name($this->session_name);
+
+		session_start();
+			
         }
 
 	/** 
