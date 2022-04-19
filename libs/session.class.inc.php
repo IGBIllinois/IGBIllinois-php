@@ -28,6 +28,7 @@ class session {
 	const cookie_samesite = 'lax';
 	const cookie_secure = true;
 	const cookie_httponly = true;
+	const cookie_lifetime = 0;
 
         ////////////////Public Functions///////////
 
@@ -185,7 +186,7 @@ class session {
 	*/
 	private function set_settings() {
 		
-		session_set_cookie_params($maxlifetime, 
+		session_set_cookie_params(self::cookie_lifetime, 
 			'/; samesite='.self::cookie_samesite, 
 			$_SERVER['HTTP_HOST'], 
 			self::cookie_secure, 
