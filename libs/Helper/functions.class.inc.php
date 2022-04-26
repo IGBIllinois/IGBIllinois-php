@@ -77,10 +77,10 @@ class functions {
 	/**
 	* Converts various sizes to bytes
 	*
-	* @param string $size string variable with size + unit suffix
+	* @param string $mem string variable with size + unit suffix
 	* @return int 
 	*/
-	public static function convert_bytes($size) {
+	public static function convert_bytes($mem) {
 		$bytes = 0;
                 if ($mem == "") {
                         $bytes = 0;
