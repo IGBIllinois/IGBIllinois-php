@@ -149,7 +149,7 @@ class session {
 
 	public function unset_session_var($name) {
 		if ($this->is_session_started() && isset($_SESSION[$name])) {
-			unset($_SESSION[$name];
+			unset($_SESSION[$name]);
 			return true;	
 		}
 		return false;
