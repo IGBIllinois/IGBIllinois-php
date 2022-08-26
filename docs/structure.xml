@@ -142,7 +142,7 @@ $return string contents of log file, false otherwise</long-description>
       </method>
     </class>
   </file>
-  <file path="session.class.inc.php" generated-path="session.class.inc.html" hash="ddc6c8626e51a6c62f1bc1af7ef0d141" package="Default">
+  <file path="session.class.inc.php" generated-path="session.class.inc.html" hash="aa0861e4f379f89c0a34381d5bf70518" package="Default">
     <docblock line="0">
       <description>session class is a class to interface with php session variables</description>
       <long-description></long-description>
@@ -161,6 +161,42 @@ $return string contents of log file, false otherwise</long-description>
         <tag name="copyright" line="21" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
         <tag name="license" line="21" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
       </docblock>
+      <constant namespace="IGBIllinois" line="28" package="IGBIllinois">
+        <name>cookie_samesite</name>
+        <full_name>\IGBIllinois\session::cookie_samesite</full_name>
+        <value>'lax'</value>
+        <docblock line="28">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="29" package="IGBIllinois">
+        <name>cookie_secure</name>
+        <full_name>\IGBIllinois\session::cookie_secure</full_name>
+        <value>true</value>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="30" package="IGBIllinois">
+        <name>cookie_httponly</name>
+        <full_name>\IGBIllinois\session::cookie_httponly</full_name>
+        <value>true</value>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="31" package="IGBIllinois">
+        <name>cookie_lifetime</name>
+        <full_name>\IGBIllinois\session::cookie_lifetime</full_name>
+        <value>0</value>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
       <property static="false" visibility="private" namespace="IGBIllinois" line="26" package="IGBIllinois">
         <name>$session_name</name>
         <full_name>\IGBIllinois\session::$session_name</full_name>
@@ -173,16 +209,16 @@ $return string contents of log file, false otherwise</long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="39" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="44" package="IGBIllinois">
         <name>__construct</name>
         <full_name>\IGBIllinois\session::__construct()</full_name>
-        <docblock line="39">
+        <docblock line="44">
           <description>Constructs session object</description>
           <long-description>Constructs object, sets session settings, and starts the session</long-description>
-          <tag name="param" line="39" description="&lt;p&gt;name of the session.  Should be unique to application&lt;/p&gt;" type="string" variable="$session_name">
+          <tag name="param" line="44" description="&lt;p&gt;name of the session.  Should be unique to application&lt;/p&gt;" type="string" variable="$session_name">
             <type>string</type>
           </tag>
-          <tag name="return" line="39" description="" type="\IGBIllinois\session">
+          <tag name="return" line="44" description="" type="\IGBIllinois\session">
             <type>\IGBIllinois\session</type>
           </tag>
         </docblock>
@@ -192,30 +228,30 @@ $return string contents of log file, false otherwise</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="51" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="56" package="IGBIllinois">
         <name>__destruct</name>
         <full_name>\IGBIllinois\session::__destruct()</full_name>
-        <docblock line="51">
+        <docblock line="56">
           <description>Destructs session object</description>
           <long-description></long-description>
-          <tag name="param" line="51" description="" type="void" variable="">
+          <tag name="param" line="56" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="51" description="" type="void">
+          <tag name="return" line="56" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="59" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="64" package="IGBIllinois">
         <name>get_var</name>
         <full_name>\IGBIllinois\session::get_var()</full_name>
-        <docblock line="59">
+        <docblock line="64">
           <description>Returns value from session variable</description>
           <long-description></long-description>
-          <tag name="param" line="59" description="&lt;p&gt;name of session variable&lt;/p&gt;" type="string" variable="$name">
+          <tag name="param" line="64" description="&lt;p&gt;name of session variable&lt;/p&gt;" type="string" variable="$name">
             <type>string</type>
           </tag>
-          <tag name="return" line="59" description="value of session variable" type="string">
+          <tag name="return" line="64" description="value of session variable" type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -225,30 +261,30 @@ $return string contents of log file, false otherwise</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="74" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="79" package="IGBIllinois">
         <name>get_all_vars</name>
         <full_name>\IGBIllinois\session::get_all_vars()</full_name>
-        <docblock line="74">
+        <docblock line="79">
           <description>Returns array of all session variables</description>
           <long-description></long-description>
-          <tag name="param" line="74" description="" type="void" variable="">
+          <tag name="param" line="79" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="74" description="associative array of key-&gt;value session variables" type="array">
+          <tag name="return" line="79" description="associative array of key-&gt;value session variables" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="85" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="90" package="IGBIllinois">
         <name>set_session</name>
         <full_name>\IGBIllinois\session::set_session()</full_name>
-        <docblock line="85">
+        <docblock line="90">
           <description>Sets session variables</description>
           <long-description></long-description>
-          <tag name="param" line="85" description="&lt;p&gt;an associative array of $key-&gt;$var session variables&lt;/p&gt;" type="array" variable="$session_array">
+          <tag name="param" line="90" description="&lt;p&gt;an associative array of $key-&gt;$var session variables&lt;/p&gt;" type="array" variable="$session_array">
             <type>array</type>
           </tag>
-          <tag name="return" line="85" description="" type="void">
+          <tag name="return" line="90" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -258,61 +294,61 @@ $return string contents of log file, false otherwise</long-description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="98" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="103" package="IGBIllinois">
         <name>get_session_id</name>
         <full_name>\IGBIllinois\session::get_session_id()</full_name>
-        <docblock line="98">
+        <docblock line="103">
           <description>Returns current session id</description>
           <long-description></long-description>
-          <tag name="param" line="98" description="" type="void" variable="">
+          <tag name="param" line="103" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="98" description="current session id" type="integer">
+          <tag name="return" line="103" description="current session id" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="108" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="113" package="IGBIllinois">
         <name>get_session_name</name>
         <full_name>\IGBIllinois\session::get_session_name()</full_name>
-        <docblock line="108">
+        <docblock line="113">
           <description>Gets session name</description>
           <long-description></long-description>
-          <tag name="param" line="108" description="" type="void" variable="">
+          <tag name="param" line="113" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="108" description="session name" type="string">
+          <tag name="return" line="113" description="session name" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="120" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="125" package="IGBIllinois">
         <name>destroy_session</name>
         <full_name>\IGBIllinois\session::destroy_session()</full_name>
-        <docblock line="120">
+        <docblock line="125">
           <description>Destroys all session variables</description>
           <long-description>Destroys session variables and regenerates session id</long-description>
-          <tag name="param" line="120" description="" type="void" variable="">
+          <tag name="param" line="125" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="120" description="" type="void">
+          <tag name="return" line="125" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="135" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="140" package="IGBIllinois">
         <name>set_session_var</name>
         <full_name>\IGBIllinois\session::set_session_var()</full_name>
-        <docblock line="135">
+        <docblock line="140">
           <description>Sets session variable</description>
           <long-description></long-description>
-          <tag name="param" line="135" description="&lt;p&gt;name of session variable&lt;/p&gt;" type="string" variable="$name">
+          <tag name="param" line="140" description="&lt;p&gt;name of session variable&lt;/p&gt;" type="string" variable="$name">
             <type>string</type>
           </tag>
-          <tag name="param" line="135" description="&lt;p&gt;@var value of session variable&lt;/p&gt;" type="string" variable="$var">
+          <tag name="param" line="140" description="&lt;p&gt;@var value of session variable&lt;/p&gt;" type="string" variable="$var">
             <type>string</type>
           </tag>
-          <tag name="return" line="135" description="true on success false otherwise" type="boolean">
+          <tag name="return" line="140" description="true on success false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -327,44 +363,44 @@ $return string contents of log file, false otherwise</long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="153" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="158" package="IGBIllinois">
         <name>start_session</name>
         <full_name>\IGBIllinois\session::start_session()</full_name>
-        <docblock line="153">
+        <docblock line="158">
           <description>Starts Session</description>
           <long-description></long-description>
-          <tag name="param" line="153" description="" type="void" variable="">
+          <tag name="param" line="158" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="153" description="" type="void">
+          <tag name="return" line="158" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="164" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="171" package="IGBIllinois">
         <name>is_session_started</name>
         <full_name>\IGBIllinois\session::is_session_started()</full_name>
-        <docblock line="164">
+        <docblock line="171">
           <description>Checks if session is started</description>
           <long-description></long-description>
-          <tag name="param" line="164" description="" type="void" variable="">
+          <tag name="param" line="171" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="164" description="true if started, false otherwise" type="boolean">
+          <tag name="return" line="171" description="true if started, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="180" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="187" package="IGBIllinois">
         <name>set_settings</name>
         <full_name>\IGBIllinois\session::set_settings()</full_name>
-        <docblock line="180">
+        <docblock line="187">
           <description>Sets session settings</description>
           <long-description>Sets settings to ensure high level of encryption</long-description>
-          <tag name="param" line="180" description="" type="void" variable="">
+          <tag name="param" line="187" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="180" description="" type="void">
+          <tag name="return" line="187" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -1042,7 +1078,7 @@ $return string contents of log file, false otherwise</long-description>
       </method>
     </class>
   </file>
-  <file path="report.class.inc.php" generated-path="report.class.inc.html" hash="e69cc7964ee41b1c50b60bb2c7f0e102" package="Default">
+  <file path="report.class.inc.php" generated-path="report.class.inc.html" hash="00a6c2d5391c87c2b766d8d40407f175" package="Default">
     <docblock line="0">
       <description>report class generates Excel, PDF, and CSV files using PHPSpreadsheet, https://phpspreadsheet.readthedocs.io/en/latest/</description>
       <long-description></long-description>
@@ -1411,7 +1447,7 @@ $return string contents of log file, false otherwise</long-description>
       </method>
     </class>
   </file>
-  <file path="Helper/functions.class.inc.php" generated-path="Helper.functions.class.inc.html" hash="f663cdf4bd8b0344cb322aa665332372" package="Default">
+  <file path="Helper/functions.class.inc.php" generated-path="Helper.functions.class.inc.html" hash="a1c89c79e7cd879e35edb3c51c343db2" package="Default">
     <docblock line="0">
       <description>Helper function class</description>
       <long-description></long-description>
@@ -1494,7 +1530,7 @@ $return string contents of log file, false otherwise</long-description>
         <docblock line="83">
           <description>Converts various sizes to bytes</description>
           <long-description></long-description>
-          <tag name="param" line="83" description="&lt;p&gt;string variable with size + unit suffix&lt;/p&gt;" type="string" variable="$size">
+          <tag name="param" line="83" description="&lt;p&gt;string variable with size + unit suffix&lt;/p&gt;" type="string" variable="$mem">
             <type>string</type>
           </tag>
           <tag name="return" line="83" description="" type="integer">
@@ -1502,7 +1538,7 @@ $return string contents of log file, false otherwise</long-description>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
-          <name>$size</name>
+          <name>$mem</name>
           <default></default>
           <type>string</type>
         </argument>
