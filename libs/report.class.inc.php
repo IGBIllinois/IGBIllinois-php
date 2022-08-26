@@ -152,7 +152,9 @@ class report {
         */
 
 	public static function create_csv_report($data,$filename) {
-		ob_clean();
+		if (ob_get_length() > 0) {
+			ob_clean();
+		}
 		$delimiter = ",";
 		$file_handle = fopen('php://output','w');
 		$headings = array_keys($data[0]);
