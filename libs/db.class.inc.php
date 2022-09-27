@@ -5,7 +5,6 @@
 */
 
 namespace IGBIllinois;
-
 /**
 * db class interacts with mysql database using PDO
 *
@@ -57,8 +56,8 @@ class db {
 		try {
 			$this->open($host,$database,$username,$password,$ssl,$port);
 		}
-		catch(\PDOException $e) {
-                        throw $e;
+		catch (\PDOException $e) {
+			echo $e->getMessage();
                 }
 	
 
@@ -90,13 +89,13 @@ class db {
 	*/
 	private function open($host,$database,$username,$password,$ssl = false,$port = 3306) {
 		//Connects to database.
+		$params = array();
+		$params[\PDO::ATTR_PERSISTENT] =false;
+		if ($ssl) {
+			$params[\PDO::MYSQL_ATTR_SSL_CA] = '/dev/null';
+			$params[\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+		}
 		try {
-			$params = array();
-			$params[\PDO::ATTR_PERSISTENT] =false;
-			if ($ssl) {
-				$params[\PDO::MYSQL_ATTR_SSL_CA] = '/dev/null';
-				$params[\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
-			}
 			$this->link = new \PDO("mysql:host=$host;dbname=$database",$username,$password,$params);
 			$this->link->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_WARNING);
 			$this->host = $host;
@@ -105,7 +104,7 @@ class db {
 			$this->password = $password;
 			$this->ssl = $ssl;
 		}
-		catch(\PDOException $e) {
+		catch (\PDOException $e) {
 			throw $e;
 		}
 
@@ -247,7 +246,7 @@ class db {
 				return true;
 			}
 		}
-		catch(PDOException $e) {
+		catch(\PDOException $e) {
 			echo $e->getMessage();
 		}
 		return false;
