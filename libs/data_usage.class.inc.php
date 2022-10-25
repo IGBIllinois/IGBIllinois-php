@@ -169,15 +169,14 @@ class data_usage {
 		$result = 0;
                 if (file_exists($this->get_directory())) {
                         $exec = "source /etc/profile && ";
-			#$exec .= self::gpfs_mmpolicy_du . " " . $this->get_directory() . "/ | awk '{print $1}'";
-			$exec .= self::gpfs_mmpolicy_du . " " . $this->get_directory();
+			#$exec .= self::gpfs_mmpolicy_du . " -k " . $this->get_directory() . "/ | awk '{print $1}'";
+			$exec .= self::gpfs_mmpolicy_du . " -k " . $this->get_directory() . " 2>/dev/null";
                         $exit_status = 1;
                         $output_array = array();
                         $output = exec($exec,$output_array,$exit_status);
-			echo "exit status: " . $exit_status . "\n";
                         if (!$exit_status) {
-				echo $output . "\n";				
-                                $result = round($output * self::kilobytes_to_bytes / self::gpfs_replication );
+				$size = explode(" ",$output)[0];
+                                $result = round($size * self::kilobytes_to_bytes / self::gpfs_replication );
                         }
 			else {
 				throw new \Exception("Error running " . self::gpfs_mmpolicy_du);
