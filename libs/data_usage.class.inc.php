@@ -67,22 +67,26 @@ class data_usage {
         * @return int amount in bytes
         */
 	public function get_dir_size() {
-		$result = false;
+		$result = 0;
 		if ($this->directory_exists()) {
 			$filesystem_type = self::get_filesystem_type();
-			switch ($filesystem_type) {
-				case "ceph":
-					$result = self::get_dir_size_rbytes();
-					break;
+			try {
+				switch ($filesystem_type) {
+					case "ceph":
+						$result = self::get_dir_size_rbytes();
+						break;
+					case "gpfs":
+						$result = self::get_dir_size_gpfs();
+						break;
+					default:
+						$result = self::get_dir_size_du();
+						break;
 
-				case "gpfs":
-					$result = self::get_dir_size_gpfs();
-					break;
-				default:
-					$result = self::get_dir_size_du();
-					break;
 
-
+				}
+			}
+			catch (\Exception $e) {
+				throw $e;
 			}
 		}
 		return $result;
@@ -164,14 +168,20 @@ class data_usage {
 
 		$result = 0;
                 if (file_exists($this->get_directory())) {
-                        $exec = "source /etc/profile; ";
-			$exec .= self::gpfs_mmpolicy_du . " " . $this->get_directory() . "/ | awk '{print $1}'";
+                        $exec = "source /etc/profile && ";
+			#$exec .= self::gpfs_mmpolicy_du . " " . $this->get_directory() . "/ | awk '{print $1}'";
+			$exec .= self::gpfs_mmpolicy_du . " " . $this->get_directory();
                         $exit_status = 1;
                         $output_array = array();
                         $output = exec($exec,$output_array,$exit_status);
+			echo "exit status: " . $exit_status . "\n";
                         if (!$exit_status) {
+				echo $output . "\n";				
                                 $result = round($output * self::kilobytes_to_bytes / self::gpfs_replication );
                         }
+			else {
+				throw new \Exception("Error running " . self::gpfs_mmpolicy_du);
+			}
                 }
 
 		return $result;
