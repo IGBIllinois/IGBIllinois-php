@@ -21,9 +21,9 @@ class data_usage {
 
 	private $directory;
 
-	const gpfs_replication = 2;
-	const gpfs_mmpolicy_du = "/usr/local/bin/mmpolicy-du.pl";
-	const kilobytes_to_bytes = "1024";
+	const GPFS_REPLICATION = 2;
+	const GPFS_MMPOLICY_DU = "/usr/local/bin/mmpolicy-du.pl";
+	const KILOBYTES_TO_BYTES = "1024";
 
 	/*
 	 * Object Constructor
@@ -170,16 +170,16 @@ class data_usage {
                 if (file_exists($this->get_directory())) {
                         $exec = "source /etc/profile && ";
 			#$exec .= self::gpfs_mmpolicy_du . " -k " . $this->get_directory() . "/ | awk '{print $1}'";
-			$exec .= self::gpfs_mmpolicy_du . " -k " . $this->get_directory() . " 2>/dev/null";
+			$exec .= self::GPFS_MMPOLICY_DU . " -k " . $this->get_directory() . " 2>/dev/null";
                         $exit_status = 1;
                         $output_array = array();
                         $output = exec($exec,$output_array,$exit_status);
                         if (!$exit_status) {
 				$size = explode(" ",$output)[0];
-                                $result = round($size * self::kilobytes_to_bytes / self::gpfs_replication );
+                                $result = round($size * self::KILOBYTES_TO_BYTES / self::GPFS_REPLICATION );
                         }
 			else {
-				throw new \Exception("Error running " . self::gpfs_mmpolicy_du);
+				throw new \Exception("Error running " . self::GPFS_MMPOLICY_DU);
 			}
                 }
 

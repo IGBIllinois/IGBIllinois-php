@@ -24,12 +24,11 @@ class session {
 	///////////////Private Variables//////////
 	/** @var string name of the session*/
 	private $session_name;
-
-	const cookie_samesite = 'lax';
-	const cookie_secure = true;
-	const cookie_httponly = true;
-	const cookie_lifetime = 0;
-
+	
+	const COOKIE_SAMESITE = 'lax';
+        const COOKIE_SECURE = true;
+        const COOKIE_HTTPONLY = true;
+        const COOKIE_LIFETIME = 0;
         ////////////////Public Functions///////////
 
 	/**
@@ -193,11 +192,11 @@ class session {
 	*/
 	private function set_settings() {
 		
-		session_set_cookie_params(self::cookie_lifetime, 
-			'/; samesite='.self::cookie_samesite, 
+		session_set_cookie_params(self::COOKIE_LIFETIME, 
+			'/; samesite='.self::COOKIE_SAMESITE, 
 			$_SERVER['HTTP_HOST'], 
-			self::cookie_secure, 
-			self::cookie_httponly);	
+			self::COOKIE_SECURE, 
+			self::COOKIE_HTTPONLY);	
 		$session_hash = "sha512";
 		if (in_array($session_hash,hash_algos())) {
 			ini_set("session.hash_function","sha512");
