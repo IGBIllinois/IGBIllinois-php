@@ -55,7 +55,10 @@ class data_usage {
 	* @return boolean true on success, false otherwise
 	*/
 	public function directory_exists() {
-		return is_dir($this->get_directory());
+		if (true === file_exists($this->get_directory())) {
+                        return 1;
+                }
+                return 0;
 
 	}
 
