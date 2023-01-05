@@ -81,20 +81,6 @@ class session {
 	}
 
 	/**
-	 * Unsets session varaiable
-	 * @param string
-	 * @return boolean true on success, false otherwise
-	 *
-	 */
-	public function unset_var($name) {
-		if (isset($_SESSION[$name])) {
-			unset($_SESSION[$name]);
-			return true;
-		}
-		return false;
-
-	}
-	/**
 	* Sets session variables
 	*
 	* @param array $session_array an associative array of $key->$var session variables
@@ -159,7 +145,13 @@ class session {
                 return $result;
 
         }
-
+	/**
+        * Unsets session varaiable
+        *
+        * @param string $name name of session variable
+        * @return boolean true on success, false otherwise
+        *
+        */
 	public function unset_session_var($name) {
 		if ($this->is_session_started() && isset($_SESSION[$name])) {
 			unset($_SESSION[$name]);

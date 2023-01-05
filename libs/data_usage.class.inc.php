@@ -19,15 +19,16 @@ namespace IGBIllinois;
 */
 class data_usage {
 
+	/** @var string full path to directory */
 	private $directory;
 
 	const GPFS_REPLICATION = 2;
 	const GPFS_MMPOLICY_DU = "/usr/local/bin/mmpolicy-du.pl";
 	const KILOBYTES_TO_BYTES = "1024";
 
-	/*
-	 * Object Constructor
-	 *
+	/**
+	* Object Constructor
+	*
         * Creates data_usage object
         *
         * @param string $directory Full Path to directory

@@ -142,7 +142,7 @@ $return string contents of log file, false otherwise</long-description>
       </method>
     </class>
   </file>
-  <file path="session.class.inc.php" generated-path="session.class.inc.html" hash="aa0861e4f379f89c0a34381d5bf70518" package="Default">
+  <file path="session.class.inc.php" generated-path="session.class.inc.html" hash="0abd170c97210d411b4376bea77af51e" package="Default">
     <docblock line="0">
       <description>session class is a class to interface with php session variables</description>
       <long-description></long-description>
@@ -162,8 +162,8 @@ $return string contents of log file, false otherwise</long-description>
         <tag name="license" line="21" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
       </docblock>
       <constant namespace="IGBIllinois" line="28" package="IGBIllinois">
-        <name>cookie_samesite</name>
-        <full_name>\IGBIllinois\session::cookie_samesite</full_name>
+        <name>COOKIE_SAMESITE</name>
+        <full_name>\IGBIllinois\session::COOKIE_SAMESITE</full_name>
         <value>'lax'</value>
         <docblock line="28">
           <description></description>
@@ -171,8 +171,8 @@ $return string contents of log file, false otherwise</long-description>
         </docblock>
       </constant>
       <constant namespace="IGBIllinois" line="29" package="IGBIllinois">
-        <name>cookie_secure</name>
-        <full_name>\IGBIllinois\session::cookie_secure</full_name>
+        <name>COOKIE_SECURE</name>
+        <full_name>\IGBIllinois\session::COOKIE_SECURE</full_name>
         <value>true</value>
         <docblock line="29">
           <description></description>
@@ -180,8 +180,8 @@ $return string contents of log file, false otherwise</long-description>
         </docblock>
       </constant>
       <constant namespace="IGBIllinois" line="30" package="IGBIllinois">
-        <name>cookie_httponly</name>
-        <full_name>\IGBIllinois\session::cookie_httponly</full_name>
+        <name>COOKIE_HTTPONLY</name>
+        <full_name>\IGBIllinois\session::COOKIE_HTTPONLY</full_name>
         <value>true</value>
         <docblock line="30">
           <description></description>
@@ -189,8 +189,8 @@ $return string contents of log file, false otherwise</long-description>
         </docblock>
       </constant>
       <constant namespace="IGBIllinois" line="31" package="IGBIllinois">
-        <name>cookie_lifetime</name>
-        <full_name>\IGBIllinois\session::cookie_lifetime</full_name>
+        <name>COOKIE_LIFETIME</name>
+        <full_name>\IGBIllinois\session::COOKIE_LIFETIME</full_name>
         <value>0</value>
         <docblock line="31">
           <description></description>
@@ -209,16 +209,16 @@ $return string contents of log file, false otherwise</long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="44" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="43" package="IGBIllinois">
         <name>__construct</name>
         <full_name>\IGBIllinois\session::__construct()</full_name>
-        <docblock line="44">
+        <docblock line="43">
           <description>Constructs session object</description>
           <long-description>Constructs object, sets session settings, and starts the session</long-description>
-          <tag name="param" line="44" description="&lt;p&gt;name of the session.  Should be unique to application&lt;/p&gt;" type="string" variable="$session_name">
+          <tag name="param" line="43" description="&lt;p&gt;name of the session.  Should be unique to application&lt;/p&gt;" type="string" variable="$session_name">
             <type>string</type>
           </tag>
-          <tag name="return" line="44" description="" type="\IGBIllinois\session">
+          <tag name="return" line="43" description="" type="\IGBIllinois\session">
             <type>\IGBIllinois\session</type>
           </tag>
         </docblock>
@@ -228,30 +228,30 @@ $return string contents of log file, false otherwise</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="56" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="55" package="IGBIllinois">
         <name>__destruct</name>
         <full_name>\IGBIllinois\session::__destruct()</full_name>
-        <docblock line="56">
+        <docblock line="55">
           <description>Destructs session object</description>
           <long-description></long-description>
-          <tag name="param" line="56" description="" type="void" variable="">
+          <tag name="param" line="55" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="56" description="" type="void">
+          <tag name="return" line="55" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="64" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="63" package="IGBIllinois">
         <name>get_var</name>
         <full_name>\IGBIllinois\session::get_var()</full_name>
-        <docblock line="64">
+        <docblock line="63">
           <description>Returns value from session variable</description>
           <long-description></long-description>
-          <tag name="param" line="64" description="&lt;p&gt;name of session variable&lt;/p&gt;" type="string" variable="$name">
+          <tag name="param" line="63" description="&lt;p&gt;name of session variable&lt;/p&gt;" type="string" variable="$name">
             <type>string</type>
           </tag>
-          <tag name="return" line="64" description="value of session variable" type="string">
+          <tag name="return" line="63" description="value of session variable" type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -261,30 +261,30 @@ $return string contents of log file, false otherwise</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="79" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="78" package="IGBIllinois">
         <name>get_all_vars</name>
         <full_name>\IGBIllinois\session::get_all_vars()</full_name>
-        <docblock line="79">
+        <docblock line="78">
           <description>Returns array of all session variables</description>
           <long-description></long-description>
-          <tag name="param" line="79" description="" type="void" variable="">
+          <tag name="param" line="78" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="79" description="associative array of key-&gt;value session variables" type="array">
+          <tag name="return" line="78" description="associative array of key-&gt;value session variables" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="90" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="89" package="IGBIllinois">
         <name>set_session</name>
         <full_name>\IGBIllinois\session::set_session()</full_name>
-        <docblock line="90">
+        <docblock line="89">
           <description>Sets session variables</description>
           <long-description></long-description>
-          <tag name="param" line="90" description="&lt;p&gt;an associative array of $key-&gt;$var session variables&lt;/p&gt;" type="array" variable="$session_array">
+          <tag name="param" line="89" description="&lt;p&gt;an associative array of $key-&gt;$var session variables&lt;/p&gt;" type="array" variable="$session_array">
             <type>array</type>
           </tag>
-          <tag name="return" line="90" description="" type="void">
+          <tag name="return" line="89" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -294,61 +294,61 @@ $return string contents of log file, false otherwise</long-description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="103" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="102" package="IGBIllinois">
         <name>get_session_id</name>
         <full_name>\IGBIllinois\session::get_session_id()</full_name>
-        <docblock line="103">
+        <docblock line="102">
           <description>Returns current session id</description>
           <long-description></long-description>
-          <tag name="param" line="103" description="" type="void" variable="">
+          <tag name="param" line="102" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="103" description="current session id" type="integer">
+          <tag name="return" line="102" description="current session id" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="113" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="112" package="IGBIllinois">
         <name>get_session_name</name>
         <full_name>\IGBIllinois\session::get_session_name()</full_name>
-        <docblock line="113">
+        <docblock line="112">
           <description>Gets session name</description>
           <long-description></long-description>
-          <tag name="param" line="113" description="" type="void" variable="">
+          <tag name="param" line="112" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="113" description="session name" type="string">
+          <tag name="return" line="112" description="session name" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="125" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="124" package="IGBIllinois">
         <name>destroy_session</name>
         <full_name>\IGBIllinois\session::destroy_session()</full_name>
-        <docblock line="125">
+        <docblock line="124">
           <description>Destroys all session variables</description>
           <long-description>Destroys session variables and regenerates session id</long-description>
-          <tag name="param" line="125" description="" type="void" variable="">
+          <tag name="param" line="124" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="125" description="" type="void">
+          <tag name="return" line="124" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="140" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="139" package="IGBIllinois">
         <name>set_session_var</name>
         <full_name>\IGBIllinois\session::set_session_var()</full_name>
-        <docblock line="140">
+        <docblock line="139">
           <description>Sets session variable</description>
           <long-description></long-description>
-          <tag name="param" line="140" description="&lt;p&gt;name of session variable&lt;/p&gt;" type="string" variable="$name">
+          <tag name="param" line="139" description="&lt;p&gt;name of session variable&lt;/p&gt;" type="string" variable="$name">
             <type>string</type>
           </tag>
-          <tag name="param" line="140" description="&lt;p&gt;@var value of session variable&lt;/p&gt;" type="string" variable="$var">
+          <tag name="param" line="139" description="&lt;p&gt;@var value of session variable&lt;/p&gt;" type="string" variable="$var">
             <type>string</type>
           </tag>
-          <tag name="return" line="140" description="true on success false otherwise" type="boolean">
+          <tag name="return" line="139" description="true on success false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -363,51 +363,70 @@ $return string contents of log file, false otherwise</long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="158" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="155" package="IGBIllinois">
+        <name>unset_session_var</name>
+        <full_name>\IGBIllinois\session::unset_session_var()</full_name>
+        <docblock line="155">
+          <description>Unsets session varaiable</description>
+          <long-description></long-description>
+          <tag name="param" line="155" description="&lt;p&gt;name of session variable&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="155" description="true on success, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="170" package="IGBIllinois">
         <name>start_session</name>
         <full_name>\IGBIllinois\session::start_session()</full_name>
-        <docblock line="158">
+        <docblock line="170">
           <description>Starts Session</description>
           <long-description></long-description>
-          <tag name="param" line="158" description="" type="void" variable="">
+          <tag name="param" line="170" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="158" description="" type="void">
+          <tag name="return" line="170" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="171" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="183" package="IGBIllinois">
         <name>is_session_started</name>
         <full_name>\IGBIllinois\session::is_session_started()</full_name>
-        <docblock line="171">
+        <docblock line="183">
           <description>Checks if session is started</description>
           <long-description></long-description>
-          <tag name="param" line="171" description="" type="void" variable="">
+          <tag name="param" line="183" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="171" description="true if started, false otherwise" type="boolean">
+          <tag name="return" line="183" description="true if started, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="187" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="199" package="IGBIllinois">
         <name>set_settings</name>
         <full_name>\IGBIllinois\session::set_settings()</full_name>
-        <docblock line="187">
+        <docblock line="199">
           <description>Sets session settings</description>
           <long-description>Sets settings to ensure high level of encryption</long-description>
-          <tag name="param" line="187" description="" type="void" variable="">
+          <tag name="param" line="199" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="187" description="" type="void">
+          <tag name="return" line="199" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
     </class>
   </file>
-  <file path="data_usage.class.inc.php" generated-path="data_usage.class.inc.html" hash="919fecdb4176feb897be131c420297fe" package="Default">
+  <file path="data_usage.class.inc.php" generated-path="data_usage.class.inc.html" hash="895680820b91adde55211061b1d3ae75" package="Default">
     <docblock line="0">
       <description>data_usage class calculates amount of data in a directory</description>
       <long-description></long-description>
@@ -426,163 +445,172 @@ $return string contents of log file, false otherwise</long-description>
         <tag name="copyright" line="20" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
         <tag name="license" line="20" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
       </docblock>
-      <constant namespace="IGBIllinois" line="24" package="IGBIllinois">
-        <name>gpfs_replication</name>
-        <full_name>\IGBIllinois\data_usage::gpfs_replication</full_name>
-        <value>2</value>
-        <docblock line="24">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </constant>
       <constant namespace="IGBIllinois" line="25" package="IGBIllinois">
-        <name>gpfs_mmpolicy_du</name>
-        <full_name>\IGBIllinois\data_usage::gpfs_mmpolicy_du</full_name>
-        <value>"/usr/local/bin/mmpolicy-du.pl"</value>
+        <name>GPFS_REPLICATION</name>
+        <full_name>\IGBIllinois\data_usage::GPFS_REPLICATION</full_name>
+        <value>2</value>
         <docblock line="25">
           <description></description>
           <long-description></long-description>
         </docblock>
       </constant>
       <constant namespace="IGBIllinois" line="26" package="IGBIllinois">
-        <name>kilobytes_to_bytes</name>
-        <full_name>\IGBIllinois\data_usage::kilobytes_to_bytes</full_name>
-        <value>"1024"</value>
+        <name>GPFS_MMPOLICY_DU</name>
+        <full_name>\IGBIllinois\data_usage::GPFS_MMPOLICY_DU</full_name>
+        <value>"/usr/local/bin/mmpolicy-du.pl"</value>
         <docblock line="26">
           <description></description>
           <long-description></long-description>
         </docblock>
       </constant>
-      <property static="false" visibility="private" namespace="IGBIllinois" line="22" package="IGBIllinois">
-        <name>$directory</name>
-        <full_name>\IGBIllinois\data_usage::$directory</full_name>
-        <default></default>
-        <docblock line="22">
+      <constant namespace="IGBIllinois" line="27" package="IGBIllinois">
+        <name>KILOBYTES_TO_BYTES</name>
+        <full_name>\IGBIllinois\data_usage::KILOBYTES_TO_BYTES</full_name>
+        <value>"1024"</value>
+        <docblock line="27">
           <description></description>
           <long-description></long-description>
         </docblock>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="36" package="IGBIllinois">
-        <name>__construct</name>
-        <full_name>\IGBIllinois\data_usage::__construct()</full_name>
-        <docblock line="36">
+      </constant>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="23" package="IGBIllinois">
+        <name>$directory</name>
+        <full_name>\IGBIllinois\data_usage::$directory</full_name>
+        <default></default>
+        <docblock line="23">
           <description></description>
           <long-description></long-description>
+          <tag name="var" line="23" description="&lt;p&gt;full path to directory&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="37" package="IGBIllinois">
+        <name>__construct</name>
+        <full_name>\IGBIllinois\data_usage::__construct()</full_name>
+        <docblock line="37">
+          <description>Object Constructor</description>
+          <long-description>Creates data_usage object</long-description>
+          <tag name="param" line="37" description="&lt;p&gt;Full Path to directory&lt;/p&gt;" type="string" variable="$directory">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="37" description="" type="\IGBIllinois\data_usage">
+            <type>\IGBIllinois\data_usage</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$directory</name>
           <default></default>
-          <type/>
+          <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="47" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="48" package="IGBIllinois">
         <name>get_directory</name>
         <full_name>\IGBIllinois\data_usage::get_directory()</full_name>
-        <docblock line="47">
+        <docblock line="48">
           <description>Gets directory</description>
           <long-description></long-description>
-          <tag name="param" line="47" description="" type="void" variable="">
+          <tag name="param" line="48" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="47" description="Full path to directory" type="string">
+          <tag name="return" line="48" description="Full path to directory" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="57" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="58" package="IGBIllinois">
         <name>directory_exists</name>
         <full_name>\IGBIllinois\data_usage::directory_exists()</full_name>
-        <docblock line="57">
+        <docblock line="58">
           <description>Test if directory exists</description>
           <long-description></long-description>
-          <tag name="param" line="57" description="" type="void" variable="">
+          <tag name="param" line="58" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="57" description="true on success, false otherwise" type="boolean">
+          <tag name="return" line="58" description="true on success, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="69" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="73" package="IGBIllinois">
         <name>get_dir_size</name>
         <full_name>\IGBIllinois\data_usage::get_dir_size()</full_name>
-        <docblock line="69">
+        <docblock line="73">
           <description>Gets size of directory</description>
           <long-description></long-description>
-          <tag name="param" line="69" description="" type="void" variable="">
+          <tag name="param" line="73" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="69" description="amount in bytes" type="integer">
+          <tag name="return" line="73" description="amount in bytes" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="97" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="105" package="IGBIllinois">
         <name>get_filesystem_type</name>
         <full_name>\IGBIllinois\data_usage::get_filesystem_type()</full_name>
-        <docblock line="97">
+        <docblock line="105">
           <description>Gets the type of filesystem the directory is on</description>
           <long-description></long-description>
-          <tag name="param" line="97" description="" type="void" variable="">
+          <tag name="param" line="105" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="97" description="file system type" type="string">
+          <tag name="return" line="105" description="file system type" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="118" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="126" package="IGBIllinois">
         <name>get_dir_size_rbytes</name>
         <full_name>\IGBIllinois\data_usage::get_dir_size_rbytes()</full_name>
-        <docblock line="118">
+        <docblock line="126">
           <description>Gets directory size using rbytes field.  Used with Ceph filesystem</description>
           <long-description></long-description>
-          <tag name="param" line="118" description="" type="void" variable="">
+          <tag name="param" line="126" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="118" description="amount in bytes" type="integer">
+          <tag name="return" line="126" description="amount in bytes" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="141" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="149" package="IGBIllinois">
         <name>get_dir_size_du</name>
         <full_name>\IGBIllinois\data_usage::get_dir_size_du()</full_name>
-        <docblock line="141">
+        <docblock line="149">
           <description>Gets directory size using du command.</description>
           <long-description></long-description>
-          <tag name="param" line="141" description="" type="void" variable="">
+          <tag name="param" line="149" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="141" description="amount in bytes" type="integer">
+          <tag name="return" line="149" description="amount in bytes" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="163" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="171" package="IGBIllinois">
         <name>get_dir_size_gpfs</name>
         <full_name>\IGBIllinois\data_usage::get_dir_size_gpfs()</full_name>
-        <docblock line="163">
+        <docblock line="171">
           <description>Gets directory size for gpfs filesystem.  Uses mmpolicy du</description>
           <long-description></long-description>
-          <tag name="param" line="163" description="" type="void" variable="">
+          <tag name="param" line="171" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="163" description="amount in bytes" type="integer">
+          <tag name="return" line="171" description="amount in bytes" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="IGBIllinois" line="188" package="IGBIllinois">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="IGBIllinois" line="201" package="IGBIllinois">
         <name>format_directory</name>
         <full_name>\IGBIllinois\data_usage::format_directory()</full_name>
-        <docblock line="188">
+        <docblock line="201">
           <description>Removes trailing slash at end of directory path</description>
           <long-description></long-description>
-          <tag name="param" line="188" description="&lt;p&gt;Full path to directory&lt;/p&gt;" type="string" variable="$directory">
+          <tag name="param" line="201" description="&lt;p&gt;Full path to directory&lt;/p&gt;" type="string" variable="$directory">
             <type>string</type>
           </tag>
-          <tag name="returns" line="188" description="string path to directory"/>
+          <tag name="returns" line="201" description="string path to directory"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$directory</name>
@@ -591,131 +619,126 @@ $return string contents of log file, false otherwise</long-description>
         </argument>
       </method>
     </class>
-    <parse_markers>
-      <error line="36" code="PPC:ERR-50015">Argument $directory is missing from the Docblock of __construct</error>
-      <error line="36" code="PPC:ERR-50008">No summary for method __construct()</error>
-      <error line="22" code="PPC:ERR-50007">No summary for property $directory</error>
-    </parse_markers>
   </file>
-  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="f69611f3fe8d738ba7c6f254cc28be30" package="Default">
+  <file path="db.class.inc.php" generated-path="db.class.inc.html" hash="67bf90f5d5073bbbf305860ce2d39d48" package="Default">
     <docblock line="0">
       <description>db class interacts with mysql database using PDO</description>
       <long-description></long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
-    <class final="false" abstract="false" namespace="IGBIllinois" line="23" package="IGBIllinois">
+    <class final="false" abstract="false" namespace="IGBIllinois" line="22" package="IGBIllinois">
       <extends/>
       <name>db</name>
       <full_name>\IGBIllinois\db</full_name>
-      <docblock line="23">
+      <docblock line="22">
         <description>db class interacts with mysql database using PDO</description>
         <long-description>Provides all necessary functions to connect and run sql queries on the database</long-description>
-        <tag name="author" line="23" description="David Slater" link="mailto:dslater@illinois.edu"/>
-        <tag name="access" line="23" description="public"/>
-        <tag name="package" line="23" description="IGBIllinois"/>
-        <tag name="copyright" line="23" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
-        <tag name="license" line="23" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
+        <tag name="author" line="22" description="David Slater" link="mailto:dslater@illinois.edu"/>
+        <tag name="access" line="22" description="public"/>
+        <tag name="package" line="22" description="IGBIllinois"/>
+        <tag name="copyright" line="22" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
+        <tag name="license" line="22" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
       </docblock>
-      <property static="false" visibility="private" namespace="IGBIllinois" line="28" package="IGBIllinois">
+      <property static="false" visibility="private" namespace="IGBIllinois" line="27" package="IGBIllinois">
         <name>$link</name>
         <full_name>\IGBIllinois\db::$link</full_name>
         <default></default>
-        <docblock line="28">
+        <docblock line="27">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="28" description="&lt;p&gt;PDO database object&lt;/p&gt;" type="\PDO" variable="">
+          <tag name="var" line="27" description="&lt;p&gt;PDO database object&lt;/p&gt;" type="\PDO" variable="">
             <type>\PDO</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="IGBIllinois" line="30" package="IGBIllinois">
+      <property static="false" visibility="private" namespace="IGBIllinois" line="29" package="IGBIllinois">
         <name>$host</name>
         <full_name>\IGBIllinois\db::$host</full_name>
         <default></default>
-        <docblock line="30">
+        <docblock line="29">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="30" description="&lt;p&gt;hostname or IP of mysql server&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="29" description="&lt;p&gt;hostname or IP of mysql server&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="IGBIllinois" line="32" package="IGBIllinois">
+      <property static="false" visibility="private" namespace="IGBIllinois" line="31" package="IGBIllinois">
         <name>$database</name>
         <full_name>\IGBIllinois\db::$database</full_name>
         <default></default>
-        <docblock line="32">
+        <docblock line="31">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="32" description="&lt;p&gt;name of mysql database&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="31" description="&lt;p&gt;name of mysql database&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="IGBIllinois" line="34" package="IGBIllinois">
+      <property static="false" visibility="private" namespace="IGBIllinois" line="33" package="IGBIllinois">
         <name>$username</name>
         <full_name>\IGBIllinois\db::$username</full_name>
         <default></default>
-        <docblock line="34">
+        <docblock line="33">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="34" description="&lt;p&gt;username to connect to the database&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="33" description="&lt;p&gt;username to connect to the database&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="IGBIllinois" line="36" package="IGBIllinois">
+      <property static="false" visibility="private" namespace="IGBIllinois" line="35" package="IGBIllinois">
         <name>$password</name>
         <full_name>\IGBIllinois\db::$password</full_name>
         <default></default>
-        <docblock line="36">
+        <docblock line="35">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="36" description="&lt;p&gt;password to connect to the database&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="35" description="&lt;p&gt;password to connect to the database&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="IGBIllinois" line="38" package="IGBIllinois">
+      <property static="false" visibility="private" namespace="IGBIllinois" line="37" package="IGBIllinois">
         <name>$ssl</name>
         <full_name>\IGBIllinois\db::$ssl</full_name>
         <default>false</default>
-        <docblock line="38">
+        <docblock line="37">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="38" description="&lt;p&gt;enable or disable ssl connection. defaults to false&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="37" description="&lt;p&gt;enable or disable ssl connection. defaults to false&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="56" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="55" package="IGBIllinois">
         <name>__construct</name>
         <full_name>\IGBIllinois\db::__construct()</full_name>
-        <docblock line="56">
+        <docblock line="55">
           <description>Creates mysql database object</description>
           <long-description></long-description>
-          <tag name="param" line="56" description="&lt;p&gt;hostname or IP address of mysql server&lt;/p&gt;" type="string" variable="$host">
+          <tag name="param" line="55" description="&lt;p&gt;hostname or IP address of mysql server&lt;/p&gt;" type="string" variable="$host">
             <type>string</type>
           </tag>
-          <tag name="param" line="56" description="&lt;p&gt;database name&lt;/p&gt;" type="string" variable="$database">
+          <tag name="param" line="55" description="&lt;p&gt;database name&lt;/p&gt;" type="string" variable="$database">
             <type>string</type>
           </tag>
-          <tag name="param" line="56" description="&lt;p&gt;username to connect to database&lt;/p&gt;" type="string" variable="$username">
+          <tag name="param" line="55" description="&lt;p&gt;username to connect to database&lt;/p&gt;" type="string" variable="$username">
             <type>string</type>
           </tag>
-          <tag name="param" line="56" description="&lt;p&gt;password to connect to database&lt;/p&gt;" type="string" variable="$password">
+          <tag name="param" line="55" description="&lt;p&gt;password to connect to database&lt;/p&gt;" type="string" variable="$password">
             <type>string</type>
           </tag>
-          <tag name="param" line="56" description="&lt;p&gt;enable ssl&lt;/p&gt;" type="boolean" variable="$ssl">
+          <tag name="param" line="55" description="&lt;p&gt;enable ssl&lt;/p&gt;" type="boolean" variable="$ssl">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="56" description="&lt;p&gt;mysql port number. defaults to 3306&lt;/p&gt;" type="integer" variable="$port">
+          <tag name="param" line="55" description="&lt;p&gt;mysql port number. defaults to 3306&lt;/p&gt;" type="integer" variable="$port">
             <type>integer</type>
           </tag>
-          <tag name="throws" line="56" description="" type="\PDOException">
+          <tag name="throws" line="55" description="" type="\PDOException">
             <type>\PDOException</type>
           </tag>
-          <tag name="return" line="56" description="" type="\IGBIllinois\db">
+          <tag name="return" line="55" description="" type="\IGBIllinois\db">
             <type>\IGBIllinois\db</type>
           </tag>
         </docblock>
@@ -750,48 +773,48 @@ $return string contents of log file, false otherwise</long-description>
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="74" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="73" package="IGBIllinois">
         <name>__destruct</name>
         <full_name>\IGBIllinois\db::__destruct()</full_name>
-        <docblock line="74">
+        <docblock line="73">
           <description>Destroys db object.  Closes mysql database connection</description>
           <long-description></long-description>
-          <tag name="param" line="74" description="" type="void" variable="">
+          <tag name="param" line="73" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="74" description="" type="void">
+          <tag name="return" line="73" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="91" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="90" package="IGBIllinois">
         <name>open</name>
         <full_name>\IGBIllinois\db::open()</full_name>
-        <docblock line="91">
+        <docblock line="90">
           <description>Opens mysql database connection</description>
           <long-description></long-description>
-          <tag name="param" line="91" description="&lt;p&gt;hostname or IP address of mysql server&lt;/p&gt;" type="string" variable="$host">
+          <tag name="param" line="90" description="&lt;p&gt;hostname or IP address of mysql server&lt;/p&gt;" type="string" variable="$host">
             <type>string</type>
           </tag>
-          <tag name="param" line="91" description="&lt;p&gt;database name&lt;/p&gt;" type="string" variable="$database">
+          <tag name="param" line="90" description="&lt;p&gt;database name&lt;/p&gt;" type="string" variable="$database">
             <type>string</type>
           </tag>
-          <tag name="param" line="91" description="&lt;p&gt;username to connect to database&lt;/p&gt;" type="string" variable="$username">
+          <tag name="param" line="90" description="&lt;p&gt;username to connect to database&lt;/p&gt;" type="string" variable="$username">
             <type>string</type>
           </tag>
-          <tag name="param" line="91" description="&lt;p&gt;password to connect to database&lt;/p&gt;" type="string" variable="$password">
+          <tag name="param" line="90" description="&lt;p&gt;password to connect to database&lt;/p&gt;" type="string" variable="$password">
             <type>string</type>
           </tag>
-          <tag name="param" line="91" description="&lt;p&gt;use ssl&lt;/p&gt;" type="boolean" variable="$ssl">
+          <tag name="param" line="90" description="&lt;p&gt;use ssl&lt;/p&gt;" type="boolean" variable="$ssl">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="91" description="&lt;p&gt;mysql port number. defaults to 3306&lt;/p&gt;" type="integer" variable="$port">
+          <tag name="param" line="90" description="&lt;p&gt;mysql port number. defaults to 3306&lt;/p&gt;" type="integer" variable="$port">
             <type>integer</type>
           </tag>
-          <tag name="throws" line="91" description="" type="\PDOException">
+          <tag name="throws" line="90" description="" type="\PDOException">
             <type>\PDOException</type>
           </tag>
-          <tag name="return" line="91" description="" type="void">
+          <tag name="return" line="90" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -826,36 +849,36 @@ $return string contents of log file, false otherwise</long-description>
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="122" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="121" package="IGBIllinois">
         <name>close</name>
         <full_name>\IGBIllinois\db::close()</full_name>
-        <docblock line="122">
+        <docblock line="121">
           <description>Closes mysql database connection</description>
           <long-description></long-description>
-          <tag name="param" line="122" description="" type="void" variable="">
+          <tag name="param" line="121" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="122" description="" type="void">
+          <tag name="return" line="121" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="134" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="133" package="IGBIllinois">
         <name>insert_query</name>
         <full_name>\IGBIllinois\db::insert_query()</full_name>
-        <docblock line="134">
+        <docblock line="133">
           <description>Runs insert query on database</description>
           <long-description></long-description>
-          <tag name="param" line="134" description="&lt;p&gt;sql query to run on the database&lt;/p&gt;" type="string" variable="$sql">
+          <tag name="param" line="133" description="&lt;p&gt;sql query to run on the database&lt;/p&gt;" type="string" variable="$sql">
             <type>string</type>
           </tag>
-          <tag name="param" line="134" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
+          <tag name="param" line="133" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
-          <tag name="throws" line="134" description="" type="\PDOException">
+          <tag name="throws" line="133" description="" type="\PDOException">
             <type>\PDOException</type>
           </tag>
-          <tag name="return" line="134" description="insert id returned from database. 0 otherwise" type="integer">
+          <tag name="return" line="133" description="insert id returned from database. 0 otherwise" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
@@ -870,22 +893,22 @@ $return string contents of log file, false otherwise</long-description>
           <type>array&lt;mixed,string&gt;</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="156" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="155" package="IGBIllinois">
         <name>build_insert</name>
         <full_name>\IGBIllinois\db::build_insert()</full_name>
-        <docblock line="156">
+        <docblock line="155">
           <description>Builds insert query using associative array</description>
           <long-description></long-description>
-          <tag name="param" line="156" description="&lt;p&gt;table to insert data into&lt;/p&gt;" type="string" variable="$table">
+          <tag name="param" line="155" description="&lt;p&gt;table to insert data into&lt;/p&gt;" type="string" variable="$table">
             <type>string</type>
           </tag>
-          <tag name="param" line="156" description="&lt;p&gt;associative array with key being table colume and value being the data&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$data">
+          <tag name="param" line="155" description="&lt;p&gt;associative array with key being table colume and value being the data&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$data">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
-          <tag name="throws" line="156" description="" type="\PDOException">
+          <tag name="throws" line="155" description="" type="\PDOException">
             <type>\PDOException</type>
           </tag>
-          <tag name="return" line="156" description="insert id returned from database. 0 otherwise" type="integer">
+          <tag name="return" line="155" description="insert id returned from database. 0 otherwise" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
@@ -900,22 +923,22 @@ $return string contents of log file, false otherwise</long-description>
           <type>array&lt;mixed,string&gt;</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="195" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="194" package="IGBIllinois">
         <name>non_select_query</name>
         <full_name>\IGBIllinois\db::non_select_query()</full_name>
-        <docblock line="195">
+        <docblock line="194">
           <description>Runs a non select or insert query on database</description>
           <long-description></long-description>
-          <tag name="param" line="195" description="&lt;p&gt;sql string to run&lt;/p&gt;" type="string" variable="$sql">
+          <tag name="param" line="194" description="&lt;p&gt;sql string to run&lt;/p&gt;" type="string" variable="$sql">
             <type>string</type>
           </tag>
-          <tag name="param" line="195" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
+          <tag name="param" line="194" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
-          <tag name="throws" line="195" description="" type="\PDOException">
+          <tag name="throws" line="194" description="" type="\PDOException">
             <type>\PDOException</type>
           </tag>
-          <tag name="return" line="195" description="true on success, false otherwise" type="boolean">
+          <tag name="return" line="194" description="true on success, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -930,22 +953,22 @@ $return string contents of log file, false otherwise</long-description>
           <type>array&lt;mixed,string&gt;</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="215" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="214" package="IGBIllinois">
         <name>query</name>
         <full_name>\IGBIllinois\db::query()</full_name>
-        <docblock line="215">
+        <docblock line="214">
           <description>Runs sql query for SELECT queries</description>
           <long-description></long-description>
-          <tag name="param" line="215" description="&lt;p&gt;sql query to run&lt;/p&gt;" type="string" variable="$sql">
+          <tag name="param" line="214" description="&lt;p&gt;sql query to run&lt;/p&gt;" type="string" variable="$sql">
             <type>string</type>
           </tag>
-          <tag name="param" line="215" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
+          <tag name="param" line="214" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
-          <tag name="throws" line="215" description="" type="\PDOException">
+          <tag name="throws" line="214" description="" type="\PDOException">
             <type>\PDOException</type>
           </tag>
-          <tag name="return" line="215" description="an associative array of results" type="array&lt;mixed,string&gt;">
+          <tag name="return" line="214" description="an associative array of results" type="array&lt;mixed,string&gt;">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
         </docblock>
@@ -960,50 +983,50 @@ $return string contents of log file, false otherwise</long-description>
           <type>array&lt;mixed,string&gt;</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="233" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="232" package="IGBIllinois">
         <name>get_link</name>
         <full_name>\IGBIllinois\db::get_link()</full_name>
-        <docblock line="233">
+        <docblock line="232">
           <description>Retrieves mysql database PDO object</description>
           <long-description></long-description>
-          <tag name="param" line="233" description="" type="void" variable="">
+          <tag name="param" line="232" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="233" description="Returns PDO object with the current connection" type="\PDO">
+          <tag name="return" line="232" description="Returns PDO object with the current connection" type="\PDO">
             <type>\PDO</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="244" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="243" package="IGBIllinois">
         <name>ping</name>
         <full_name>\IGBIllinois\db::ping()</full_name>
-        <docblock line="244">
+        <docblock line="243">
           <description>Tests connection to mysql database</description>
           <long-description></long-description>
-          <tag name="param" line="244" description="" type="void" variable="">
+          <tag name="param" line="243" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="244" description="Returns true on success, false otherwise" type="boolean">
+          <tag name="return" line="243" description="Returns true on success, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="265" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="264" package="IGBIllinois">
         <name>transaction</name>
         <full_name>\IGBIllinois\db::transaction()</full_name>
-        <docblock line="265">
+        <docblock line="264">
           <description>Runs mysql transaction</description>
           <long-description></long-description>
-          <tag name="param" line="265" description="&lt;p&gt;sql string to run&lt;/p&gt;" type="string" variable="$sql">
+          <tag name="param" line="264" description="&lt;p&gt;sql string to run&lt;/p&gt;" type="string" variable="$sql">
             <type>string</type>
           </tag>
-          <tag name="param" line="265" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
+          <tag name="param" line="264" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
-          <tag name="throws" line="265" description="" type="\PDOException">
+          <tag name="throws" line="264" description="" type="\PDOException">
             <type>\PDOException</type>
           </tag>
-          <tag name="returns" line="265" description="int number of rows affected"/>
+          <tag name="returns" line="264" description="int number of rows affected"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$sql</name>
@@ -1016,28 +1039,28 @@ $return string contents of log file, false otherwise</long-description>
           <type>array&lt;mixed,string&gt;</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="290" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="289" package="IGBIllinois">
         <name>update</name>
         <full_name>\IGBIllinois\db::update()</full_name>
-        <docblock line="290">
+        <docblock line="289">
           <description>Runs update query on table</description>
           <long-description></long-description>
-          <tag name="param" line="290" description="&lt;p&gt;name of table&lt;/p&gt;" type="string" variable="$table">
+          <tag name="param" line="289" description="&lt;p&gt;name of table&lt;/p&gt;" type="string" variable="$table">
             <type>string</type>
           </tag>
-          <tag name="param" line="290" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
+          <tag name="param" line="289" description="&lt;p&gt;an array of PDO prepared parameters&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$parameters">
             <type>array&lt;mixed,string&gt;</type>
           </tag>
-          <tag name="param" line="290" description="&lt;p&gt;column name to use in where clause&lt;/p&gt;" type="string" variable="$where_key">
+          <tag name="param" line="289" description="&lt;p&gt;column name to use in where clause&lt;/p&gt;" type="string" variable="$where_key">
             <type>string</type>
           </tag>
-          <tag name="param" line="290" description="&lt;p&gt;value column needs to be equal to&lt;/p&gt;" type="string" variable="$where_value">
+          <tag name="param" line="289" description="&lt;p&gt;value column needs to be equal to&lt;/p&gt;" type="string" variable="$where_value">
             <type>string</type>
           </tag>
-          <tag name="throws" line="290" description="" type="\PDOException">
+          <tag name="throws" line="289" description="" type="\PDOException">
             <type>\PDOException</type>
           </tag>
-          <tag name="return" line="290" description="returns true on success, false otherwise" type="boolean">
+          <tag name="return" line="289" description="returns true on success, false otherwise" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -1062,16 +1085,16 @@ $return string contents of log file, false otherwise</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="331" package="IGBIllinois">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="330" package="IGBIllinois">
         <name>get_version</name>
         <full_name>\IGBIllinois\db::get_version()</full_name>
-        <docblock line="331">
+        <docblock line="330">
           <description>Retrieves version number of mysql server.</description>
           <long-description>An example is 5.5.5-10.3.17-MariaDB</long-description>
-          <tag name="param" line="331" description="" type="void" variable="">
+          <tag name="param" line="330" description="" type="void" variable="">
             <type>void</type>
           </tag>
-          <tag name="return" line="331" description="" type="string">
+          <tag name="return" line="330" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>

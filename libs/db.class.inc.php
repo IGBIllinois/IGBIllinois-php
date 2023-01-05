@@ -24,7 +24,7 @@ class db {
 	////////////////Private Variables//////////
 
 	/** @var \PDO PDO database object */
-	private $link; //mysql database link
+	private $link;
 	/** @var string hostname or IP of mysql server */
 	private $host;
 	/** @var string name of mysql database */

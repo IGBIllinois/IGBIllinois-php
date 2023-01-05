@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">3</span></a></li>
+                <span class="label label-info">0</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -72,6 +72,7 @@
 <li class="method public "><a href="#method_get_var" title="get_var() :: Returns value from session variable"><span class="description">Returns value from session variable</span><pre>get_var()</pre></a></li>
 <li class="method public "><a href="#method_set_session" title="set_session() :: Sets session variables"><span class="description">Sets session variables</span><pre>set_session()</pre></a></li>
 <li class="method public "><a href="#method_set_session_var" title="set_session_var() :: Sets session variable"><span class="description">Sets session variable</span><pre>set_session_var()</pre></a></li>
+<li class="method public "><a href="#method_unset_session_var" title="unset_session_var() :: Unsets session varaiable"><span class="description">Unsets session varaiable</span><pre>unset_session_var()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
@@ -91,10 +92,10 @@
 <li class="nav-header">
 <i title="Constants" class="icon-custom icon-constant"></i> Constants
                     <ul>
-<li class="constant  "><a href="#constant_cookie_httponly" title="cookie_httponly() :: "><span class="description">cookie_httponly</span><pre>cookie_httponly</pre></a></li>
-<li class="constant  "><a href="#constant_cookie_lifetime" title="cookie_lifetime() :: "><span class="description">cookie_lifetime</span><pre>cookie_lifetime</pre></a></li>
-<li class="constant  "><a href="#constant_cookie_samesite" title="cookie_samesite() :: "><span class="description">cookie_samesite</span><pre>cookie_samesite</pre></a></li>
-<li class="constant  "><a href="#constant_cookie_secure" title="cookie_secure() :: "><span class="description">cookie_secure</span><pre>cookie_secure</pre></a></li>
+<li class="constant  "><a href="#constant_COOKIE_HTTPONLY" title="COOKIE_HTTPONLY() :: "><span class="description">COOKIE_HTTPONLY</span><pre>COOKIE_HTTPONLY</pre></a></li>
+<li class="constant  "><a href="#constant_COOKIE_LIFETIME" title="COOKIE_LIFETIME() :: "><span class="description">COOKIE_LIFETIME</span><pre>COOKIE_LIFETIME</pre></a></li>
+<li class="constant  "><a href="#constant_COOKIE_SAMESITE" title="COOKIE_SAMESITE() :: "><span class="description">COOKIE_SAMESITE</span><pre>COOKIE_SAMESITE</pre></a></li>
+<li class="constant  "><a href="#constant_COOKIE_SECURE" title="COOKIE_SECURE() :: "><span class="description">COOKIE_SECURE</span><pre>COOKIE_SECURE</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -241,6 +242,21 @@
 <code>boolean</code>true on success false otherwise</div>
 </div></div>
 </div>
+<a id="method_unset_session_var"></a><div class="element clickable method public method_unset_session_var " data-toggle="collapse" data-target=".method_unset_session_var .collapse" title="public">
+<h2>Unsets session varaiable</h2>
+<pre>unset_session_var(string $name) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>name of session variable</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>true on success, false otherwise</div>
+</div></div>
+</div>
 <a id="method_is_session_started"></a><div class="element clickable method private method_is_session_started " data-toggle="collapse" data-target=".method_is_session_started .collapse" title="private">
 <h2>Checks if session is started</h2>
 <pre>is_session_started() : boolean</pre>
@@ -278,27 +294,27 @@
 </div>
 <h3>
 <i title="Constants" class="icon-custom icon-constant"></i> Constants</h3>
-<a id="constant_cookie_httponly"> </a><div class="element clickable constant  constant_cookie_httponly" data-toggle="collapse" data-target=".constant_cookie_httponly .collapse" title="">
-<h2>cookie_httponly</h2>
-<pre>cookie_httponly = true </pre>
+<a id="constant_COOKIE_HTTPONLY"> </a><div class="element clickable constant  constant_COOKIE_HTTPONLY" data-toggle="collapse" data-target=".constant_COOKIE_HTTPONLY .collapse" title="">
+<h2>COOKIE_HTTPONLY</h2>
+<pre>COOKIE_HTTPONLY = true </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_cookie_lifetime"> </a><div class="element clickable constant  constant_cookie_lifetime" data-toggle="collapse" data-target=".constant_cookie_lifetime .collapse" title="">
-<h2>cookie_lifetime</h2>
-<pre>cookie_lifetime = 0 </pre>
+<a id="constant_COOKIE_LIFETIME"> </a><div class="element clickable constant  constant_COOKIE_LIFETIME" data-toggle="collapse" data-target=".constant_COOKIE_LIFETIME .collapse" title="">
+<h2>COOKIE_LIFETIME</h2>
+<pre>COOKIE_LIFETIME = 0 </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_cookie_samesite"> </a><div class="element clickable constant  constant_cookie_samesite" data-toggle="collapse" data-target=".constant_cookie_samesite .collapse" title="">
-<h2>cookie_samesite</h2>
-<pre>cookie_samesite = 'lax' </pre>
+<a id="constant_COOKIE_SAMESITE"> </a><div class="element clickable constant  constant_COOKIE_SAMESITE" data-toggle="collapse" data-target=".constant_COOKIE_SAMESITE .collapse" title="">
+<h2>COOKIE_SAMESITE</h2>
+<pre>COOKIE_SAMESITE = 'lax' </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_cookie_secure"> </a><div class="element clickable constant  constant_cookie_secure" data-toggle="collapse" data-target=".constant_cookie_secure .collapse" title="">
-<h2>cookie_secure</h2>
-<pre>cookie_secure = true </pre>
+<a id="constant_COOKIE_SECURE"> </a><div class="element clickable constant  constant_COOKIE_SECURE" data-toggle="collapse" data-target=".constant_COOKIE_SECURE .collapse" title="">
+<h2>COOKIE_SECURE</h2>
+<pre>COOKIE_SECURE = true </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
@@ -309,7 +325,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2022-08-26T15:00:26-05:00.<br></footer></div>
+            generated on 2023-01-05T11:22:17-06:00.<br></footer></div>
 </div>
 </body>
 </html>
