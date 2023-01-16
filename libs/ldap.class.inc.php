@@ -428,7 +428,9 @@ class ldap {
                         $attributes = array('uid');
                         $result = $this->search($filter,"",$attributes);
 			foreach ($result as $user) {
-				array_push($users_array,$user['uid'][0]);
+				if (isset($user['uid'][0])) {
+					array_push($users_array,$user['uid'][0]);
+				}
 
 			}
 				
