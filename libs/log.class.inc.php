@@ -23,6 +23,8 @@ class log {
 	private $enabled = false;
 	/** $var string full path to log file */
 	private $logfile = ""; 
+	/** $var boolean enable output to standard out */
+	private $stdout = true;
 	/** $var maximum number of lines to retrieve */ 
 	const MAX_FILE_LENGTH = 1000;
 	/** $var notice constant */ 
@@ -40,9 +42,10 @@ class log {
         *
         * @return \IGBIllinois\log
         */
-        public function __construct($enabled = false,$logfile) {
+        public function __construct($enabled = false,$logfile,$stdout=true) {
 		$this->enabled = $enabled;
 		$this->logfile = $logfile;
+		$this->stdout = $stdout;
 
 		if (($this->enabled) && !file_exists($this->logfile)) {
 			touch($this->logfile);
@@ -80,7 +83,7 @@ class log {
                 if ($this->enabled) {
                         file_put_contents($this->logfile,$full_msg,FILE_APPEND | LOCK_EX);
                 }
-                if (php_sapi_name() == "cli") {
+                if ((php_sapi_name() == "cli") && ($stdout)) {
                         echo $full_msg;
                 }
         }

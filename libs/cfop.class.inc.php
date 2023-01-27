@@ -27,7 +27,7 @@ class cfop {
 	* @param string $activity_code
         * @return bool true if valid, false otherwise
         */
-	public static function verify_format($cfop,$activity_code) {
+	public static function verify_format($cfop,$activity_code = "") {
 		$error = false;
 
 		//Check CFOP
