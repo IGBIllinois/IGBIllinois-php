@@ -57,10 +57,11 @@ class log {
 	*
 	* @param string $message Log message to send
 	* @param int $log_level Log level to use
+	* @param boolean $stdout Send to standard out
 	*
 	* @return void
 	*/
-	public function send_log($message,$log_level = self::NOTICE) {
+	public function send_log($message,$log_level = self::NOTICE,$stdout) {
                 $current_time = date('Y-m-d H:i:s');
 		$full_msg = $current_time . ": ";
 		switch ($log_level) {
@@ -84,8 +85,13 @@ class log {
                         file_put_contents($this->logfile,$full_msg,FILE_APPEND | LOCK_EX);
                 }
                 if ((php_sapi_name() == "cli") && ($stdout)) {
-                        echo $full_msg;
-                }
+			echo $full_msg;
+			break;
+		}
+		elseif ((php_sapi_name() == "cli") && ($this->stdout)) {
+			echo $full_msg;
+			break;
+		}
         }
 
 	/**
