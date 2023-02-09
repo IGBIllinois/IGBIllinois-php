@@ -302,11 +302,13 @@ class ldap {
                         $filter = "(cn=" . $group . ")";
                         $attributes = array('memberUid');
                         $result = $this->search($filter,"",$attributes);
-                        unset($result[0]['memberuid']['count']);
+                        unset($result['count']);
                         $members = array();
-                        foreach ($result[0]['memberuid'] as $row) {
-                                array_push($members,$row);
-                        }
+                        if (count($result)) {
+				foreach ($result[0]['memberuid'] as $row) {
+                                	array_push($members,$row);
+                        	}
+			}
                         return $members;
                 }
         }
@@ -338,9 +340,11 @@ class ldap {
                         $result = $this->search($filter,"",$attributes);
                         unset($result['count']);
                         $groups = array();
-                        foreach ($result as $row) {
-                                array_push($groups,$row['cn'][0]);
-                        }
+			if (count($result)) {
+                        	foreach ($result as $row) {
+                                	array_push($groups,$row['cn'][0]);
+	                        }
+			}
                         return $groups;
                 }
 
