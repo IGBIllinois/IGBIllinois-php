@@ -302,9 +302,11 @@ class ldap {
                         $filter = "(cn=" . $group . ")";
                         $attributes = array('memberUid');
                         $result = $this->search($filter,"",$attributes);
-                        unset($result['count']);
+			if (isset($result['memberuid']['count'])) {
+				unset($result['memberuid']['count']);
+			}
                         $members = array();
-                        if (count($result)) {
+                        if (isset($result[0]['memberuid'])) {
 				foreach ($result[0]['memberuid'] as $row) {
                                 	array_push($members,$row);
                         	}
