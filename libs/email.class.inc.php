@@ -29,15 +29,20 @@ class email {
         private $smtp_username;
 	/** @var string smtp password */
         private $smtp_password;
-	/** $var string[] To Emails */
+	/** @var string[] To Emails */
 	private $to_emails = array();
-	/** $var string[] CC Emails */
+	/** @var string[] CC Emails */
 	private $cc_emails = array();
-	/** $var string[] Replay To Emails */
+	/** @var string[] Replay To Emails */
 	private $replyto_emails = array();
-	/** $var string[] BCC Emails */
+	/** @var string[] BCC Emails */
 	private $bcc_emails = array();
 
+	private const PERMANENT_HEADERS = array(
+			'X-MS-Exchange-Organization-BypassClutter'=>'true',
+			'X-MS-Exchange-Organization-BypassFocusedInbox'=>'true'
+	);
+			 
         ////////////////Public Functions///////////
 
 	/**
@@ -202,6 +207,7 @@ class email {
 		$extraheaders['Subject'] = $subject;
 		$extraheaders = array_merge($extraheaders,self::generate_message_date());
 		$extraheaders = array_merge($extraheaders,self::generate_message_id());
+		$extraheaders = array_merge($extraheaders,self::PERMANENT_HEADERS);
 
 		$message = new \Mail_mime();
 		if ($txt_message !== "") {
@@ -268,10 +274,11 @@ class email {
 		$server_name = gethostname();
 		if (isset($_SERVER['SERVER_NAME'])) {
 			$server_name = $_SERVER['SERVER_NAME'];
-		}	
+		}
+		$microtime = (int)str_replace(".",(string)null,microtime());
 		$message_id = sprintf(
                         "<%s.%s@%s>",
-                        base_convert(microtime(), 10, 36),
+                        base_convert($microtime, 10, 36),
                         base_convert(bin2hex(openssl_random_pseudo_bytes(8)), 16, 36),
                         $server_name
                 );
