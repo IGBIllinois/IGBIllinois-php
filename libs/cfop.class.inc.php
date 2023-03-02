@@ -43,7 +43,7 @@ class cfop {
 			$error = true;
 
 		}
-		elseif (strlen($activity_code > self::ACTIVITY_CODE_MAX_LENGTH)) {
+		elseif (strlen($activity_code) > self::ACTIVITY_CODE_MAX_LENGTH) {
 			$error = true;
 		}
 
