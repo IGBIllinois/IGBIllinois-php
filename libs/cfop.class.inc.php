@@ -107,12 +107,14 @@ class cfop {
 			
 		}
 		$json = json_encode($request);
-		$curl_result = "";
+		$curl_response = array();
 		try {
 			$curl_response = $this->send_curl($json);
 		}
 		catch (\Exception $e) {
-			echo $e->getMessage();
+			throw new \Exception($e->getMessage());
+			return false;
+			
 		}
 		$response = json_decode($curl_response,true);
 		$valid = $response['Response'][0]['status'];
