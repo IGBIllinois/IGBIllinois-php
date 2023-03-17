@@ -24,15 +24,19 @@ class cfop {
 	private const FOAPAL_PRODUCTION_URL = "https://api.apps.uillinois.edu/finance/foapal-web-service";
 	private const VALIDATE_ELEMENTS = "/validate-foapal-elements";
 	private const HEADER_ACCEPT = "application/json";
-	private const HEADER_CONTENT_TYPE = "applicaiton/json";
+	private const HEADER_CONTENT_TYPE = "application/json";
+	private const TRANSACTION_DATE = "2016-05-31T15:00:19Z";
 
 	/** @var PHP Curl Session */
-	private $ch 
+	private $ch; 
 
 	/** @var enable debug */
 	private $debug = false;
-	
-	public function __construct($debug = false) {
+
+	/** @var cfop api key */
+	private $api_key;	
+	public function __construct($api_key,$debug = false) {
+		$this->api_key = $api_key;
 		$this->debug = $debug;
 
 	}
@@ -44,7 +48,6 @@ class cfop {
         * @return void
         */
         public function __destruct() {
-                curl_close($this->ch);
 
         }
 
@@ -92,9 +95,10 @@ class cfop {
 		
 		list($coasCode,$fundCode,$orgnCode,$progCode) = explode("-",$cfop);
 		$request = array(
+				'transDate'=>self::TRANSACTION_DATE,
 				'coasCode'=>$coasCode,
 				'fundCode'=>$fundCode,
-				'orgnCode'->$orgnCode,
+				'orgnCode'=>$orgnCode,
 				'progCode'=>$progCode
 		);
 
@@ -103,37 +107,70 @@ class cfop {
 			
 		}
 		$json = json_encode($request);
-
-		try (
-			$curl_result = $this->send_curl($json);
+		$curl_result = "";
+		try {
+			$curl_response = $this->send_curl($json);
 		}
-		catch ($e as Exception) {
+		catch (\Exception $e) {
 			echo $e->getMessage();
 		}
-		$result = json_decode($curl_result);
-		var_dump($result);
+		$response = json_decode($curl_response,true);
+		$valid = $response['Response'][0]['status'];
+		$message = $response['Response'][0]['msg'];
+		if ($valid == 'Valid') {
+			return true;	
+		}
+		else {
+			throw new \Exception($message);
+			return false;
+		}
 	}
 
 	private function send_curl($json_payload) {
-		$header = array(
+		$headers = array(
 			'Accept: ' . self::HEADER_ACCEPT,
-			'Content-Type: ' . self::HEADER_CONTENT_TYPE
+			'Content-Type: ' . self::HEADER_CONTENT_TYPE,
+			'Cache-Control: no-cache',
+			'Ocp-Apim-Subscription-Key: ' . $this->api_key
 		);
-
+	
+		$url = self::FOAPAL_PRODUCTION_URL . self::VALIDATE_ELEMENTS;	
 		if ($this->debug) {
-			$this->ch = curl_init(self::FOAPAL_DEBUG_URL . self::VALIDATE_FOAPAL_ELEMENTS);
+			$url = self::FOAPAL_DEBUG_URL . self::VALIDATE_ELEMENTS;
 		}
-		else {
-			$this->ch = curl_init(self::FOAPAL_PRODUCTION_URL . self::VALIDATE_FOAPAL_ELEMENTS);			
+		
+		$this->ch = curl_init($url);
+		if (!is_resource($this->ch)) {
+			throw new \Exception('Curl did not init');
+			return false;
+		}
+		$this->set_curl_settings();
+		curl_setopt($this->ch, CURLOPT_URL, $url);
+		curl_setopt($this->ch, CURLOPT_POSTFIELDS, $json_payload );
+		curl_setopt($this->ch, CURLOPT_HTTPHEADER, $headers);
 
-		}
-		curl_setopt( $this->ch, CURLOPT_POSTFIELDS, $payload );
-		curl_setopt( $this->ch, CURLOPT_HTTPHEADER, $header);
-		curl_setopt( $this->ch, CURLOPT_RETURNTRANSFER, false );
 		if (! $result = curl_exec($this->ch)) {
-			throw new Exception('Error sending curl');
+			throw new \Exception('Error sending curl');
+			return false;
 
 		}
+		$httpcode = curl_getinfo($this->ch,CURLINFO_HTTP_CODE);
+		if ($httpcode != 200) {
+			throw new \Exception('Bad response: ' . $httpcode);
+			return false;
+		}
+		//curl_close is only valid for php versions less than 8
+		if (version_compare(PHP_VERSION,'8.0.0', '<') && is_resource($this->ch)) {
+			curl_close($this->ch);
+		}
+		return $result;
+
+	}
+
+	private function set_curl_settings() {
+		curl_setopt($this->ch, CURLOPT_CUSTOMREQUEST, "POST");
+		curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt($this->ch, CURLOPT_TIMEOUT, 10);
 
 
 
