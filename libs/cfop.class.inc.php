@@ -6,7 +6,7 @@
 namespace IGBIllinois;
 
 /**
-* cfop class provides common CFOP functions
+* cfop class provides common CFOP functions and can check FOAPAL web services API to validate a CFOP
 *
 * Provides functions for CFOPs
 *
@@ -20,6 +20,35 @@ namespace IGBIllinois;
 class cfop {
 
 	private const ACTIVITY_CODE_MAX_LENGTH = 6;
+	private const FOAPAL_DEBUG_URL = "https://api-test.apps.uillinois.edu/finance/foapal-web-service";
+	private const FOAPAL_PRODUCTION_URL = "https://api.apps.uillinois.edu/finance/foapal-web-service";
+	private const VALIDATE_ELEMENTS = "/validate-foapal-elements";
+	private const HEADER_ACCEPT = "application/json";
+	private const HEADER_CONTENT_TYPE = "applicaiton/json";
+
+	/** @var PHP Curl Session */
+	private $ch 
+
+	/** @var enable debug */
+	private $debug = false;
+	
+	public function __construct($debug = false) {
+		$this->debug = $debug;
+
+	}
+
+        /**
+        * Destroys cfop object. Closes curl session
+        *
+        * @param void
+        * @return void
+        */
+        public function __destruct() {
+                curl_close($this->ch);
+
+        }
+
+	
 	/**
         * Verify cfop format
         *
@@ -56,6 +85,59 @@ class cfop {
         }
 	
 
+	public function validate_cfop($cfop,$activity_code = "") {
+		if (!self::verify_format($cfop,$activity_code)) {
+			return false;
+		}
+		
+		list($coasCode,$fundCode,$orgnCode,$progCode) = explode("-",$cfop);
+		$request = array(
+				'coasCode'=>$coasCode,
+				'fundCode'=>$fundCode,
+				'orgnCode'->$orgnCode,
+				'progCode'=>$progCode
+		);
+
+		if ($activity_code != "") {
+			$request['actvCode'] = $activity_code;
+			
+		}
+		$json = json_encode($request);
+
+		try (
+			$curl_result = $this->send_curl($json);
+		}
+		catch ($e as Exception) {
+			echo $e->getMessage();
+		}
+		$result = json_decode($curl_result);
+		var_dump($result);
+	}
+
+	private function send_curl($json_payload) {
+		$header = array(
+			'Accept: ' . self::HEADER_ACCEPT,
+			'Content-Type: ' . self::HEADER_CONTENT_TYPE
+		);
+
+		if ($this->debug) {
+			$this->ch = curl_init(self::FOAPAL_DEBUG_URL . self::VALIDATE_FOAPAL_ELEMENTS);
+		}
+		else {
+			$this->ch = curl_init(self::FOAPAL_PRODUCTION_URL . self::VALIDATE_FOAPAL_ELEMENTS);			
+
+		}
+		curl_setopt( $this->ch, CURLOPT_POSTFIELDS, $payload );
+		curl_setopt( $this->ch, CURLOPT_HTTPHEADER, $header);
+		curl_setopt( $this->ch, CURLOPT_RETURNTRANSFER, false );
+		if (! $result = curl_exec($this->ch)) {
+			throw new Exception('Error sending curl');
+
+		}
+
+
+
+	}
 }
 
 

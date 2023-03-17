@@ -15,6 +15,7 @@
         "php": ">=7.1",
 	"ext-gd": "*",
 	"ext-mbstring": "*",
+	"ext-curl" : "*",
         "phpoffice/phpspreadsheet": ">=1.16",
         "amenadiel/jpgraph": ">4",
         "pear/mail_mime": "1.10.9",
