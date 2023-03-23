@@ -21,7 +21,7 @@ class cfop {
 
 	private const ACTIVITY_CODE_MAX_LENGTH = 6;
 	private const FOAPAL_DEBUG_URL = "https://api-test.apps.uillinois.edu/finance/foapal-web-service";
-	private const FOAPAL_PRODUCTION_URL = "https://api.apps.uillinois.edu/finance/foapal-web-service";
+	private const FOAPAL_PRODUCTION_URL = "https://api.apps.uillinois.edu/foapal-web-service";
 	private const VALIDATE_ELEMENTS = "/validate-foapal-elements";
 	private const HEADER_ACCEPT = "application/json";
 	private const HEADER_CONTENT_TYPE = "application/json";
