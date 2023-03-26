@@ -38,7 +38,7 @@ class email {
 	/** @var string[] BCC Emails */
 	private $bcc_emails = array();
 
-	private const PERMANENT_HEADERS = array(
+	const PERMANENT_HEADERS = array(
 			'X-MS-Exchange-Organization-BypassClutter'=>'true',
 			'X-MS-Exchange-Organization-BypassFocusedInbox'=>'true'
 	);

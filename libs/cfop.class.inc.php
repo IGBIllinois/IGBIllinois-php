@@ -16,15 +16,17 @@ namespace IGBIllinois;
 * @copyright Copyright (c) 2020 University of Illinois Board of Trustees
 * @license https://opensource.org/licenses/GPL-3.0 GNU Public License v3
 *
+*
+*
 */
 class cfop {
 
-	private const ACTIVITY_CODE_MAX_LENGTH = 6;
-	private const FOAPAL_DEBUG_URL = "https://api-test.apps.uillinois.edu/finance/foapal-web-service";
-	private const FOAPAL_PRODUCTION_URL = "https://api.apps.uillinois.edu/foapal-web-service";
-	private const VALIDATE_ELEMENTS = "/validate-foapal-elements";
-	private const HEADER_ACCEPT = "application/json";
-	private const HEADER_CONTENT_TYPE = "application/json";
+	const ACTIVITY_CODE_MAX_LENGTH = 6;
+	const FOAPAL_DEBUG_URL = "https://api-test.apps.uillinois.edu/finance/foapal-web-service";
+	const FOAPAL_PRODUCTION_URL = "https://api.apps.uillinois.edu/foapal-web-service";
+	const VALIDATE_ELEMENTS = "/validate-foapal-elements";
+	const HEADER_ACCEPT = "application/json";
+	const HEADER_CONTENT_TYPE = "application/json";
 	
 	/** @var PHP Curl Session */
 	private $ch; 
@@ -104,6 +106,7 @@ class cfop {
 	 * @param string $activity_code Activity Code in format XXXXXX
 	 *
 	 * @throws \Exception
+	 *
 	 * @return bool true on success false otherwise
 	 */
 	public function validate_cfop($cfop,$activity_code = "") {
@@ -147,9 +150,9 @@ class cfop {
 	}
 
 	/*
-	 * Sends json string to AITS
+	 * Sends json string to AITS rest api
 	 *
-	 * @param json $json_payload Json formatted object
+	 * @param json $json_payload json formatted string
 	 *
 	 * @throws \Exception
 	 * @return json json response

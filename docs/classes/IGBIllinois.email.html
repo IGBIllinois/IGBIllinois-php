@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">0</span></a></li>
+                <span class="label label-info">2</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -90,15 +90,19 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="property private "><a href="#property_bcc_emails" title="$bcc_emails() :: $var string[] BCC Emails"><span class="description"></span><pre>$bcc_emails</pre></a></li>
-<li class="property private "><a href="#property_cc_emails" title="$cc_emails() :: $var string[] CC Emails"><span class="description"></span><pre>$cc_emails</pre></a></li>
-<li class="property private "><a href="#property_replyto_emails" title="$replyto_emails() :: $var string[] Replay To Emails"><span class="description"></span><pre>$replyto_emails</pre></a></li>
+<li class="property private "><a href="#property_bcc_emails" title="$bcc_emails() :: "><span class="description">BCC Emails</span><pre>$bcc_emails</pre></a></li>
+<li class="property private "><a href="#property_cc_emails" title="$cc_emails() :: "><span class="description">CC Emails</span><pre>$cc_emails</pre></a></li>
+<li class="property private "><a href="#property_replyto_emails" title="$replyto_emails() :: "><span class="description">Replay To Emails</span><pre>$replyto_emails</pre></a></li>
 <li class="property private "><a href="#property_smtp_host" title="$smtp_host() :: "><span class="description">smtp hostname</span><pre>$smtp_host</pre></a></li>
 <li class="property private "><a href="#property_smtp_password" title="$smtp_password() :: "><span class="description">smtp password</span><pre>$smtp_password</pre></a></li>
 <li class="property private "><a href="#property_smtp_port" title="$smtp_port() :: "><span class="description">smtp port</span><pre>$smtp_port</pre></a></li>
 <li class="property private "><a href="#property_smtp_username" title="$smtp_username() :: "><span class="description">smtp username</span><pre>$smtp_username</pre></a></li>
-<li class="property private "><a href="#property_to_emails" title="$to_emails() :: $var string[] To Emails"><span class="description"></span><pre>$to_emails</pre></a></li>
+<li class="property private "><a href="#property_to_emails" title="$to_emails() :: "><span class="description">To Emails</span><pre>$to_emails</pre></a></li>
 </ul>
+</li>
+<li class="nav-header">
+<i title="Constants" class="icon-custom icon-constant"></i> Constants
+                    <ul><li class="constant  "><a href="#constant_PERMANENT_HEADERS" title="PERMANENT_HEADERS() :: "><span class="description">PERMANENT_HEADERS</span><pre>PERMANENT_HEADERS</pre></a></li></ul>
 </li>
 </ul>
 </div>
@@ -333,8 +337,8 @@ $teturn string[] array of mail params</td>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
 <a id="property_bcc_emails"> </a><div class="element clickable property private property_bcc_emails" data-toggle="collapse" data-target=".property_bcc_emails .collapse" title="private">
-<h2>$var string[] BCC Emails</h2>
-<pre>$bcc_emails </pre>
+<h2>BCC Emails</h2>
+<pre>$bcc_emails : array&lt;mixed,string&gt;</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>array()</code></div>
@@ -343,8 +347,8 @@ $teturn string[] array of mail params</td>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_cc_emails"> </a><div class="element clickable property private property_cc_emails" data-toggle="collapse" data-target=".property_cc_emails .collapse" title="private">
-<h2>$var string[] CC Emails</h2>
-<pre>$cc_emails </pre>
+<h2>CC Emails</h2>
+<pre>$cc_emails : array&lt;mixed,string&gt;</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>array()</code></div>
@@ -353,8 +357,8 @@ $teturn string[] array of mail params</td>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_replyto_emails"> </a><div class="element clickable property private property_replyto_emails" data-toggle="collapse" data-target=".property_replyto_emails .collapse" title="private">
-<h2>$var string[] Replay To Emails</h2>
-<pre>$replyto_emails </pre>
+<h2>Replay To Emails</h2>
+<pre>$replyto_emails : array&lt;mixed,string&gt;</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>array()</code></div>
@@ -403,12 +407,20 @@ $teturn string[] array of mail params</td>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_to_emails"> </a><div class="element clickable property private property_to_emails" data-toggle="collapse" data-target=".property_to_emails .collapse" title="private">
-<h2>$var string[] To Emails</h2>
-<pre>$to_emails </pre>
+<h2>To Emails</h2>
+<pre>$to_emails : array&lt;mixed,string&gt;</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>array()</code></div>
 </div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<h3>
+<i title="Constants" class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_PERMANENT_HEADERS"> </a><div class="element clickable constant  constant_PERMANENT_HEADERS" data-toggle="collapse" data-target=".constant_PERMANENT_HEADERS .collapse" title="">
+<h2>PERMANENT_HEADERS</h2>
+<pre>PERMANENT_HEADERS = array('X-MS-Exchange-Organization-BypassClutter' =&gt; 'true', 'X-MS-Exchange-Organization-BypassFocusedInbox' =&gt; 'true') </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
@@ -419,7 +431,7 @@ $teturn string[] array of mail params</td>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2023-01-05T11:22:17-06:00.<br></footer></div>
+            generated on 2023-03-26T17:30:11-05:00.<br></footer></div>
 </div>
 </body>
 </html>

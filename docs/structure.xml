@@ -434,14 +434,284 @@ $return string contents of log file, false otherwise</long-description>
       </method>
     </class>
   </file>
-  <file path="cfop.class.inc.php" generated-path="cfop.class.inc.html" hash="5fdf4f40d0b808f01fa19764287966ba" package="Default">
+  <file path="cfop.class.inc.php" generated-path="cfop.class.inc.html" hash="8fdeb1931328814fd5858fd9ab974885" package="Default">
     <docblock line="0">
-      <description></description>
+      <description>cfop class provides common CFOP functions</description>
       <long-description></long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
+    <class final="false" abstract="false" namespace="IGBIllinois" line="22" package="IGBIllinois">
+      <extends/>
+      <name>cfop</name>
+      <full_name>\IGBIllinois\cfop</full_name>
+      <docblock line="22">
+        <description>cfop class provides common CFOP functions and can check FOAPAL web services API to validate a CFOP</description>
+        <long-description>Provides functions for CFOPs</long-description>
+        <tag name="author" line="22" description="David Slater" link="mailto:dslater@illinois.edu"/>
+        <tag name="access" line="22" description="public"/>
+        <tag name="package" line="22" description="IGBIllinois"/>
+        <tag name="copyright" line="22" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
+        <tag name="license" line="22" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
+      </docblock>
+      <constant namespace="IGBIllinois" line="24" package="IGBIllinois">
+        <name>ACTIVITY_CODE_MAX_LENGTH</name>
+        <full_name>\IGBIllinois\cfop::ACTIVITY_CODE_MAX_LENGTH</full_name>
+        <value>6</value>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="25" package="IGBIllinois">
+        <name>FOAPAL_DEBUG_URL</name>
+        <full_name>\IGBIllinois\cfop::FOAPAL_DEBUG_URL</full_name>
+        <value>"https://api-test.apps.uillinois.edu/finance/foapal-web-service"</value>
+        <docblock line="25">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="26" package="IGBIllinois">
+        <name>FOAPAL_PRODUCTION_URL</name>
+        <full_name>\IGBIllinois\cfop::FOAPAL_PRODUCTION_URL</full_name>
+        <value>"https://api.apps.uillinois.edu/foapal-web-service"</value>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="27" package="IGBIllinois">
+        <name>VALIDATE_ELEMENTS</name>
+        <full_name>\IGBIllinois\cfop::VALIDATE_ELEMENTS</full_name>
+        <value>"/validate-foapal-elements"</value>
+        <docblock line="27">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="28" package="IGBIllinois">
+        <name>HEADER_ACCEPT</name>
+        <full_name>\IGBIllinois\cfop::HEADER_ACCEPT</full_name>
+        <value>"application/json"</value>
+        <docblock line="28">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="29" package="IGBIllinois">
+        <name>HEADER_CONTENT_TYPE</name>
+        <full_name>\IGBIllinois\cfop::HEADER_CONTENT_TYPE</full_name>
+        <value>"application/json"</value>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="32" package="IGBIllinois">
+        <name>$ch</name>
+        <full_name>\IGBIllinois\cfop::$ch</full_name>
+        <default></default>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="32" description="&lt;p&gt;Curl Session&lt;/p&gt;" type="\IGBIllinois\PHP" variable="">
+            <type>\IGBIllinois\PHP</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="35" package="IGBIllinois">
+        <name>$debug</name>
+        <full_name>\IGBIllinois\cfop::$debug</full_name>
+        <default>false</default>
+        <docblock line="35">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="35" description="&lt;p&gt;enables debug mode&lt;/p&gt;" type="boolean" variable="">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="38" package="IGBIllinois">
+        <name>$api_key</name>
+        <full_name>\IGBIllinois\cfop::$api_key</full_name>
+        <default></default>
+        <docblock line="38">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="38" description="&lt;p&gt;cfop api key&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="41" package="IGBIllinois">
+        <name>$transaction_date</name>
+        <full_name>\IGBIllinois\cfop::$transaction_date</full_name>
+        <default></default>
+        <docblock line="41">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="41" description="&lt;p&gt;transation date&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="50" package="IGBIllinois">
+        <name>__construct</name>
+        <full_name>\IGBIllinois\cfop::__construct()</full_name>
+        <docblock line="50">
+          <description>Creates cfop object</description>
+          <long-description></long-description>
+          <tag name="param" line="50" description="&lt;p&gt;API Key to connect to AITS service&lt;/p&gt;" type="string" variable="$api_key">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="50" description="&lt;p&gt;enables or disable debug mode&lt;/p&gt;" type="boolean" variable="$debug">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="50" description="" type="\IGBIllinois\cfop">
+            <type>\IGBIllinois\cfop</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$api_key</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$debug</name>
+          <default>false</default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="62" package="IGBIllinois">
+        <name>__destruct</name>
+        <full_name>\IGBIllinois\cfop::__destruct()</full_name>
+        <docblock line="62">
+          <description>Destroys cfop object. Closes curl session</description>
+          <long-description></long-description>
+          <tag name="param" line="62" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="62" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="74" package="IGBIllinois">
+        <name>verify_format</name>
+        <full_name>\IGBIllinois\cfop::verify_format()</full_name>
+        <docblock line="74">
+          <description>Verify cfop format</description>
+          <long-description></long-description>
+          <tag name="param" line="74" description="" type="string" variable="$cfop">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="74" description="" type="string" variable="$activity_code">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="74" description="true if valid, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$cfop</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$activity_code</name>
+          <default>""</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="112" package="IGBIllinois">
+        <name>validate_cfop</name>
+        <full_name>\IGBIllinois\cfop::validate_cfop()</full_name>
+        <docblock line="112">
+          <description>Validates CFOP by checking AITS using curl and json</description>
+          <long-description></long-description>
+          <tag name="param" line="112" description="&lt;p&gt;CFOP in format X-XXXXXX-XXXXXX-XXXXXX&lt;/p&gt;" type="string" variable="$cfop">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="112" description="&lt;p&gt;Activity Code in format XXXXXX&lt;/p&gt;" type="string" variable="$activity_code">
+            <type>string</type>
+          </tag>
+          <tag name="throws" line="112" description="" type="\Exception">
+            <type>\Exception</type>
+          </tag>
+          <tag name="return" line="112" description="true on success false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$cfop</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$activity_code</name>
+          <default>""</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="160" package="IGBIllinois">
+        <name>send_curl</name>
+        <full_name>\IGBIllinois\cfop::send_curl()</full_name>
+        <docblock line="160">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$json_payload</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="206" package="IGBIllinois">
+        <name>set_curl_settings</name>
+        <full_name>\IGBIllinois\cfop::set_curl_settings()</full_name>
+        <docblock line="206">
+          <description>Sets Curl Settings</description>
+          <long-description></long-description>
+          <tag name="param" line="206" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="206" description="" type="\IGBIllinois\vaoid">
+            <type>\IGBIllinois\vaoid</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="221" package="IGBIllinois">
+        <name>set_transaction_date</name>
+        <full_name>\IGBIllinois\cfop::set_transaction_date()</full_name>
+        <docblock line="221">
+          <description>Sets transacation date for json to properly formatted todays date</description>
+          <long-description></long-description>
+          <tag name="param" line="221" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="221" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="232" package="IGBIllinois">
+        <name>get_transaction_date</name>
+        <full_name>\IGBIllinois\cfop::get_transaction_date()</full_name>
+        <docblock line="232">
+          <description>Gets transaction date for json</description>
+          <long-description></long-description>
+          <tag name="param" line="232" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="232" description="properly formatted transaction date" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
     <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="160" code="PPC:ERR-50015">Argument $json_payload is missing from the Docblock of send_curl</error>
+      <error line="160" code="PPC:ERR-50008">No summary for method send_curl()</error>
     </parse_markers>
   </file>
   <file path="data_usage.class.inc.php" generated-path="data_usage.class.inc.html" hash="895680820b91adde55211061b1d3ae75" package="Default">
@@ -2658,15 +2928,429 @@ $return string contents of log file, false otherwise</long-description>
       </method>
     </class>
   </file>
-  <file path="email.class.inc.php" generated-path="email.class.inc.html" hash="d51e2679e0b6aefb144afba23819b80b" package="Default">
+  <file path="email.class.inc.php" generated-path="email.class.inc.html" hash="bbd960fbc3396a374706a8fa56f04752" package="Default">
     <docblock line="0">
-      <description></description>
+      <description>email class to send properly formatted emails use PEAR mail_mime, auth_sasl, and net_smtp</description>
       <long-description></long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
-    <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-    </parse_markers>
+    <class final="false" abstract="false" namespace="IGBIllinois" line="21" package="IGBIllinois">
+      <extends/>
+      <name>email</name>
+      <full_name>\IGBIllinois\email</full_name>
+      <docblock line="21">
+        <description>email class to send properly formatted emails use PEAR mail_mime, auth_sasl, and net_smtp</description>
+        <long-description>Provides interface to easily send emails</long-description>
+        <tag name="author" line="21" description="David Slater" link="mailto:dslater@illinois.edu"/>
+        <tag name="access" line="21" description="public"/>
+        <tag name="package" line="21" description="IGBIllinois"/>
+        <tag name="copyright" line="21" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
+        <tag name="license" line="21" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
+      </docblock>
+      <constant namespace="IGBIllinois" line="41" package="IGBIllinois">
+        <name>PERMANENT_HEADERS</name>
+        <full_name>\IGBIllinois\email::PERMANENT_HEADERS</full_name>
+        <value>array('X-MS-Exchange-Organization-BypassClutter' =&gt; 'true', 'X-MS-Exchange-Organization-BypassFocusedInbox' =&gt; 'true')</value>
+        <docblock line="41">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="25" package="IGBIllinois">
+        <name>$smtp_host</name>
+        <full_name>\IGBIllinois\email::$smtp_host</full_name>
+        <default>"locahost"</default>
+        <docblock line="25">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="25" description="&lt;p&gt;smtp hostname&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="27" package="IGBIllinois">
+        <name>$smtp_port</name>
+        <full_name>\IGBIllinois\email::$smtp_port</full_name>
+        <default>"25"</default>
+        <docblock line="27">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="27" description="&lt;p&gt;smtp port&lt;/p&gt;" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="29" package="IGBIllinois">
+        <name>$smtp_username</name>
+        <full_name>\IGBIllinois\email::$smtp_username</full_name>
+        <default></default>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="29" description="&lt;p&gt;smtp username&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="31" package="IGBIllinois">
+        <name>$smtp_password</name>
+        <full_name>\IGBIllinois\email::$smtp_password</full_name>
+        <default></default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="31" description="&lt;p&gt;smtp password&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="33" package="IGBIllinois">
+        <name>$to_emails</name>
+        <full_name>\IGBIllinois\email::$to_emails</full_name>
+        <default>array()</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="33" description="&lt;p&gt;To Emails&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="35" package="IGBIllinois">
+        <name>$cc_emails</name>
+        <full_name>\IGBIllinois\email::$cc_emails</full_name>
+        <default>array()</default>
+        <docblock line="35">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="35" description="&lt;p&gt;CC Emails&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="37" package="IGBIllinois">
+        <name>$replyto_emails</name>
+        <full_name>\IGBIllinois\email::$replyto_emails</full_name>
+        <default>array()</default>
+        <docblock line="37">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="37" description="&lt;p&gt;Replay To Emails&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="39" package="IGBIllinois">
+        <name>$bcc_emails</name>
+        <full_name>\IGBIllinois\email::$bcc_emails</full_name>
+        <default>array()</default>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="&lt;p&gt;BCC Emails&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="59" package="IGBIllinois">
+        <name>__construct</name>
+        <full_name>\IGBIllinois\email::__construct()</full_name>
+        <docblock line="59">
+          <description>Object constructor</description>
+          <long-description>Makes initial connection to ldap database</long-description>
+          <tag name="param" line="59" description="&lt;p&gt;SMTP Hostname&lt;/p&gt;" type="string" variable="$smtp_host">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="59" description="&lt;p&gt;SMTP Port. Defaults to 25&lt;/p&gt;" type="string" variable="$smtp_port">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="59" description="&lt;p&gt;SMTP Username. Optional&lt;/p&gt;" type="string" variable="$smtp_username">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="59" description="&lt;p&gt;SMTP Password. Optional&lt;/p&gt;" type="string" variable="$smtp_password">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="59" description="" type="\IGBIllinois\ldap">
+            <type>\IGBIllinois\ldap</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$smtp_host</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$smtp_port</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$smtp_username</name>
+          <default>""</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$smtp_password</name>
+          <default>""</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="73" package="IGBIllinois">
+        <name>__destruct</name>
+        <full_name>\IGBIllinois\email::__destruct()</full_name>
+        <docblock line="73">
+          <description>Object deconstructor</description>
+          <long-description>Destroys ldap object</long-description>
+          <tag name="param" line="73" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="73" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="81" package="IGBIllinois">
+        <name>get_smtp_host</name>
+        <full_name>\IGBIllinois\email::get_smtp_host()</full_name>
+        <docblock line="81">
+          <description>gets smtp host</description>
+          <long-description></long-description>
+          <tag name="param" line="81" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="81" description="" type="array&lt;mixed,string&gt;">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="89" package="IGBIllinois">
+        <name>get_smtp_port</name>
+        <full_name>\IGBIllinois\email::get_smtp_port()</full_name>
+        <docblock line="89">
+          <description>gets smtp port</description>
+          <long-description></long-description>
+          <tag name="param" line="89" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="89" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="97" package="IGBIllinois">
+        <name>get_smtp_username</name>
+        <full_name>\IGBIllinois\email::get_smtp_username()</full_name>
+        <docblock line="97">
+          <description>gets smtp username</description>
+          <long-description></long-description>
+          <tag name="param" line="97" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="97" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="105" package="IGBIllinois">
+        <name>get_smtp_password</name>
+        <full_name>\IGBIllinois\email::get_smtp_password()</full_name>
+        <docblock line="105">
+          <description>get smtp password</description>
+          <long-description></long-description>
+          <tag name="param" line="105" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="105" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="113" package="IGBIllinois">
+        <name>set_to_emails</name>
+        <full_name>\IGBIllinois\email::set_to_emails()</full_name>
+        <docblock line="113">
+          <description>set To emails</description>
+          <long-description></long-description>
+          <tag name="param" line="113" description="&lt;p&gt;string or array of strings of To: emails&lt;/p&gt;" type="string|array&lt;mixed,string&gt;" variable="$to_emails">
+            <type>string</type>
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+          <tag name="return" line="113" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$to_emails</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="128" package="IGBIllinois">
+        <name>set_cc_emails</name>
+        <full_name>\IGBIllinois\email::set_cc_emails()</full_name>
+        <docblock line="128">
+          <description>set Cc emails</description>
+          <long-description></long-description>
+          <tag name="param" line="128" description="&lt;p&gt;string or array of strings of Cc: emails&lt;/p&gt;" type="string|array&lt;mixed,string&gt;" variable="$cc_emails">
+            <type>string</type>
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+          <tag name="return" line="128" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$cc_emails</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="143" package="IGBIllinois">
+        <name>set_replyto_emails</name>
+        <full_name>\IGBIllinois\email::set_replyto_emails()</full_name>
+        <docblock line="143">
+          <description>set Reply-To emails</description>
+          <long-description></long-description>
+          <tag name="param" line="143" description="&lt;p&gt;string or array of strings of Reply-To: emails&lt;/p&gt;" type="string|array&lt;mixed,string&gt;" variable="$replyto_emails">
+            <type>string</type>
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+          <tag name="return" line="143" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$replyto_emails</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="159" package="IGBIllinois">
+        <name>set_bcc_emails</name>
+        <full_name>\IGBIllinois\email::set_bcc_emails()</full_name>
+        <docblock line="159">
+          <description>set Bcc emails</description>
+          <long-description></long-description>
+          <tag name="param" line="159" description="&lt;p&gt;string or array of strings of Bcc: emails&lt;/p&gt;" type="string|array&lt;mixed,string&gt;" variable="$bcc_emails">
+            <type>string</type>
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+          <tag name="return" line="159" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$bcc_emails</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="179" package="IGBIllinois">
+        <name>send_email</name>
+        <full_name>\IGBIllinois\email::send_email()</full_name>
+        <docblock line="179">
+          <description>Sends email</description>
+          <long-description></long-description>
+          <tag name="param" line="179" description="&lt;p&gt;From Email Address&lt;/p&gt;" type="string" variable="$from">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="179" description="&lt;p&gt;Email Subject&lt;/p&gt;" type="string" variable="$subject">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="179" description="&lt;p&gt;Email Message in plain txt&lt;/p&gt;" type="string" variable="$txt_message">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="179" description="&lt;p&gt;Email Message in HTML&lt;/p&gt;" type="string" variable="$html_message">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="179" description="&lt;p&gt;From Full Name&lt;/p&gt;" type="string" variable="$from_name">
+            <type>string</type>
+          </tag>
+          <tag name="throws" line="179" description="" type="\IGBIllinois\Exception">
+            <type>\IGBIllinois\Exception</type>
+          </tag>
+          <tag name="return" line="179" description="True on success, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$from</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$subject</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$txt_message</name>
+          <default>""</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$html_message</name>
+          <default>""</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$from_name</name>
+          <default>""</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="243" package="IGBIllinois">
+        <name>get_mail_params</name>
+        <full_name>\IGBIllinois\email::get_mail_params()</full_name>
+        <docblock line="243">
+          <description>generates mail params array for Mail::factory</description>
+          <long-description></long-description>
+          <tag name="params" line="243" description="void&#10;$teturn string[] array of mail params"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="263" package="IGBIllinois">
+        <name>generate_message_date</name>
+        <full_name>\IGBIllinois\email::generate_message_date()</full_name>
+        <docblock line="263">
+          <description>generate email message date header</description>
+          <long-description></long-description>
+          <tag name="param" line="263" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="263" description="current date in proper formate" type="array&lt;mixed,\IGBIllinois\date&gt;">
+            <type>array&lt;mixed,\IGBIllinois\date&gt;</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="273" package="IGBIllinois">
+        <name>generate_message_id</name>
+        <full_name>\IGBIllinois\email::generate_message_id()</full_name>
+        <docblock line="273">
+          <description>generate email Message-ID header</description>
+          <long-description></long-description>
+          <tag name="param" line="273" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="273" description="Message-ID" type="array&lt;mixed,string&gt;">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="293" package="IGBIllinois">
+        <name>unset_email_vars</name>
+        <full_name>\IGBIllinois\email::unset_email_vars()</full_name>
+        <docblock line="293">
+          <description>Unset emails settings after email is sent</description>
+          <long-description></long-description>
+          <tag name="param" line="293" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="293" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
   </file>
   <package name="Default" full_name="Default"/>
   <package name="IGBIllinois" full_name="IGBIllinois">
