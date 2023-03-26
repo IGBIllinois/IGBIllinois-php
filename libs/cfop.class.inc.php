@@ -29,15 +29,22 @@ class cfop {
 	/** @var PHP Curl Session */
 	private $ch; 
 
-	/** @var enable debug */
+	/** @var bool enables debug mode */
 	private $debug = false;
 
-	/** @var cfop api key */
+	/** @var string cfop api key */
 	private $api_key;
 
-	/** @var transation date */
+	/** @var string transation date */
 	private $transaction_date;
 
+	/**
+	 * Creates cfop object
+	 * @param string $api_key API Key to connect to AITS service
+	 * @param bool $debug enables or disable debug mode
+	 *
+	 * @return \IGBIllinois\cfop
+	 */
 	public function __construct($api_key,$debug = false) {
 		$this->api_key = $api_key;
 		$this->debug = $debug;
@@ -90,7 +97,15 @@ class cfop {
 
         }
 	
-
+	/**
+	 * Validates CFOP by checking AITS using curl and json
+	 *
+	 * @param string $cfop CFOP in format X-XXXXXX-XXXXXX-XXXXXX
+	 * @param string $activity_code Activity Code in format XXXXXX
+	 *
+	 * @throws \Exception
+	 * @return bool true on success false otherwise
+	 */
 	public function validate_cfop($cfop,$activity_code = "") {
 		if (!self::verify_format($cfop,$activity_code)) {
 			return false;
@@ -131,6 +146,14 @@ class cfop {
 		}
 	}
 
+	/*
+	 * Sends json string to AITS
+	 *
+	 * @param json $json_payload Json formatted object
+	 *
+	 * @throws \Exception
+	 * @return json json response
+	 */
 	private function send_curl($json_payload) {
 		$headers = array(
 			'Accept: ' . self::HEADER_ACCEPT,
@@ -171,6 +194,12 @@ class cfop {
 
 	}
 
+	/**
+	 * Sets Curl Settings
+	 *
+	 * @param void
+	 * @return vaoid
+	 */
 	private function set_curl_settings() {
 		curl_setopt($this->ch, CURLOPT_CUSTOMREQUEST, "POST");
 		curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true );
@@ -180,11 +209,23 @@ class cfop {
 
 	}
 
+	/**
+	 * Sets transacation date for json to properly formatted todays date
+	 *
+	 * @param void
+	 * @return void
+	 */
 	private function set_transaction_date() {
 		$this->transaction_date = date('Y-m-d\TH:i:s\Z');
 
 	}
 
+	/**
+	 * Gets transaction date for json
+	 * 
+	 * @param void
+	 * @return string properly formatted transaction date
+	 */
 	private function get_transaction_date() {
 		return $this->transaction_date;
 	}
