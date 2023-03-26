@@ -25,8 +25,7 @@ class cfop {
 	private const VALIDATE_ELEMENTS = "/validate-foapal-elements";
 	private const HEADER_ACCEPT = "application/json";
 	private const HEADER_CONTENT_TYPE = "application/json";
-	private const TRANSACTION_DATE = "2016-05-31T15:00:19Z";
-
+	
 	/** @var PHP Curl Session */
 	private $ch; 
 
@@ -34,11 +33,15 @@ class cfop {
 	private $debug = false;
 
 	/** @var cfop api key */
-	private $api_key;	
+	private $api_key;
+
+	/** @var transation date */
+	private $transaction_date;
+
 	public function __construct($api_key,$debug = false) {
 		$this->api_key = $api_key;
 		$this->debug = $debug;
-
+		$this->set_transaction_date();
 	}
 
         /**
@@ -95,7 +98,7 @@ class cfop {
 		
 		list($coasCode,$fundCode,$orgnCode,$progCode) = explode("-",$cfop);
 		$request = array(
-				'transDate'=>self::TRANSACTION_DATE,
+				'transDate'=>$this->get_transaction_date(),
 				'coasCode'=>$coasCode,
 				'fundCode'=>$fundCode,
 				'orgnCode'=>$orgnCode,
@@ -136,11 +139,10 @@ class cfop {
 			'Ocp-Apim-Subscription-Key: ' . $this->api_key
 		);
 	
-		$url = self::FOAPAL_PRODUCTION_URL . self::VALIDATE_ELEMENTS;	
+		$url = self::FOAPAL_PRODUCTION_URL . self::VALIDATE_ELEMENTS;
 		if ($this->debug) {
 			$url = self::FOAPAL_DEBUG_URL . self::VALIDATE_ELEMENTS;
 		}
-		
 		$this->ch = curl_init($url);
 		if (!is_resource($this->ch)) {
 			throw new \Exception('Curl did not init');
@@ -176,6 +178,15 @@ class cfop {
 
 
 
+	}
+
+	private function set_transaction_date() {
+		$this->transaction_date = date('Y-m-d\TH:i:s\Z');
+
+	}
+
+	private function get_transaction_date() {
+		return $this->transaction_date;
 	}
 }
 
