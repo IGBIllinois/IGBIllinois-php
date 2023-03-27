@@ -21,17 +21,13 @@ namespace IGBIllinois;
 */
 class fbs {
 
-	const FOAPAL_DEBUG_URL = "https://api-test.apps.uillinois.edu/finance/foapal-web-service";
-	const FOAPAL_PRODUCTION_URL = "https://api.apps.uillinois.edu/foapal-web-service";
-	const VALIDATE_ELEMENTS = "/validate-foapal-elements";
+	const FBS_URL = "https://fbs.engr.illinois.edu/API";
+	const LOGIN = "/auth/login";
 	const HEADER_ACCEPT = "application/json";
 	const HEADER_CONTENT_TYPE = "application/json";
 	
 	/** @var PHP Curl Session */
 	private $ch; 
-
-	/** @var bool enables debug mode */
-	private $debug = false;
 
 	/** @var string access key */
 	private $access_key;
@@ -43,11 +39,10 @@ class fbs {
 	 * Creates fbs object
 	 * @param string $access_key API Access Key to connect to FBS Service
 	 * @param string $secret_key API Secret Key to connect to FBS Service
-	 * @param bool $debug enables or disable debug mode
 	 *
 	 * @return \IGBIllinois\fbs
 	 */
-	public function __construct($access_key,$secret_key,$debug = false) {
+	public function __construct($access_key,$secret_key) {
 		$this->access_key = $access_key;
 		$this->secret_key = $secret_key;
 		$this->debug = $debug;
@@ -80,10 +75,7 @@ class fbs {
 			'Ocp-Apim-Subscription-Key: ' . $this->api_key
 		);
 	
-		$url = self::FOAPAL_PRODUCTION_URL . self::VALIDATE_ELEMENTS;
-		if ($this->debug) {
-			$url = self::FOAPAL_DEBUG_URL . self::VALIDATE_ELEMENTS;
-		}
+		$url = self::FBS_URL . self::VALIDATE_ELEMENTS;
 		$this->ch = curl_init($url);
 		if (!is_resource($this->ch)) {
 			throw new \Exception('Curl did not init');
@@ -127,6 +119,15 @@ class fbs {
 
 	}
 
+	private function login() {
+		$login_array = array('AccessKeyId'=>$this->access_key,
+				'SecretAccessKey'=>$this->secret_key
+			);
+		$login_json = json_encode($login_array);
+
+
+
+	}
 }
 
 
