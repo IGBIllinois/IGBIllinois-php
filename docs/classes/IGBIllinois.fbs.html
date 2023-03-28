@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>IGBIllinois-php API » \IGBIllinois\cfop</title>
+<title>IGBIllinois-php API » \IGBIllinois\fbs</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -63,19 +63,17 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method___construct" title="__construct() :: Creates cfop object"><span class="description">Creates cfop object</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#method___destruct" title="__destruct() :: Destroys cfop object. Closes curl session"><span class="description">Destroys cfop object. Closes curl session</span><pre>__destruct()</pre></a></li>
-<li class="method public "><a href="#method_validate_cfop" title="validate_cfop() :: Validates CFOP by checking AITS using curl and json"><span class="description">Validates CFOP by checking AITS using curl and json</span><pre>validate_cfop()</pre></a></li>
-<li class="method public "><a href="#method_verify_format" title="verify_format() :: Verify cfop format"><span class="description">Verify cfop format</span><pre>verify_format()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: Creates fbs object"><span class="description">Creates fbs object</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___destruct" title="__destruct() :: Destroys fbs object. Closes curl session"><span class="description">Destroys fbs object. Closes curl session</span><pre>__destruct()</pre></a></li>
+<li class="method public "><a href="#method_get_customers" title="get_customers() :: Gets List of customers"><span class="description">Gets List of customers</span><pre>get_customers()</pre></a></li>
+<li class="method public "><a href="#method_login" title="login() :: Login to Rest API using access and secret key"><span class="description">Login to Rest API using access and secret key</span><pre>login()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="method private "><a href="#method_get_transaction_date" title="get_transaction_date() :: Gets transaction date for json"><span class="description">Gets transaction date for json</span><pre>get_transaction_date()</pre></a></li>
-<li class="method private "><a href="#method_send_curl" title="send_curl() :: "><span class="description">send_curl()
-        </span><pre>send_curl()</pre></a></li>
+<li class="method private "><a href="#method_get" title="get() :: Sends http get to FBS rest api"><span class="description">Sends http get to FBS rest api</span><pre>get()</pre></a></li>
+<li class="method private "><a href="#method_post" title="post() :: Sends http post to FBS rest api"><span class="description">Sends http post to FBS rest api</span><pre>post()</pre></a></li>
 <li class="method private "><a href="#method_set_curl_settings" title="set_curl_settings() :: Sets Curl Settings"><span class="description">Sets Curl Settings</span><pre>set_curl_settings()</pre></a></li>
-<li class="method private "><a href="#method_set_transaction_date" title="set_transaction_date() :: Sets transacation date for json to properly formatted todays date"><span class="description">Sets transacation date for json to properly formatted todays date</span><pre>set_transaction_date()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -84,39 +82,37 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="property private "><a href="#property_api_key" title="$api_key() :: "><span class="description">cfop api key</span><pre>$api_key</pre></a></li>
+<li class="property private "><a href="#property_access_key" title="$access_key() :: "><span class="description">access key</span><pre>$access_key</pre></a></li>
 <li class="property private "><a href="#property_ch" title="$ch() :: "><span class="description">Curl Session</span><pre>$ch</pre></a></li>
-<li class="property private "><a href="#property_debug" title="$debug() :: "><span class="description">enables debug mode</span><pre>$debug</pre></a></li>
-<li class="property private "><a href="#property_transaction_date" title="$transaction_date() :: "><span class="description">transation date</span><pre>$transaction_date</pre></a></li>
+<li class="property private "><a href="#property_secret_key" title="$secret_key() :: "><span class="description">secret key</span><pre>$secret_key</pre></a></li>
+<li class="property private "><a href="#property_token" title="$token() :: "><span class="description">token key</span><pre>$token</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
 <i title="Constants" class="icon-custom icon-constant"></i> Constants
                     <ul>
-<li class="constant  "><a href="#constant_ACTIVITY_CODE_MAX_LENGTH" title="ACTIVITY_CODE_MAX_LENGTH() :: "><span class="description">ACTIVITY_CODE_MAX_LENGTH</span><pre>ACTIVITY_CODE_MAX_LENGTH</pre></a></li>
-<li class="constant  "><a href="#constant_FOAPAL_DEBUG_URL" title="FOAPAL_DEBUG_URL() :: "><span class="description">FOAPAL_DEBUG_URL</span><pre>FOAPAL_DEBUG_URL</pre></a></li>
-<li class="constant  "><a href="#constant_FOAPAL_PRODUCTION_URL" title="FOAPAL_PRODUCTION_URL() :: "><span class="description">FOAPAL_PRODUCTION_URL</span><pre>FOAPAL_PRODUCTION_URL</pre></a></li>
+<li class="constant  "><a href="#constant_FBS_URL" title="FBS_URL() :: "><span class="description">FBS_URL</span><pre>FBS_URL</pre></a></li>
 <li class="constant  "><a href="#constant_HEADER_ACCEPT" title="HEADER_ACCEPT() :: "><span class="description">HEADER_ACCEPT</span><pre>HEADER_ACCEPT</pre></a></li>
 <li class="constant  "><a href="#constant_HEADER_CONTENT_TYPE" title="HEADER_CONTENT_TYPE() :: "><span class="description">HEADER_CONTENT_TYPE</span><pre>HEADER_CONTENT_TYPE</pre></a></li>
-<li class="constant  "><a href="#constant_VALIDATE_ELEMENTS" title="VALIDATE_ELEMENTS() :: "><span class="description">VALIDATE_ELEMENTS</span><pre>VALIDATE_ELEMENTS</pre></a></li>
+<li class="constant  "><a href="#constant_LOGIN" title="LOGIN() :: "><span class="description">LOGIN</span><pre>LOGIN</pre></a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\IGBIllinois\cfop"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\IGBIllinois\fbs"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/IGBIllinois.html">IGBIllinois</a></li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/IGBIllinois.cfop.html">cfop</a>
+<span class="divider">\</span><a href="../classes/IGBIllinois.fbs.html">fbs</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">cfop class provides common CFOP functions and can check FOAPAL web services API to validate a CFOP</p>
+<p class="short_description">fbs class provides functions to interact with FBS Rest API</p>
 <div class="details">
-<div class="long_description"><p>Provides functions for CFOPs</p></div>
+<div class="long_description"><p>Provides functions for FBS</p></div>
 <table class="table table-bordered">
 <tr>
 <th>author</th>
@@ -142,41 +138,38 @@
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
-<h2>Creates cfop object</h2>
-<pre>__construct(string $api_key, boolean $debug<code> = false</code>) : \IGBIllinois\cfop</pre>
+<h2>Creates fbs object</h2>
+<pre>__construct(string $access_key, string $secret_key) : \IGBIllinois\fbs</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$api_key</h4>
-<code>string</code><p>API Key to connect to AITS service</p></div>
+<h4>$access_key</h4>
+<code>string</code><p>API Access Key to connect to FBS Service</p></div>
 <div class="subelement argument">
-<h4>$debug</h4>
-<code>boolean</code><p>enables or disable debug mode</p></div>
+<h4>$secret_key</h4>
+<code>string</code><p>API Secret Key to connect to FBS Service</p></div>
 <h3>Returns</h3>
-<div class="subelement response"><code>\IGBIllinois\cfop</code></div>
+<div class="subelement response"><code>\IGBIllinois\fbs</code></div>
 </div></div>
 </div>
 <a id="method___destruct"></a><div class="element clickable method public method___destruct " data-toggle="collapse" data-target=".method___destruct .collapse" title="public">
-<h2>Destroys cfop object. Closes curl session</h2>
+<h2>Destroys fbs object. Closes curl session</h2>
 <pre>__destruct() : void</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method_validate_cfop"></a><div class="element clickable method public method_validate_cfop " data-toggle="collapse" data-target=".method_validate_cfop .collapse" title="public">
-<h2>Validates CFOP by checking AITS using curl and json</h2>
-<pre>validate_cfop(string $cfop, string $activity_code<code> = ""</code>) : boolean</pre>
+<a id="method_get_customers"></a><div class="element clickable method public method_get_customers " data-toggle="collapse" data-target=".method_get_customers .collapse" title="public">
+<h2>Gets List of customers</h2>
+<pre>get_customers(integer $facility_id) : array&lt;mixed,string&gt;</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$cfop</h4>
-<code>string</code><p>CFOP in format X-XXXXXX-XXXXXX-XXXXXX</p></div>
-<div class="subelement argument">
-<h4>$activity_code</h4>
-<code>string</code><p>Activity Code in format XXXXXX</p></div>
+<h4>$facility_id</h4>
+<code>integer</code><p>Facility ID number</p></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code>\Exception</code></th>
@@ -184,49 +177,68 @@
 </tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>boolean</code>true on success false otherwise</div>
+<code>array&lt;mixed,string&gt;</code>an array of customers</div>
 </div></div>
 </div>
-<a id="method_verify_format"></a><div class="element clickable method public method_verify_format " data-toggle="collapse" data-target=".method_verify_format .collapse" title="public">
-<h2>Verify cfop format</h2>
-<pre>verify_format(string $cfop, string $activity_code<code> = ""</code>) : boolean</pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$cfop</h4>
-<code>string</code>
-</div>
-<div class="subelement argument">
-<h4>$activity_code</h4>
-<code>string</code>
-</div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>boolean</code>true if valid, false otherwise</div>
-</div></div>
-</div>
-<a id="method_get_transaction_date"></a><div class="element clickable method private method_get_transaction_date " data-toggle="collapse" data-target=".method_get_transaction_date .collapse" title="private">
-<h2>Gets transaction date for json</h2>
-<pre>get_transaction_date() : string</pre>
+<a id="method_login"></a><div class="element clickable method public method_login " data-toggle="collapse" data-target=".method_login .collapse" title="public">
+<h2>Login to Rest API using access and secret key</h2>
+<pre>login() : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>string</code>properly formatted transaction date</div>
+<code>boolean</code>true on success, false otherwise</div>
 </div></div>
 </div>
-<a id="method_send_curl"></a><div class="element clickable method private method_send_curl " data-toggle="collapse" data-target=".method_send_curl .collapse" title="private">
-<h2>send_curl()
-        </h2>
-<pre>send_curl($json_payload) </pre>
+<a id="method_get"></a><div class="element clickable method private method_get " data-toggle="collapse" data-target=".method_get .collapse" title="private">
+<h2>Sends http get to FBS rest api</h2>
+<pre>get(string $url, array&lt;mixed,string&gt; $additional_headers) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>returns</th>
+<td>json json response</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code><p>URL to contact</p></div>
+<div class="subelement argument">
+<h4>$additional_headers</h4>
+<code>array&lt;mixed,string&gt;</code><p>@additional_headers An array of http headers to add</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td></td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_post"></a><div class="element clickable method private method_post " data-toggle="collapse" data-target=".method_post .collapse" title="private">
+<h2>Sends http post to FBS rest api</h2>
+<pre>post(string $url, \IGBIllinois\json $json_payload, array&lt;mixed,string&gt; $additional_headers<code> = array()</code>) : \IGBIllinois\json</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$json_payload</h4></div>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code><p>url to contact</p></div>
+<div class="subelement argument">
+<h4>$json_payload</h4>
+<code>\IGBIllinois\json</code><p>json formatted string</p></div>
+<div class="subelement argument">
+<h4>$additional_headers</h4>
+<code>array&lt;mixed,string&gt;</code><p>An array of html headers to add</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\IGBIllinois\json</code>json response</div>
 </div></div>
 </div>
 <a id="method_set_curl_settings"></a><div class="element clickable method private method_set_curl_settings " data-toggle="collapse" data-target=".method_set_curl_settings .collapse" title="private">
@@ -239,17 +251,11 @@
 <div class="subelement response"><code>\IGBIllinois\vaoid</code></div>
 </div></div>
 </div>
-<a id="method_set_transaction_date"></a><div class="element clickable method private method_set_transaction_date " data-toggle="collapse" data-target=".method_set_transaction_date .collapse" title="private">
-<h2>Sets transacation date for json to properly formatted todays date</h2>
-<pre>set_transaction_date() : void</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_api_key"> </a><div class="element clickable property private property_api_key" data-toggle="collapse" data-target=".property_api_key .collapse" title="private">
-<h2>cfop api key</h2>
-<pre>$api_key : string</pre>
+<a id="property_access_key"> </a><div class="element clickable property private property_access_key" data-toggle="collapse" data-target=".property_access_key .collapse" title="private">
+<h2>access key</h2>
+<pre>$access_key : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -267,19 +273,19 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_debug"> </a><div class="element clickable property private property_debug" data-toggle="collapse" data-target=".property_debug .collapse" title="private">
-<h2>enables debug mode</h2>
-<pre>$debug : boolean</pre>
+<a id="property_secret_key"> </a><div class="element clickable property private property_secret_key" data-toggle="collapse" data-target=".property_secret_key .collapse" title="private">
+<h2>secret key</h2>
+<pre>$secret_key : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
-<div class="subelement argument"><code>false</code></div>
+<div class="subelement argument"></div>
 </div></div>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_transaction_date"> </a><div class="element clickable property private property_transaction_date" data-toggle="collapse" data-target=".property_transaction_date .collapse" title="private">
-<h2>transation date</h2>
-<pre>$transaction_date : string</pre>
+<a id="property_token"> </a><div class="element clickable property private property_token" data-toggle="collapse" data-target=".property_token .collapse" title="private">
+<h2>token key</h2>
+<pre>$token : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -289,21 +295,9 @@
 </div>
 <h3>
 <i title="Constants" class="icon-custom icon-constant"></i> Constants</h3>
-<a id="constant_ACTIVITY_CODE_MAX_LENGTH"> </a><div class="element clickable constant  constant_ACTIVITY_CODE_MAX_LENGTH" data-toggle="collapse" data-target=".constant_ACTIVITY_CODE_MAX_LENGTH .collapse" title="">
-<h2>ACTIVITY_CODE_MAX_LENGTH</h2>
-<pre>ACTIVITY_CODE_MAX_LENGTH = 6 </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="constant_FOAPAL_DEBUG_URL"> </a><div class="element clickable constant  constant_FOAPAL_DEBUG_URL" data-toggle="collapse" data-target=".constant_FOAPAL_DEBUG_URL .collapse" title="">
-<h2>FOAPAL_DEBUG_URL</h2>
-<pre>FOAPAL_DEBUG_URL = "https://api-test.apps.uillinois.edu/finance/foapal-web-service" </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="constant_FOAPAL_PRODUCTION_URL"> </a><div class="element clickable constant  constant_FOAPAL_PRODUCTION_URL" data-toggle="collapse" data-target=".constant_FOAPAL_PRODUCTION_URL .collapse" title="">
-<h2>FOAPAL_PRODUCTION_URL</h2>
-<pre>FOAPAL_PRODUCTION_URL = "https://api.apps.uillinois.edu/foapal-web-service" </pre>
+<a id="constant_FBS_URL"> </a><div class="element clickable constant  constant_FBS_URL" data-toggle="collapse" data-target=".constant_FBS_URL .collapse" title="">
+<h2>FBS_URL</h2>
+<pre>FBS_URL = "https://fbs.engr.illinois.edu/API" </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
@@ -319,9 +313,9 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="constant_VALIDATE_ELEMENTS"> </a><div class="element clickable constant  constant_VALIDATE_ELEMENTS" data-toggle="collapse" data-target=".constant_VALIDATE_ELEMENTS .collapse" title="">
-<h2>VALIDATE_ELEMENTS</h2>
-<pre>VALIDATE_ELEMENTS = "/validate-foapal-elements" </pre>
+<a id="constant_LOGIN"> </a><div class="element clickable constant  constant_LOGIN" data-toggle="collapse" data-target=".constant_LOGIN .collapse" title="">
+<h2>LOGIN</h2>
+<pre>LOGIN = "/auth/login" </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>

@@ -1868,6 +1868,268 @@ $return string contents of log file, false otherwise</long-description>
       </method>
     </class>
   </file>
+  <file path="fbs.class.inc.php" generated-path="fbs.class.inc.html" hash="e19baf182fb6339694d801d2fb9cc08f" package="Default">
+    <docblock line="0">
+      <description>fbs class provides common CFOP functions</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="IGBIllinois" line="22" package="IGBIllinois">
+      <extends/>
+      <name>fbs</name>
+      <full_name>\IGBIllinois\fbs</full_name>
+      <docblock line="22">
+        <description>fbs class provides functions to interact with FBS Rest API</description>
+        <long-description>Provides functions for FBS</long-description>
+        <tag name="author" line="22" description="David Slater" link="mailto:dslater@illinois.edu"/>
+        <tag name="access" line="22" description="public"/>
+        <tag name="package" line="22" description="IGBIllinois"/>
+        <tag name="copyright" line="22" description="Copyright (c) 2020 University of Illinois Board of Trustees"/>
+        <tag name="license" line="22" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
+      </docblock>
+      <constant namespace="IGBIllinois" line="24" package="IGBIllinois">
+        <name>FBS_URL</name>
+        <full_name>\IGBIllinois\fbs::FBS_URL</full_name>
+        <value>"https://fbs.engr.illinois.edu/API"</value>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="25" package="IGBIllinois">
+        <name>LOGIN</name>
+        <full_name>\IGBIllinois\fbs::LOGIN</full_name>
+        <value>"/auth/login"</value>
+        <docblock line="25">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="26" package="IGBIllinois">
+        <name>HEADER_ACCEPT</name>
+        <full_name>\IGBIllinois\fbs::HEADER_ACCEPT</full_name>
+        <value>"application/json"</value>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="27" package="IGBIllinois">
+        <name>HEADER_CONTENT_TYPE</name>
+        <full_name>\IGBIllinois\fbs::HEADER_CONTENT_TYPE</full_name>
+        <value>"application/json"</value>
+        <docblock line="27">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="30" package="IGBIllinois">
+        <name>$ch</name>
+        <full_name>\IGBIllinois\fbs::$ch</full_name>
+        <default></default>
+        <docblock line="30">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="30" description="&lt;p&gt;Curl Session&lt;/p&gt;" type="\IGBIllinois\PHP" variable="">
+            <type>\IGBIllinois\PHP</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="33" package="IGBIllinois">
+        <name>$access_key</name>
+        <full_name>\IGBIllinois\fbs::$access_key</full_name>
+        <default></default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="33" description="&lt;p&gt;access key&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="36" package="IGBIllinois">
+        <name>$secret_key</name>
+        <full_name>\IGBIllinois\fbs::$secret_key</full_name>
+        <default></default>
+        <docblock line="36">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="36" description="&lt;p&gt;secret key&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="IGBIllinois" line="39" package="IGBIllinois">
+        <name>$token</name>
+        <full_name>\IGBIllinois\fbs::$token</full_name>
+        <default></default>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="&lt;p&gt;token key&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="48" package="IGBIllinois">
+        <name>__construct</name>
+        <full_name>\IGBIllinois\fbs::__construct()</full_name>
+        <docblock line="48">
+          <description>Creates fbs object</description>
+          <long-description></long-description>
+          <tag name="param" line="48" description="&lt;p&gt;API Access Key to connect to FBS Service&lt;/p&gt;" type="string" variable="$access_key">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="48" description="&lt;p&gt;API Secret Key to connect to FBS Service&lt;/p&gt;" type="string" variable="$secret_key">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="48" description="" type="\IGBIllinois\fbs">
+            <type>\IGBIllinois\fbs</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$access_key</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$secret_key</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="59" package="IGBIllinois">
+        <name>__destruct</name>
+        <full_name>\IGBIllinois\fbs::__destruct()</full_name>
+        <docblock line="59">
+          <description>Destroys fbs object. Closes curl session</description>
+          <long-description></long-description>
+          <tag name="param" line="59" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="59" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="69" package="IGBIllinois">
+        <name>login</name>
+        <full_name>\IGBIllinois\fbs::login()</full_name>
+        <docblock line="69">
+          <description>Login to Rest API using access and secret key</description>
+          <long-description></long-description>
+          <tag name="param" line="69" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="69" description="true on success, false otherwise" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="IGBIllinois" line="100" package="IGBIllinois">
+        <name>get_customers</name>
+        <full_name>\IGBIllinois\fbs::get_customers()</full_name>
+        <docblock line="100">
+          <description>Gets List of customers</description>
+          <long-description></long-description>
+          <tag name="param" line="100" description="&lt;p&gt;Facility ID number&lt;/p&gt;" type="integer" variable="$facility_id">
+            <type>integer</type>
+          </tag>
+          <tag name="throws" line="100" description="" type="\Exception">
+            <type>\Exception</type>
+          </tag>
+          <tag name="return" line="100" description="an array of customers" type="array&lt;mixed,string&gt;">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$facility_id</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="126" package="IGBIllinois">
+        <name>post</name>
+        <full_name>\IGBIllinois\fbs::post()</full_name>
+        <docblock line="126">
+          <description>Sends http post to FBS rest api</description>
+          <long-description></long-description>
+          <tag name="param" line="126" description="&lt;p&gt;url to contact&lt;/p&gt;" type="string" variable="$url">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="126" description="&lt;p&gt;json formatted string&lt;/p&gt;" type="\IGBIllinois\json" variable="$json_payload">
+            <type>\IGBIllinois\json</type>
+          </tag>
+          <tag name="param" line="126" description="&lt;p&gt;An array of html headers to add&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$additional_headers">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+          <tag name="throws" line="126" description="" type="\Exception">
+            <type>\Exception</type>
+          </tag>
+          <tag name="return" line="126" description="json response" type="\IGBIllinois\json">
+            <type>\IGBIllinois\json</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$url</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$json_payload</name>
+          <default></default>
+          <type>\IGBIllinois\json</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$additional_headers</name>
+          <default>array()</default>
+          <type>array&lt;mixed,string&gt;</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="172" package="IGBIllinois">
+        <name>get</name>
+        <full_name>\IGBIllinois\fbs::get()</full_name>
+        <docblock line="172">
+          <description>Sends http get to FBS rest api</description>
+          <long-description></long-description>
+          <tag name="param" line="172" description="&lt;p&gt;URL to contact&lt;/p&gt;" type="string" variable="$url">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="172" description="&lt;p&gt;@additional_headers An array of http headers to add&lt;/p&gt;" type="array&lt;mixed,string&gt;" variable="$additional_headers">
+            <type>array&lt;mixed,string&gt;</type>
+          </tag>
+          <tag name="throws" line="172" description="" type="\Exception">
+            <type>\Exception</type>
+          </tag>
+          <tag name="returns" line="172" description="json json response"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$url</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$additional_headers</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="215" package="IGBIllinois">
+        <name>set_curl_settings</name>
+        <full_name>\IGBIllinois\fbs::set_curl_settings()</full_name>
+        <docblock line="215">
+          <description>Sets Curl Settings</description>
+          <long-description></long-description>
+          <tag name="param" line="215" description="" type="void" variable="">
+            <type>void</type>
+          </tag>
+          <tag name="return" line="215" description="" type="\IGBIllinois\vaoid">
+            <type>\IGBIllinois\vaoid</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
   <file path="Helper/passwordhash.class.inc.php" generated-path="Helper.passwordhash.class.inc.html" hash="a6b2ebc63acaa877b33e51d689d9249d" package="Default">
     <docblock line="0">
       <description>Generate smbhash passwords</description>

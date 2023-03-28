@@ -60,6 +60,12 @@ class fbs {
 
         }
 
+	/**
+	 * Login to Rest API using access and secret key
+	 *
+	 * @param void
+	 * @return bool true on success, false otherwise
+	 */
 	public function login() {
                 $login_array = array('AccessKeyId'=>$this->access_key,
                                 'SecretAccessKey'=>$this->secret_key
@@ -83,6 +89,14 @@ class fbs {
 
         }
 
+	/**
+	 * Gets List of customers
+	 *
+	 * @param int Facility ID number
+	 *
+	 * @throws \Exception
+	 * @return string[] an array of customers
+	 */
         public function get_customers($facility_id) {
                 $header = array('Authorization: Bearer ' . $this->token);
                 $url = self::FBS_URL . "/FBS/Facility/" . $facility_id . "/Customer";
@@ -99,11 +113,12 @@ class fbs {
 
         }
 	
-	/*
-	 * Sends json string to FBS rest api
+	/**
+	 * Sends http post to FBS rest api
 	 *
-	 * @param url $url url to contact
+	 * @param string $url url to contact
 	 * @param json $json_payload json formatted string
+	 * @param string[] $additional_headers An array of html headers to add
 	 *
 	 * @throws \Exception
 	 * @return json json response
@@ -145,6 +160,15 @@ class fbs {
 
 	}
 
+	/**
+	 * Sends http get to FBS rest api
+	 *
+	 * @param string $url URL to contact
+	 * @param string[] @additional_headers An array of http headers to add
+	 *
+	 * @throws \Exception
+	 * @returns json json response
+	 */
 	private function get($url,$additional_headers) {
                 $headers = array(
                         'Accept: ' . self::HEADER_ACCEPT,
