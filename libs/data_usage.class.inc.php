@@ -173,7 +173,6 @@ class data_usage {
 		$result = 0;
                 if (file_exists($this->get_directory())) {
                         $exec = "source /etc/profile && ";
-			#$exec .= self::gpfs_mmpolicy_du . " -k " . $this->get_directory() . "/ | awk '{print $1}'";
 			$exec .= self::GPFS_MMPOLICY_DU . " -k " . $this->get_directory() . " 2>/dev/null";
                         $exit_status = 1;
                         $output_array = array();
