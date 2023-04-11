@@ -39,6 +39,8 @@ if( !function_exists('imageantialias') ) {
 */
 class graphs {
 
+	const PIXELS_X = 900;
+	const PIXELS_Y = 600;
 	/**
 	* Creates bar graph
 	* 
@@ -63,7 +65,7 @@ class graphs {
                         $datax[] = 0;
                 }
 
-                $graph = new Graph\Graph(900,600,'auto');
+                $graph = new Graph\Graph(self::PIXELS_X,self::PIXELS_Y,'auto');
 
                 $graph->SetMargin(60,20,20,80);
 
@@ -112,7 +114,7 @@ class graphs {
                 else {
                         $datax[] = 0;
                 }
-                $graph = new Graph\Graph(900,600,'auto');
+                $graph = new Graph\Graph(self::PIXELS_X,self::PIXELS_Y,'auto');
                 $graph->SetMargin(60,20,20,80);
                 $graph->SetMarginColor('blue');
                 $graph->SetScale("textlin");
@@ -166,7 +168,7 @@ class graphs {
 
         	}
 
-	        $graph = new Graph\PieGraph(600,300,"auto");
+	        $graph = new Graph\PieGraph(self::PIXELS_X,self::PIXELS_Y,"auto");
 	        $graph->title->Set($title);
 	        $graph->title->SetColor("#000000");
         	$p1 = new Plot\PiePlot3D($data);
