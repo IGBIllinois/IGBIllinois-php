@@ -7,7 +7,7 @@ Common PHP Libraries used in IGBIllinois projects
 ## Install
 * Install required PHP modules
 <pre>
-yum install php-gd php-mbstring
+yum install php-gd php-mbstring php-pdo php-mysqlnd
 </pre>
 * Add to your composer.json file
 ```
