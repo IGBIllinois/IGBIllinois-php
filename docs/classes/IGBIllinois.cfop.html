@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">2</span></a></li>
+                <span class="label label-info">0</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -72,8 +72,7 @@
 <li class="nav-header private">» Private
                     <ul>
 <li class="method private "><a href="#method_get_transaction_date" title="get_transaction_date() :: Gets transaction date for json"><span class="description">Gets transaction date for json</span><pre>get_transaction_date()</pre></a></li>
-<li class="method private "><a href="#method_send_curl" title="send_curl() :: "><span class="description">send_curl()
-        </span><pre>send_curl()</pre></a></li>
+<li class="method private "><a href="#method_send_curl" title="send_curl() :: Sends json string to AITS rest api"><span class="description">Sends json string to AITS rest api</span><pre>send_curl()</pre></a></li>
 <li class="method private "><a href="#method_set_curl_settings" title="set_curl_settings() :: Sets Curl Settings"><span class="description">Sets Curl Settings</span><pre>set_curl_settings()</pre></a></li>
 <li class="method private "><a href="#method_set_transaction_date" title="set_transaction_date() :: Sets transacation date for json to properly formatted todays date"><span class="description">Sets transacation date for json to properly formatted todays date</span><pre>set_transaction_date()</pre></a></li>
 </ul>
@@ -219,14 +218,23 @@
 </div></div>
 </div>
 <a id="method_send_curl"></a><div class="element clickable method private method_send_curl " data-toggle="collapse" data-target=".method_send_curl .collapse" title="private">
-<h2>send_curl()
-        </h2>
-<pre>send_curl($json_payload) </pre>
+<h2>Sends json string to AITS rest api</h2>
+<pre>send_curl(string $json_payload) : \IGBIllinois\json</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$json_payload</h4></div>
+<div class="subelement argument">
+<h4>$json_payload</h4>
+<code>string</code><p>json formatted string</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\IGBIllinois\json</code>json response</div>
 </div></div>
 </div>
 <a id="method_set_curl_settings"></a><div class="element clickable method private method_set_curl_settings " data-toggle="collapse" data-target=".method_set_curl_settings .collapse" title="private">
@@ -303,7 +311,7 @@
 </div>
 <a id="constant_FOAPAL_PRODUCTION_URL"> </a><div class="element clickable constant  constant_FOAPAL_PRODUCTION_URL" data-toggle="collapse" data-target=".constant_FOAPAL_PRODUCTION_URL .collapse" title="">
 <h2>FOAPAL_PRODUCTION_URL</h2>
-<pre>FOAPAL_PRODUCTION_URL = "https://api.apps.uillinois.edu/foapal-web-service" </pre>
+<pre>FOAPAL_PRODUCTION_URL = "https://api.apps.uillinois.edu/finance/foapal-web-service" </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
@@ -332,7 +340,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.9.1</a> and<br>
-            generated on 2023-03-28T10:06:57-05:00.<br></footer></div>
+            generated on 2023-04-11T10:43:07-05:00.<br></footer></div>
 </div>
 </body>
 </html>

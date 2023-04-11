@@ -149,10 +149,10 @@ class cfop {
 		}
 	}
 
-	/*
+	/**
 	 * Sends json string to AITS rest api
 	 *
-	 * @param json $json_payload json formatted string
+	 * @param string $json_payload json formatted string
 	 *
 	 * @throws \Exception
 	 * @return json json response

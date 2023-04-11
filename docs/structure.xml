@@ -434,7 +434,7 @@ $return string contents of log file, false otherwise</long-description>
       </method>
     </class>
   </file>
-  <file path="cfop.class.inc.php" generated-path="cfop.class.inc.html" hash="8fdeb1931328814fd5858fd9ab974885" package="Default">
+  <file path="cfop.class.inc.php" generated-path="cfop.class.inc.html" hash="40701d94afb6846724c77fef669c0ada" package="Default">
     <docblock line="0">
       <description>cfop class provides common CFOP functions</description>
       <long-description></long-description>
@@ -474,7 +474,7 @@ $return string contents of log file, false otherwise</long-description>
       <constant namespace="IGBIllinois" line="26" package="IGBIllinois">
         <name>FOAPAL_PRODUCTION_URL</name>
         <full_name>\IGBIllinois\cfop::FOAPAL_PRODUCTION_URL</full_name>
-        <value>"https://api.apps.uillinois.edu/foapal-web-service"</value>
+        <value>"https://api.apps.uillinois.edu/finance/foapal-web-service"</value>
         <docblock line="26">
           <description></description>
           <long-description></long-description>
@@ -657,13 +657,22 @@ $return string contents of log file, false otherwise</long-description>
         <name>send_curl</name>
         <full_name>\IGBIllinois\cfop::send_curl()</full_name>
         <docblock line="160">
-          <description></description>
+          <description>Sends json string to AITS rest api</description>
           <long-description></long-description>
+          <tag name="param" line="160" description="&lt;p&gt;json formatted string&lt;/p&gt;" type="string" variable="$json_payload">
+            <type>string</type>
+          </tag>
+          <tag name="throws" line="160" description="" type="\Exception">
+            <type>\Exception</type>
+          </tag>
+          <tag name="return" line="160" description="json response" type="\IGBIllinois\json">
+            <type>\IGBIllinois\json</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$json_payload</name>
           <default></default>
-          <type/>
+          <type>string</type>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="private" namespace="IGBIllinois" line="206" package="IGBIllinois">
@@ -709,12 +718,8 @@ $return string contents of log file, false otherwise</long-description>
         </docblock>
       </method>
     </class>
-    <parse_markers>
-      <error line="160" code="PPC:ERR-50015">Argument $json_payload is missing from the Docblock of send_curl</error>
-      <error line="160" code="PPC:ERR-50008">No summary for method send_curl()</error>
-    </parse_markers>
   </file>
-  <file path="data_usage.class.inc.php" generated-path="data_usage.class.inc.html" hash="895680820b91adde55211061b1d3ae75" package="Default">
+  <file path="data_usage.class.inc.php" generated-path="data_usage.class.inc.html" hash="cd90bfdffe49a2cb8d4e02c4153b48a5" package="Default">
     <docblock line="0">
       <description>data_usage class calculates amount of data in a directory</description>
       <long-description></long-description>
@@ -889,16 +894,16 @@ $return string contents of log file, false otherwise</long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="IGBIllinois" line="201" package="IGBIllinois">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="IGBIllinois" line="200" package="IGBIllinois">
         <name>format_directory</name>
         <full_name>\IGBIllinois\data_usage::format_directory()</full_name>
-        <docblock line="201">
+        <docblock line="200">
           <description>Removes trailing slash at end of directory path</description>
           <long-description></long-description>
-          <tag name="param" line="201" description="&lt;p&gt;Full path to directory&lt;/p&gt;" type="string" variable="$directory">
+          <tag name="param" line="200" description="&lt;p&gt;Full path to directory&lt;/p&gt;" type="string" variable="$directory">
             <type>string</type>
           </tag>
-          <tag name="returns" line="201" description="string path to directory"/>
+          <tag name="returns" line="200" description="string path to directory"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$directory</name>
@@ -1545,7 +1550,7 @@ $return string contents of log file, false otherwise</long-description>
       </method>
     </class>
   </file>
-  <file path="graphs.class.inc.php" generated-path="graphs.class.inc.html" hash="292518f7477c050ac7ec919b471cae3b" package="Default">
+  <file path="graphs.class.inc.php" generated-path="graphs.class.inc.html" hash="beb9b64b97adc0adb8214386666bc6b6" package="Default">
     <docblock line="0">
       <description>graphs class creates graphs using JpGraph, https://jpgraph.net/</description>
       <long-description></long-description>
@@ -1596,26 +1601,44 @@ $return string contents of log file, false otherwise</long-description>
         <tag name="license" line="40" description="GNU Public License v3" link="https://opensource.org/licenses/GPL-3.0"/>
         <tag name="static" line="40" description=""/>
       </docblock>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="54" package="IGBIllinois">
+      <constant namespace="IGBIllinois" line="42" package="IGBIllinois">
+        <name>PIXELS_X</name>
+        <full_name>\IGBIllinois\graphs::PIXELS_X</full_name>
+        <value>900</value>
+        <docblock line="42">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="IGBIllinois" line="43" package="IGBIllinois">
+        <name>PIXELS_Y</name>
+        <full_name>\IGBIllinois\graphs::PIXELS_Y</full_name>
+        <value>600</value>
+        <docblock line="43">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="56" package="IGBIllinois">
         <name>bar_graph</name>
         <full_name>\IGBIllinois\graphs::bar_graph()</full_name>
-        <docblock line="54">
+        <docblock line="56">
           <description>Creates bar graph</description>
           <long-description>Generates a bar graph as a jpeg file and outputs it</long-description>
-          <tag name="param" line="54" description="&lt;p&gt;associate array of input data&lt;/p&gt;" type="array" variable="$input_data">
+          <tag name="param" line="56" description="&lt;p&gt;associate array of input data&lt;/p&gt;" type="array" variable="$input_data">
             <type>array</type>
           </tag>
-          <tag name="param" line="54" description="&lt;p&gt;X axis title&lt;/p&gt;" type="string" variable="$xaxis">
+          <tag name="param" line="56" description="&lt;p&gt;X axis title&lt;/p&gt;" type="string" variable="$xaxis">
             <type>string</type>
           </tag>
-          <tag name="param" line="54" description="&lt;p&gt;Y axis title&lt;/p&gt;" type="string" variable="$yaxis">
+          <tag name="param" line="56" description="&lt;p&gt;Y axis title&lt;/p&gt;" type="string" variable="$yaxis">
             <type>string</type>
           </tag>
-          <tag name="param" line="54" description="&lt;p&gt;title for graph&lt;/p&gt;" type="string" variable="$title">
+          <tag name="param" line="56" description="&lt;p&gt;title for graph&lt;/p&gt;" type="string" variable="$title">
             <type>string</type>
           </tag>
-          <tag name="static" line="54" description=""/>
-          <tag name="return" line="54" description="" type="void">
+          <tag name="static" line="56" description=""/>
+          <tag name="return" line="56" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -1640,29 +1663,29 @@ $return string contents of log file, false otherwise</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="99" package="IGBIllinois">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="101" package="IGBIllinois">
         <name>accumulated_bar_plot</name>
         <full_name>\IGBIllinois\graphs::accumulated_bar_plot()</full_name>
-        <docblock line="99">
+        <docblock line="101">
           <description>Creates accumulated bar plot</description>
           <long-description>Generates a bar plot jpeg file and outputs it</long-description>
-          <tag name="param" line="99" description="&lt;p&gt;associate array of input data&lt;/p&gt;" type="array" variable="$input_data">
+          <tag name="param" line="101" description="&lt;p&gt;associate array of input data&lt;/p&gt;" type="array" variable="$input_data">
             <type>array</type>
           </tag>
-          <tag name="param" line="99" description="&lt;p&gt;X axis title&lt;/p&gt;" type="string" variable="$xaxis">
+          <tag name="param" line="101" description="&lt;p&gt;X axis title&lt;/p&gt;" type="string" variable="$xaxis">
             <type>string</type>
           </tag>
-          <tag name="param" line="99" description="&lt;p&gt;Y axis title&lt;/p&gt;" type="string" variable="$yaxis">
+          <tag name="param" line="101" description="&lt;p&gt;Y axis title&lt;/p&gt;" type="string" variable="$yaxis">
             <type>string</type>
           </tag>
-          <tag name="param" line="99" description="&lt;p&gt;title for graph&lt;/p&gt;" type="string" variable="$title">
+          <tag name="param" line="101" description="&lt;p&gt;title for graph&lt;/p&gt;" type="string" variable="$title">
             <type>string</type>
           </tag>
-          <tag name="param" line="99" description="&lt;p&gt;associative array for plot legend&lt;/p&gt;" type="array" variable="$legend">
+          <tag name="param" line="101" description="&lt;p&gt;associative array for plot legend&lt;/p&gt;" type="array" variable="$legend">
             <type>array</type>
           </tag>
-          <tag name="static" line="99" description=""/>
-          <tag name="return" line="99" description="" type="void">
+          <tag name="static" line="101" description=""/>
+          <tag name="return" line="101" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -1692,20 +1715,20 @@ $return string contents of log file, false otherwise</long-description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="151" package="IGBIllinois">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="IGBIllinois" line="153" package="IGBIllinois">
         <name>pie_graph</name>
         <full_name>\IGBIllinois\graphs::pie_graph()</full_name>
-        <docblock line="151">
+        <docblock line="153">
           <description>Creates pie chart</description>
           <long-description>Generates a pie chart jpeg file and outputs it</long-description>
-          <tag name="param" line="151" description="&lt;p&gt;associate array of input data&lt;/p&gt;" type="array" variable="$input_data">
+          <tag name="param" line="153" description="&lt;p&gt;associate array of input data&lt;/p&gt;" type="array" variable="$input_data">
             <type>array</type>
           </tag>
-          <tag name="param" line="151" description="&lt;p&gt;title for graph&lt;/p&gt;" type="string" variable="$title">
+          <tag name="param" line="153" description="&lt;p&gt;title for graph&lt;/p&gt;" type="string" variable="$title">
             <type>string</type>
           </tag>
-          <tag name="static" line="151" description=""/>
-          <tag name="return" line="151" description="" type="void">
+          <tag name="static" line="153" description=""/>
+          <tag name="return" line="153" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -1720,23 +1743,23 @@ $return string contents of log file, false otherwise</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="IGBIllinois" line="194" package="IGBIllinois">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="IGBIllinois" line="196" package="IGBIllinois">
         <name>bar_plot</name>
         <full_name>\IGBIllinois\graphs::bar_plot()</full_name>
-        <docblock line="194">
+        <docblock line="196">
           <description>Creates bar plot</description>
           <long-description>Generates a bar plot jpeg file and outputs it</long-description>
-          <tag name="param" line="194" description="&lt;p&gt;associate array of input data&lt;/p&gt;" type="array" variable="$input_data">
+          <tag name="param" line="196" description="&lt;p&gt;associate array of input data&lt;/p&gt;" type="array" variable="$input_data">
             <type>array</type>
           </tag>
-          <tag name="param" line="194" description="&lt;p&gt;Y axis title&lt;/p&gt;" type="string" variable="$yaxis">
+          <tag name="param" line="196" description="&lt;p&gt;Y axis title&lt;/p&gt;" type="string" variable="$yaxis">
             <type>string</type>
           </tag>
-          <tag name="param" line="194" description="&lt;p&gt;associative array for plot legend&lt;/p&gt;" type="array" variable="$legend">
+          <tag name="param" line="196" description="&lt;p&gt;associative array for plot legend&lt;/p&gt;" type="array" variable="$legend">
             <type>array</type>
           </tag>
-          <tag name="static" line="194" description=""/>
-          <tag name="return" line="194" description="" type="void">
+          <tag name="static" line="196" description=""/>
+          <tag name="return" line="196" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
