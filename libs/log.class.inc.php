@@ -40,7 +40,7 @@ class log {
         *
         * @return \IGBIllinois\log
         */
-        public function __construct($enabled = false,$logfile) {
+        public function __construct($enabled = false,$logfile = "") {
 		$this->enabled = $enabled;
 		$this->logfile = $logfile;
 
