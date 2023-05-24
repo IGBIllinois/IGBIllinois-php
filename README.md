@@ -15,7 +15,7 @@ Common PHP Libraries used in IGBIllinois projects
 ## Install
 * Install required PHP modules
 <pre>
-dnf install php-gd php-mbstring php-ldap php-json
+dnf install php-gd php-mbstring php-ldap php-json php-xml
 </pre>
 * Add to your composer.json file
 ```

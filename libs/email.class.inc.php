@@ -37,6 +37,8 @@ class email {
 	private $replyto_emails = array();
 	/** @var string[] BCC Emails */
 	private $bcc_emails = array();
+	/** @var string[] Attach Files */
+	private $files = array();
 
 	const PERMANENT_HEADERS = array(
 			'X-MS-Exchange-Organization-BypassClutter'=>'true',
@@ -165,6 +167,23 @@ class email {
 		}
 
 	}
+
+	/*
+	 *
+	 * Attach file
+	 * @param string|string[] string or array of strings with full path to files to attach
+	 * @return void
+	 */
+	public function attach_files($files) {
+		if (!is_array($files)) {
+			$this->files = array($files);
+		}
+		else {
+			$this->files = $files;
+		}
+
+	}
+
 	/**
 	* Sends email
 	* 
@@ -198,7 +217,7 @@ class email {
 		}
 		if (count($this->replyto_emails)) {
 			$extraheaders['Reply-To'] = implode(",",$this->replyto_emails);
-        	}
+		}
         	if ($from_name != "") {
 			$from = "$from_name <$from>";
 		}
@@ -215,6 +234,11 @@ class email {
 		}
 		if ($html_message !== "") {
 			$message->setHtmlBody($html_message);
+		}
+		if (count($this->files)) {
+			foreach ($this->files as $file) {
+				$message->addHTMLImage($file);
+			}
 		}
 		$headers = $message->headers($extraheaders);
 		$body = $message->get();

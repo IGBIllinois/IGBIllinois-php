@@ -17,6 +17,7 @@
 	"ext-mbstring": "*",
 	"ext-curl" : "*",
 	"ext-ldap" : "*",
+	"ext-xml" : "*",
         "phpoffice/phpspreadsheet": ">=1.16",
         "amenadiel/jpgraph": ">4",
         "pear/mail_mime": "1.10.11",
