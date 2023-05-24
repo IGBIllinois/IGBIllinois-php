@@ -168,7 +168,7 @@ class email {
 
 	}
 
-	/*
+	/**
 	 *
 	 * Attach file
 	 * @param string|string[] string or array of strings with full path to files to attach
