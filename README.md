@@ -9,14 +9,13 @@ Common PHP Libraries used in IGBIllinois projects
 * PHP 7.2 or greater
 * PHP gd module
 * PHP mbstring module
-* PHP pdo module
-* PHP mysqlnd module
 * PHP json module
+* PHP ldap module
 
 ## Install
 * Install required PHP modules
 <pre>
-dnf install php-gd php-mbstring php-pdo php-mysqlnd php-json
+dnf install php-gd php-mbstring php-ldap php-json
 </pre>
 * Add to your composer.json file
 ```
