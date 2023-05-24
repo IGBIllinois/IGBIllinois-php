@@ -152,7 +152,10 @@ class ldap {
 	* @return bool true if connected, false otherwise
 	*/
 	public function get_connection() {
-			return is_resource($this->ldap_resource);
+		if ($this->ldap_resource !== false) {
+                        return true;
+                }
+                return false;
 	}
         
 	/**
