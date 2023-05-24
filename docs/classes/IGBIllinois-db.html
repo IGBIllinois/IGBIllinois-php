@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>    IGBIllinois-php API &raquo; \IGBIllinois\db
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+            <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+            <!--[if lt IE 9]>
+        <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+        <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script src="../js/template.js" type="text/javascript"></script>
+        <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+    
+            <link rel="shortcut icon" href="../img/favicon.ico"/>
+        <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+    </head>
+<body>
+
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> </a>
+                <a class="brand" href="../index.html">IGBIllinois-php API</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                API Documentation <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                                                    <li><a>Namespaces</a></li>
+                                                                        <li><a href="../\IGBIllinois">IGBIllinois</a></li>
+                                                                                                                                </ul>
+                        </li>
+                        <li class="dropdown" id="charts-menu">
+                            <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                Charts <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../graph_class.html">
+                                        <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" id="reports-menu">
+                            <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                Reports <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="../errors.html">
+                                        <i class="icon-list-alt"></i>&#160;Errors
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../markers.html">
+                                        <i class="icon-list-alt"></i>&#160;Markers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../deprecated.html">
+                                        <i class="icon-list-alt"></i>&#160;Deprecated
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="go_to_top">
+            <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+        </div>
+    </div>
+    
+    <div id="___" class="container">
+        <noscript>
+            <div class="alert alert-warning">
+                Javascript is disabled; several features are only available if Javascript is enabled.
+            </div>
+        </noscript>
+
+        
+            <style>
+        .deprecated h2 {
+            text-decoration: line-through;
+        }
+    </style>
+    <div class="row">
+        <div class="span4">
+                    <div class="btn-group view pull-right" data-toggle="buttons-radio">
+        <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button>
+        <button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+    </div>
+    <div class="btn-group visibility" data-toggle="buttons-checkbox">
+        <button class="btn public active" title="Show public elements">Public</button>
+        <button class="btn protected" title="Show protected elements">Protected</button>
+        <button class="btn private" title="Show private elements">Private</button>
+        <button class="btn inherited active" title="Show inherited elements">Inherited</button>
+    </div>
+
+        <ul class="side-nav nav nav-list">
+        <li class="nav-header">
+            <i class="icon-custom icon-method"></i> Methods
+            <ul>
+                                                                                                    <li class="method public">
+        <a href="#method___construct" title="__construct :: Creates mysql database object">
+            <span class="description">Creates mysql database object</span><pre>__construct</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method___destruct" title="__destruct :: Destroys db object.  Closes mysql database connection">
+            <span class="description">Destroys db object.  Closes mysql database connection</span><pre>__destruct</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_build_insert" title="build_insert :: Builds insert query using associative array">
+            <span class="description">Builds insert query using associative array</span><pre>build_insert</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_close" title="close :: Closes mysql database connection">
+            <span class="description">Closes mysql database connection</span><pre>close</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_get_link" title="get_link :: Retrieves mysql database PDO object">
+            <span class="description">Retrieves mysql database PDO object</span><pre>get_link</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_get_version" title="get_version :: Retrieves version number of mysql server.">
+            <span class="description">Retrieves version number of mysql server.</span><pre>get_version</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_insert_query" title="insert_query :: Runs insert query on database">
+            <span class="description">Runs insert query on database</span><pre>insert_query</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_non_select_query" title="non_select_query :: Runs a non select or insert query on database">
+            <span class="description">Runs a non select or insert query on database</span><pre>non_select_query</pre>
+        </a>
+    </li>
+
+                                                                                                                                                                <li class="method public">
+        <a href="#method_ping" title="ping :: Tests connection to mysql database">
+            <span class="description">Tests connection to mysql database</span><pre>ping</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_query" title="query :: Runs sql query for SELECT queries">
+            <span class="description">Runs sql query for SELECT queries</span><pre>query</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_transaction" title="transaction :: Runs mysql transaction">
+            <span class="description">Runs mysql transaction</span><pre>transaction</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_update" title="update :: Runs update query on table">
+            <span class="description">Runs update query on table</span><pre>update</pre>
+        </a>
+    </li>
+
+                                                </ul>
+        </li>
+        <li class="nav-header protected">» Protected
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                                                                                                                                                                                                                                                                            <li class="method private">
+                            <a href="#method_open" title="open :: Opens mysql database connection">
+                                <span class="description">Opens mysql database connection</span><pre>open</pre>
+                            </a>
+                        </li>
+                                                                                                                                                                                                </ul>
+        </li>
+        <li class="nav-header">
+            <i class="icon-custom icon-constant"></i> Constants
+            <ul>
+                            </ul>
+        </li>
+    </ul>
+
+
+        </div>
+
+        <div class="span8">
+            <div class="element class">
+                <h1>db</h1>
+                <small style="display: block; text-align: right">
+                                                        </small>
+                <p class="short_description">db class interacts with mysql database using PDO</p>
+                <div class="details">
+                    <div class="long_description">
+                        <p>Provides all necessary functions to connect and run sql queries on the database</p>
+
+                    </div>
+                    <table class="table table-bordered">
+                                                                                    <tr>
+                                    <th>
+                                        author
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>David Slater <a href="mailto:dslater@illinois.edu">dslater@illinois.edu</a></p>
+
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        access
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>public</p>
+
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        package
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>IGBIllinois</p>
+
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        copyright
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>Copyright (c) 2020 University of Illinois Board of Trustees</p>
+
+                                    </td>
+                                </tr>
+                                                                                                                <tr>
+                                    <th>
+                                        license
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>https://opensource.org/licenses/GPL-3.0 GNU Public License v3</p>
+
+                                    </td>
+                                </tr>
+                                                                                                                            </table>
+
+                    <h3><i class="icon-custom icon-method"></i> Methods</h3>
+                                                                <a id="method___construct"></a>
+                        <div class="element clickable method public  method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+                            <h2>Creates mysql database object</h2>
+                            <pre>__construct(stringhost, stringdatabase, stringusername, stringpassword, boolssl = false, intport = 3306) : \IGBIllinois\db</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\PDOException</dt>
+                                                        <dd></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>host</h4>
+                                                <code>string</code><p><p>hostname or IP address of mysql server</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>database</h4>
+                                                <code>string</code><p><p>database name</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>username</h4>
+                                                <code>string</code><p><p>username to connect to database</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>password</h4>
+                                                <code>string</code><p><p>password to connect to database</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>ssl</h4>
+                                                <code>bool</code><p><p>enable ssl</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>port</h4>
+                                                <code>int</code><p><p>mysql port number. defaults to 3306</p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>\IGBIllinois\db</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method___destruct"></a>
+                        <div class="element clickable method public  method___destruct" data-toggle="collapse" data-target=".method___destruct .collapse">
+                            <h2>Destroys db object.  Closes mysql database connection</h2>
+                            <pre>__destruct() : void</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                    
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_build_insert"></a>
+                        <div class="element clickable method public  method_build_insert" data-toggle="collapse" data-target=".method_build_insert .collapse">
+                            <h2>Builds insert query using associative array</h2>
+                            <pre>build_insert(stringtable, string[]data) : int</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\PDOException</dt>
+                                                        <dd></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>table</h4>
+                                                <code>string</code><p><p>table to insert data into</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>data</h4>
+                                                <code>string[]</code><p><p>associative array with key being table colume and value being the data</p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>int</code><p><p>insert id returned from database. 0 otherwise</p>
+</p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_close"></a>
+                        <div class="element clickable method public  method_close" data-toggle="collapse" data-target=".method_close .collapse">
+                            <h2>Closes mysql database connection</h2>
+                            <pre>close() : void</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                    
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_get_link"></a>
+                        <div class="element clickable method public  method_get_link" data-toggle="collapse" data-target=".method_get_link .collapse">
+                            <h2>Retrieves mysql database PDO object</h2>
+                            <pre>get_link() : \PDO</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>\PDO</code><p><p>Returns PDO object with the current connection</p>
+</p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_get_version"></a>
+                        <div class="element clickable method public  method_get_version" data-toggle="collapse" data-target=".method_get_version .collapse">
+                            <h2>Retrieves version number of mysql server.</h2>
+                            <pre>get_version() : string</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"><p>An example is 5.5.5-10.3.17-MariaDB</p>
+</div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>string</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_insert_query"></a>
+                        <div class="element clickable method public  method_insert_query" data-toggle="collapse" data-target=".method_insert_query .collapse">
+                            <h2>Runs insert query on database</h2>
+                            <pre>insert_query(stringsql, string[]parameters = array()) : int</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\PDOException</dt>
+                                                        <dd></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>sql</h4>
+                                                <code>string</code><p><p>sql query to run on the database</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>parameters</h4>
+                                                <code>string[]</code><p><p>an array of PDO prepared parameters</p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>int</code><p><p>insert id returned from database. 0 otherwise</p>
+</p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_non_select_query"></a>
+                        <div class="element clickable method public  method_non_select_query" data-toggle="collapse" data-target=".method_non_select_query .collapse">
+                            <h2>Runs a non select or insert query on database</h2>
+                            <pre>non_select_query(stringsql, string[]parameters = array()) : bool</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\PDOException</dt>
+                                                        <dd></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>sql</h4>
+                                                <code>string</code><p><p>sql string to run</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>parameters</h4>
+                                                <code>string[]</code><p><p>an array of PDO prepared parameters</p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>bool</code><p><p>true on success, false otherwise</p>
+</p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_open"></a>
+                        <div class="element clickable method private  method_open" data-toggle="collapse" data-target=".method_open .collapse">
+                            <h2>Opens mysql database connection</h2>
+                            <pre>open(stringhost, stringdatabase, stringusername, stringpassword, boolssl = false, intport = 3306) : void</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\PDOException</dt>
+                                                        <dd></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>host</h4>
+                                                <code>string</code><p><p>hostname or IP address of mysql server</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>database</h4>
+                                                <code>string</code><p><p>database name</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>username</h4>
+                                                <code>string</code><p><p>username to connect to database</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>password</h4>
+                                                <code>string</code><p><p>password to connect to database</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>ssl</h4>
+                                                <code>bool</code><p><p>use ssl</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>port</h4>
+                                                <code>int</code><p><p>mysql port number. defaults to 3306</p>
+</p>
+                                            </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_ping"></a>
+                        <div class="element clickable method public  method_ping" data-toggle="collapse" data-target=".method_ping .collapse">
+                            <h2>Tests connection to mysql database</h2>
+                            <pre>ping() : bool</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>bool</code><p><p>Returns true on success, false otherwise</p>
+</p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_query"></a>
+                        <div class="element clickable method public  method_query" data-toggle="collapse" data-target=".method_query .collapse">
+                            <h2>Runs sql query for SELECT queries</h2>
+                            <pre>query(stringsql, string[]parameters = array()) : string[]</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\PDOException</dt>
+                                                        <dd></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>sql</h4>
+                                                <code>string</code><p><p>sql query to run</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>parameters</h4>
+                                                <code>string[]</code><p><p>an array of PDO prepared parameters</p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>string[]</code><p><p>an associative array of results</p>
+</p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_transaction"></a>
+                        <div class="element clickable method public  method_transaction" data-toggle="collapse" data-target=".method_transaction .collapse">
+                            <h2>Runs mysql transaction</h2>
+                            <pre>transaction(stringsql, string[]parameters) : mixed</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    returns
+                                                </th>
+                                                <td>
+                                                                                                                                                                        
+                                                                                                                                                                        <p>int number of rows affected</p>
+
+                                                                                                    </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\PDOException</dt>
+                                                        <dd></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>sql</h4>
+                                                <code>string</code><p><p>sql string to run</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>parameters</h4>
+                                                <code>string[]</code><p><p>an array of PDO prepared parameters</p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>mixed</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_update"></a>
+                        <div class="element clickable method public  method_update" data-toggle="collapse" data-target=".method_update .collapse">
+                            <h2>Runs update query on table</h2>
+                            <pre>update(stringtable, string[]parameters, stringwhere_key, stringwhere_value) : bool</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\PDOException</dt>
+                                                        <dd></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>table</h4>
+                                                <code>string</code><p><p>name of table</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>parameters</h4>
+                                                <code>string[]</code><p><p>an array of PDO prepared parameters</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>where_key</h4>
+                                                <code>string</code><p><p>column name to use in where clause</p>
+</p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>where_value</h4>
+                                                <code>string</code><p><p>value column needs to be equal to</p>
+</p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>bool</code><p><p>returns true on success, false otherwise</p>
+</p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                    
+                    
+                                                                <h3><i class="icon-custom icon-property"></i> Properties</h3>
+                                                    <a id="property_link"> </a>
+                            <div class="element clickable property  private property_link" data-toggle="collapse" data-target=".property_link .collapse">
+                                <h2>PDO database object</h2>
+                                <pre>link : \PDO</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    <p>PDO database object</p>
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>\PDO</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_host"> </a>
+                            <div class="element clickable property  private property_host" data-toggle="collapse" data-target=".property_host .collapse">
+                                <h2>hostname or IP of mysql server</h2>
+                                <pre>host : string</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    <p>hostname or IP of mysql server</p>
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_database"> </a>
+                            <div class="element clickable property  private property_database" data-toggle="collapse" data-target=".property_database .collapse">
+                                <h2>name of mysql database</h2>
+                                <pre>database : string</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    <p>name of mysql database</p>
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_username"> </a>
+                            <div class="element clickable property  private property_username" data-toggle="collapse" data-target=".property_username .collapse">
+                                <h2>username to connect to the database</h2>
+                                <pre>username : string</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    <p>username to connect to the database</p>
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_password"> </a>
+                            <div class="element clickable property  private property_password" data-toggle="collapse" data-target=".property_password .collapse">
+                                <h2>password to connect to the database</h2>
+                                <pre>password : string</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    <p>password to connect to the database</p>
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>string</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                    <a id="property_ssl"> </a>
+                            <div class="element clickable property  private property_ssl" data-toggle="collapse" data-target=".property_ssl .collapse">
+                                <h2>enable or disable ssl connection. defaults to false</h2>
+                                <pre>ssl : bool</pre>
+                                <div class="labels">
+                                                                                                        </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    <p>enable or disable ssl connection. defaults to false</p>
+
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code>bool</code>
+                                                                            </div>
+                                </div>
+                            </div>
+                                                            </div>
+            </div>
+            <a id="\IGBIllinois\db"></a>
+            <ul class="breadcrumb">
+                <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
+                    
+    
+    <li><span class="divider">\</span><a href="../\IGBIllinois">IGBIllinois</a></li>
+
+                <li class="active"><span class="divider">\</span><a href="../\IGBIllinois\db">db</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+        <footer class="span12">
+            Template is built using <a href="https://getbootstrap.com/">Twitter Bootstrap 2</a> and icons provided by
+            <a href="https://glyphicons.com/">Glyphicons</a>.<br/>
+            Documentation is powered by <a href="https://www.phpdoc.org/">phpDocumentor </a> and<br/>
+            generated on Wed, 24 May 2023 22:07:05 +0000.<br/>
+    </footer>
+    </body>
+</html>
