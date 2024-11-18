@@ -99,7 +99,7 @@ class fbs {
 	 */
         public function get_customers($facility_id) {
                 $header = array('Authorization: Bearer ' . $this->token);
-                $url = self::FBS_URL . "/FBS/Facility/" . $facility_id . "/Customer";
+                $url = self::FBS_URL . "/FBS/Facility/" . $facility_id . "/Customers";
                 try {
                         $result = $this->get($url,$header);
 
