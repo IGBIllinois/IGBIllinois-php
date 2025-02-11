@@ -99,17 +99,34 @@ class fbs {
 	 */
         public function get_customers($facility_id) {
                 $header = array('Authorization: Bearer ' . $this->token);
-                $url = self::FBS_URL . "/FBS/Facility/" . $facility_id . "/Customers";
-                try {
-                        $result = $this->get($url,$header);
-
-                }
-                catch (\Exception $e) {
-                        throw $e;
-                        return false;
-                }
-                $response = json_decode($result,true);
-                return $response;
+		$max_result = 250;
+		$active = "bActive";
+		$i = 0;
+		
+		$result = array();
+		while (1) {
+	                try {
+				$url = self::FBS_URL . "/FBS/Facility/" . $facility_id . "/Customers?PageNum=" . $i;
+        	                $temp_result = json_decode($this->get($url,$header),true);
+				$result = array_merge($result,$temp_result);
+				if (count($temp_result) < $max_result) {
+					break;
+				}
+                	}
+	                catch (\Exception $e) {
+        	                throw $e;
+                	        return false;
+	                }
+			$i++;
+		}
+		//Removes indexes where customer is inactive
+		foreach ($result as $key=>&$value) {
+			if ($value[$active] == "") {
+				unset($result[$key]);
+			}
+		}
+		$result = array_values($result);
+                return $result;
 
         }
 	

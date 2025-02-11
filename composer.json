@@ -18,7 +18,7 @@
 	"ext-curl" : "*",
 	"ext-ldap" : "*",
 	"ext-xml" : "*",
-        "phpoffice/phpspreadsheet": ">=1.29.4 <2.0.0",
+        "phpoffice/phpspreadsheet": ">=1.29.8 <2.0.0",
         "amenadiel/jpgraph": ">4",
         "pear/mail_mime": "1.10.11",
         "pear/auth_sasl2": "v0.2.0",
