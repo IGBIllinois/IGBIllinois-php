@@ -316,7 +316,7 @@ class db {
                         }
                         $sql .= "WHERE " . $where_key . "='" . $where_value . "' LIMIT 1";
                         $statement = $this->link->prepare($sql);
-                        foreach ($data as $key=>$value) {
+                        foreach ($parameters as $key=>$value) {
                                 $statement->bindValue(":" . $key,$value);
                         }
                         $result = $statement->execute();
