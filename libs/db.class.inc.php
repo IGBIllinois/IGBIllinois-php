@@ -57,7 +57,7 @@ class db {
 			$this->open($host,$database,$username,$password,$ssl,$port);
 		}
 		catch (\PDOException $e) {
-			echo $e->getMessage();
+			throw $e;
                 }
 	
 
@@ -248,6 +248,7 @@ class db {
 	* Tests connection to mysql database
 	* 
 	* @param void
+	* @throws \PDOException
 	* @return boolean Returns true on success, false otherwise
 	*
 	*/
@@ -258,7 +259,7 @@ class db {
 			}
 		}
 		catch(\PDOException $e) {
-			echo $e->getMessage();
+			throw $e;
 		}
 		return false;
 
@@ -336,6 +337,7 @@ class db {
 	* An example is 5.5.5-10.3.17-MariaDB
 	*
 	* @param void
+	* @throws \PDOException
 	* @return string
 	*/
 	public function get_version() {
@@ -343,7 +345,7 @@ class db {
 			return $this->link->getAttribute(\PDO::ATTR_SERVER_VERSION);
 		}
 		catch(\PDOException $e) {
-			echo $e->getMessage();
+			throw $e;
 		}
 
 	}
