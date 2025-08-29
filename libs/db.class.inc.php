@@ -97,7 +97,7 @@ class db {
 		}
 		try {
 			$this->link = new \PDO("mysql:host=$host;dbname=$database",$username,$password,$params);
-			$this->link->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_WARNING);
+			$this->link->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_EXCEPTION);
 			$this->host = $host;
 			$this->database = $database;
 			$this->username = $username;
@@ -144,15 +144,13 @@ class db {
 	public function insert_query($sql,$parameters=array()) {
 		try {
 			$result = $this->link->prepare($sql);
-			$retVal = $result->execute($parameters);
-			if ($retVal === false) {
-			}
+			$result->execute($parameters);
 			return $this->link->lastInsertId();
 		}
 		catch(\PDOException $e) {
 			throw $e;
+			return 0;
 		}
-		return 0;
 	}
 
 	/**
