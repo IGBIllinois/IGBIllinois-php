@@ -149,10 +149,15 @@ class fbs {
 		$headers = array_merge($headers,$additional_headers);
 	
 		$this->ch = curl_init($url);
-		if (!is_resource($this->ch)) {
-			throw new \Exception('Curl did not init');
-			return false;
-		}
+		if (PHP_VERSION_ID < 80000 && !is_resource($this->ch)) {
+                        throw new \Exception('Curl did not init');
+                        return false;
+                }
+                elseif (PHP_VERSION_ID >= 80000 && !$this->ch instanceOf \CurlHandle) {
+                        throw new \Exception('Curl did not init');
+                        return false;
+                }
+
 		$this->set_curl_settings();
 		curl_setopt($this->ch, CURLOPT_URL, $url);
 		curl_setopt($this->ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -194,10 +199,15 @@ class fbs {
                 );
                 $headers = array_merge($headers,$additional_headers);
                 $this->ch = curl_init($url);
-                if (!is_resource($this->ch)) {
+		if (PHP_VERSION_ID < 80000 && !is_resource($this->ch)) {
                         throw new \Exception('Curl did not init');
                         return false;
                 }
+                elseif (PHP_VERSION_ID >= 80000 && !$this->ch instanceOf \CurlHandle) {
+                        throw new \Exception('Curl did not init');
+                        return false;
+                }
+
 		
 		$this->set_curl_settings();
                 curl_setopt($this->ch, CURLOPT_URL, $url);
